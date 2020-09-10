@@ -3,5 +3,5 @@
 
 # Whitelist some files
 !.gitignore
-!Compilador/
-!Compilador/**
+!src/
+!src/**
