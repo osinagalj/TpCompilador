@@ -1,7 +1,0 @@
-# Ignore everything
-/**
-
-# Whitelist some files
-!.gitignore
-!src/
-!src/**
