@@ -1,0 +1,37 @@
+"C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=C:/MinGW/mingw32/lib/ldscripts/i386pe.x -G "CodeBlocks - MinGW Makefiles" C:\Users\nicol\Documents\GitHub\TpCompilador\Compilador
+-- The CXX compiler identification is unknown
+-- Check for working CXX compiler: C:/MinGW/mingw32/lib/ldscripts/i386pe.x
+-- Check for working CXX compiler: C:/MinGW/mingw32/lib/ldscripts/i386pe.x - broken
+CMake Error at C:/Program Files/JetBrains/CLion 2020.2.1/bin/cmake/win/share/cmake-3.17/Modules/CMakeTestCXXCompiler.cmake:53 (message):
+  The C++ compiler
+
+    "C:/MinGW/mingw32/lib/ldscripts/i386pe.x"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/CMakeTmp
+    
+    Run Build Command(s):C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe cmTC_10750/fast && C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe  -f CMakeFiles\cmTC_10750.dir\build.make CMakeFiles/cmTC_10750.dir/build
+    mingw32-make.exe[1]: Entering directory 'C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/CMakeTmp'
+    Building CXX object CMakeFiles/cmTC_10750.dir/testCXXCompiler.cxx.obj
+    C:\MinGW\mingw32\lib\ldscripts\i386pe.x     -o CMakeFiles\cmTC_10750.dir\testCXXCompiler.cxx.obj -c C:\Users\nicol\Documents\GitHub\TpCompilador\Compilador\cmake-build-debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+    process_begin: CreateProcess(C:\MinGW\mingw32\lib\ldscripts\i386pe.x, C:\MinGW\mingw32\lib\ldscripts\i386pe.x -o CMakeFiles\cmTC_10750.dir\testCXXCompiler.cxx.obj -c C:\Users\nicol\Documents\GitHub\TpCompilador\Compilador\cmake-build-debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx, ...) failed.
+    make (e=193): Error 193
+    mingw32-make.exe[1]: *** [CMakeFiles\cmTC_10750.dir\build.make:85: CMakeFiles/cmTC_10750.dir/testCXXCompiler.cxx.obj] Error 193
+    mingw32-make.exe[1]: Leaving directory 'C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/CMakeTmp'
+    mingw32-make.exe: *** [Makefile:140: cmTC_10750/fast] Error 2
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/CMakeError.log".
