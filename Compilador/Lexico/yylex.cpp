@@ -2,7 +2,9 @@
 #include <fstream>
 
 using namespace std;
-string esToken(string token,int Estado); //chequea si es estado final y si es token retorna el tipo
+string esToken(string token,int Estado){
+
+}; //chequea si es estado final y si es token retorna el tipo
 int identificarCaracter(char carac){ //esta funcion te devuelve el numero de columna de la matriz de transicion de estado
     switch(carac)
     {
@@ -123,11 +125,12 @@ int main(int argc, char* argv[]){
                 estadoNuevo=(identificarCaracter(carac));
                 tipo = esToken(token,estadoNuevo);
                 if (tipo != ""){ //si es token
-                    devolverToken(token,tipo)//cortar ejecución
+                    devolverToken(token,tipo);//esto sería un return token nada más si lo hacemos una función
+                    //acá cambiaríamos el estado de "buscar token" a "no buscar", hasta que el parser nos lo vuelva a cambiar y arranquetodo de nuevo
                 }
             }
         }
-        entregarToken(token,tipo); //entregar token
+        entregarToken(token,tipo); //dar token al parser
     }
     return 0;
 }
