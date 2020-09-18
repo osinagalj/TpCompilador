@@ -2,40 +2,7 @@
 #include <fstream>
 
 using namespace std;
-string esToken(string token); //llegué a estado final y ahora pregunto si es token, devuelve el tipo
-int identificarCaracter(char carac);
-
-int main(int argc, char* argv[]){
-    //inicializacion de variables
-    string linea;
-    string token = "";
-    string path2 = "C:\\programa.txt"; //relativo
-    //Path lauta
-    string path = "C:\\Users\\Lautaro\\Desktop\\Facultad\\Compiladores\\TPcursada\\TpCompilador\\Compilador\\Archivos\\programa.txt";
-    //Path nico
-    //string path= "C:\\Users\\nicol\\CLionProjects\\tpParaleloCompi\\texto.txt";
-    int linea_actual = 0;
-
-    ifstream origen(path.c_str());
-    if (!origen.is_open())
-        cout << "No se pudo abrir el archivo: " << path << endl;
-    else {
-        while (!origen.eof()) {
-            linea_actual++;
-            getline(origen,linea);
-            //cout<< linea1<<endl;
-            for(char carac : linea){
-                token=token+carac;
-                cout<<"numero:" +std::to_string(identificarCaracter(carac))<<endl;
-                //mandar token a autómata que va a ir analizando
-                //case of :
-            }
-        }
-    }
-
-    return 0;
-}
-
+string esToken(string token,int Estado); //chequea si es estado final y si es token retorna el tipo
 int identificarCaracter(char carac){ //esta funcion te devuelve el numero de columna de la matriz de transicion de estado
     switch(carac)
     {
@@ -112,7 +79,7 @@ int identificarCaracter(char carac){ //esta funcion te devuelve el numero de col
         case '\n': //Bloque de salto de línea;
             return 18;
 
-        //default, es el bloque que se ejecuta en caso de que no se de ningún caso
+            //default, es el bloque que se ejecuta en caso de que no se de ningún caso
         default:
             if (carac<='z' && carac>='a'){ // es minus
                 return 0;
@@ -127,4 +94,42 @@ int identificarCaracter(char carac){ //esta funcion te devuelve el numero de col
             return 19; //devuelvo numero de columna 'otro'
     }
 }
+
+int main(int argc, char* argv[]){
+    //inicializacion de variables
+    string linea;
+    string token = "";
+    string path2 = "C:\\programa.txt"; //relativo
+    //Path lauta
+    string path = "C:\\Users\\Lautaro\\Desktop\\Facultad\\Compiladores\\TPcursada\\TpCompilador\\Compilador\\Archivos\\programa.txt";
+    //Path nico
+    //string path= "C:\\Users\\nicol\\CLionProjects\\tpParaleloCompi\\texto.txt";
+    int linea_actual = 0;
+    int caracteresAvanzados = 0;
+    int estadoNuevo; //indica a que estado me estoy moviendo
+    string tipo="";
+    ifstream origen(path.c_str());
+    if (!origen.is_open())
+        cout << "No se pudo abrir el archivo: " << path << endl;
+    else {
+        // ESTE ELSE TENDRÍA QUE SER UNA FUNCIÓN Y HACER UN WHILE MIENTRAS NO SE ENCUENTRE TOKEN, cuando se encuentra se entrega.
+        while (!origen.eof()) {
+            linea_actual++;
+            getline(origen,linea);
+            //cout<< linea1<<endl;
+            for(char carac : linea){
+                token=token+carac;
+                caracteresAvanzados++;
+                estadoNuevo=(identificarCaracter(carac));
+                tipo = esToken(token,estadoNuevo);
+                if (tipo != ""){ //si es token
+                    devolverToken(token,tipo)//cortar ejecución
+                }
+            }
+        }
+        entregarToken(token,tipo); //entregar token
+    }
+    return 0;
+}
+
 
