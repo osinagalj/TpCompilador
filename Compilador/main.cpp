@@ -9,6 +9,6 @@ int main(){
     Yylex::Token a = analizadorLexico.getToken();
     cout<<"andaxd"<<endl;
 
-    cout<< analizadorLexico.idk<<endl;
+    cout<< analizadorLexico.identificador<<endl;
     return 0;
 }

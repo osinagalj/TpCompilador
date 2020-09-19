@@ -21,8 +21,7 @@ Yylex::Yylex(string pathArchivo) {
     palabrasReservadas.insert(pair<string,int>("WHILE",8));
     palabrasReservadas.insert(pair<string,int>("LOOP",9));
     palabrasReservadas.insert(pair<string,int>("FLOAT",10));
-
-
+    estadoActual=0;
 }
 
 
@@ -32,26 +31,46 @@ void Yylex::cargarArchivo(string pathArchivo)
     if(archivoOrigen.fail()){
         cout << "Error al abrir el archivo de código fuente" << endl;
         exit(1);
-    }
-}
-
-Yylex::Token Yylex::getToken(){
-        while (!archivoOrigen.eof()) {
-            linea_actual++;
-            getline(archivoOrigen,linea);
-            cout<< linea<<endl;
-            while(caracteresAvanzados < linea.size()){
-                token=token+linea[caracteresAvanzados];
-                caracteresAvanzados++;
-                estadoNuevo =identificarCaracter(linea[caracteresAvanzados]);
-                //tipo = esToken(token,estadoNuevo);
-               // if (tipo != ""){ //si es token
-                    //devolverToken(token,tipo);//esto sería un return token nada más si lo hacemos una función
-                    //acá cambiaríamos el estado de "buscar token" a "no buscar", hasta que el parser nos lo vuelva a cambiar y arranquetodo de nuevo
+    }else
+        if(linea_actual>0){
+            int aux=0;
+            while(aux<linea_actual-1){
+                getline(archivoOrigen,linea)
             }
         }
-        //entregarToken(token,tipo); //dar token al parser
-        return t;
+}
+void Yylex::tokenEncontrado(){
+    this->encontroToken=true;
+}
+/*
+void Yylex::guardarToken(int id, string token){
+    this->t.id=id;
+    this->t.puntero=token;
+}*/
+Yylex::Token Yylex::getToken(){
+        while (!archivoOrigen.eof()) {
+            getline(archivoOrigen,linea);
+            cout<< linea<<endl;
+            while(caracteresAvanzados < linea.size() && encontroToken){
+                char aux=linea[caracteresAvanzados];
+                token=token+aux;
+                caracteresAvanzados++;
+                estadoNuevo=identificarCaracter(aux);
+                if(matrizAS[estadoActual][estadoNuevo].Accion != nullptr){  // si hay acción semántica (CHEQUEAR SI HAY LUGARES SIN ACCIONES EN LA MATRIZ)
+                    matrizAS[estadoActual][estadoNuevo].Accion(this,aux);
+                }
+                estadoActual=matrizAS[estadoActual][estadoNuevo].estado; //actualizo el nuevo estado
+            }
+            if (encontroToken && (caracteresAvanzados < linea.size())){
+                //no aumentamos linea
+                archivoOrigen.close(); //cerramos archivo
+                return t;
+            }
+            else {
+                linea_actual++;
+                caracteresAvanzados=0;
+            }
+        }
 }
 
 
@@ -120,7 +139,6 @@ int Yylex::identificarCaracter(char carac){
 }
 
 void Yylex::inicializarMatrizAS() {
-    matrizAS[0][1] = {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[0][1] = {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[0][1] = {1, &AccionesSemanticas::agregarCaracter};
 }

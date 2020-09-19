@@ -42,21 +42,20 @@ class Yylex{
              };
              Token getToken();
              string identificador;
-
-
+             //void guardarToken();
+             void tokenEncontrado();
     private:
             ifstream archivoOrigen;
             void cargarArchivo(string pathArchivo);
             Token t;
             bool encontroToken = false;
-            int posicionEnLinea = 0;
             int linea_actual = 0; // para informar errores
             string linea;
             string token = "";
             int caracteresAvanzados = 0;
-            int estadoNuevo; //indica a que estado me estoy moviendo
+            int estadoNuevo; //indica la celda para conseguir el nuevo estado
             // string tipo="";
-
+            int estadoActual;
             //Matriz de Transicion de estados
             struct Transicion{
                 int estado;

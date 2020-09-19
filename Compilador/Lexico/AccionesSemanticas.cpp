@@ -10,25 +10,34 @@ void AccionesSemanticas::agregarLetra(Yylex* lexico, char& c){
 }
 
 void AccionesSemanticas::devolverIdentificador(Yylex* lexico, char& c){
+    //guardar token
 }
+
 void AccionesSemanticas::entregarToken(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
 }
 
 void AccionesSemanticas::devolverConstante(Yylex* lexico, char& c){
 }
+
 void AccionesSemanticas::devolverOperador(Yylex* lexico, char& c){
 }
+
 void AccionesSemanticas::devolverSeparador(Yylex* lexico, char& c){
 }
+
 void AccionesSemanticas::devolverAsignacion(Yylex* lexico, char& c){
 }
 
 void AccionesSemanticas::devolverIgual(Yylex* lexico, char& c){
 }
+
 void AccionesSemanticas::devolverMayor(Yylex* lexico, char& c){
 }
+
 void AccionesSemanticas::devolverMayorIgual(Yylex* lexico, char& c){
 }
+
 void AccionesSemanticas::devolverMenor(Yylex* lexico, char& c){
 }
 void AccionesSemanticas::devolverMenorIgual(Yylex* lexico, char& c){
