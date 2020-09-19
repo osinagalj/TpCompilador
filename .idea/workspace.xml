@@ -30,10 +30,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c35f4c-78f0-49cf-863d-282c83294e93" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Compilador/Lexico/TablaDeSimbolos.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compilador/Lexico/TablaDeSimbolos.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Lexico/AccionesSemanticas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexico/AccionesSemanticas.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Lexico/AccionesSemanticas.h" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexico/AccionesSemanticas.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Lexico/a.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Lexico/yylex.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexico/yylex.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Lexico/yylex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexico/yylex.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeCache.txt" afterDir="false" />
@@ -44,22 +46,25 @@
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/a.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/CXX.includecache" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.internal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects1.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/Compilador.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/Compilador.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/Compilador.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/Compilador.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/main.cpp" afterDir="false" />
@@ -75,6 +80,9 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Compilador/Lexico/Gramatica.y" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1hL8aMONn23fsGhy7r35AVe3cAE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -98,6 +106,11 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.Compilador">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Compi" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Compilador/CMakeLists.txt" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />

@@ -4,9 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include "AccionesSemanticas.h"
-using namespace std;
 #include <map>
-
 
 #define MINUSCULA 0
 #define MAYUSCULA 1
@@ -29,51 +27,47 @@ using namespace std;
 #define SIMBOLO_FIN_DE_ARCHIVO 18
 #define OTRO 19
 
-
 const int  nro_estados = 16;
 const int nro_simbolos = 20;
 
 //#include "y.tab.h"
+using namespace std;
 
 class Yylex{
     public:
-        Yylex(string pathArchivo);
-        struct Token{
-            int id;
-            string puntero;
-        };
-        Token getToken();
-        void analizarCodigo();
-        string idk;
+            Yylex(string pathArchivo);
+             struct Token{
+             int id;
+             string puntero;
+             };
+             Token getToken();
+             string identificador;
+
 
     private:
+            ifstream archivoOrigen;
+            void cargarArchivo(string pathArchivo);
+            Token t;
+            bool encontroToken = false;
+            int posicionEnLinea = 0;
+            int linea_actual = 0; // para informar errores
+            string linea;
+            string token = "";
+            int caracteresAvanzados = 0;
+            int estadoNuevo; //indica a que estado me estoy moviendo
+            // string tipo="";
 
-        ifstream archivoOrigen;
-        void cargarArchivo(string pathArchivo);
+            //Matriz de Transicion de estados
+            struct Transicion{
+                int estado;
+                void (*Accion)(Yylex*,char & c);
+            };
+            Yylex::Transicion matrizAS[nro_estados][nro_simbolos];
 
-        Token t;
-        int posicionEnLinea = 0;
-        int linea_actual = 0; // para informar errores
+            map<string, int> palabrasReservadas;
+            void inicializarMatrizAS();
+            int identificarCaracter(char carac);
 
-        struct Transicion{
-            int estado;
-            void (*Accion)(Yylex*,char & c);
-        };
 
-        bool encontroToken = false;
-
-        Yylex::Transicion matrizAS[nro_estados][nro_simbolos];
-        void inicializarMatrizAS();
-
-         string linea;
-         string token = "";
-
-         int caracteresAvanzados = 0;
-         int estadoNuevo; //indica a que estado me estoy moviendo
-         // string tipo="";
-
-        int identificarCaracter(char carac);
-
-        map<string, int> palabrasReservadas;
 };
 #endif //COMPILADOR_YYLEX_H

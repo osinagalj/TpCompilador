@@ -120,27 +120,7 @@ int Yylex::identificarCaracter(char carac){
 }
 
 void Yylex::inicializarMatrizAS() {
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-
+    matrizAS[0][1] = {1, &AccionesSemanticas::agregarCaracter};
+    matrizAS[0][1] = {1, &AccionesSemanticas::agregarCaracter};
+    matrizAS[0][1] = {1, &AccionesSemanticas::agregarCaracter};
 }
