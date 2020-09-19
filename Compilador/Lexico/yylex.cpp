@@ -1,138 +1,127 @@
 #include <iostream>
-#include <fstream>
-
+#include "yylex.h"
 using namespace std;
+
+int identificarCaracter(char carac);
 string esToken(string token,int Estado){
 
 }; //chequea si es estado final y si es token retorna el tipo
-int identificarCaracter(char carac){ //esta funcion te devuelve el numero de columna de la matriz de transicion de estado
-    switch(carac)
-    {
-        case 'l':
-            return 2;
 
-        case 'f':
-            return 3;
 
-        case '.': //Punto
-            return 5;
+Yylex::Yylex(string pathArchivo) {
+    cargarArchivo(pathArchivo);
 
-        case '+':
-            return 6;
+    //palabrasReservadas.insert()
+    //El sintactico los tiene que definir solos
+    palabrasReservadas.insert(pair<string,int>("IF",1));
+    palabrasReservadas.insert(pair<string,int>("ELSE",2));
+    palabrasReservadas.insert(pair<string,int>("END_IF",3));
+    palabrasReservadas.insert(pair<string,int>("THEN",4));
+    palabrasReservadas.insert(pair<string,int>("OUT",5));
+    palabrasReservadas.insert(pair<string,int>("FUNC",6));
+    palabrasReservadas.insert(pair<string,int>("RETURN",7));
+    palabrasReservadas.insert(pair<string,int>("WHILE",8));
+    palabrasReservadas.insert(pair<string,int>("LOOP",9));
+    palabrasReservadas.insert(pair<string,int>("FLOAT",10));
 
-        case '*': //Multiplicacion
-            return 6;
 
-        case '-': //Signo menos
-            return 7;
+}
 
-        case '_': //Guion bajo
-            return 8;
 
-        case '=':
-            return 9;
-
-        case '<': //Bloque de menor;
-            return 10;
-
-        case '>': //Bloque de seguridad;
-            return 11;
-
-        case '!': //Bloque de signo;
-            return 12;
-
-        case '"': //Bloque de comilla;
-            return 13;
-
-        case '/':
-            return 14;
-
-        case '%': //Bloque de porcentaje;
-            return 15;
-
-        case '(': //Bloque de apertura paréntesis;
-            return 16;
-
-        case ')': //Bloque de cerrar paréntesis;
-            return 16;
-
-        case ',': //Bloque de instrucciones 3;
-            return 16;
-
-        case ';': //Bloque de instrucciones 3;
-            return 16;
-
-        case '{': //Bloque de instrucciones 3;
-            return 16;
-
-        case '}': //Bloque de instrucciones 3;
-            return 16;
-
-        case '$': //Bloque de fin de archivo;
-            return 17;
-
-        case ' ': //Bloque de espacio en blanco;
-            return 18;
-
-            // case '  ': //Bloque de tabulación
-            //  return 18;
-            //C++ detecta las tabulaciones como espacios
-
-        case '\n': //Bloque de salto de línea;
-            return 18;
-
-            //default, es el bloque que se ejecuta en caso de que no se de ningún caso
-        default:
-            if (carac<='z' && carac>='a'){ // es minus
-                return 0;
-            }
-            if (carac<='Z' && carac>='A'){ //es mayus
-                return 1;
-            }
-            if (carac>='0' && carac<='9'){ // es dig
-
-                return 4;
-            }
-            return 19; //devuelvo numero de columna 'otro'
+void Yylex::cargarArchivo(string pathArchivo)
+{
+    archivoOrigen.open(pathArchivo,ifstream::in);
+    if(archivoOrigen.fail()){
+        cout << "Error al abrir el archivo de código fuente" << endl;
+        exit(1);
     }
 }
 
-int main(int argc, char* argv[]){
-    //inicializacion de variables
-    string linea;
-    string token = "";
-    string path2 = "C:\\programa.txt"; //relativo
-    //Path lauta
-    string path = "C:\\Users\\Lautaro\\Desktop\\Facultad\\Compiladores\\TPcursada\\TpCompilador\\Compilador\\Archivos\\programa.txt";
-    //Path nico
-    //string path= "C:\\Users\\nicol\\CLionProjects\\tpParaleloCompi\\texto.txt";
-    int linea_actual = 0;
-    int caracteresAvanzados = 0;
-    int estadoNuevo; //indica a que estado me estoy moviendo
-    string tipo="";
-    ifstream origen(path.c_str());
-    if (!origen.is_open())
-        cout << "No se pudo abrir el archivo: " << path << endl;
-    else {
-        // ESTE ELSE TENDRÍA QUE SER UNA FUNCIÓN Y HACER UN WHILE MIENTRAS NO SE ENCUENTRE TOKEN, cuando se encuentra se entrega.
-        while (!origen.eof()) {
+Yylex::Token Yylex::getToken(){
+        while (!archivoOrigen.eof()) {
             linea_actual++;
-            getline(origen,linea);
-            //cout<< linea1<<endl;
+            getline(archivoOrigen,linea);
+
+            cout<< linea<<endl;
             for(char carac : linea){
                 token=token+carac;
                 caracteresAvanzados++;
-                estadoNuevo=(identificarCaracter(carac));
-                tipo = esToken(token,estadoNuevo);
-                if (tipo != ""){ //si es token
-                    devolverToken(token,tipo);//esto sería un return token nada más si lo hacemos una función
+                estadoNuevo =identificarCaracter(carac);
+                //tipo = esToken(token,estadoNuevo);
+               // if (tipo != ""){ //si es token
+                    //devolverToken(token,tipo);//esto sería un return token nada más si lo hacemos una función
                     //acá cambiaríamos el estado de "buscar token" a "no buscar", hasta que el parser nos lo vuelva a cambiar y arranquetodo de nuevo
-                }
             }
         }
-        entregarToken(token,tipo); //dar token al parser
-    }
-    return 0;
+        //entregarToken(token,tipo); //dar token al parser
+
+
+        return t;
 }
 
 
+
+
+int Yylex::identificarCaracter(char carac){
+//esta funcion te devuelve el numero de columna de la matriz de transicion de estado
+
+    if (carac<='z' && carac>='a') // es minus
+        return MINUSCULA;
+    if (carac<='Z' && carac>='A') //es mayus
+        return MAYUSCULA;
+    if (carac>='0' && carac<='9')// es dig
+        return DIGITO;
+
+    switch(carac)
+    {
+        case 'l':
+            return L_MINUSCULA;
+        case 'f':
+            return F_MINUSCULA;
+        case '.':
+            return SIMBOLO_PUNTO;
+        case '+':
+            return SIGNO_OPERADOR;
+        case '*': //Multiplicacion
+            return SIGNO_OPERADOR;
+        case '-': //Signo menos
+            return SIGNO_RESTA;
+        case '_': //Guion bajo
+            return GUION_BAJO;
+        case '=':
+            return COMPARADOR_IGUAL;
+        case '<': //Bloque de menor;
+            return COMPARADOR_MENOR;
+        case '>':
+            return COMPARADOR_MAYOR;
+        case '!':
+            return SIMBOLO_DISTINTO;
+        case '"':
+            return COMILLA;
+        case '/':
+            return SIGNO_DIVISION;
+        case '%':
+            return SIMBOLO_PORCENTAJE;
+        case '(':
+            return LITERALES;
+        case ')':
+            return LITERALES;
+        case ',':
+            return LITERALES;
+        case ';':
+            return LITERALES;
+        case '{':
+            return LITERALES;
+        case '}':
+            return LITERALES;
+        case '$':
+            return SIMBOLO_FIN_DE_ARCHIVO;
+        case ' ': //Espacio en blanco;
+            return BL_TAB_NL;
+        case '\n': //Salto de línea;
+            return BL_TAB_NL;
+        //default, es el bloque que se ejecuta en caso de que no se de ningún caso
+        default:
+            return OTRO; //devuelvo numero de columna 'otro'
+    }
+}

@@ -142,6 +142,33 @@ Compilador/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/build
 .PHONY : Compilador/fast
 
+Lexico/A.obj: Lexico/A.cpp.obj
+
+.PHONY : Lexico/A.obj
+
+# target to build an object file
+Lexico/A.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/A.cpp.obj
+.PHONY : Lexico/A.cpp.obj
+
+Lexico/A.i: Lexico/A.cpp.i
+
+.PHONY : Lexico/A.i
+
+# target to preprocess a source file
+Lexico/A.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/A.cpp.i
+.PHONY : Lexico/A.cpp.i
+
+Lexico/A.s: Lexico/A.cpp.s
+
+.PHONY : Lexico/A.s
+
+# target to generate assembly for a file
+Lexico/A.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/A.cpp.s
+.PHONY : Lexico/A.cpp.s
+
 Lexico/AccionesSemanticas.obj: Lexico/AccionesSemanticas.cpp.obj
 
 .PHONY : Lexico/AccionesSemanticas.obj
@@ -196,6 +223,33 @@ Lexico/yylex.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/yylex.cpp.s
 .PHONY : Lexico/yylex.cpp.s
 
+main.obj: main.cpp.obj
+
+.PHONY : main.obj
+
+# target to build an object file
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/main.cpp.obj
+.PHONY : main.cpp.obj
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -205,12 +259,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Compilador
+	@echo ... Lexico/A.obj
+	@echo ... Lexico/A.i
+	@echo ... Lexico/A.s
 	@echo ... Lexico/AccionesSemanticas.obj
 	@echo ... Lexico/AccionesSemanticas.i
 	@echo ... Lexico/AccionesSemanticas.s
 	@echo ... Lexico/yylex.obj
 	@echo ... Lexico/yylex.i
 	@echo ... Lexico/yylex.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 

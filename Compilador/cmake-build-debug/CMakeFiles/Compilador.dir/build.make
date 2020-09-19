@@ -102,21 +102,51 @@ CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\AccionesSemanticas.cpp -o CMakeFiles\Compilador.dir\Lexico\AccionesSemanticas.cpp.s
 
+CMakeFiles/Compilador.dir/Lexico/A.cpp.obj: CMakeFiles/Compilador.dir/flags.make
+CMakeFiles/Compilador.dir/Lexico/A.cpp.obj: ../Lexico/A.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Compilador.dir/Lexico/A.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Lexico\A.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\A.cpp
+
+CMakeFiles/Compilador.dir/Lexico/A.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Lexico/A.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\A.cpp > CMakeFiles\Compilador.dir\Lexico\A.cpp.i
+
+CMakeFiles/Compilador.dir/Lexico/A.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Lexico/A.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\A.cpp -o CMakeFiles\Compilador.dir\Lexico\A.cpp.s
+
+CMakeFiles/Compilador.dir/main.cpp.obj: CMakeFiles/Compilador.dir/flags.make
+CMakeFiles/Compilador.dir/main.cpp.obj: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Compilador.dir/main.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\main.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\main.cpp
+
+CMakeFiles/Compilador.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/main.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\main.cpp > CMakeFiles\Compilador.dir\main.cpp.i
+
+CMakeFiles/Compilador.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/main.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\main.cpp -o CMakeFiles\Compilador.dir\main.cpp.s
+
 # Object files for target Compilador
 Compilador_OBJECTS = \
 "CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj" \
-"CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj"
+"CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj" \
+"CMakeFiles/Compilador.dir/Lexico/A.cpp.obj" \
+"CMakeFiles/Compilador.dir/main.cpp.obj"
 
 # External object files for target Compilador
 Compilador_EXTERNAL_OBJECTS =
 
 Compilador.exe: CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj
+Compilador.exe: CMakeFiles/Compilador.dir/Lexico/A.cpp.obj
+Compilador.exe: CMakeFiles/Compilador.dir/main.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/build.make
 Compilador.exe: CMakeFiles/Compilador.dir/linklibs.rsp
 Compilador.exe: CMakeFiles/Compilador.dir/objects1.rsp
 Compilador.exe: CMakeFiles/Compilador.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Compilador.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Compilador.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Compilador.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

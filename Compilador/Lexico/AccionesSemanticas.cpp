@@ -3,6 +3,7 @@
 //
 
 #include "AccionesSemanticas.h"
+/*
 void AccionesSemanticas::nuevaLinea(AnalizadorLexico* lexico, char& c){
     lexico->contadorLineas++;
-}
+}*/
