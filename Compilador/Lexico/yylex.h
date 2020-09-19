@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <fstream>
-
+#include "AccionesSemanticas.h"
 using namespace std;
 #include <map>
 
@@ -29,6 +29,10 @@ using namespace std;
 #define SIMBOLO_FIN_DE_ARCHIVO 18
 #define OTRO 19
 
+
+const int  nro_estados = 16;
+const int nro_simbolos = 20;
+
 //#include "y.tab.h"
 
 class Yylex{
@@ -41,6 +45,7 @@ class Yylex{
         Token getToken();
         void analizarCodigo();
     private:
+
         ifstream archivoOrigen;
         void cargarArchivo(string pathArchivo);
 
@@ -48,6 +53,14 @@ class Yylex{
         int posicionEnLinea = 0;
         int linea_actual = 0; // para informar errores
 
+        struct Transicion{
+            int estado;
+            void (*accionSemantica)(Yylex*,char & c);
+        };
+        Yylex::Transicion matrizAS[nro_estados][nro_simbolos];
+        void inicializarMatrizAS();
+
+        string identificador = "";
          string linea;
          string token = "";
 
@@ -57,7 +70,7 @@ class Yylex{
 
 
         int identificarCaracter(char carac);
-        string identificador = "";
+        string idk;
 
         map<string, int> palabrasReservadas;
 };

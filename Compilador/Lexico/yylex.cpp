@@ -1,11 +1,9 @@
 #include <iostream>
 #include "yylex.h"
+
 using namespace std;
 
 int identificarCaracter(char carac);
-string esToken(string token,int Estado){
-
-}; //chequea si es estado final y si es token retorna el tipo
 
 
 Yylex::Yylex(string pathArchivo) {
@@ -124,4 +122,11 @@ int Yylex::identificarCaracter(char carac){
         default:
             return OTRO; //devuelvo numero de columna 'otro'
     }
+}
+
+void Yylex::inicializarMatrizAS() {
+
+    //matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+
+
 }

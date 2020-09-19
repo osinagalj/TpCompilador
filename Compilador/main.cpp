@@ -1,11 +1,8 @@
 #include "Lexico/yylex.h"
 
-int main(int argc, char* argv[]){
-    //Path lauta
-    string path = "C:\\Users\\Lautaro\\Desktop\\Facultad\\Compiladores\\TPcursada\\TpCompilador\\Compilador\\Archivos\\programa.txt";
-    //Path nico
-    //string path= "C:\\Users\\nicol\\CLionProjects\\tpParaleloCompi\\texto.txt";
+int main(){
 
+    string path = "Compilador\\Archivos\\programa.txt";
     Yylex analizadorLexico(path);
 
     //El sintactico lo llama muchas veces

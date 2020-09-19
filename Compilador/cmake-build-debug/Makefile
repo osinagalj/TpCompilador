@@ -142,33 +142,6 @@ Compilador/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/build
 .PHONY : Compilador/fast
 
-Lexico/A.obj: Lexico/A.cpp.obj
-
-.PHONY : Lexico/A.obj
-
-# target to build an object file
-Lexico/A.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/A.cpp.obj
-.PHONY : Lexico/A.cpp.obj
-
-Lexico/A.i: Lexico/A.cpp.i
-
-.PHONY : Lexico/A.i
-
-# target to preprocess a source file
-Lexico/A.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/A.cpp.i
-.PHONY : Lexico/A.cpp.i
-
-Lexico/A.s: Lexico/A.cpp.s
-
-.PHONY : Lexico/A.s
-
-# target to generate assembly for a file
-Lexico/A.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/A.cpp.s
-.PHONY : Lexico/A.cpp.s
-
 Lexico/AccionesSemanticas.obj: Lexico/AccionesSemanticas.cpp.obj
 
 .PHONY : Lexico/AccionesSemanticas.obj
@@ -259,9 +232,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Compilador
-	@echo ... Lexico/A.obj
-	@echo ... Lexico/A.i
-	@echo ... Lexico/A.s
 	@echo ... Lexico/AccionesSemanticas.obj
 	@echo ... Lexico/AccionesSemanticas.i
 	@echo ... Lexico/AccionesSemanticas.s
