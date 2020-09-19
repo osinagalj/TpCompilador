@@ -3,6 +3,7 @@
 
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.cpp
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.h
+CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/yylex.h
 
 CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: ../Lexico/yylex.cpp

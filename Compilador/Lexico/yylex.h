@@ -44,6 +44,8 @@ class Yylex{
         };
         Token getToken();
         void analizarCodigo();
+        string idk;
+
     private:
 
         ifstream archivoOrigen;
@@ -55,12 +57,14 @@ class Yylex{
 
         struct Transicion{
             int estado;
-            void (*accionSemantica)(Yylex*,char & c);
+            void (*Accion)(Yylex*,char & c);
         };
+
+        bool encontroToken = false;
+
         Yylex::Transicion matrizAS[nro_estados][nro_simbolos];
         void inicializarMatrizAS();
 
-        string identificador = "";
          string linea;
          string token = "";
 
@@ -68,9 +72,7 @@ class Yylex{
          int estadoNuevo; //indica a que estado me estoy moviendo
          // string tipo="";
 
-
         int identificarCaracter(char carac);
-        string idk;
 
         map<string, int> palabrasReservadas;
 };

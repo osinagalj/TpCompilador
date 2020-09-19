@@ -6,9 +6,31 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp
 AccionesSemanticas.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+yylex.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.h
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.cpp
+iostream
+-
+yylex.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.h
+iostream
+-
+fstream
+-
+AccionesSemanticas.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+map
+-
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/main.cpp
+Lexico/yylex.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.h
 

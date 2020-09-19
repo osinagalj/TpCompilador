@@ -14,7 +14,7 @@ class AccionesSemanticas {
         static void checkIdentificador(Yylex* lexico, char& c);
 
     //Identificadores y constantes
-        void asignarLetra(Yylex* lexico, char& c);
+        static void asignarLetra(Yylex* lexico, char& c);
         static void agregarCaracter(Yylex* lexico, char& c);
 
         static void devolverConstante(Yylex* lexico, char& c);

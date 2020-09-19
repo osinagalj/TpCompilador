@@ -8,7 +8,7 @@ int identificarCaracter(char carac);
 
 Yylex::Yylex(string pathArchivo) {
     cargarArchivo(pathArchivo);
-
+    inicializarMatrizAS();
     //palabrasReservadas.insert()
     //El sintactico los tiene que definir solos
     palabrasReservadas.insert(pair<string,int>("IF",1));
@@ -39,12 +39,11 @@ Yylex::Token Yylex::getToken(){
         while (!archivoOrigen.eof()) {
             linea_actual++;
             getline(archivoOrigen,linea);
-
             cout<< linea<<endl;
-            for(char carac : linea){
-                token=token+carac;
+            while(caracteresAvanzados < linea.size()){
+                token=token+linea[caracteresAvanzados];
                 caracteresAvanzados++;
-                estadoNuevo =identificarCaracter(carac);
+                estadoNuevo =identificarCaracter(linea[caracteresAvanzados]);
                 //tipo = esToken(token,estadoNuevo);
                // if (tipo != ""){ //si es token
                     //devolverToken(token,tipo);//esto sería un return token nada más si lo hacemos una función
@@ -52,12 +51,8 @@ Yylex::Token Yylex::getToken(){
             }
         }
         //entregarToken(token,tipo); //dar token al parser
-
-
         return t;
 }
-
-
 
 
 int Yylex::identificarCaracter(char carac){
@@ -125,8 +120,27 @@ int Yylex::identificarCaracter(char carac){
 }
 
 void Yylex::inicializarMatrizAS() {
-
-    //matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
-
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
+    matrizAS[0][1] = {1, &AccionesSemanticas::asignarLetra};
 
 }
