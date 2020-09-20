@@ -38,12 +38,13 @@ class Yylex{
             Yylex(string pathArchivo);
              struct Token{
              int id;
-             string puntero;
+             string lexema; //clave para el mapa
              };
              Token getToken();
-             string identificador;
-             //void guardarToken();
+             string cadena;
+             void guardarToken(int id,string punt);
              void tokenEncontrado();
+             void aumentarCaracter(); //si el caracter leido es valido aumentamos
     private:
             ifstream archivoOrigen;
             void cargarArchivo(string pathArchivo);

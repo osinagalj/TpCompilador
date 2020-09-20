@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp
+AccionesSemanticas.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+yylex.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.h
+iostream
+-
+fstream
+-
+AccionesSemanticas.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+map
+-
+

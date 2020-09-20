@@ -3,14 +3,18 @@
 
 
 void AccionesSemanticas::inicializarIdentificador(Yylex* lexico, char& c){
-    lexico->identificador = c;
+    lexico->cadena = c;
+    lexico->aumentarCaracter();
 }
-void AccionesSemanticas::agregarLetra(Yylex* lexico, char& c){
-    lexico->identificador = lexico->identificador + c;
+
+void AccionesSemanticas::agregarCaracter(Yylex* lexico, char& c){
+    lexico->cadena = lexico->cadena + c;
+    lexico->aumentarCaracter();
 }
 
 void AccionesSemanticas::devolverIdentificador(Yylex* lexico, char& c){
-    //guardar token
+    lexico->tokenEncontrado();
+    lexico->guardarToken(25, "hola");
 }
 
 void AccionesSemanticas::entregarToken(Yylex* lexico, char& c){
@@ -47,6 +51,7 @@ void AccionesSemanticas::finCadena(Yylex* lexico, char& c){
 void AccionesSemanticas::notificarFinArchivo(Yylex* lexico, char& c){
 }
 void AccionesSemanticas::mensajeWarning(Yylex* lexico, char& c){
+
 }
 void AccionesSemanticas::mensajeError(Yylex* lexico, char& c){
 }

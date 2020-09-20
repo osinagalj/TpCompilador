@@ -35,34 +35,39 @@ void Yylex::cargarArchivo(string pathArchivo)
         if(linea_actual>0){
             int aux=0;
             while(aux<linea_actual-1){
-                getline(archivoOrigen,linea)
+                getline(archivoOrigen,linea);
             }
         }
 }
 void Yylex::tokenEncontrado(){
     this->encontroToken=true;
 }
-/*
-void Yylex::guardarToken(int id, string token){
+
+void Yylex::guardarToken(int id, string punt){
     this->t.id=id;
-    this->t.puntero=token;
-}*/
+    this->t.lexema=punt;
+}
+
+void Yylex::aumentarCaracter() {
+    this->caracteresAvanzados++;
+}
+
 Yylex::Token Yylex::getToken(){
+        estadoActual=0;
         while (!archivoOrigen.eof()) {
             getline(archivoOrigen,linea);
-            cout<< linea<<endl;
-            while(caracteresAvanzados < linea.size() && encontroToken){
+            while(caracteresAvanzados < linea.size() && !encontroToken){
                 char aux=linea[caracteresAvanzados];
-                token=token+aux;
-                caracteresAvanzados++;
                 estadoNuevo=identificarCaracter(aux);
                 if(matrizAS[estadoActual][estadoNuevo].Accion != nullptr){  // si hay acción semántica (CHEQUEAR SI HAY LUGARES SIN ACCIONES EN LA MATRIZ)
+                    cout << "entro2"<<endl;
                     matrizAS[estadoActual][estadoNuevo].Accion(this,aux);
                 }
                 estadoActual=matrizAS[estadoActual][estadoNuevo].estado; //actualizo el nuevo estado
             }
-            if (encontroToken && (caracteresAvanzados < linea.size())){
+            if ((caracteresAvanzados < linea.size()) && encontroToken ){
                 //no aumentamos linea
+                cout << "encontre token"<<endl;
                 archivoOrigen.close(); //cerramos archivo
                 return t;
             }
@@ -71,12 +76,17 @@ Yylex::Token Yylex::getToken(){
                 caracteresAvanzados=0;
             }
         }
+        return t;
 }
 
 
 int Yylex::identificarCaracter(char carac){
 //esta funcion te devuelve el numero de columna de la matriz de transicion de estado
 
+    if(carac=='l')
+        return L_MINUSCULA;
+    if(carac=='f')
+        return F_MINUSCULA;
     if (carac<='z' && carac>='a') // es minus
         return MINUSCULA;
     if (carac<='Z' && carac>='A') //es mayus
@@ -86,10 +96,6 @@ int Yylex::identificarCaracter(char carac){
 
     switch(carac)
     {
-        case 'l':
-            return L_MINUSCULA;
-        case 'f':
-            return F_MINUSCULA;
         case '.':
             return SIMBOLO_PUNTO;
         case '+':
@@ -138,7 +144,14 @@ int Yylex::identificarCaracter(char carac){
     }
 }
 
-void Yylex::inicializarMatrizAS() {
-    matrizAS[0][1] = {1, &AccionesSemanticas::agregarCaracter};
-    matrizAS[0][1] = {1, &AccionesSemanticas::agregarCaracter};
+void Yylex::inicializarMatrizAS(){
+    matrizAS[0][MINUSCULA] = {1, &AccionesSemanticas::inicializarToken};
+    matrizAS[0][F_MINUSCULA]= {1, &AccionesSemanticas::inicializarToken};
+    matrizAS[0][L_MINUSCULA]= {1, &AccionesSemanticas::inicializarToken};
+    matrizAS[1][MINUSCULA] = {1, &AccionesSemanticas::agregarCaracter};
+    matrizAS[1][GUION_BAJO]= {1, &AccionesSemanticas::agregarCaracter};
+    matrizAS[1][F_MINUSCULA]= {1, &AccionesSemanticas::agregarCaracter};
+    matrizAS[1][L_MINUSCULA]= {1, &AccionesSemanticas::agregarCaracter};
+    matrizAS[1][DIGITO]= {1, &AccionesSemanticas::agregarCaracter};
+    matrizAS[1][COMPARADOR_MAYOR]={17, &AccionesSemanticas::devolverIdentificador};
 }

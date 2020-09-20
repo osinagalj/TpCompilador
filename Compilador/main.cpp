@@ -7,8 +7,7 @@ int main(){
 
     //El sintactico lo llama muchas veces
     Yylex::Token a = analizadorLexico.getToken();
-    cout<<"andaxd"<<endl;
-
+    cout << a.id << endl;
     cout<< analizadorLexico.identificador<<endl;
     return 0;
 }
