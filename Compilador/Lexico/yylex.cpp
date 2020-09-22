@@ -43,9 +43,10 @@ void Yylex::tokenEncontrado(){
     this->encontroToken=true;
 }
 
-void Yylex::guardarToken(int id, string punt){
+void Yylex::guardarToken(int id, string lexema,string warning){
     this->t.id=id;
-    this->t.lexema=punt;
+    this->t.lexema=lexema;
+    this->t.warning=warning;
 }
 
 void Yylex::aumentarCaracter() {
@@ -154,4 +155,7 @@ void Yylex::inicializarMatrizAS(){
     matrizAS[1][L_MINUSCULA]= {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[1][DIGITO]= {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[1][COMPARADOR_MAYOR]={17, &AccionesSemanticas::devolverIdentificador};
+
+
+    //Estado 2
 }

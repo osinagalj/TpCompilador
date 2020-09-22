@@ -11,9 +11,13 @@ class AccionesSemanticas {
         int numeroCadena = 0;
     public:
         static void inicializarToken(Yylex* lexico, char& c);
-        static void entregarToken(Yylex* lexico, char& c);
         static void devolverIdentificador(Yylex* lexico, char& c);
+
+        static void devolverReservada(Yylex* lexico, char& c);
         static void agregarCaracter(Yylex* lexico, char& c);
+
+        static void devolverEnteroLargo(Yylex* lexico, char& c);
+        static void devolverFloat(Yylex* lexico, char& c);
         static void devolverConstante(Yylex* lexico, char& c);
         static void devolverOperador(Yylex* lexico, char& c);
         static void devolverSeparador(Yylex* lexico, char& c);

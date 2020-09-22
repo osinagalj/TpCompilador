@@ -27,6 +27,8 @@
 #define SIMBOLO_FIN_DE_ARCHIVO 18
 #define OTRO 19
 
+#define longIdentificador 20
+
 const int  nro_estados = 16;
 const int nro_simbolos = 20;
 
@@ -39,10 +41,11 @@ class Yylex{
              struct Token{
              int id;
              string lexema; //clave para el mapa
+             string warning;
              };
              Token getToken();
              string cadena;
-             void guardarToken(int id,string punt);
+             void guardarToken(int id,string punt,string warning);
              void tokenEncontrado();
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
     private:
