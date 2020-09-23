@@ -20,5 +20,4 @@ class TablaDeSimbolos {
             map<string,registro> tablaDeSimbolos;
 };
 
-
 #endif //COMPILADOR_TABLADESIMBOLOS_H

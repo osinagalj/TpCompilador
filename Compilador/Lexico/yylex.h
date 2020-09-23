@@ -48,6 +48,7 @@ class Yylex{
              void guardarToken(int id,string punt,string warning);
              void tokenEncontrado();
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
+             int getLinea();
     private:
             ifstream archivoOrigen;
             void cargarArchivo(string pathArchivo);

@@ -12,10 +12,12 @@ class AccionesSemanticas {
     public:
         static void inicializarToken(Yylex* lexico, char& c);
         static void devolverIdentificador(Yylex* lexico, char& c);
-
+        static void descartarComentario(Yylex* lexico, char& c);
         static void devolverReservada(Yylex* lexico, char& c);
         static void agregarCaracter(Yylex* lexico, char& c);
-
+        static void devolverSuma(Yylex* lexico, char& c);
+        static void devolverResta(Yylex* lexico, char& c);
+        static void devolverDivision(Yylex* lexico, char& c);
         static void devolverEnteroLargo(Yylex* lexico, char& c);
         static void devolverFloat(Yylex* lexico, char& c);
         static void devolverConstante(Yylex* lexico, char& c);
@@ -23,6 +25,7 @@ class AccionesSemanticas {
         static void devolverSeparador(Yylex* lexico, char& c);
         static void devolverAsignacion(Yylex* lexico, char& c);
         //Comparadores
+        static void devolverDistinto(Yylex* lexico, char& c);
         static void devolverIgual(Yylex* lexico, char& c);
         static void devolverMayor(Yylex* lexico, char& c);
         static void devolverMayorIgual(Yylex* lexico, char& c);
