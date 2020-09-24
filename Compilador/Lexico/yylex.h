@@ -26,24 +26,24 @@
 #define BL_TAB_NL 17
 #define SIMBOLO_FIN_DE_ARCHIVO 18
 #define OTRO 19
+#define  SIGNO_SUMA 20
+#define longIdentificador 21
 
-#define longIdentificador 20
-
-const int  nro_estados = 16;
-const int nro_simbolos = 20;
+const int  nro_estados = 17;
+const int nro_simbolos = 21;
 
 //#include "y.tab.h"
 using namespace std;
 
 class Yylex{
     public:
-            Yylex(string pathArchivo);
+            Yylex();
              struct Token{
              int id;
              string lexema; //clave para el mapa
              string warning;
              };
-             Token getToken();
+             Token getToken(string pathArchivo);
              string cadena;
              void guardarToken(int id,string punt,string warning);
              void tokenEncontrado();

@@ -1,5 +1,4 @@
 #include "AccionesSemanticas.h"
-#include "Gramatica.y"
 #include "yylex.h"
 
 //Cambiar todos los id poruqe los asigna el sintactico solo
@@ -29,12 +28,14 @@ void AccionesSemanticas::devolverReservada(Yylex* lexico, char& c){
 void AccionesSemanticas::devolverConstante(Yylex* lexico, char& c){
     // digito comun -32767 a 32768
     //if(lexico->cadena) Preguntar rango
+    lexico->tokenEncontrado();
     lexico->guardarToken(DIGITO, lexico->cadena,"");
 
 }
 void AccionesSemanticas::devolverEnteroLargo(Yylex* lexico, char& c){
     //.5    6.3f-3
     //Valor maximo de un entero largo 2147483647
+    lexico->tokenEncontrado();
     lexico->cadena = lexico->cadena.substr (0,lexico->cadena.size()-2);
     long numero = stol(lexico->cadena);
     if(numero <= 2147483648 ){ // preguntar
@@ -49,7 +50,7 @@ void AccionesSemanticas::devolverEnteroLargo(Yylex* lexico, char& c){
 void AccionesSemanticas::devolverFloat(Yylex* lexico, char& c){
     //.5    6.3f+12 63000
     // 6.666f+2
-
+    lexico->tokenEncontrado();
     string acumulado="";
     float numero=0;
     int desplazamiento = 0;
@@ -82,53 +83,71 @@ void AccionesSemanticas::devolverFloat(Yylex* lexico, char& c){
 }
 
 void AccionesSemanticas::devolverOperador(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     lexico->guardarToken(22, lexico->cadena,"");
 }
 
 void AccionesSemanticas::devolverSeparador(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     lexico->guardarToken(23, lexico->cadena,"");
 }
 
 void AccionesSemanticas::devolverAsignacion(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     lexico->guardarToken(24, lexico->cadena,"");
 }
 
 void AccionesSemanticas::devolverIgual(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     lexico->guardarToken(25, lexico->cadena,"");
 }
 
 void AccionesSemanticas::devolverMayor(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     lexico->guardarToken(26, lexico->cadena,"");
 }
 
 void AccionesSemanticas::devolverMayorIgual(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     lexico->guardarToken(27, lexico->cadena,"");
 }
 
 void AccionesSemanticas::devolverMenor(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     lexico->guardarToken(28, lexico->cadena,"");
 }
 void AccionesSemanticas::devolverMenorIgual(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     lexico->guardarToken(29, lexico->cadena,"");
 }
 void AccionesSemanticas::finCadena(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     //FALTA CHEQUEAR SI SE ENCUENTRA UN $
 
     lexico->guardarToken(30, lexico->cadena,"");
 }
 void AccionesSemanticas::devolverDistinto(Yylex *lexico, char &c) {
+    lexico->tokenEncontrado();
     lexico->guardarToken(31, lexico->cadena,"");
 }
 void AccionesSemanticas::devolverSuma(Yylex *lexico, char &c) {
+    lexico->tokenEncontrado();
     lexico->guardarToken(32, lexico->cadena,"");
 }
 void AccionesSemanticas::devolverResta(Yylex *lexico, char &c) {
+    lexico->tokenEncontrado();
     lexico->guardarToken(33, lexico->cadena,"");
 }
 void AccionesSemanticas::devolverDivision(Yylex *lexico, char &c) {
+    lexico->tokenEncontrado();
     lexico->guardarToken(34, lexico->cadena,"");
 }
+void AccionesSemanticas::descartarComentario(Yylex *lexico, char &c) {
+    lexico->tokenEncontrado();
+    lexico->cadena="";
+}
 void AccionesSemanticas::notificarFinArchivo(Yylex* lexico, char& c){
+    lexico->tokenEncontrado();
     //voy del estado 0 a F con $
     if(lexico->cadena.size() > 1){
         lexico->cadena=lexico->cadena.substr(lexico->cadena.size()-1,lexico->cadena.size()); //me quedo solo con el $, descarto la basura (comentario)

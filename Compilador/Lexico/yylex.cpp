@@ -3,11 +3,7 @@
 
 using namespace std;
 
-int identificarCaracter(char carac);
-
-
-Yylex::Yylex(string pathArchivo) {
-    cargarArchivo(pathArchivo);
+Yylex::Yylex() {
     inicializarMatrizAS();
     //palabrasReservadas.insert()
     //El sintactico los tiene que definir solos
@@ -21,7 +17,6 @@ Yylex::Yylex(string pathArchivo) {
     palabrasReservadas.insert(pair<string,int>("WHILE",8));
     palabrasReservadas.insert(pair<string,int>("LOOP",9));
     palabrasReservadas.insert(pair<string,int>("FLOAT",10));
-    estadoActual=0;
 }
 
 
@@ -55,22 +50,26 @@ void Yylex::aumentarCaracter() {
 int Yylex::getLinea() {
     return this->linea_actual;
 }
-Yylex::Token Yylex::getToken(){
+Yylex::Token Yylex::getToken(string pathArchivo){
+        this->encontroToken=false;
+        this->token="";
         estadoActual=0;
+        cargarArchivo(pathArchivo);
         while (!archivoOrigen.eof()) {
             getline(archivoOrigen,linea);
             while(caracteresAvanzados < linea.size() && !encontroToken){
                 char aux=linea[caracteresAvanzados];
+                cout<<caracteresAvanzados<<endl;
+                cout<<to_string(estadoActual) + "estado de donde parto"<<endl;
                 estadoNuevo=identificarCaracter(aux);
-                if(matrizAS[estadoActual][estadoNuevo].Accion != nullptr){  // si hay acción semántica (CHEQUEAR SI HAY LUGARES SIN ACCIONES EN LA MATRIZ)
-                    cout << "entro2"<<endl;
-                    matrizAS[estadoActual][estadoNuevo].Accion(this,aux);
-                }
+                matrizAS[estadoActual][estadoNuevo].Accion(this,aux); //ejecutar acción semántica
                 estadoActual=matrizAS[estadoActual][estadoNuevo].estado; //actualizo el nuevo estado
+                if (estadoActual==-1){
+                    cout<<"Entregando token..."<<endl;
+                }
             }
-            if ((caracteresAvanzados < linea.size()) && encontroToken ){
+            if ((caracteresAvanzados < linea.size()) && encontroToken ){ // encontré token
                 //no aumentamos linea
-                cout << "encontre token"<<endl;
                 archivoOrigen.close(); //cerramos archivo
                 return t;
             }
@@ -278,7 +277,7 @@ void Yylex::inicializarMatrizAS(){
     matrizAS[5][DIGITO]= {5, &AccionesSemanticas::agregarCaracter};
     matrizAS[5][F_MINUSCULA] = {6, &AccionesSemanticas::agregarCaracter};
     //INFORMAR ERROR
-    matrizAS[5][L_MINUSCULA] = {-1, &AccionesSemanticas::devolverEnteroLargo};
+    matrizAS[5][L_MINUSCULA] = {-1, &AccionesSemanticas::mensajeError};
     matrizAS[5][SIMBOLO_DISTINTO]= {-1, &AccionesSemanticas::mensajeError};
     matrizAS[5][GUION_BAJO]= {-1, &AccionesSemanticas::mensajeError};
     matrizAS[5][SIMBOLO_PUNTO]={-1, &AccionesSemanticas::mensajeError};
@@ -325,28 +324,28 @@ void Yylex::inicializarMatrizAS(){
 //CAMINO 7
     //AGREGAR
     matrizAS[7][DIGITO]= {7, &AccionesSemanticas::agregarCaracter};
-    //DEVOLVER ENTERO LARGO
-    matrizAS[7][SIGNO_SUMA] = {-1, &AccionesSemanticas::devolverEnteroLargo};
+    //DEVOLVER FLOAT
+    matrizAS[7][SIGNO_SUMA] = {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][SIGNO_RESTA]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][F_MINUSCULA] = {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][L_MINUSCULA] = {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][SIMBOLO_DISTINTO]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][GUION_BAJO]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][SIMBOLO_PUNTO]={-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][MAYUSCULA]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][MINUSCULA]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][OTRO]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][SIMBOLO_PORCENTAJE]= {-1, &AccionesSemanticas::devolverFloat};
     matrizAS[7][SIGNO_RESTA]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][F_MINUSCULA] = {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][L_MINUSCULA] = {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][SIMBOLO_DISTINTO]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][GUION_BAJO]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][SIMBOLO_PUNTO]={-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][MAYUSCULA]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][MINUSCULA]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][OTRO]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][SIMBOLO_PORCENTAJE]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][SIGNO_RESTA]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][SIGNO_DIVISION]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][SIGNO_OPERADOR]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][COMPARADOR_MAYOR]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][COMPARADOR_IGUAL]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][COMPARADOR_MENOR]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][COMILLA]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][LITERALES]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][BL_TAB_NL]= {-1, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][SIMBOLO_FIN_DE_ARCHIVO]= {-1, &AccionesSemanticas::devolverEnteroLargo};
+    matrizAS[7][SIGNO_DIVISION]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][SIGNO_OPERADOR]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COMPARADOR_MAYOR]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COMPARADOR_IGUAL]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COMPARADOR_MENOR]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COMILLA]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][LITERALES]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][BL_TAB_NL]= {-1, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][SIMBOLO_FIN_DE_ARCHIVO]= {-1, &AccionesSemanticas::devolverFloat};
 //CAMINO 8
     //AGREGAR
     matrizAS[0][COMPARADOR_MENOR]= {8, &AccionesSemanticas::agregarCaracter};
@@ -556,6 +555,5 @@ void Yylex::inicializarMatrizAS(){
     matrizAS[0][SIGNO_OPERADOR]= {-1, &AccionesSemanticas::devolverOperador};
     //DEVOLVER LITERAL
     matrizAS[0][LITERALES]= {-1, &AccionesSemanticas::devolverAsignacion};
-    matrizAS[0][SIMBOLO_FIN_DE_ARCHIVO]{-1, &AccionesSemanticas::notificarFinArchivo};
-
+    matrizAS[0][SIMBOLO_FIN_DE_ARCHIVO]={-1, &AccionesSemanticas::notificarFinArchivo};
 }
