@@ -7,7 +7,7 @@ int main(){
     Yylex analizadorLexico;
     for (int i=0; i<10; i++) {
         Yylex::Token a = analizadorLexico.getToken(path);
-        cout << a.id + " ";
+        cout << to_string(a.id) + " ";
         cout << a.lexema+ " ";
         cout << a.warning<<endl;
     }

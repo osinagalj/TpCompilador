@@ -59,7 +59,7 @@ Yylex::Token Yylex::getToken(string pathArchivo){
             getline(archivoOrigen,linea);
             while(caracteresAvanzados < linea.size() && !encontroToken){
                 char aux=linea[caracteresAvanzados];
-                cout<<caracteresAvanzados<<endl;
+                cout<<to_string(caracteresAvanzados)+" caracteres avanzados"<<endl;
                 cout<<to_string(estadoActual) + "estado de donde parto"<<endl;
                 estadoNuevo=identificarCaracter(aux);
                 matrizAS[estadoActual][estadoNuevo].Accion(this,aux); //ejecutar acción semántica
@@ -69,7 +69,7 @@ Yylex::Token Yylex::getToken(string pathArchivo){
                 }
             }
             if ((caracteresAvanzados < linea.size()) && encontroToken ){ // encontré token
-                //no aumentamos linea
+                caracteresAvanzados--;
                 archivoOrigen.close(); //cerramos archivo
                 return t;
             }
@@ -101,7 +101,7 @@ int Yylex::identificarCaracter(char carac){
         case '.':
             return SIMBOLO_PUNTO;
         case '+':
-            return SIGNO_OPERADOR;
+            return SIGNO_SUMA;
         case '*': //Multiplicacion
             return SIGNO_OPERADOR;
         case '-': //Signo menos
