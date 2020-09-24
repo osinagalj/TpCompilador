@@ -52,7 +52,7 @@ int Yylex::getLinea() {
 }
 Yylex::Token Yylex::getToken(string pathArchivo){
         this->encontroToken=false;
-        this->token="";
+        this->cadena="";
         estadoActual=0;
         cargarArchivo(pathArchivo);
         while (!archivoOrigen.eof()) {
