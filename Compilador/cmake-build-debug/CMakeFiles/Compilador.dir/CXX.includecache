@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
 
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.cpp
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.cpp
 iostream
 -
 yylex.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h
 
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/yylex.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h
 iostream
 -
 fstream
 -
 AccionesSemanticas.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
 map
 -
 

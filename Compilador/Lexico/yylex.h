@@ -26,9 +26,10 @@
 #define BL_TAB_NL 17
 #define SIMBOLO_FIN_DE_ARCHIVO 18
 #define OTRO 19
-#define  SIGNO_SUMA 20
+#define SIGNO_SUMA 20
 #define longIdentificador 21
 
+#define ESTADO_FINAL -1
 const int  nro_estados = 17;
 const int nro_simbolos = 21;
 
@@ -49,15 +50,18 @@ class Yylex{
              void tokenEncontrado();
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
              int getLinea();
+             bool end = false;
+            int caracteresAvanzados = 0;
     private:
             ifstream archivoOrigen;
+
             void cargarArchivo(string pathArchivo);
             Token t;
             bool encontroToken = false;
-            int linea_actual = 0; // para informar errores
+            int linea_actual = 1; // para informar errores
             string linea;
             string token = "";
-            int caracteresAvanzados = 0;
+
             int estadoNuevo; //indica la celda para conseguir el nuevo estado
             // string tipo="";
             int estadoActual;
