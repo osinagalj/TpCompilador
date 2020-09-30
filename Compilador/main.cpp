@@ -8,10 +8,12 @@ int main(){
     Yylex analizadorLexico;
    while(!analizadorLexico.end){
 
-        Yylex::Token a = analizadorLexico.getToken(path);
+        Yylex::Token a = analizadorLexico.getToken(path); /* hola $ */
+
         cout << "ID = " + to_string(a.id) + " ";
         cout << a.lexema+ " ";
-        cout << a.warning<<endl;
+        cout << analizadorLexico.registro.warning;
+        cout<<endl;
 
     }
     //cout<< analizadorLexico.identificador<<endl;

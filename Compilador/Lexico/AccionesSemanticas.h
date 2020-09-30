@@ -22,7 +22,9 @@ class AccionesSemanticas {
         static void devolverFloat(Yylex* lexico, char& c);
         static void devolverConstante(Yylex* lexico, char& c);
         static void devolverOperador(Yylex* lexico, char& c);
-        static void devolverSeparador(Yylex* lexico, char& c);
+        static void devolverLiteral(Yylex* lexico, char& c);
+        static void notificarFinArchivoInesperado(Yylex* lexico, char& c);
+
         static void entregarFinArchivo(Yylex* lexico, char& c);
         static void devolverAsignacion(Yylex* lexico, char& c);
         //Comparadores
@@ -33,7 +35,6 @@ class AccionesSemanticas {
         static void devolverMenor(Yylex* lexico, char& c);
         static void devolverMenorIgual(Yylex* lexico, char& c);
         static void finCadena(Yylex* lexico, char& c);
-        static void notificarFinArchivo(Yylex* lexico, char& c);
 
         //Mensajes de alerta
         static void mensajeWarning(Yylex* lexico, char& c);

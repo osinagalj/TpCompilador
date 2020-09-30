@@ -5,6 +5,7 @@
 #include <fstream>
 #include "AccionesSemanticas.h"
 #include <map>
+#include <string>
 
 #define MINUSCULA 0
 #define MAYUSCULA 1
@@ -33,8 +34,11 @@
 const int  nro_estados = 17;
 const int nro_simbolos = 21;
 
-//#include "y.tab.h"
+//#include "Gramatica.y"
+
+
 using namespace std;
+
 
 class Yylex{
     public:
@@ -42,27 +46,34 @@ class Yylex{
              struct Token{
              int id;
              string lexema; //clave para el mapa
-             string warning;
              };
+             struct Registro{
+
+                 string warning;
+             };
+             Registro registro;
              Token getToken(string pathArchivo);
              string cadena;
-             void guardarToken(int id,string punt,string warning);
+             void guardarToken(int id,string punt);
              void tokenEncontrado();
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
              int getLinea();
              bool end = false;
-            int caracteresAvanzados = 0;
+             int caracteresAvanzados = 0;
+             bool encontroToken = false;
+             Token t;
+    int estadoNuevo;
     private:
             ifstream archivoOrigen;
 
             void cargarArchivo(string pathArchivo);
-            Token t;
-            bool encontroToken = false;
+
+
             int linea_actual = 1; // para informar errores
             string linea;
             string token = "";
 
-            int estadoNuevo; //indica la celda para conseguir el nuevo estado
+             //indica la celda para conseguir el nuevo estado
             // string tipo="";
             int estadoActual;
             //Matriz de Transicion de estados

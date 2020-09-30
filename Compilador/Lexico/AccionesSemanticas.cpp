@@ -17,22 +17,23 @@ void AccionesSemanticas::devolverIdentificador(Yylex* lexico, char& c){
     //Chekear el rango
     if(lexico->cadena.length() > longIdentificador){
         lexico->cadena =  lexico->cadena.substr (0,20);
-        lexico->guardarToken(MINUSCULA, lexico->cadena,"Identificador supera la longitud maxima de 20 caracteres");
+        lexico->guardarToken(MINUSCULA, lexico->cadena);
+        //"Identificador supera la longitud maxima de 20 caracteres"
     }else{
-        lexico->guardarToken(MINUSCULA, lexico->cadena,"");
+        lexico->guardarToken(MINUSCULA, lexico->cadena);
     }
 }
 void AccionesSemanticas::devolverReservada(Yylex* lexico, char& c){
     //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(MAYUSCULA, lexico->cadena,"");
+    lexico->guardarToken(MAYUSCULA, lexico->cadena);
 }
 void AccionesSemanticas::devolverConstante(Yylex* lexico, char& c){
     //lexico->aumentarCaracter();
     // digito comun -32767 a 32768
     //if(lexico->cadena) Preguntar rango
     lexico->tokenEncontrado();
-    lexico->guardarToken(DIGITO, lexico->cadena,"");
+    lexico->guardarToken(DIGITO, lexico->cadena);
 
 }
 void AccionesSemanticas::devolverEnteroLargo(Yylex* lexico, char& c){
@@ -43,10 +44,11 @@ void AccionesSemanticas::devolverEnteroLargo(Yylex* lexico, char& c){
     lexico->cadena = lexico->cadena.substr (0,lexico->cadena.size()-2);
     long numero = stol(lexico->cadena);
     if(numero <= 2147483648 ){ // preguntar
-        lexico->guardarToken(5, lexico->cadena,""); //cambiar el 5
+        lexico->guardarToken(5, lexico->cadena); //cambiar el 5
     }else{
         lexico->cadena = to_string(2147483648); //siempre que sea positivo el numero, el sintactico lo chekea
-        lexico->guardarToken(5, lexico->cadena,"Se reemplazo el entero largo por el valor extremo "); //cambiar el 5
+        lexico->guardarToken(5, lexico->cadena); //cambiar el 5
+        //Se reemplazo el entero largo por el valor extremo
     }
 
 }
@@ -84,57 +86,59 @@ void AccionesSemanticas::devolverFloat(Yylex* lexico, char& c){
             i++;
         }
     }
-    lexico->guardarToken(20, to_string(numero),""); //CAMBIAR A ID DE FLOAT DESP
+    lexico->guardarToken(20, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
     lexico->tokenEncontrado();
 }
 
 void AccionesSemanticas::devolverOperador(Yylex* lexico, char& c){
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(22, lexico->cadena,"");
+    lexico->guardarToken(22, lexico->cadena);
 }
 
-void AccionesSemanticas::devolverSeparador(Yylex* lexico, char& c){
+void AccionesSemanticas::devolverLiteral(Yylex* lexico, char& c){
+    // "(",")","]",";",".",
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
     lexico->cadena = lexico->cadena + c;
-    lexico->guardarToken(23, lexico->cadena,"");
+    cout<<"entro en literales xd"<<endl;
+    lexico->guardarToken(23, lexico->cadena);
 }
 
 void AccionesSemanticas::devolverAsignacion(Yylex* lexico, char& c){
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(24, lexico->cadena,"");
+    lexico->guardarToken(24, lexico->cadena);
 }
 
 void AccionesSemanticas::devolverIgual(Yylex* lexico, char& c){
     //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(25, lexico->cadena,"");
+    lexico->guardarToken(25, lexico->cadena);
 }
 
 void AccionesSemanticas::devolverMayor(Yylex* lexico, char& c){
     //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(26, lexico->cadena,"");
+    lexico->guardarToken(26, lexico->cadena);
 }
 
 void AccionesSemanticas::devolverMayorIgual(Yylex* lexico, char& c){
     //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(27, lexico->cadena,"");
+    lexico->guardarToken(27, lexico->cadena);
 }
 
 void AccionesSemanticas::devolverMenor(Yylex* lexico, char& c){
     //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(28, lexico->cadena,"");
+    lexico->guardarToken(28, lexico->cadena);
 }
 void AccionesSemanticas::devolverMenorIgual(Yylex* lexico, char& c){
     lexico->aumentarCaracter();
     lexico->cadena = lexico->cadena + c;
 
-    lexico->guardarToken(29, lexico->cadena,"");
+    lexico->guardarToken(29, lexico->cadena);
     lexico->tokenEncontrado();
 
 }
@@ -143,12 +147,12 @@ void AccionesSemanticas::finCadena(Yylex* lexico, char& c){
     lexico->tokenEncontrado();
     //FALTA CHEQUEAR SI SE ENCUENTRA UN $
 
-    lexico->guardarToken(30, lexico->cadena,"");
+    lexico->guardarToken(30, lexico->cadena);
 }
 void AccionesSemanticas::devolverDistinto(Yylex *lexico, char &c) {
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(31, lexico->cadena,"");
+    lexico->guardarToken(31, lexico->cadena);
 }
 void AccionesSemanticas::devolverSuma(Yylex *lexico, char & c) {
     lexico->cadena = lexico->cadena + c;
@@ -156,17 +160,17 @@ void AccionesSemanticas::devolverSuma(Yylex *lexico, char & c) {
 
     lexico->tokenEncontrado();
 
-    lexico->guardarToken(32, lexico->cadena,"");
+    lexico->guardarToken(32, lexico->cadena);
 }
 void AccionesSemanticas::devolverResta(Yylex *lexico, char &c) {
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(33, lexico->cadena,"");
+    lexico->guardarToken(33, lexico->cadena);
 }
 void AccionesSemanticas::devolverDivision(Yylex *lexico, char &c) {
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->guardarToken(34, to_string(c),"");
+    lexico->guardarToken(34, to_string(c));
 }
 void AccionesSemanticas::descartarComentario(Yylex *lexico, char &c) {
     //espacios
@@ -174,24 +178,25 @@ void AccionesSemanticas::descartarComentario(Yylex *lexico, char &c) {
     lexico->cadena="";
 }
 
-void AccionesSemanticas::entregarFinArchivo(Yylex *lexico, char &c){
 
+void AccionesSemanticas::entregarFinArchivo(Yylex *lexico, char &c){
+    cout<<"entro en fin de archivo"<<endl;
+
+    lexico->cadena = lexico->cadena + c; //devolvemos el $
+    lexico->tokenEncontrado();
+    lexico->aumentarCaracter();
+    lexico->guardarToken(90, lexico->cadena);
+
+    lexico->end = true;
 }
 
-void AccionesSemanticas::notificarFinArchivo(Yylex* lexico, char& c){
+void AccionesSemanticas::notificarFinArchivoInesperado(Yylex* lexico, char& c){
     //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->cadena = lexico->cadena + c;
-    //voy del estado 0 a F con $
-    if(lexico->cadena.size() > 1){
-        lexico->cadena=lexico->cadena.substr(lexico->cadena.size()-1,lexico->cadena.size()); //me quedo solo con el $, descarto la basura (comentario)
-        lexico->guardarToken(35,lexico->cadena,"Se encontró fin de archivo dentro de un comentario que no se cerró");
-        lexico->end = true;
-        //PREGUNTAR SI ES ERROR
-    }else{
-        lexico->guardarToken(35,lexico->cadena,"");
-    }
-    lexico->end = true;
+
+    cout<<"entro en fin de archivo Inesperado"<<endl;
+    //$
+
+    lexico->registro.warning = "Se encontró fin de archivo dentro de un comentario que no se cerró"; //Puede ser en un comentario o una cadena de caracter
 }
 
 void AccionesSemanticas::mensajeWarning(Yylex* lexico, char& c){

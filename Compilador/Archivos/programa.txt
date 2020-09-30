@@ -1,7 +1,9 @@
 ( pepito > + <= 6.5f+2
-int x = kaka papa;
-/% tu comentario de $  mierda %/
+int x = 5; ola
 
+/% tu comentario de  charly %/
+
+string y = "tiene que terminar $ no termino"
 tu papa
 5
 $

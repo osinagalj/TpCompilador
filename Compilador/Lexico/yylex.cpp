@@ -40,10 +40,10 @@ void Yylex::tokenEncontrado(){
     this->encontroToken=true;
 }
 
-void Yylex::guardarToken(int id, string lexema,string warning){
+void Yylex::guardarToken(int id, string lexema){
     this->t.id=id;
     this->t.lexema=lexema;
-    this->t.warning=warning;
+    //this->t.warning=warning;
 }
 
 void Yylex::aumentarCaracter() {
@@ -61,22 +61,23 @@ Yylex::Token Yylex::getToken(string pathArchivo){
 
         while (!archivoOrigen.eof()) {
 
+
             getline(archivoOrigen,linea);
-            while(caracteresAvanzados < linea.size() && !encontroToken ){
-                char aux=linea[caracteresAvanzados];
+            while(caracteresAvanzados < linea.size() && !encontroToken && !end){
+                char caracterActual=linea[caracteresAvanzados];
                 //cout<<" estado de origen: " + to_string(estadoActual)  <<endl;
                 //cout<<"caracteres avanzados = "+ to_string(caracteresAvanzados) + " caracter = " + aux<<endl;
 
-                estadoNuevo=identificarCaracter(aux);
-                matrizAS[estadoActual][estadoNuevo].Accion(this,aux); //ejecutar acción semántica
+                estadoNuevo=identificarCaracter(caracterActual);
+                matrizAS[estadoActual][estadoNuevo].Accion(this,caracterActual); //ejecutar acción semántica
                 estadoActual=matrizAS[estadoActual][estadoNuevo].estado; //actualizo el nuevo estado
                 if (estadoActual==ESTADO_FINAL){
                   //  cout<<"Entregando token..."<<endl;
                 }
-            }
-            if ((caracteresAvanzados < linea.size()) && encontroToken ){ // encontré token
-                //caracteresAvanzados--;
 
+            }
+            if ((caracteresAvanzados < linea.size()) && encontroToken){ // encontré token
+                //caracteresAvanzados--;
                 archivoOrigen.close(); //cerramos archivo
                 return t;
             }else{
@@ -442,7 +443,7 @@ void Yylex::inicializarMatrizAS(){
     matrizAS[12][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][SIGNO_OPERADOR]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][SIMBOLO_FIN_DE_ARCHIVO]={ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};  // ACÁ PASABA ALGO?
+    matrizAS[12][SIMBOLO_FIN_DE_ARCHIVO]={0, &AccionesSemanticas::notificarFinArchivoInesperado};  // ACÁ PASABA ALGO?
     matrizAS[12][DIGITO]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][F_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][L_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
@@ -483,58 +484,59 @@ void Yylex::inicializarMatrizAS(){
     matrizAS[13][COMPARADOR_MAYOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverDivision};
     matrizAS[13][BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverDivision};
     //INICIO DE COMENTARIO
-    matrizAS[13][SIMBOLO_PORCENTAJE]= {14, &AccionesSemanticas::agregarCaracter};
+    matrizAS[13][SIMBOLO_PORCENTAJE]= {14, &AccionesSemanticas::descartarComentario};
 //CAMINO 14
     //AGREGAR
-    matrizAS[14][SIGNO_DIVISION]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][SIMBOLO_DISTINTO]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][COMPARADOR_IGUAL]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][SIGNO_SUMA] = {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][SIGNO_RESTA]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][SIGNO_OPERADOR]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][LITERALES]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][DIGITO]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][F_MINUSCULA] = {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][L_MINUSCULA] = {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][GUION_BAJO]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][SIMBOLO_PUNTO]={14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][MAYUSCULA]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][MINUSCULA]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][OTRO]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][COMILLA]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][COMPARADOR_MENOR]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][COMPARADOR_MAYOR]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[14][BL_TAB_NL]= {14, &AccionesSemanticas::agregarCaracter};
+    matrizAS[14][SIGNO_DIVISION]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][SIMBOLO_DISTINTO]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][COMPARADOR_IGUAL]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][SIGNO_SUMA] = {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][SIGNO_RESTA]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][SIGNO_OPERADOR]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][LITERALES]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][DIGITO]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][F_MINUSCULA] = {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][L_MINUSCULA] = {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][GUION_BAJO]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][SIMBOLO_PUNTO]={14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][MAYUSCULA]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][MINUSCULA]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][OTRO]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][COMILLA]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][COMPARADOR_MENOR]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][COMPARADOR_MAYOR]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[14][BL_TAB_NL]= {14, &AccionesSemanticas::descartarComentario};
     //POSIBLE FIN DE COMENTARIO
-    matrizAS[14][SIMBOLO_PORCENTAJE]= {15, &AccionesSemanticas::agregarCaracter};
+    matrizAS[14][SIMBOLO_PORCENTAJE]= {15, &AccionesSemanticas::descartarComentario};
     //FIN DE ARCHIVO EN MEDIO DEL COMENTARIO
-    matrizAS[14][SIMBOLO_FIN_DE_ARCHIVO]={0, &AccionesSemanticas::agregarCaracter};
+    matrizAS[14][SIMBOLO_FIN_DE_ARCHIVO]={0, &AccionesSemanticas::notificarFinArchivoInesperado};
 //CAMINO 15
     //AGREGAR (VUELVO A ESTADO 14 PORQUE NO SE CERRO EL COMENTARIO)
-    matrizAS[15][SIMBOLO_DISTINTO]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][COMPARADOR_IGUAL]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][SIGNO_SUMA] = {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][SIGNO_RESTA]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][SIGNO_OPERADOR]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][LITERALES]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][DIGITO]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][F_MINUSCULA] = {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][L_MINUSCULA] = {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][GUION_BAJO]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][SIMBOLO_PUNTO]={14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][MAYUSCULA]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][MINUSCULA]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][OTRO]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][COMILLA]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][COMPARADOR_MENOR]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][COMPARADOR_MAYOR]= {14, &AccionesSemanticas::agregarCaracter};
-    matrizAS[15][BL_TAB_NL]= {14, &AccionesSemanticas::agregarCaracter};
+    matrizAS[15][SIMBOLO_DISTINTO]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][COMPARADOR_IGUAL]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][SIGNO_SUMA] = {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][SIGNO_RESTA]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][SIGNO_OPERADOR]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][LITERALES]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][DIGITO]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][F_MINUSCULA] = {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][L_MINUSCULA] = {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][GUION_BAJO]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][SIMBOLO_PUNTO]={14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][MAYUSCULA]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][MINUSCULA]= {14, &AccionesSemanticas::descartarComentario};
+
+    matrizAS[15][OTRO]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][COMILLA]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][COMPARADOR_MENOR]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][COMPARADOR_MAYOR]= {14, &AccionesSemanticas::descartarComentario};
+    matrizAS[15][BL_TAB_NL]= {14, &AccionesSemanticas::descartarComentario};
     //POSIBLE FIN DE COMENTARIO
-    matrizAS[15][SIMBOLO_PORCENTAJE]= {15, &AccionesSemanticas::agregarCaracter};
+    matrizAS[15][SIMBOLO_PORCENTAJE]= {15, &AccionesSemanticas::descartarComentario};
     //FIN COMENTARIO (descartar)
     matrizAS[15][SIGNO_DIVISION]= {0, &AccionesSemanticas::descartarComentario};
     //FIN DE ARCHIVO EN MEDIO DEL COMENTARIO
-    matrizAS[15][SIMBOLO_FIN_DE_ARCHIVO]={0, &AccionesSemanticas::agregarCaracter};
+    matrizAS[15][SIMBOLO_FIN_DE_ARCHIVO]={0, &AccionesSemanticas::notificarFinArchivoInesperado};
 //CAMINOS DIRECTOS
     //DEVOLVER OPERADOR
     matrizAS[0][SIGNO_SUMA] = {ESTADO_FINAL, &AccionesSemanticas::devolverSuma};
@@ -542,9 +544,10 @@ void Yylex::inicializarMatrizAS(){
     matrizAS[0][SIGNO_OPERADOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverOperador};
     //DEVOLVER LITERAL
 
-    matrizAS[0][SIMBOLO_FIN_DE_ARCHIVO]={ESTADO_FINAL, &AccionesSemanticas::notificarFinArchivo};
+    matrizAS[0][SIMBOLO_FIN_DE_ARCHIVO]={ESTADO_FINAL, &AccionesSemanticas::entregarFinArchivo};
     matrizAS[0][BL_TAB_NL]= {0, &AccionesSemanticas::descartarComentario};
 
-    matrizAS[0][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverSeparador};
-    
+    matrizAS[0][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverLiteral};
+
+
 }
