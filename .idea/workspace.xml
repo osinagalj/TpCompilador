@@ -30,7 +30,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c35f4c-78f0-49cf-863d-282c83294e93" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Lexico/Gramatica.y" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexico/Gramatica.y" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +116,7 @@
       <workItem from="1601429771534" duration="594000" />
       <workItem from="1601433072654" duration="26000" />
       <workItem from="1601489040259" duration="5228000" />
-      <workItem from="1601584743800" duration="2830000" />
+      <workItem from="1601584743800" duration="3273000" />
     </task>
     <servers />
   </component>

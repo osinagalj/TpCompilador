@@ -2,7 +2,7 @@
 %start programa
 %%
 programa:
-          sentencias ';'
+          bloque_sentencia ';'
 ;
 bloque_sentencia:
 	 '{' sentencias '}' ';'
@@ -17,13 +17,13 @@ sentencia:
 	|ejecutable
 ;
 declarativa:
-	 tipo lista_de_variables
-	|procedimiento
+	 tipo lista_de_variables ';'
+	|procedimiento ';'
 	|error ';'
 ;
 lista_de_variables:
-	 lista_de_variables ',' ID
-	|ID
+	 lista_de_variables ',' ID ';'
+	|ID ';'
 ;
 ejecutable:
 	 ID '=' expresion ';'
@@ -37,16 +37,16 @@ invocacion_proc:
 	|error ';'
 ;
 parametros:
-	 parametros ',' ID
-	|ID
+	 parametros ',' ID ';'
+	|ID ';'
 ;
 procedimiento:
-	PROC ID lista_de_parametros bloque_sentencia {AccionesSintactico::chequeo($3)}
+	PROC ID lista_de_parametros bloque_sentencia ';' {AccionesSintactico::chequeo($3)}
 	|error ';'
 ;
 lista_de_parametros:
-	 lista_de_parametros ',' tipo ID
-	|tipo ID
+	 lista_de_parametros ',' tipo ID ';'
+	|tipo ID ';'
 ;
 sentencia_if:
 	 IF '(' condicion ')' bloque_sentencia END_IF ';'
@@ -54,8 +54,8 @@ sentencia_if:
 	|error ';'
 ;
 sentencia_while:
-	 WHILE '(' condicion ')' LOOP bloque_sentencia
-	|WHILE '(' condicion ')' LOOP sentencia
+	 WHILE '(' condicion ')' LOOP bloque_sentencia ';'
+	|WHILE '(' condicion ')' LOOP sentencia ';'
 	|error ';'
 ;
 condicion: //PREGUNTAR QUE ONDA CON LOS BOOLEANOS
