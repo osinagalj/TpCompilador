@@ -4,14 +4,14 @@
 programa:
           sentencias
 
+bloque_sentencia:
+	 '{' setencias '}' ';'
+	|error ';'
+
 sentencias:
 	 sentencia ';'
 	|bloque_sentencia ';'
 	|sentencias sentencia ';'
-
-bloque_sentencia:
-	 '{' setencias '}' ';'
-	|error ';'
 
 sentencia:
 	 declarativa
@@ -28,7 +28,9 @@ lista_de_variables:
 
 ejecutable:
 	 ID '=' expresion ';'
-	|invocacion_proc
+	|invocacion_proc ';'
+	|sentencia_while ';'
+	|setencia_if ';'
 	|error ';'
 
 invocacion_proc:
@@ -54,7 +56,7 @@ sentencia_if:
 
 sentencia_while:
 	 WHILE '(' condicion ')' LOOP bloque_sentencia
-	|WHILE '(' condicion ')' LOOP setencia_while //PREGUNTAR
+	|WHILE '(' condicion ')' LOOP sentencia
 	|error ';'
 
 condicion: //PREGUNTAR QUE ONDA CON LOS BOOLEANOS
