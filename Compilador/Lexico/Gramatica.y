@@ -1,4 +1,4 @@
-%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA SIMBOLO_DISTINTO PROC
+%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ERROR ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA SIMBOLO_DISTINTO PROC
 %start programa
 %%
 programa:
@@ -6,7 +6,7 @@ programa:
 ;
 bloque_sentencia:
 	 '{' sentencias '}' ';'
-	|error ';'
+	|ERROR ';'
 ;
 sentencias:
 	 sentencia ';'
@@ -19,7 +19,7 @@ sentencia:
 declarativa:
 	 tipo lista_de_variables ';'
 	|procedimiento ';'
-	|error ';'
+	|ERROR ';'
 ;
 lista_de_variables:
 	 lista_de_variables ',' ID ';'
@@ -30,11 +30,11 @@ ejecutable:
 	|invocacion_proc ';'
 	|sentencia_while ';'
 	|sentencia_if ';'
-	|error ';'
+	|ERROR ';'
 ;
 invocacion_proc:
 	 ID '(' parametros ')'
-	|error ';'
+	|ERROR ';'
 ;
 parametros:
 	 parametros ',' ID ';'
@@ -42,7 +42,7 @@ parametros:
 ;
 procedimiento:
 	PROC ID lista_de_parametros bloque_sentencia ';' {AccionesSintactico::chequeo($3)}
-	|error ';'
+	|ERROR ';'
 ;
 lista_de_parametros:
 	 lista_de_parametros ',' tipo ID ';'
@@ -51,19 +51,19 @@ lista_de_parametros:
 sentencia_if:
 	 IF '(' condicion ')' bloque_sentencia END_IF ';'
 	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF ';'
-	|error ';'
+	|ERROR ';'
 ;
 sentencia_while:
 	 WHILE '(' condicion ')' LOOP bloque_sentencia ';'
 	|WHILE '(' condicion ')' LOOP sentencia ';'
-	|error ';'
+	|ERROR ';'
 ;
 condicion: //PREGUNTAR QUE ONDA CON LOS BOOLEANOS
 	|expresion IGUAL expresion
 	|expresion MENORIGUAL expresion
 	|expresion MAYORIGUAL expresion
 	|expresion SIMBOLO_DISTINTO expresion
-	|error ';'
+	|ERROR ';'
 ;
 expresion:
 	   expresion termino
