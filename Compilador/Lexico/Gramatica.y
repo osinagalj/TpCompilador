@@ -4,17 +4,15 @@
 programa:
           bloque_sentencia ';'
 ;
+
 bloque_sentencia:
-	 '{' sentencias '}' ';'
-	|ERROR ';'
-;
-sentencias:
-	 sentencia ';'
-	|sentencias sentencia ';'
+	 sentencia
+	|bloque_sentencia sentencia ';'
 ;
 sentencia:
 	 declarativa ';'
-	|ejecutable
+	|ejecutable ';'
+	|imprimir ';'
 ;
 declarativa:
 	 tipo lista_de_variables ';'
@@ -55,7 +53,6 @@ sentencia_if:
 ;
 sentencia_while:
 	 WHILE '(' condicion ')' LOOP bloque_sentencia ';'
-	|WHILE '(' condicion ')' LOOP sentencia ';'
 	|ERROR ';'
 ;
 condicion: //PREGUNTAR QUE ONDA CON LOS BOOLEANOS
@@ -66,16 +63,13 @@ condicion: //PREGUNTAR QUE ONDA CON LOS BOOLEANOS
 	|ERROR ';'
 ;
 expresion:
-	   expresion termino
+	   expresion '+' termino
+	  |expresion '-' termino
 	  |termino
-	  |expresion factor
-	  |factor
-	  |'(' termino ')'  //PREGUNTAR
+	  |ERROR ';'
 ;
 termino:
 	 factor
-	|termino '+' factor
-	|termino '-' factor
 	|termino '/' factor {AccionesSintactico::notNull($3)}
 	|termino '*' factor
 ;
@@ -83,6 +77,7 @@ factor:
 	 ID
 	|CTE
 ;
+
 tipo:
 	 INTEGER
         |UINT
