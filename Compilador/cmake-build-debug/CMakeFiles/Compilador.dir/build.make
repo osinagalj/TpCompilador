@@ -76,18 +76,18 @@ include CMakeFiles/Compilador.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Compilador.dir/flags.make
 
-CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: CMakeFiles/Compilador.dir/flags.make
-CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: ../Lexico/yylex.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Lexico\yylex.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\yylex.cpp
+CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: CMakeFiles/Compilador.dir/flags.make
+CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/Lexico.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Lexico\Lexico.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\Lexico.cpp
 
-CMakeFiles/Compilador.dir/Lexico/yylex.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Lexico/yylex.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\yylex.cpp > CMakeFiles\Compilador.dir\Lexico\yylex.cpp.i
+CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\Lexico.cpp > CMakeFiles\Compilador.dir\Lexico\Lexico.cpp.i
 
-CMakeFiles/Compilador.dir/Lexico/yylex.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Lexico/yylex.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\yylex.cpp -o CMakeFiles\Compilador.dir\Lexico\yylex.cpp.s
+CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\Lexico.cpp -o CMakeFiles\Compilador.dir\Lexico\Lexico.cpp.s
 
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: CMakeFiles/Compilador.dir/flags.make
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.cpp
@@ -143,7 +143,7 @@ CMakeFiles/Compilador.dir/AccionesSintactico.cpp.s: cmake_force
 
 # Object files for target Compilador
 Compilador_OBJECTS = \
-"CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj" \
+"CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj" \
 "CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj" \
 "CMakeFiles/Compilador.dir/main.cpp.obj" \
 "CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj" \
@@ -152,7 +152,7 @@ Compilador_OBJECTS = \
 # External object files for target Compilador
 Compilador_EXTERNAL_OBJECTS =
 
-Compilador.exe: CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj
+Compilador.exe: CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/main.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj

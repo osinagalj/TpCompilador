@@ -1,6 +1,9 @@
 #ifndef COMPILADOR_ACCIONESSEMANTICAS_H
 #define COMPILADOR_ACCIONESSEMANTICAS_H
 
+#include <iostream>
+#include "../TablaDeSimbolos.h"
+using namespace std;
 //#include "yylex.h"// NO SE PUEDE
 class Yylex;
 
@@ -27,6 +30,8 @@ class AccionesSemanticas {
         static void finCadena(Yylex* lexico, char& c);
         static void mensajeError(Yylex* lexico, char& c);
 
+    private:
+        void guardarEnTS(int id);
 
 
         //static void entregarFinArchivo(Yylex* lexico, char& c);

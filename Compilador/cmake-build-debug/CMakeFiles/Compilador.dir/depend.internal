@@ -7,13 +7,13 @@ CMakeFiles/Compilador.dir/AccionesSintactico.cpp.obj
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
- C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h
+ C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/y.tab.h
-CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj
+CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
- C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.cpp
- C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h
+ C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.cpp
+ C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/y.tab.h
 CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj
@@ -22,7 +22,7 @@ CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj
 CMakeFiles/Compilador.dir/main.cpp.obj
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/AccionesSintactico.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
- C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h
+ C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/main.cpp
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/y.tab.c

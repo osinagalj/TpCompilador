@@ -57,6 +57,7 @@ class Yylex{
              string cadena;
              void guardarToken(int id,string punt);
              void tokenEncontrado();
+             void agregarEnTabla(string key, TablaDeSimbolos::Registro r);
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
              int getLinea();
              bool end = false;
@@ -65,6 +66,7 @@ class Yylex{
              Token t;
              int estadoNuevo;
              TablaDeSimbolos * tablaSimbolos;
+             void guardarEnTS(int id);
     private:
             ifstream archivoOrigen;
 

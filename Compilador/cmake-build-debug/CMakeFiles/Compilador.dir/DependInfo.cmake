@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/AccionesSintactico.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/AccionesSintactico.cpp.obj"
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj"
-  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj"
+  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj"
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj"
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/main.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj"
   )

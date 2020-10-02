@@ -196,32 +196,32 @@ Lexico/AccionesSemanticas.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.s
 .PHONY : Lexico/AccionesSemanticas.cpp.s
 
-Lexico/yylex.obj: Lexico/yylex.cpp.obj
+Lexico/Lexico.obj: Lexico/Lexico.cpp.obj
 
-.PHONY : Lexico/yylex.obj
+.PHONY : Lexico/Lexico.obj
 
 # target to build an object file
-Lexico/yylex.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj
-.PHONY : Lexico/yylex.cpp.obj
+Lexico/Lexico.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj
+.PHONY : Lexico/Lexico.cpp.obj
 
-Lexico/yylex.i: Lexico/yylex.cpp.i
+Lexico/Lexico.i: Lexico/Lexico.cpp.i
 
-.PHONY : Lexico/yylex.i
+.PHONY : Lexico/Lexico.i
 
 # target to preprocess a source file
-Lexico/yylex.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/yylex.cpp.i
-.PHONY : Lexico/yylex.cpp.i
+Lexico/Lexico.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.i
+.PHONY : Lexico/Lexico.cpp.i
 
-Lexico/yylex.s: Lexico/yylex.cpp.s
+Lexico/Lexico.s: Lexico/Lexico.cpp.s
 
-.PHONY : Lexico/yylex.s
+.PHONY : Lexico/Lexico.s
 
 # target to generate assembly for a file
-Lexico/yylex.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/yylex.cpp.s
-.PHONY : Lexico/yylex.cpp.s
+Lexico/Lexico.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.s
+.PHONY : Lexico/Lexico.cpp.s
 
 TablaDeSimbolos.obj: TablaDeSimbolos.cpp.obj
 
@@ -292,9 +292,9 @@ help:
 	@echo ... Lexico/AccionesSemanticas.obj
 	@echo ... Lexico/AccionesSemanticas.i
 	@echo ... Lexico/AccionesSemanticas.s
-	@echo ... Lexico/yylex.obj
-	@echo ... Lexico/yylex.i
-	@echo ... Lexico/yylex.s
+	@echo ... Lexico/Lexico.obj
+	@echo ... Lexico/Lexico.i
+	@echo ... Lexico/Lexico.s
 	@echo ... TablaDeSimbolos.obj
 	@echo ... TablaDeSimbolos.i
 	@echo ... TablaDeSimbolos.s

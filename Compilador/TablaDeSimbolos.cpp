@@ -1,20 +1,15 @@
 #include "TablaDeSimbolos.h"
 
+TablaDeSimbolos::TablaDeSimbolos(){}
 //Este lo llamra el LEXICO
 void TablaDeSimbolos::agregarSimbolo(string key, Registro registro){
 
-    cout<<"ENTRO EN LA TS = " + key<<endl;
-        //Registro registro;
-        //registro.id = ID;
-   /* auto search = tablaDeSimbolos.find(key);
-    cout<<"ENTRO EN LA kaka = " + key<<endl;
-
+    cout<<"ENTRO EN AGREGAR SIMBOLO"<<endl;
+    auto search = tablaDeSimbolos.find(key);
     if (search == tablaDeSimbolos.end()) {
         //Si no existe 'key' en la tabla de símbolos:
-        */
-        tablaDeSimbolos.insert(pair<string,Registro>(key, registro));
-
-
+        tablaDeSimbolos.insert({key, registro});
+    }
 
 }
 
@@ -29,6 +24,8 @@ TablaDeSimbolos::Registro TablaDeSimbolos::getID(string key, Registro reg){
 }
 
 void TablaDeSimbolos::imprimir(){
+    cout<<endl;
+    cout<<"IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
     for (map<string,Registro>::iterator it=tablaDeSimbolos.begin(); it!=tablaDeSimbolos.end(); ++it){
         cout << it->first << " => " << it->second.id << '\n';
     }

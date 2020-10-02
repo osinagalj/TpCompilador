@@ -1,10 +1,12 @@
 #include <iostream>
-#include "yylex.h"
+#include "Lexico.h"
 
 using namespace std;
 
 Yylex::Yylex() {
+
     inicializarMatrizAS();
+
     //palabrasReservadas.insert()
     //El sintactico los tiene que definir solos
     palabrasReservadas.insert(pair<string,int>("IF",1));
@@ -17,8 +19,14 @@ Yylex::Yylex() {
     palabrasReservadas.insert(pair<string,int>("WHILE",8));
     palabrasReservadas.insert(pair<string,int>("LOOP",9));
     palabrasReservadas.insert(pair<string,int>("FLOAT",10));
+
 }
 
+void Yylex::agregarEnTabla(string key, TablaDeSimbolos::Registro r){
+
+        tablaSimbolos->agregarSimbolo(key, r);
+
+}
 
 void Yylex::cargarArchivo(string pathArchivo)
 {
@@ -53,44 +61,37 @@ int Yylex::getLinea() {
     return this->linea_actual;
 }
 Yylex::Token Yylex::getToken(string pathArchivo){
-        this->encontroToken=false;
-        this->cadena="";
-        estadoActual=0;
-
+   this->encontroToken=false;
+   this->cadena="";
+   estadoActual=0;
         cargarArchivo(pathArchivo);
     cout<< "ENTRO 4"<<endl;
         while (!archivoOrigen.eof()) {
-
-
             getline(archivoOrigen,linea);
             while(caracteresAvanzados < linea.size() && !encontroToken && !end){
                 char caracterActual=linea[caracteresAvanzados];
                 string xd(1, caracterActual);
-
-                cout<<"caracteres avanzados = "+ to_string(caracteresAvanzados) + " caracter = " + xd<<endl;
-
+                cout<< "caracter = " + xd<<endl;
                 estadoNuevo=identificarCaracter(caracterActual);
                // cout<<" estado nuevo: " + to_string(estadoNuevo)  <<endl;
-                //cout<<endl;
-                cout<< "ENTRO 4.5"<<endl;
                 matrizAS[estadoActual][estadoNuevo].Accion(this,caracterActual); //ejecutar acción semántica
                 estadoActual=matrizAS[estadoActual][estadoNuevo].estado; //actualizo el nuevo estado
-                cout<< "ENTRO 5"<<endl;
             }
-            if ((caracteresAvanzados < linea.size()) && encontroToken){ // encontré token
-                //caracteresAvanzados--;
+            if ((caracteresAvanzados < linea.size()) && encontroToken){ // encontré toke
                 archivoOrigen.close(); //cerramos archivo
-                cout<< "ENTRO 6"<<endl;
                 return t;
             }else{
                 linea_actual++;
-                //cout<<"linea actual = " + to_string(linea_actual)<<endl;
                 caracteresAvanzados = 0;
             }
         }
         return t;
 }
-
+void Yylex::guardarEnTS(int id){
+    TablaDeSimbolos::Registro registro;
+    registro.id = id;
+    tablaSimbolos->agregarSimbolo(cadena,registro);
+}
 
 int Yylex::identificarCaracter(char carac){
 //esta funcion te devuelve el numero de columna de la matriz de transicion de estado

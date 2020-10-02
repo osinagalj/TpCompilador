@@ -1,4 +1,4 @@
-#include "Lexico/yylex.h"
+#include "Lexico/Lexico.h"
 #include "AccionesSintactico.h"
 #include "TablaDeSimbolos.h"
 
@@ -10,7 +10,8 @@ int yylex();
 void yyerror(const char *s);
 #include "y.tab.c"
 
-Yylex analizadorLexico;
+Yylex analizadorLexico
+;
 string path = "Compilador\\Archivos\\programa.txt";
 
 void yyerror(const char *s){
@@ -25,11 +26,15 @@ int yylex(){
 int main(){
 
     //El sintactico lo llama muchas veces
-    cout<< "ENTRO 1"<<endl;
+    TablaDeSimbolos tabla;
+    tablaSimbolos = &tabla;
+
+    analizadorLexico.tablaSimbolos = &tabla;
+
    while(!analizadorLexico.end){
-       cout<< "ENTRO 2"<<endl;
+
         Yylex::Token a = analizadorLexico.getToken(path); /* hola $ */
-       cout<< "ENTRO 3"<<endl;
+
         cout << "ID = " + to_string(a.id) + " ";
         cout << a.punteroTS+ " ";
         cout << analizadorLexico.registro.warning;

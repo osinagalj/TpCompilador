@@ -92,10 +92,10 @@
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.cpp">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.cpp">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h">
 			<Option target="Compilador"/>
 		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.cpp">
