@@ -1,4 +1,5 @@
 int s = "hola"
 int x = 5; ola
 
+<= , +, <,901,7.0f+2 , adios
 $

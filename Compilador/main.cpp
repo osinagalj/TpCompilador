@@ -41,7 +41,6 @@ int main(){
         cout<<endl;
 
     }
-    cout<< "TABLA DE SIMBOLOS XD"<<endl;
     tablaSimbolos->imprimir();
 
     return 0;
