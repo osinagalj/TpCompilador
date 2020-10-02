@@ -36,7 +36,7 @@ int main(){
         Lexico::Token a = analizadorLexico.getToken(path); /* hola $ */
 
         cout << "ID = " + to_string(a.id) + " ";
-        cout << a.punteroTS+ " ";
+        cout << a.punteroTS + " ";
         cout << analizadorLexico.registro.warning;
         cout<<endl;
 

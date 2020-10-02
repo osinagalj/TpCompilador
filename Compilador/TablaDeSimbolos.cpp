@@ -4,7 +4,6 @@ TablaDeSimbolos::TablaDeSimbolos(){}
 //Este lo llamra el LEXICO
 void TablaDeSimbolos::agregarSimbolo(string key, Registro registro){
 
-    cout<<"ENTRO EN AGREGAR SIMBOLO"<<endl;
     auto search = tablaDeSimbolos.find(key);
     if (search == tablaDeSimbolos.end()) {
         //Si no existe 'key' en la tabla de símbolos:

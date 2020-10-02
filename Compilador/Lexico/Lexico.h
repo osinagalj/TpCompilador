@@ -72,8 +72,6 @@ class Lexico{
 
             void cargarArchivo(string pathArchivo);
 
-
-
             int linea_actual = 1; // para informar errores
             string linea;
             string token = "";
