@@ -40,9 +40,9 @@ const int nro_simbolos = 21;
 using namespace std;
 
 
-class Yylex{
+class Lexico{
     public:
-            Yylex();
+            Lexico();
              struct Token{
              int id;
              string punteroTS; //clave para el mapa
@@ -84,9 +84,9 @@ class Yylex{
             //Matriz de Transicion de estados
             struct Transicion{
                 int estado;
-                void (*Accion)(Yylex*,char & c);
+                void (*Accion)(Lexico*,char & c);
             };
-            Yylex::Transicion matrizAS[nro_estados][nro_simbolos];
+            Lexico::Transicion matrizAS[nro_estados][nro_simbolos];
 
             map<string, int> palabrasReservadas;
             void inicializarMatrizAS();

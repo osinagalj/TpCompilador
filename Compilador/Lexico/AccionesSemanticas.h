@@ -4,8 +4,8 @@
 #include <iostream>
 #include "../TablaDeSimbolos.h"
 using namespace std;
-//#include "yylex.h"// NO SE PUEDE
-class Yylex;
+//#include "Lexico.h"// NO SE PUEDE
+class Lexico;
 
 
 class AccionesSemanticas {
@@ -14,20 +14,20 @@ class AccionesSemanticas {
         int numeroCadena = 0;
     public:
         //nuevas
-        static void devolverUnico(Yylex* lexico, char& c);
-        static void devolverComparadorSimple(Yylex* lexico, char& c);
-        static void devolverComparadorCompuesto(Yylex* lexico, char& c);
+        static void devolverUnico(Lexico* lexico, char& c);
+        static void devolverComparadorSimple(Lexico* lexico, char& c);
+        static void devolverComparadorCompuesto(Lexico* lexico, char& c);
 
-        static void inicializarToken(Yylex* lexico, char& c);
-        static void devolverIdentificador(Yylex* lexico, char& c);
-        static void descartarCaracter(Yylex* lexico, char& c);
-        static void devolverReservada(Yylex* lexico, char& c);
-        static void agregarCaracter(Yylex* lexico, char& c);
-        static void devolverEnteroLargo(Yylex* lexico, char& c);
-        static void devolverFloat(Yylex* lexico, char& c);
-        static void devolverConstante(Yylex* lexico, char& c);
-        static void notificarFinArchivoInesperado(Yylex* lexico, char& c);
-        static void mensajeError(Yylex* lexico, char& c);
+        static void inicializarToken(Lexico* lexico, char& c);
+        static void devolverIdentificador(Lexico* lexico, char& c);
+        static void descartarCaracter(Lexico* lexico, char& c);
+        static void devolverReservada(Lexico* lexico, char& c);
+        static void agregarCaracter(Lexico* lexico, char& c);
+        static void devolverEnteroLargo(Lexico* lexico, char& c);
+        static void devolverFloat(Lexico* lexico, char& c);
+        static void devolverConstante(Lexico* lexico, char& c);
+        static void notificarFinArchivoInesperado(Lexico* lexico, char& c);
+        static void mensajeError(Lexico* lexico, char& c);
 
     private:
 

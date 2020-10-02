@@ -10,7 +10,7 @@ int yylex();
 void yyerror(const char *s);
 #include "y.tab.c"
 
-Yylex analizadorLexico
+Lexico analizadorLexico
 ;
 string path = "Compilador\\Archivos\\programa.txt";
 
@@ -18,7 +18,7 @@ void yyerror(const char *s){
     cout << s << endl;
 }
 int yylex(){
-    Yylex::Token a = analizadorLexico.getToken(path); /* hola $ */
+    Lexico::Token a = analizadorLexico.getToken(path); /* hola $ */
     return a.id;
 }
 
@@ -33,7 +33,7 @@ int main(){
 
    while(!analizadorLexico.end){
 
-        Yylex::Token a = analizadorLexico.getToken(path); /* hola $ */
+        Lexico::Token a = analizadorLexico.getToken(path); /* hola $ */
 
         cout << "ID = " + to_string(a.id) + " ";
         cout << a.punteroTS+ " ";

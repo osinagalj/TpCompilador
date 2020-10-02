@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Yylex::Yylex() {
+Lexico::Lexico() {
 
     inicializarMatrizAS();
 
@@ -22,13 +22,13 @@ Yylex::Yylex() {
 
 }
 
-void Yylex::agregarEnTabla(string key, TablaDeSimbolos::Registro r){
+void Lexico::agregarEnTabla(string key, TablaDeSimbolos::Registro r){
 
         tablaSimbolos->agregarSimbolo(key, r);
 
 }
 
-void Yylex::cargarArchivo(string pathArchivo)
+void Lexico::cargarArchivo(string pathArchivo)
 {
     archivoOrigen.open(pathArchivo,ifstream::in);
     if(archivoOrigen.fail()){
@@ -44,23 +44,23 @@ void Yylex::cargarArchivo(string pathArchivo)
             }
         }
 }
-void Yylex::tokenEncontrado(){
+void Lexico::tokenEncontrado(){
     this->encontroToken=true;
 }
 
-void Yylex::guardarToken(int id, string punteroTS){
+void Lexico::guardarToken(int id, string punteroTS){
     this->t.id=id;
     this->t.punteroTS=punteroTS;
     //this->t.warning=warning;
 }
 
-void Yylex::aumentarCaracter() {
+void Lexico::aumentarCaracter() {
     this->caracteresAvanzados++;
 }
-int Yylex::getLinea() {
+int Lexico::getLinea() {
     return this->linea_actual;
 }
-Yylex::Token Yylex::getToken(string pathArchivo){
+Lexico::Token Lexico::getToken(string pathArchivo){
    this->encontroToken=false;
    this->cadena="";
    estadoActual=0;
@@ -87,13 +87,13 @@ Yylex::Token Yylex::getToken(string pathArchivo){
         }
         return t;
 }
-void Yylex::guardarEnTS(int id){
+void Lexico::guardarEnTS(int id){
     TablaDeSimbolos::Registro registro;
     registro.id = id;
     tablaSimbolos->agregarSimbolo(cadena,registro);
 }
 
-int Yylex::identificarCaracter(char carac){
+int Lexico::identificarCaracter(char carac){
 //esta funcion te devuelve el numero de columna de la matriz de transicion de estado
 
     if(carac=='l')
@@ -157,7 +157,7 @@ int Yylex::identificarCaracter(char carac){
     }
 }
 
-void Yylex::inicializarMatrizAS(){
+void Lexico::inicializarMatrizAS(){
 //CAMINO 1
     //INICIALIZAR
     matrizAS[0][COLUMNA_MINUSCULA] = {1, &AccionesSemanticas::inicializarToken};
