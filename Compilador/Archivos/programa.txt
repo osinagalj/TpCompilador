@@ -1,6 +1,10 @@
-( pepito > + <= 6.5f+2
-int x = 5; ola
 
+int main() {
+   (WELCOME);
+   string ori == ;
+}
+( pepito + - - < >= jaja != k <= 6.5f+2
+int x = 5; ola
 /% tu comentario de  charly %/
 
 string y = "tiene que terminar $ no termino"

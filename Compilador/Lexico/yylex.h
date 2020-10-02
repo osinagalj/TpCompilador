@@ -13,7 +13,7 @@
 #define F_MINUSCULA 3
 #define DIGITO 4
 #define SIMBOLO_PUNTO 5
-#define SIGNO_OPERADOR 6
+#define SIGNO_MULTIPLICACION 6
 #define SIGNO_RESTA 7
 #define GUION_BAJO 8
 #define COMPARADOR_IGUAL 9
@@ -34,7 +34,7 @@
 const int  nro_estados = 17;
 const int nro_simbolos = 21;
 
-//#include "Gramatica.y"
+//#include "y.tab.c"
 
 
 using namespace std;
@@ -47,6 +47,7 @@ class Yylex{
              int id;
              string lexema; //clave para el mapa
              };
+
              struct Registro{
 
                  string warning;
@@ -62,7 +63,7 @@ class Yylex{
              int caracteresAvanzados = 0;
              bool encontroToken = false;
              Token t;
-    int estadoNuevo;
+             int estadoNuevo;
     private:
             ifstream archivoOrigen;
 

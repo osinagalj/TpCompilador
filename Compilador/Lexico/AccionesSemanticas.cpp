@@ -12,7 +12,6 @@ void AccionesSemanticas::agregarCaracter(Yylex* lexico, char& c){
     lexico->aumentarCaracter();
 }
 void AccionesSemanticas::devolverIdentificador(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
     //Chekear el rango
     if(lexico->cadena.length() > longIdentificador){
@@ -24,14 +23,10 @@ void AccionesSemanticas::devolverIdentificador(Yylex* lexico, char& c){
     }
 }
 void AccionesSemanticas::devolverReservada(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
     lexico->guardarToken(MAYUSCULA, lexico->cadena);
 }
 void AccionesSemanticas::devolverConstante(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
-    // digito comun -32767 a 32768
-    //if(lexico->cadena) Preguntar rango
     lexico->tokenEncontrado();
     lexico->guardarToken(DIGITO, lexico->cadena);
 
@@ -54,10 +49,6 @@ void AccionesSemanticas::devolverEnteroLargo(Yylex* lexico, char& c){
 }
 
 void AccionesSemanticas::devolverFloat(Yylex* lexico, char& c){
-    //.5    6.3f+12 63000
-    // 6.666f+2
-    //lexico->aumentarCaracter();
-
     string acumulado="";
     float numero=0;
     int desplazamiento = 0;
@@ -90,70 +81,181 @@ void AccionesSemanticas::devolverFloat(Yylex* lexico, char& c){
     lexico->tokenEncontrado();
 }
 
-void AccionesSemanticas::devolverOperador(Yylex* lexico, char& c){
-    lexico->aumentarCaracter();
+
+void AccionesSemanticas::finCadena(Yylex* lexico, char& c){
+    //HAY QUE AGREGAR EL " AL STRING PARA CUANDDO LO GUARDEMOS EN LA TABLA DE SIMBOLOS, SI NO LO GUARDAMOS HA YQUE ELIMINAR LAS COMILLAS QUE ABREN LA CADENA CAMBIANDO LA AS de la matriz.
     lexico->tokenEncontrado();
-    lexico->guardarToken(22, lexico->cadena);
+    lexico->guardarToken(30, lexico->cadena);
 }
 
-void AccionesSemanticas::devolverLiteral(Yylex* lexico, char& c){
-    // "(",")","]",";",".",
+//Blancos,TAB, Salto de linea
+void AccionesSemanticas::descartarCaracter(Yylex *lexico, char &c) {
+    lexico->aumentarCaracter();
+    lexico->cadena="";
+}
+
+//$ en medio de un comentario o cadena de caracter
+void AccionesSemanticas::notificarFinArchivoInesperado(Yylex* lexico, char& c){
+    lexico->registro.warning = "Se encontró fin de archivo adentro de un comentario o cadena de caracteres"; //Puede ser en un comentario o una cadena de caracter
+}
+
+void AccionesSemanticas::mensajeError(Yylex* lexico, char& c){
+    lexico->aumentarCaracter();
+    // EN UN FUTURO GUARDAR EN UN ARCHIVO TODOS LOS ERRORES
+    cout<< lexico->getLinea()<<endl;
+    cout<<to_string(c)+" no fue reconocido"<<endl;
+}
+
+// Comparadores: <=,>=,==,!=
+void AccionesSemanticas::devolverComparadorCompuesto(Yylex* lexico, char& c){
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
     lexico->cadena = lexico->cadena + c;
-    cout<<"entro en literales xd"<<endl;
-    lexico->guardarToken(23, lexico->cadena);
+    switch(lexico->cadena[0]){  //El primer caracter es siempre un = en un comparador compuesto
+        case '<':
+            lexico->guardarToken(21, lexico->cadena); //MAYORIGUAL
+            break;
+        case '>':
+            lexico->guardarToken(22, lexico->cadena); //MENORIGUAL
+            break;
+        case '=':
+            lexico->guardarToken(23, lexico->cadena); //IGUAL
+            break;
+        case '!':
+            lexico->guardarToken(24, lexico->cadena); //DISTINTO
+            break;
+        }
 }
 
+void AccionesSemanticas::devolverComparadorSimple(Yylex* lexico, char& c){
+    lexico->aumentarCaracter();
+    lexico->tokenEncontrado();
+    lexico->cadena = lexico->cadena + c;
+    switch(c){
+        case '<':
+            lexico->guardarToken(toascii('<'), "");
+            break;
+        case '>':
+            lexico->guardarToken(toascii('>'), "");
+            break;
+        case '=':
+            lexico->guardarToken(toascii('='), "");
+            break;
+        }
+
+}
+
+void AccionesSemanticas::devolverUnico(Yylex* lexico, char& c){
+    lexico->aumentarCaracter();
+    lexico->tokenEncontrado();
+    lexico->cadena = lexico->cadena + c;
+    switch(c)
+    {
+        case '/':
+            lexico->guardarToken(toascii('/'), to_string(c));
+            break;
+        case '-':
+            lexico->guardarToken(toascii('-'), lexico->cadena);
+            break;
+        case '+': //Multiplicacion
+            lexico->guardarToken(toascii('+'), lexico->cadena);
+            break;
+        case '*': //Multiplicacion
+            lexico->guardarToken(toascii('*'), lexico->cadena);
+            break;
+        case '(': //Multiplicacion
+            lexico->guardarToken(toascii('('), lexico->cadena);
+            break;
+        case ')': //Multiplicacion
+            lexico->guardarToken(toascii(')'), lexico->cadena);
+            break;
+        case ',': //Multiplicacion
+            lexico->guardarToken(toascii(','), lexico->cadena);
+            break;
+        case '}': //Multiplicacion
+            lexico->guardarToken(toascii('}'), lexico->cadena);
+            break;
+        case '{': //Multiplicacion
+            lexico->guardarToken(toascii('{'), lexico->cadena);
+            break;
+        case '.': //Multiplicacion
+            lexico->guardarToken(toascii('.'), lexico->cadena);
+            break;
+        case '$': //Multiplicacion
+            lexico->guardarToken(toascii('$'), lexico->cadena);
+            lexico->end = true;
+            break;
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+/*******************************************************************************************************************/
+
+/*
 void AccionesSemanticas::devolverAsignacion(Yylex* lexico, char& c){
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
     lexico->guardarToken(24, lexico->cadena);
-}
-
-void AccionesSemanticas::devolverIgual(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(25, lexico->cadena);
-}
-
-void AccionesSemanticas::devolverMayor(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(26, lexico->cadena);
-}
-
-void AccionesSemanticas::devolverMayorIgual(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(27, lexico->cadena);
-}
-
-void AccionesSemanticas::devolverMenor(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(28, lexico->cadena);
-}
-void AccionesSemanticas::devolverMenorIgual(Yylex* lexico, char& c){
-    lexico->aumentarCaracter();
-    lexico->cadena = lexico->cadena + c;
-
-    lexico->guardarToken(29, lexico->cadena);
-    lexico->tokenEncontrado();
-
-}
-void AccionesSemanticas::finCadena(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    //FALTA CHEQUEAR SI SE ENCUENTRA UN $
-
-    lexico->guardarToken(30, lexico->cadena);
 }
 void AccionesSemanticas::devolverDistinto(Yylex *lexico, char &c) {
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
     lexico->guardarToken(31, lexico->cadena);
 }
+void AccionesSemanticas::devolverIgual(Yylex* lexico, char& c){
+    //lexico->aumentarCaracter();
+    lexico->tokenEncontrado();
+    lexico->guardarToken(25, lexico->cadena);
+}
+*/
+/*
+void AccionesSemanticas::devolverMayor(Yylex* lexico, char& c){
+    //lexico->aumentarCaracter();
+    lexico->tokenEncontrado();
+    lexico->guardarToken(26, lexico->cadena);
+}
+*/
+/*
+void AccionesSemanticas::devolverMayorIgual(Yylex* lexico, char& c){
+    //lexico->aumentarCaracter();
+    lexico->tokenEncontrado();
+    lexico->guardarToken(27, lexico->cadena);
+}
+*/
+/*
+void AccionesSemanticas::devolverMenor(Yylex* lexico, char& c){
+    //lexico->aumentarCaracter();
+    lexico->tokenEncontrado();
+    lexico->guardarToken(28, lexico->cadena);
+}
+ */
+/*
+void AccionesSemanticas::devolverMenorIgual(Yylex* lexico, char& c){
+    lexico->aumentarCaracter();
+    lexico->cadena = lexico->cadena + c;
+
+    lexico->guardarToken(29, lexico->cadena);
+    lexico->tokenEncontrado();
+}
+
+*/
+
+
+
+
+
+
+
+/*
 void AccionesSemanticas::devolverSuma(Yylex *lexico, char & c) {
     lexico->cadena = lexico->cadena + c;
     lexico->aumentarCaracter();
@@ -172,38 +274,31 @@ void AccionesSemanticas::devolverDivision(Yylex *lexico, char &c) {
     lexico->tokenEncontrado();
     lexico->guardarToken(34, to_string(c));
 }
-void AccionesSemanticas::descartarComentario(Yylex *lexico, char &c) {
-    //espacios
+
+//MULTIPLICACION
+void AccionesSemanticas::devolverOperador(Yylex* lexico, char& c){
     lexico->aumentarCaracter();
-    lexico->cadena="";
+    lexico->tokenEncontrado();
+    lexico->guardarToken(22, lexico->cadena);
 }
+*/
+/*
+void AccionesSemanticas::devolverLiteral(Yylex* lexico, char& c){
+    // "(",")","]",";",".",
+    lexico->aumentarCaracter();
+    lexico->tokenEncontrado();
+    lexico->cadena = lexico->cadena + c;
+    cout<<"entro en literales xd"<<endl;
+    lexico->guardarToken(23, lexico->cadena);
+}*/
 
 
-void AccionesSemanticas::entregarFinArchivo(Yylex *lexico, char &c){
-    cout<<"entro en fin de archivo"<<endl;
-
+/*
+void AccionesSemanticas::entregarFinArchivo(Yylex *lexico, char &c){ //podriamos meterlo en devolverUNIQUE
     lexico->cadena = lexico->cadena + c; //devolvemos el $
     lexico->tokenEncontrado();
     lexico->aumentarCaracter();
     lexico->guardarToken(90, lexico->cadena);
-
     lexico->end = true;
 }
-
-void AccionesSemanticas::notificarFinArchivoInesperado(Yylex* lexico, char& c){
-    //lexico->aumentarCaracter();
-
-    cout<<"entro en fin de archivo Inesperado"<<endl;
-    //$
-
-    lexico->registro.warning = "Se encontró fin de archivo dentro de un comentario que no se cerró"; //Puede ser en un comentario o una cadena de caracter
-}
-
-void AccionesSemanticas::mensajeWarning(Yylex* lexico, char& c){
-}
-void AccionesSemanticas::mensajeError(Yylex* lexico, char& c){
-    lexico->aumentarCaracter();
-    // EN UN FUTURO GUARDAR EN UN ARCHIVO TODOS LOS ERRORES
-    cout<< lexico->getLinea()<<endl;
-    cout<<to_string(c)+" no fue reconocido"<<endl;
-}
+ */
