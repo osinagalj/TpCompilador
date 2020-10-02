@@ -460,7 +460,7 @@ void Lexico::inicializarMatrizAS(){
     matrizAS[12][SIGNO_DIVISION]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][COMPARADOR_MENOR]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][COMPARADOR_MAYOR]= {12, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][BL_TAB_NL]= {12, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER CADENA
     matrizAS[12][COMILLA]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
 //CAMINO 13
