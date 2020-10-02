@@ -6,27 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp
-AccionesSemanticas.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
-yylex.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.cpp
+TablaDeSimbolos.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.h
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
-
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.h
 iostream
 -
-fstream
--
-AccionesSemanticas.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
 map
 -
-string
--
-../y.tab.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/y.tab.h
-
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/y.tab.h
 

@@ -7,19 +7,22 @@ CMakeFiles/Compilador.dir/AccionesSintactico.cpp.obj: ../AccionesSintactico.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.cpp
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/yylex.h
+CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../TablaDeSimbolos.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../y.tab.h
-
-CMakeFiles/Compilador.dir/Lexico/TablaDeSimbolos.cpp.obj: ../Lexico/TablaDeSimbolos.cpp
-CMakeFiles/Compilador.dir/Lexico/TablaDeSimbolos.cpp.obj: ../Lexico/TablaDeSimbolos.h
 
 CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: ../Lexico/yylex.cpp
 CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: ../Lexico/yylex.h
+CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: ../TablaDeSimbolos.h
 CMakeFiles/Compilador.dir/Lexico/yylex.cpp.obj: ../y.tab.h
+
+CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj: ../TablaDeSimbolos.cpp
+CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj: ../TablaDeSimbolos.h
 
 CMakeFiles/Compilador.dir/main.cpp.obj: ../AccionesSintactico.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/yylex.h
+CMakeFiles/Compilador.dir/main.cpp.obj: ../TablaDeSimbolos.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/Compilador.dir/main.cpp.obj: ../y.tab.c
 CMakeFiles/Compilador.dir/main.cpp.obj: ../y.tab.h

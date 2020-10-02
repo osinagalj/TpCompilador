@@ -58,7 +58,7 @@ Yylex::Token Yylex::getToken(string pathArchivo){
         estadoActual=0;
 
         cargarArchivo(pathArchivo);
-
+    cout<< "ENTRO 4"<<endl;
         while (!archivoOrigen.eof()) {
 
 
@@ -67,25 +67,20 @@ Yylex::Token Yylex::getToken(string pathArchivo){
                 char caracterActual=linea[caracteresAvanzados];
                 string xd(1, caracterActual);
 
-               // cout<<" caracterActual: " + xd  <<endl;
-               // cout<<" estado actual: " + to_string(estadoActual)  <<endl;
-
-
-                //cout<<"caracteres avanzados = "+ to_string(caracteresAvanzados) + " caracter = " + aux<<endl;
+                cout<<"caracteres avanzados = "+ to_string(caracteresAvanzados) + " caracter = " + xd<<endl;
 
                 estadoNuevo=identificarCaracter(caracterActual);
                // cout<<" estado nuevo: " + to_string(estadoNuevo)  <<endl;
                 //cout<<endl;
+                cout<< "ENTRO 4.5"<<endl;
                 matrizAS[estadoActual][estadoNuevo].Accion(this,caracterActual); //ejecutar acción semántica
                 estadoActual=matrizAS[estadoActual][estadoNuevo].estado; //actualizo el nuevo estado
-                if (estadoActual==ESTADO_FINAL){
-                  //  cout<<"Entregando token..."<<endl;
-                }
-
+                cout<< "ENTRO 5"<<endl;
             }
             if ((caracteresAvanzados < linea.size()) && encontroToken){ // encontré token
                 //caracteresAvanzados--;
                 archivoOrigen.close(); //cerramos archivo
+                cout<< "ENTRO 6"<<endl;
                 return t;
             }else{
                 linea_actual++;
@@ -445,28 +440,28 @@ void Yylex::inicializarMatrizAS(){
 
     matrizAS[0][COMILLA]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][SIMBOLO_DISTINTO]= {11, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COMPARADOR_IGUAL]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][SIGNO_SUMA] = {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COMPARADOR_IGUAL]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][SIGNO_SUMA] = {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][SIGNO_RESTA]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][SIGNO_MULTIPLICACION]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][LITERALES]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][SIMBOLO_FIN_DE_ARCHIVO]={0, &AccionesSemanticas::notificarFinArchivoInesperado};  // ACÁ PASABA ALGO?
-    matrizAS[12][COLUMNA_DIGITO]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COLUMNA_F_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COLUMNA_L_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COMPARADOR_IGUAL]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COMPARADOR_MENOR]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COMPARADOR_MAYOR]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COLUMNA_DIGITO]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COLUMNA_F_MINUSCULA] = {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COLUMNA_L_MINUSCULA] = {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COMPARADOR_IGUAL]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][GUION_BAJO]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][SIMBOLO_PUNTO]={12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COLUMNA_MAYUSCULA]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COLUMNA_MINUSCULA]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][OTRO]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][SIMBOLO_PORCENTAJE]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][SIGNO_DIVISION]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COMPARADOR_MENOR]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COMPARADOR_MAYOR]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER CADENA
-    matrizAS[12][COMILLA]= {ESTADO_FINAL, &AccionesSemanticas::finCadena};
+    matrizAS[12][COMILLA]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
 //CAMINO 13
     //AGREGAR
     matrizAS[0][SIGNO_DIVISION]= {13, &AccionesSemanticas::agregarCaracter};

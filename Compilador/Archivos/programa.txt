@@ -1,4 +1,4 @@
-
+int s = "hola"
 int main() {
    (WELCOME);
    string ori == ;

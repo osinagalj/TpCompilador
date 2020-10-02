@@ -1,8 +1,6 @@
 #include "AccionesSemanticas.h"
 #include "yylex.h"
 
-//Cambiar todos los id poruqe los asigna el sintactico solo
-
 void AccionesSemanticas::inicializarToken(Yylex* lexico, char& c){
     lexico->cadena = c;
     lexico->aumentarCaracter();
@@ -17,9 +15,15 @@ void AccionesSemanticas::devolverIdentificador(Yylex* lexico, char& c){
     if(lexico->cadena.length() > longIdentificador){
         lexico->cadena =  lexico->cadena.substr (0,20);
         lexico->guardarToken(MINUSCULA, lexico->cadena);
+        TablaDeSimbolos::Registro registro;
+        registro.id = LONGINT;
+        lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,registro);
         //"Identificador supera la longitud maxima de 20 caracteres"
     }else{
         lexico->guardarToken(MINUSCULA, lexico->cadena);
+        TablaDeSimbolos::Registro registro;
+        registro.id = LONGINT;
+        lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,registro);
     }
 }
 void AccionesSemanticas::devolverReservada(Yylex* lexico, char& c){
@@ -28,6 +32,7 @@ void AccionesSemanticas::devolverReservada(Yylex* lexico, char& c){
 }
 void AccionesSemanticas::devolverConstante(Yylex* lexico, char& c){
     lexico->tokenEncontrado();
+    //lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,CTE);
     lexico->guardarToken(CTE, lexico->cadena);
 
 }
@@ -39,9 +44,16 @@ void AccionesSemanticas::devolverEnteroLargo(Yylex* lexico, char& c){
     long numero = stol(lexico->cadena);
     if(numero <= 2147483648 ){ // preguntar
         lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
+        //lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,LONGINT);
+        TablaDeSimbolos::Registro registro;
+        registro.id = LONGINT;
+        lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,registro);
     }else{
         lexico->cadena = to_string(2147483648); //siempre que sea positivo el numero, el sintactico lo chekea
         lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
+        TablaDeSimbolos::Registro registro;
+        registro.id = LONGINT;
+        lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,registro);
         //Se reemplazo el entero largo por el valor extremo
     }
 }
@@ -76,16 +88,17 @@ void AccionesSemanticas::devolverFloat(Yylex* lexico, char& c){
         }
     }
     lexico->guardarToken(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
+    //lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,FLOAT);
     lexico->tokenEncontrado();
 }
 
-
+/*
 void AccionesSemanticas::finCadena(Yylex* lexico, char& c){
     //HAY QUE AGREGAR EL " AL STRING PARA CUANDDO LO GUARDEMOS EN LA TABLA DE SIMBOLOS, SI NO LO GUARDAMOS HA YQUE ELIMINAR LAS COMILLAS QUE ABREN LA CADENA CAMBIANDO LA AS de la matriz.
     lexico->tokenEncontrado();
     lexico->guardarToken(30, lexico->cadena);
 }
-
+*/
 //Blancos,TAB, Salto de linea
 void AccionesSemanticas::descartarCaracter(Yylex *lexico, char &c) {
     lexico->aumentarCaracter();
@@ -140,13 +153,13 @@ void AccionesSemanticas::devolverComparadorSimple(Yylex* lexico, char& c){
             lexico->guardarToken(toascii('='), "");
             break;
         }
-
 }
 
 void AccionesSemanticas::devolverUnico(Yylex* lexico, char& c){
     lexico->aumentarCaracter();
     lexico->tokenEncontrado();
     lexico->cadena = lexico->cadena + c;
+
     switch(c)
     {
         case '/':
@@ -179,8 +192,12 @@ void AccionesSemanticas::devolverUnico(Yylex* lexico, char& c){
         case '.': //Multiplicacion
             lexico->guardarToken(toascii('.'), lexico->cadena);
             break;
+        case '"': //Multiplicacion
+            //cout<<"entro en comilla " ass  \" "<<endl;
+            lexico->guardarToken(CADENA, lexico->cadena);
+            break;
         case '$': //Multiplicacion
-            lexico->guardarToken(toascii('$'), lexico->cadena);
+            lexico->guardarToken(toascii('$'), lexico->cadena); //capaz es 0 el ID
             lexico->end = true;
             break;
 

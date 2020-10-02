@@ -196,33 +196,6 @@ Lexico/AccionesSemanticas.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.s
 .PHONY : Lexico/AccionesSemanticas.cpp.s
 
-Lexico/TablaDeSimbolos.obj: Lexico/TablaDeSimbolos.cpp.obj
-
-.PHONY : Lexico/TablaDeSimbolos.obj
-
-# target to build an object file
-Lexico/TablaDeSimbolos.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/TablaDeSimbolos.cpp.obj
-.PHONY : Lexico/TablaDeSimbolos.cpp.obj
-
-Lexico/TablaDeSimbolos.i: Lexico/TablaDeSimbolos.cpp.i
-
-.PHONY : Lexico/TablaDeSimbolos.i
-
-# target to preprocess a source file
-Lexico/TablaDeSimbolos.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/TablaDeSimbolos.cpp.i
-.PHONY : Lexico/TablaDeSimbolos.cpp.i
-
-Lexico/TablaDeSimbolos.s: Lexico/TablaDeSimbolos.cpp.s
-
-.PHONY : Lexico/TablaDeSimbolos.s
-
-# target to generate assembly for a file
-Lexico/TablaDeSimbolos.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/TablaDeSimbolos.cpp.s
-.PHONY : Lexico/TablaDeSimbolos.cpp.s
-
 Lexico/yylex.obj: Lexico/yylex.cpp.obj
 
 .PHONY : Lexico/yylex.obj
@@ -249,6 +222,33 @@ Lexico/yylex.s: Lexico/yylex.cpp.s
 Lexico/yylex.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/yylex.cpp.s
 .PHONY : Lexico/yylex.cpp.s
+
+TablaDeSimbolos.obj: TablaDeSimbolos.cpp.obj
+
+.PHONY : TablaDeSimbolos.obj
+
+# target to build an object file
+TablaDeSimbolos.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj
+.PHONY : TablaDeSimbolos.cpp.obj
+
+TablaDeSimbolos.i: TablaDeSimbolos.cpp.i
+
+.PHONY : TablaDeSimbolos.i
+
+# target to preprocess a source file
+TablaDeSimbolos.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.i
+.PHONY : TablaDeSimbolos.cpp.i
+
+TablaDeSimbolos.s: TablaDeSimbolos.cpp.s
+
+.PHONY : TablaDeSimbolos.s
+
+# target to generate assembly for a file
+TablaDeSimbolos.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.s
+.PHONY : TablaDeSimbolos.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -292,12 +292,12 @@ help:
 	@echo ... Lexico/AccionesSemanticas.obj
 	@echo ... Lexico/AccionesSemanticas.i
 	@echo ... Lexico/AccionesSemanticas.s
-	@echo ... Lexico/TablaDeSimbolos.obj
-	@echo ... Lexico/TablaDeSimbolos.i
-	@echo ... Lexico/TablaDeSimbolos.s
 	@echo ... Lexico/yylex.obj
 	@echo ... Lexico/yylex.i
 	@echo ... Lexico/yylex.s
+	@echo ... TablaDeSimbolos.obj
+	@echo ... TablaDeSimbolos.i
+	@echo ... TablaDeSimbolos.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

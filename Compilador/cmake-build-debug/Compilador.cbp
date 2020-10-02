@@ -92,16 +92,16 @@
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/TablaDeSimbolos.cpp">
-			<Option target="Compilador"/>
-		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/TablaDeSimbolos.h">
-			<Option target="Compilador"/>
-		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.cpp">
 			<Option target="Compilador"/>
 		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/yylex.h">
+			<Option target="Compilador"/>
+		</Unit>
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.cpp">
+			<Option target="Compilador"/>
+		</Unit>
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos.h">
 			<Option target="Compilador"/>
 		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/main.cpp">

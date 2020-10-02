@@ -3,4 +3,4 @@ project(Compilador)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Compilador Lexico/yylex.cpp Lexico/AccionesSemanticas.cpp Lexico/AccionesSemanticas.h main.cpp Lexico/TablaDeSimbolos.cpp Lexico/TablaDeSimbolos.h AccionesSintactico.cpp AccionesSintactico.h)
+add_executable(Compilador Lexico/yylex.cpp Lexico/AccionesSemanticas.cpp Lexico/AccionesSemanticas.h main.cpp TablaDeSimbolos.cpp TablaDeSimbolos.h AccionesSintactico.cpp AccionesSintactico.h)

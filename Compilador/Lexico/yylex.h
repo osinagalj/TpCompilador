@@ -6,6 +6,7 @@
 #include "AccionesSemanticas.h"
 #include <map>
 #include <string>
+#include "../TablaDeSimbolos.h"
 
 #define COLUMNA_MINUSCULA 0
 #define COLUMNA_MAYUSCULA 1
@@ -63,10 +64,12 @@ class Yylex{
              bool encontroToken = false;
              Token t;
              int estadoNuevo;
+             TablaDeSimbolos * tablaSimbolos;
     private:
             ifstream archivoOrigen;
 
             void cargarArchivo(string pathArchivo);
+
 
 
             int linea_actual = 1; // para informar errores
