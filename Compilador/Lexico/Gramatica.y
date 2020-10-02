@@ -1,72 +1,73 @@
-%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ERROR ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA SIMBOLO_DISTINTO PROC
+%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA SIMBOLO_DISTINTO PROC
 %start programa
 %%
 programa:
-          bloque_sentencia ';'
+          bloque_sentencia
 ;
 
 bloque_sentencia:
 	 sentencia
-	|bloque_sentencia sentencia ';'
+	|bloque_sentencia sentencia
 ;
+
 sentencia:
-	 declarativa ';'
-	|ejecutable ';'
-	|imprimir ';'
+	 declarativa
+	|ejecutable
+	|imprimir
 ;
 declarativa:
-	 tipo lista_de_variables ';'
+	 tipo lista_de_variables
 	|procedimiento ';'
-	|ERROR ';'
+
 ;
 lista_de_variables:
-	 lista_de_variables ',' ID ';'
+	ID ',' lista_de_variables
 	|ID ';'
 ;
 ejecutable:
 	 ID '=' expresion ';'
-	|invocacion_proc ';'
+	|invocacion_proc
 	|sentencia_while ';'
-	|sentencia_if ';'
-	|ERROR ';'
+	|sentencia_if
+
 ;
 invocacion_proc:
-	 ID '(' parametros ')'
-	|ERROR ';'
+	 ID '(' parametros ')' ';'
+
 ;
 parametros:
-	 parametros ',' ID ';'
-	|ID ';'
+	 parametros ',' ID
+	|ID
 ;
 procedimiento:
-	PROC ID lista_de_parametros bloque_sentencia ';' {AccionesSintactico::chequeo($3)}
-	|ERROR ';'
+	PROC ID '(' lista_de_parametros ')' bloque_sentencia {AccionesSintactico::chequeo($3)}
+
 ;
 lista_de_parametros:
-	 lista_de_parametros ',' tipo ID ';'
-	|tipo ID ';'
+	 lista_de_parametros ',' tipo ID
+	|tipo ID
 ;
 sentencia_if:
-	 IF '(' condicion ')' bloque_sentencia END_IF ';'
-	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF ';'
-	|ERROR ';'
+	 IF '(' condicion ')' bloque_sentencia END_IF
+	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF
+
 ;
 sentencia_while:
-	 WHILE '(' condicion ')' LOOP bloque_sentencia ';'
-	|ERROR ';'
+	 WHILE '(' condicion ')' LOOP bloque_sentencia
+
 ;
 condicion: //PREGUNTAR QUE ONDA CON LOS BOOLEANOS
 	|expresion IGUAL expresion
 	|expresion MENORIGUAL expresion
 	|expresion MAYORIGUAL expresion
 	|expresion SIMBOLO_DISTINTO expresion
-	|ERROR ';'
+
 ;
 expresion:
 	   expresion '+' termino
 	  |expresion '-' termino
 	  |termino
-	  |ERROR ';'
+
 ;
 termino:
 	 factor
