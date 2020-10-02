@@ -4,7 +4,7 @@ int funcion(arr){
 int main(string path){
     variable_1 = 103;
     variable_2 = 7.03f+3
-    variable_4 = "Esto e" ;
+    variable_4 = "Esto es una cadena" ;
 
     IF(variable_1 == variable_4){
         variable_1 = variable_2 + 3;
@@ -19,5 +19,6 @@ int main(string path){
     }
 
 }
-
+/%Comentraio comun%/
+/%Comentario con fin de archivo Inesperado
 $

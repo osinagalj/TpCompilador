@@ -1,6 +1,6 @@
 #include "Lexico/Lexico.h"
-#include "AccionesSintactico.h"
-#include "TablaDeSimbolos.h"
+#include "Sintactico/AccionesSintactico.h"
+#include "TablaDeSimbolos/TablaDeSimbolos.h"
 
 
 TablaDeSimbolos * tablaSimbolos;
@@ -8,7 +8,7 @@ TablaDeSimbolos * tablaSimbolos;
 
 int yylex();
 void yyerror(const char *s);
-#include "y.tab.c"
+#include "Sintactico/y.tab.c"
 
 Lexico analizadorLexico
 ;

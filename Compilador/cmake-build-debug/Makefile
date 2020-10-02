@@ -142,33 +142,6 @@ Compilador/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/build
 .PHONY : Compilador/fast
 
-AccionesSintactico.obj: AccionesSintactico.cpp.obj
-
-.PHONY : AccionesSintactico.obj
-
-# target to build an object file
-AccionesSintactico.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/AccionesSintactico.cpp.obj
-.PHONY : AccionesSintactico.cpp.obj
-
-AccionesSintactico.i: AccionesSintactico.cpp.i
-
-.PHONY : AccionesSintactico.i
-
-# target to preprocess a source file
-AccionesSintactico.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/AccionesSintactico.cpp.i
-.PHONY : AccionesSintactico.cpp.i
-
-AccionesSintactico.s: AccionesSintactico.cpp.s
-
-.PHONY : AccionesSintactico.s
-
-# target to generate assembly for a file
-AccionesSintactico.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/AccionesSintactico.cpp.s
-.PHONY : AccionesSintactico.cpp.s
-
 Lexico/AccionesSemanticas.obj: Lexico/AccionesSemanticas.cpp.obj
 
 .PHONY : Lexico/AccionesSemanticas.obj
@@ -223,32 +196,59 @@ Lexico/Lexico.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.s
 .PHONY : Lexico/Lexico.cpp.s
 
-TablaDeSimbolos.obj: TablaDeSimbolos.cpp.obj
+Sintactico/AccionesSintactico.obj: Sintactico/AccionesSintactico.cpp.obj
 
-.PHONY : TablaDeSimbolos.obj
+.PHONY : Sintactico/AccionesSintactico.obj
 
 # target to build an object file
-TablaDeSimbolos.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.obj
-.PHONY : TablaDeSimbolos.cpp.obj
+Sintactico/AccionesSintactico.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj
+.PHONY : Sintactico/AccionesSintactico.cpp.obj
 
-TablaDeSimbolos.i: TablaDeSimbolos.cpp.i
+Sintactico/AccionesSintactico.i: Sintactico/AccionesSintactico.cpp.i
 
-.PHONY : TablaDeSimbolos.i
+.PHONY : Sintactico/AccionesSintactico.i
 
 # target to preprocess a source file
-TablaDeSimbolos.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.i
-.PHONY : TablaDeSimbolos.cpp.i
+Sintactico/AccionesSintactico.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.i
+.PHONY : Sintactico/AccionesSintactico.cpp.i
 
-TablaDeSimbolos.s: TablaDeSimbolos.cpp.s
+Sintactico/AccionesSintactico.s: Sintactico/AccionesSintactico.cpp.s
 
-.PHONY : TablaDeSimbolos.s
+.PHONY : Sintactico/AccionesSintactico.s
 
 # target to generate assembly for a file
-TablaDeSimbolos.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos.cpp.s
-.PHONY : TablaDeSimbolos.cpp.s
+Sintactico/AccionesSintactico.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.s
+.PHONY : Sintactico/AccionesSintactico.cpp.s
+
+TablaDeSimbolos/TablaDeSimbolos.obj: TablaDeSimbolos/TablaDeSimbolos.cpp.obj
+
+.PHONY : TablaDeSimbolos/TablaDeSimbolos.obj
+
+# target to build an object file
+TablaDeSimbolos/TablaDeSimbolos.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.obj
+.PHONY : TablaDeSimbolos/TablaDeSimbolos.cpp.obj
+
+TablaDeSimbolos/TablaDeSimbolos.i: TablaDeSimbolos/TablaDeSimbolos.cpp.i
+
+.PHONY : TablaDeSimbolos/TablaDeSimbolos.i
+
+# target to preprocess a source file
+TablaDeSimbolos/TablaDeSimbolos.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.i
+.PHONY : TablaDeSimbolos/TablaDeSimbolos.cpp.i
+
+TablaDeSimbolos/TablaDeSimbolos.s: TablaDeSimbolos/TablaDeSimbolos.cpp.s
+
+.PHONY : TablaDeSimbolos/TablaDeSimbolos.s
+
+# target to generate assembly for a file
+TablaDeSimbolos/TablaDeSimbolos.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.s
+.PHONY : TablaDeSimbolos/TablaDeSimbolos.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -286,18 +286,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Compilador
-	@echo ... AccionesSintactico.obj
-	@echo ... AccionesSintactico.i
-	@echo ... AccionesSintactico.s
 	@echo ... Lexico/AccionesSemanticas.obj
 	@echo ... Lexico/AccionesSemanticas.i
 	@echo ... Lexico/AccionesSemanticas.s
 	@echo ... Lexico/Lexico.obj
 	@echo ... Lexico/Lexico.i
 	@echo ... Lexico/Lexico.s
-	@echo ... TablaDeSimbolos.obj
-	@echo ... TablaDeSimbolos.i
-	@echo ... TablaDeSimbolos.s
+	@echo ... Sintactico/AccionesSintactico.obj
+	@echo ... Sintactico/AccionesSintactico.i
+	@echo ... Sintactico/AccionesSintactico.s
+	@echo ... TablaDeSimbolos/TablaDeSimbolos.obj
+	@echo ... TablaDeSimbolos/TablaDeSimbolos.i
+	@echo ... TablaDeSimbolos/TablaDeSimbolos.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

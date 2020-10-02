@@ -6,27 +6,19 @@ using namespace std;
 Lexico::Lexico() {
 
     inicializarMatrizAS();
-
-    //palabrasReservadas.insert()
-    //El sintactico los tiene que definir solos
-    palabrasReservadas.insert(pair<string,int>("IF",1));
-    palabrasReservadas.insert(pair<string,int>("ELSE",2));
-    palabrasReservadas.insert(pair<string,int>("END_IF",3));
-    palabrasReservadas.insert(pair<string,int>("THEN",4));
-    palabrasReservadas.insert(pair<string,int>("OUT",5));
-    palabrasReservadas.insert(pair<string,int>("FUNC",6));
-    palabrasReservadas.insert(pair<string,int>("RETURN",7));
-    palabrasReservadas.insert(pair<string,int>("WHILE",8));
-    palabrasReservadas.insert(pair<string,int>("LOOP",9));
-    palabrasReservadas.insert(pair<string,int>("FLOAT",10));
+    palabrasReservadas.insert(pair<string,int>("IF",IF));
+    palabrasReservadas.insert(pair<string,int>("ELSE",ELSE));
+    palabrasReservadas.insert(pair<string,int>("END_IF",END_IF));
+    palabrasReservadas.insert(pair<string,int>("THEN",THEN));
+    palabrasReservadas.insert(pair<string,int>("OUT",OUT));
+    palabrasReservadas.insert(pair<string,int>("FUNC",FUNC));
+    palabrasReservadas.insert(pair<string,int>("RETURN",RETURN));
+    palabrasReservadas.insert(pair<string,int>("WHILE",WHILE));
+    palabrasReservadas.insert(pair<string,int>("LOOP",LOOP));
+    palabrasReservadas.insert(pair<string,int>("FLOAT",FLOAT));
 
 }
 
-void Lexico::agregarEnTabla(string key, TablaDeSimbolos::Registro r){
-
-        tablaSimbolos->agregarSimbolo(key, r);
-
-}
 
 void Lexico::cargarArchivo(string pathArchivo)
 {

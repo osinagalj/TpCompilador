@@ -2,7 +2,7 @@
 #define COMPILADOR_ACCIONESSEMANTICAS_H
 
 #include <iostream>
-#include "../TablaDeSimbolos.h"
+#include "../TablaDeSimbolos/TablaDeSimbolos.h"
 using namespace std;
 //#include "Lexico.h"// NO SE PUEDE
 class Lexico;

@@ -6,7 +6,7 @@
 #include "AccionesSemanticas.h"
 #include <map>
 #include <string>
-#include "../TablaDeSimbolos.h"
+#include "../TablaDeSimbolos/TablaDeSimbolos.h"
 
 #define COLUMNA_MINUSCULA 0
 #define COLUMNA_MAYUSCULA 1
@@ -35,7 +35,7 @@
 const int  nro_estados = 17;
 const int nro_simbolos = 21;
 
-#include "../y.tab.h"
+#include "../Sintactico/y.tab.h"
 //si no haces el yacc -d Gramatica.y no te genera el tab.h
 using namespace std;
 
@@ -57,7 +57,7 @@ class Lexico{
              string cadena;
              void guardarToken(int id,string punt);
              void tokenEncontrado();
-             void agregarEnTabla(string key, TablaDeSimbolos::Registro r);
+
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
              int getLinea();
              bool end = false;
