@@ -142,6 +142,33 @@ Compilador/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/build
 .PHONY : Compilador/fast
 
+AccionesSintactico.obj: AccionesSintactico.cpp.obj
+
+.PHONY : AccionesSintactico.obj
+
+# target to build an object file
+AccionesSintactico.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/AccionesSintactico.cpp.obj
+.PHONY : AccionesSintactico.cpp.obj
+
+AccionesSintactico.i: AccionesSintactico.cpp.i
+
+.PHONY : AccionesSintactico.i
+
+# target to preprocess a source file
+AccionesSintactico.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/AccionesSintactico.cpp.i
+.PHONY : AccionesSintactico.cpp.i
+
+AccionesSintactico.s: AccionesSintactico.cpp.s
+
+.PHONY : AccionesSintactico.s
+
+# target to generate assembly for a file
+AccionesSintactico.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/AccionesSintactico.cpp.s
+.PHONY : AccionesSintactico.cpp.s
+
 Lexico/AccionesSemanticas.obj: Lexico/AccionesSemanticas.cpp.obj
 
 .PHONY : Lexico/AccionesSemanticas.obj
@@ -259,6 +286,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Compilador
+	@echo ... AccionesSintactico.obj
+	@echo ... AccionesSintactico.i
+	@echo ... AccionesSintactico.s
 	@echo ... Lexico/AccionesSemanticas.obj
 	@echo ... Lexico/AccionesSemanticas.i
 	@echo ... Lexico/AccionesSemanticas.s

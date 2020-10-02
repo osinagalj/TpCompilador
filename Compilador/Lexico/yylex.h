@@ -7,11 +7,11 @@
 #include <map>
 #include <string>
 
-#define MINUSCULA 0
-#define MAYUSCULA 1
-#define L_MINUSCULA 2
-#define F_MINUSCULA 3
-#define DIGITO 4
+#define COLUMNA_MINUSCULA 0
+#define COLUMNA_MAYUSCULA 1
+#define COLUMNA_L_MINUSCULA 2
+#define COLUMNA_F_MINUSCULA 3
+#define COLUMNA_DIGITO 4
 #define SIMBOLO_PUNTO 5
 #define SIGNO_MULTIPLICACION 6
 #define SIGNO_RESTA 7
@@ -34,9 +34,8 @@
 const int  nro_estados = 17;
 const int nro_simbolos = 21;
 
-//#include "y.tab.c"
-
-
+#include "../y.tab.h"
+//si no haces el yacc -d Gramatica.y no te genera el tab.h
 using namespace std;
 
 
@@ -45,7 +44,7 @@ class Yylex{
             Yylex();
              struct Token{
              int id;
-             string lexema; //clave para el mapa
+             string punteroTS; //clave para el mapa
              };
 
              struct Registro{

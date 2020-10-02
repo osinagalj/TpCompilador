@@ -28,24 +28,22 @@ void AccionesSemanticas::devolverReservada(Yylex* lexico, char& c){
 }
 void AccionesSemanticas::devolverConstante(Yylex* lexico, char& c){
     lexico->tokenEncontrado();
-    lexico->guardarToken(DIGITO, lexico->cadena);
+    lexico->guardarToken(CTE, lexico->cadena);
 
 }
 void AccionesSemanticas::devolverEnteroLargo(Yylex* lexico, char& c){
     //.5    6.3f-3
     //Valor maximo de un entero largo 2147483647
-    //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
     lexico->cadena = lexico->cadena.substr (0,lexico->cadena.size()-2);
     long numero = stol(lexico->cadena);
     if(numero <= 2147483648 ){ // preguntar
-        lexico->guardarToken(5, lexico->cadena); //cambiar el 5
+        lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
     }else{
         lexico->cadena = to_string(2147483648); //siempre que sea positivo el numero, el sintactico lo chekea
-        lexico->guardarToken(5, lexico->cadena); //cambiar el 5
+        lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
         //Se reemplazo el entero largo por el valor extremo
     }
-
 }
 
 void AccionesSemanticas::devolverFloat(Yylex* lexico, char& c){
@@ -77,7 +75,7 @@ void AccionesSemanticas::devolverFloat(Yylex* lexico, char& c){
             i++;
         }
     }
-    lexico->guardarToken(20, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
+    lexico->guardarToken(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
     lexico->tokenEncontrado();
 }
 

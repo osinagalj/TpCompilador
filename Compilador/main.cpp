@@ -1,17 +1,35 @@
 #include "Lexico/yylex.h"
+#include "AccionesSintactico.h"
+
+
+int yylex();
+void yyerror(const char *s);
+#include "y.tab.c"
+
+Yylex analizadorLexico;
+string path = "Compilador\\Archivos\\programa.txt";
+
+void yyerror(const char *s){
+    cout << s << endl;
+}
+int yylex(){
+    Yylex::Token a = analizadorLexico.getToken(path); /* hola $ */
+    return a.id;
+}
+
 
 int main(){
 
 
-    string path = "Compilador\\Archivos\\programa.txt";
+
     //El sintactico lo llama muchas veces
-    Yylex analizadorLexico;
+
    while(!analizadorLexico.end){
 
         Yylex::Token a = analizadorLexico.getToken(path); /* hola $ */
 
         cout << "ID = " + to_string(a.id) + " ";
-        cout << a.lexema+ " ";
+        cout << a.punteroTS+ " ";
         cout << analizadorLexico.registro.warning;
         cout<<endl;
 
