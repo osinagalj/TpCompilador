@@ -25,7 +25,7 @@ CMakeFiles/Compilador.dir/main.cpp.obj
  C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
  C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.h
  C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/AccionesSintactico.h
- C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.c
+ C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.cpp
  C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.h
  C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
  C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/main.cpp

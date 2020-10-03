@@ -24,7 +24,7 @@ CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.obj: ../TablaDeSim
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/Lexico.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/AccionesSintactico.h
-CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/y.tab.c
+CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/y.tab.cpp
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/y.tab.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../TablaDeSimbolos/TablaDeSimbolos.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../main.cpp

@@ -193,7 +193,7 @@ void AccionesSemanticas::devolverUnico(Lexico* lexico, char& c){
             lexico->guardarEnTS(CADENA);
             break;
         case '$': //Multiplicacion
-            lexico->guardarToken(toascii('$'), lexico->cadena); //capaz es 0 el ID
+            lexico->guardarToken(0, lexico->cadena); //capaz es 0 el ID
             lexico->end = true;
             break;
 

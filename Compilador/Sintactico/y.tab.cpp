@@ -377,62 +377,174 @@ yyreduce:
     switch (yyn)
     {
 case 1:
-#line 5 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 5 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 2:
-#line 8 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 8 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 3:
-#line 9 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 9 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 4:
-#line 12 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 12 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 5:
-#line 13 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 13 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 6:
+#line 14 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 7:
+#line 17 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 8:
+#line 18 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 9:
-#line 22 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 22 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 10:
-#line 23 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 23 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 11:
-#line 26 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 26 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 12:
+#line 27 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 13:
+#line 28 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 14:
+#line 29 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 15:
-#line 32 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 32 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 16:
-#line 36 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 36 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 17:
-#line 37 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 37 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 18:
+#line 40 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 19:
+#line 43 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 20:
+#line 44 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 21:
-#line 47 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 47 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 22:
-#line 48 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 48 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 23:
+#line 52 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 25:
+#line 56 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 26:
+#line 57 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 27:
+#line 58 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 28:
+#line 59 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 29:
+#line 63 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 30:
+#line 64 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 31:
+#line 65 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 32:
+#line 69 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 33:
+#line 70 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 34:
+#line 71 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
 case 35:
-#line 74 "Gramatica.y"
-{AccionesSintactico::imprime();}
+#line 74 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
 break;
-#line 436 "y.tab.c"
+case 36:
+#line 75 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 37:
+#line 79 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 38:
+#line 80 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 39:
+#line 81 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 40:
+#line 82 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 41:
+#line 83 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 42:
+#line 84 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+case 43:
+#line 87 "gramatica.y"
+cout<<"HOLA MUNDO"<<endl;
+break;
+#line 548 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

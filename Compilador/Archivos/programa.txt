@@ -1,1 +1,2 @@
+variable = 3;
 IF(145 < 150) variable=3 END_IF

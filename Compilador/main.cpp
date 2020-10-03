@@ -8,7 +8,7 @@ TablaDeSimbolos * tablaSimbolos;
 
 int yylex();
 void yyerror(const char *s);
-#include "Sintactico/y.tab.c"
+#include "Sintactico/y.tab.cpp"
 
 Lexico analizadorLexico;
 string path = "Compilador\\Archivos\\programa.txt";
