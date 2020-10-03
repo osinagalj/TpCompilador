@@ -6,11 +6,23 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp
+AccionesSemanticas.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+Lexico.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.h
+
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
 iostream
 -
 ../TablaDeSimbolos/TablaDeSimbolos.h
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.cpp
+iostream
+-
+Lexico.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.h
 
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.h
 iostream
@@ -39,6 +51,10 @@ C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.cpp
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.h
 AccionesSintactico.h
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/AccionesSintactico.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.cpp
+TablaDeSimbolos.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
 
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
 iostream

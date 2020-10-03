@@ -283,6 +283,7 @@ yyloop:
     if ((yyn = yysindex[yystate]) && (yyn += yychar) >= 0 &&
             yyn <= YYTABLESIZE && yycheck[yyn] == yychar)
     {
+        cout<< "entro 1"<<endl;
 #if YYDEBUG
         if (yydebug)
             printf("yydebug: state %d, shifting to state %d (%s)\n",
@@ -292,6 +293,7 @@ yyloop:
         {
             goto yyoverflow;
         }
+        cout<< "entro 2"<<endl;
         *++yyssp = yystate = yytable[yyn];
         *++yyvsp = yylval;
         yychar = (-1);
@@ -301,6 +303,7 @@ yyloop:
     if ((yyn = yyrindex[yystate]) && (yyn += yychar) >= 0 &&
             yyn <= YYTABLESIZE && yycheck[yyn] == yychar)
     {
+        cout<< "entro reduce"<<endl;
         yyn = yytable[yyn];
         goto yyreduce;
     }
@@ -318,6 +321,7 @@ yyerrlab:
 yyinrecovery:
     if (yyerrflag < 3)
     {
+        cout<< "entro recovery"<<endl;
         yyerrflag = 3;
         for (;;)
         {

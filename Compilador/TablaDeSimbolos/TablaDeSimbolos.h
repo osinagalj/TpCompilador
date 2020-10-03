@@ -16,7 +16,6 @@ class TablaDeSimbolos {
             bool existeSimbolo(string key, Registro reg);
             Registro getID(string key, Registro reg);
             void imprimir();
-
             int serial = 0;
     private:
             map<string,Registro> tablaDeSimbolos ; // String es la clave, por ejemplo el identifcador hola
@@ -25,9 +24,6 @@ class TablaDeSimbolos {
            IDENTIFICADORES
            Constantes
            CADENAS
-
-
            */
 };
-
 #endif //COMPILADOR_TABLADESIMBOLOS_H
