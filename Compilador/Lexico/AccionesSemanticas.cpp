@@ -48,13 +48,15 @@ void AccionesSemanticas::devolverEnteroLargo(Lexico* lexico, char& c){
     }
     lexico->guardarEnTS(LONGINT);
 }
-
 void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c){
     string acumulado="";
     float numero=0;
     int desplazamiento = 0;
     int i = 0;
-    cout<<"FLOAT ACTUAL ANTERIOR = " + lexico->cadena<<endl;
+    if(lexico->cadena[0] == '.'){
+        string aux= "0" + lexico->cadena;
+        acumulado=aux;
+    }
     while (i < lexico->cadena.size()){
         if(lexico->cadena[i]=='f'){ //si hay desplazamiento
             if(lexico->cadena[i+1]=='+'){
@@ -76,15 +78,14 @@ void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c){
             }
         }else {
             acumulado = acumulado + lexico->cadena[i];
+            numero = stof(acumulado);
             i++;
         }
     }
-    cout<<"FLOAT ACTUAL = " + to_string(numero)<<endl;
     lexico->guardarToken(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
     lexico->guardarEnTS(FLOAT);
     lexico->tokenEncontrado();
 }
-
 /*
 void AccionesSemanticas::finCadena(Lexico* lexico, char& c){
     //HAY QUE AGREGAR EL " AL STRING PARA CUANDDO LO GUARDEMOS EN LA TABLA DE SIMBOLOS, SI NO LO GUARDAMOS HA YQUE ELIMINAR LAS COMILLAS QUE ABREN LA CADENA CAMBIANDO LA AS de la matriz.

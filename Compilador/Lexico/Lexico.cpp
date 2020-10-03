@@ -293,7 +293,7 @@ void Lexico::inicializarMatrizAS(){
     matrizAS[6][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[6][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[6][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+
     matrizAS[6][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[6][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[6][COMPARADOR_MAYOR]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
@@ -346,7 +346,6 @@ void Lexico::inicializarMatrizAS(){
     matrizAS[8][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][COMPARADOR_MAYOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
@@ -372,7 +371,6 @@ void Lexico::inicializarMatrizAS(){
     matrizAS[9][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][COMPARADOR_MENOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
@@ -386,26 +384,26 @@ void Lexico::inicializarMatrizAS(){
     //DEVOLVER IGUAL
     matrizAS[10][COMPARADOR_IGUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
     //DEVOLVER ASIGNACION
-    matrizAS[10][COLUMNA_DIGITO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][SIGNO_SUMA] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][COLUMNA_F_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][COLUMNA_L_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][COMPARADOR_MENOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][COMPARADOR_MAYOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][COMILLA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
-    matrizAS[10][SIMBOLO_FIN_DE_ARCHIVO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
+    matrizAS[10][COLUMNA_DIGITO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][SIGNO_SUMA] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMNA_F_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMNA_L_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COMPARADOR_MENOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COMPARADOR_MAYOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COMILLA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][SIMBOLO_FIN_DE_ARCHIVO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
 //CAMINO 11
     //AGREGAR
     matrizAS[0][SIMBOLO_DISTINTO]= {11, &AccionesSemanticas::agregarCaracter};

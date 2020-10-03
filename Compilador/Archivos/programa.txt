@@ -4,8 +4,10 @@ int funcion(arr){
 int main(string path){
     variable_1 = 103;
     variable_2 = 7.03f+3
-    variable_3 = 1. , .6   , -1.2  , 3.f-5   ,   2.f+34   ,      2.5f-1   ,   15.   ,   0.
+    variable_3 = 1. , .6   , -1.2  , 3.f-5   ,   2.f+3   ,      2.5f-1   ,   15.
     variable_4 = "Esto es una cadena" ;
+
+    variable=1
 
     IF(variable_1 == variable_4){
         variable_1 = variable_2 + 3;
