@@ -10,8 +10,7 @@ int yylex();
 void yyerror(const char *s);
 #include "Sintactico/y.tab.c"
 
-Lexico analizadorLexico
-;
+Lexico analizadorLexico;
 string path = "Compilador\\Archivos\\programa.txt";
 
 void yyerror(const char *s){

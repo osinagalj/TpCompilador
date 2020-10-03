@@ -118,16 +118,16 @@ void AccionesSemanticas::devolverComparadorCompuesto(Lexico* lexico, char& c){
     lexico->cadena = lexico->cadena + c;
     switch(lexico->cadena[0]){  //El primer caracter es siempre un = en un comparador compuesto
         case '<':
-            lexico->guardarToken(21, lexico->cadena); //MAYORIGUAL
+            lexico->guardarToken(MAYORIGUAL, lexico->cadena); //MAYORIGUAL
             break;
         case '>':
-            lexico->guardarToken(22, lexico->cadena); //MENORIGUAL
+            lexico->guardarToken(MENORIGUAL, lexico->cadena); //MENORIGUAL
             break;
         case '=':
-            lexico->guardarToken(23, lexico->cadena); //IGUAL
+            lexico->guardarToken(IGUAL, lexico->cadena); //IGUAL
             break;
         case '!':
-            lexico->guardarToken(24, lexico->cadena); //DISTINTO
+            lexico->guardarToken(DISTINTO, lexico->cadena); //DISTINTO
             break;
         }
 }

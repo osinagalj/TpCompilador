@@ -8,8 +8,9 @@ class AccionesSintactico {
 private:
     //static bool hereda(TablaSimbolos* tabla, string claseHijo, string clasePadre);
    // static void inicializarVariablesDeObjeto(TablaSimbolos* tabla, string objeto, string clase);
+    
 public:
-    static void imprime(string x);
+    static void imprime();
     //static map<string, vector<string>> variablesDeClase;
    /* static vector<string> *punteros;
     static void inicializar(vector<string>* p);

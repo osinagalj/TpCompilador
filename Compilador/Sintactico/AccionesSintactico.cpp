@@ -3,7 +3,6 @@
 //
 #include "AccionesSintactico.h"
 
-void AccionesSintactico::imprime(string x){
-
-    cout<<x<<endl;
+void AccionesSintactico::imprime(){
+    cout<<"HOLA MUNDO"<<endl;
 }

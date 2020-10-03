@@ -376,31 +376,63 @@ yyreduce:
     yyval = yyvsp[1-yym];
     switch (yyn)
     {
+case 1:
+#line 5 "Gramatica.y"
+{AccionesSintactico::imprime();}
+break;
+case 2:
+#line 8 "Gramatica.y"
+{AccionesSintactico::imprime();}
+break;
+case 3:
+#line 9 "Gramatica.y"
+{AccionesSintactico::imprime();}
+break;
+case 4:
+#line 12 "Gramatica.y"
+{AccionesSintactico::imprime();}
+break;
+case 5:
+#line 13 "Gramatica.y"
+{AccionesSintactico::imprime();}
+break;
 case 9:
-#line 21 "Gramatica.y"
-{AccionesSintactico::imprime("lista variables");}
+#line 22 "Gramatica.y"
+{AccionesSintactico::imprime();}
 break;
 case 10:
-#line 22 "Gramatica.y"
-{AccionesSintactico::imprime("identificador");}
+#line 23 "Gramatica.y"
+{AccionesSintactico::imprime();}
 break;
 case 11:
-#line 25 "Gramatica.y"
-{AccionesSintactico::imprime("ejecutable");}
+#line 26 "Gramatica.y"
+{AccionesSintactico::imprime();}
+break;
+case 15:
+#line 32 "Gramatica.y"
+{AccionesSintactico::imprime();}
+break;
+case 16:
+#line 36 "Gramatica.y"
+{AccionesSintactico::imprime();}
+break;
+case 17:
+#line 37 "Gramatica.y"
+{AccionesSintactico::imprime();}
 break;
 case 21:
 #line 47 "Gramatica.y"
-{AccionesSintactico::imprime("IF");}
+{AccionesSintactico::imprime();}
 break;
 case 22:
 #line 48 "Gramatica.y"
-{AccionesSintactico::imprime("ELSE IF");}
+{AccionesSintactico::imprime();}
 break;
 case 35:
 #line 74 "Gramatica.y"
-{AccionesSintactico::imprime("factor");}
+{AccionesSintactico::imprime();}
 break;
-#line 404 "y.tab.c"
+#line 436 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

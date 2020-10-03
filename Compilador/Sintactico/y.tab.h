@@ -1,3 +1,4 @@
+#include "AccionesSintactico.h"
 #define ID 257
 #define CTE 258
 #define IF 259

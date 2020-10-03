@@ -1,15 +1,16 @@
 %token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA  PROC
+%start programa
 %%
 programa:
-          bloque_sentencia 
+          bloque_sentencia  {AccionesSintactico::imprime();}
 ;
 bloque_sentencia:
-	 sentencia
-	|bloque_sentencia sentencia
+	 sentencia {AccionesSintactico::imprime();}
+	|bloque_sentencia sentencia {AccionesSintactico::imprime();}
 ;
 sentencia:
-	 declarativa
-	|ejecutable
+	 declarativa {AccionesSintactico::imprime();}
+	|ejecutable {AccionesSintactico::imprime();}
 	|imprimir
 ;
 declarativa:
@@ -18,23 +19,22 @@ declarativa:
 
 ;
 lista_de_variables:
-	ID ',' lista_de_variables {AccionesSintactico::imprime("lista variables");}
-	|ID ';' {AccionesSintactico::imprime("identificador");}
+	ID ',' lista_de_variables {AccionesSintactico::imprime();}
+	|ID ';' {AccionesSintactico::imprime();}
 ;
 ejecutable:
-	 ID '=' expresion ';' {AccionesSintactico::imprime("ejecutable");}
+	 ID '=' expresion ';'{AccionesSintactico::imprime();}
 	|invocacion_proc
 	|sentencia_while ';'
 	|sentencia_if
-
 ;
 invocacion_proc:
-	 ID '(' parametros ')' ';'
+	 ID '(' parametros ')' ';' {AccionesSintactico::imprime();}
 
 ;
 parametros:
-	 parametros ',' ID
-	|ID
+	 parametros ',' ID {AccionesSintactico::imprime();}
+	|ID {AccionesSintactico::imprime();}
 ;
 procedimiento:
 	PROC ID '(' lista_de_parametros ')' bloque_sentencia
@@ -44,8 +44,8 @@ lista_de_parametros:
 	|tipo ID
 ;
 sentencia_if:
-	 IF '(' condicion ')' bloque_sentencia END_IF {AccionesSintactico::imprime("IF");}
-	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {AccionesSintactico::imprime("ELSE IF");}
+	 IF '(' condicion ')' bloque_sentencia END_IF {AccionesSintactico::imprime();}
+	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {AccionesSintactico::imprime();}
 
 ;
 sentencia_while:
@@ -71,7 +71,7 @@ termino:
 	|termino '*' factor
 ;
 factor:
-	 ID {AccionesSintactico::imprime("factor");}
+	 ID {AccionesSintactico::imprime();}
 	|CTE
 ;
 
