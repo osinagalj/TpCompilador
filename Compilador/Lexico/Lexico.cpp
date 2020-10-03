@@ -56,13 +56,13 @@ Lexico::Token Lexico::getToken(string pathArchivo){
    this->cadena="";
    estadoActual=0;
         cargarArchivo(pathArchivo);
-    cout<< "ENTRO 4"<<endl;
+    //cout<< "ENTRO 4"<<endl;
         while (!archivoOrigen.eof()) {
             getline(archivoOrigen,linea);
             while(caracteresAvanzados < linea.size() && !encontroToken && !end){
                 char caracterActual=linea[caracteresAvanzados];
                 string xd(1, caracterActual);
-                cout<< "caracter = " + xd<<endl;
+                //cout<< "caracter = " + xd<<endl;
                 estadoNuevo=identificarCaracter(caracterActual);
                // cout<<" estado nuevo: " + to_string(estadoNuevo)  <<endl;
                 matrizAS[estadoActual][estadoNuevo].Accion(this,caracterActual); //ejecutar acción semántica

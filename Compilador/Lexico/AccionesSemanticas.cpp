@@ -69,7 +69,7 @@ void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c){
                 i = lexico->cadena.size();
             }else{
                 desplazamiento=stoi(lexico->cadena.substr(i+2,lexico->cadena.size()));
-                cout<<desplazamiento<<endl;
+                //cout<<desplazamiento<<endl;
                 numero=stof(acumulado);
                 for(int i=0; i< desplazamiento; i++){
                     numero= numero / 10;

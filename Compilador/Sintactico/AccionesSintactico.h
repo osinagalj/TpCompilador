@@ -2,16 +2,14 @@
 #ifndef COMPILADOR_ACCIONESSINTACTICO_H
 #define COMPILADOR_ACCIONESSINTACTICO_H
 #include <map>
-
+#include <iostream>
 using namespace std;
 class AccionesSintactico {
 private:
     //static bool hereda(TablaSimbolos* tabla, string claseHijo, string clasePadre);
    // static void inicializarVariablesDeObjeto(TablaSimbolos* tabla, string objeto, string clase);
 public:
-    static void notNull(string x);
-    static void chequeo(string x);
-
+    static void imprime(string x);
     //static map<string, vector<string>> variablesDeClase;
    /* static vector<string> *punteros;
     static void inicializar(vector<string>* p);

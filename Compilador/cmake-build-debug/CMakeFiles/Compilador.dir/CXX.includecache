@@ -6,39 +6,51 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
 iostream
 -
 ../TablaDeSimbolos/TablaDeSimbolos.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.cpp
-iostream
--
-Lexico.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h
-
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.h
 iostream
 -
 fstream
 -
 AccionesSemanticas.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
 map
 -
 string
 -
 ../TablaDeSimbolos/TablaDeSimbolos.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
 ../Sintactico/y.tab.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.h
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/AccionesSintactico.h
+map
+-
+iostream
+-
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.c
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
 iostream
 -
 map
 -
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/main.cpp
+Lexico/Lexico.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.h
+Sintactico/AccionesSintactico.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/AccionesSintactico.h
+TablaDeSimbolos/TablaDeSimbolos.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.h
+Sintactico/y.tab.c
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.c
 

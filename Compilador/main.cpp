@@ -19,6 +19,7 @@ void yyerror(const char *s){
 }
 int yylex(){
     Lexico::Token a = analizadorLexico.getToken(path); /* hola $ */
+    cout << "token " + a.punteroTS + " " +to_string(a.id)<<endl;
     return a.id;
 }
 
@@ -28,12 +29,11 @@ int main(){
     //El sintactico lo llama muchas veces
     TablaDeSimbolos tabla;
     tablaSimbolos = &tabla;
-//, .6   , -1.2  , 3.f-5   ,   2.f+34   ,      2.5f-1   ,   15.   ,   0.
     analizadorLexico.tablaSimbolos = &tabla;
-
+ /*
    while(!analizadorLexico.end){
 
-        Lexico::Token a = analizadorLexico.getToken(path); /* hola $ */
+        Lexico::Token a = analizadorLexico.getToken(path);
 
         cout << "ID = " + to_string(a.id) + " ";
         cout << a.punteroTS + " ";
@@ -41,6 +41,7 @@ int main(){
 
     }
     tablaSimbolos->imprimir();
-
+   */
+    yyparse();
     return 0;
 }

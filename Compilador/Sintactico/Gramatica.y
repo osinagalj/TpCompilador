@@ -1,15 +1,12 @@
 %token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA  PROC
-%start programa
 %%
 programa:
-          bloque_sentencia
+          bloque_sentencia 
 ;
-
 bloque_sentencia:
 	 sentencia
 	|bloque_sentencia sentencia
 ;
-
 sentencia:
 	 declarativa
 	|ejecutable
@@ -21,11 +18,11 @@ declarativa:
 
 ;
 lista_de_variables:
-	ID ',' lista_de_variables
-	|ID ';'
+	ID ',' lista_de_variables {AccionesSintactico::imprime("lista variables");}
+	|ID ';' {AccionesSintactico::imprime("identificador");}
 ;
 ejecutable:
-	 ID '=' expresion ';'
+	 ID '=' expresion ';' {AccionesSintactico::imprime("ejecutable");}
 	|invocacion_proc
 	|sentencia_while ';'
 	|sentencia_if
@@ -40,23 +37,22 @@ parametros:
 	|ID
 ;
 procedimiento:
-	PROC ID '(' lista_de_parametros ')' bloque_sentencia {AccionesSintactico::chequeo($3)}
-
+	PROC ID '(' lista_de_parametros ')' bloque_sentencia
 ;
 lista_de_parametros:
 	 lista_de_parametros ',' tipo ID
 	|tipo ID
 ;
 sentencia_if:
-	 IF '(' condicion ')' bloque_sentencia END_IF
-	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF
+	 IF '(' condicion ')' bloque_sentencia END_IF {AccionesSintactico::imprime("IF");}
+	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {AccionesSintactico::imprime("ELSE IF");}
 
 ;
 sentencia_while:
 	 WHILE '(' condicion ')' LOOP bloque_sentencia
 
 ;
-condicion: //PREGUNTAR QUE ONDA CON LOS BOOLEANOS
+condicion:
 	|expresion IGUAL expresion
 	|expresion MENORIGUAL expresion
 	|expresion MAYORIGUAL expresion
@@ -71,11 +67,11 @@ expresion:
 ;
 termino:
 	 factor
-	|termino '/' factor {AccionesSintactico::notNull($3)}
+	|termino '/' factor
 	|termino '*' factor
 ;
 factor:
-	 ID
+	 ID {AccionesSintactico::imprime("factor");}
 	|CTE
 ;
 

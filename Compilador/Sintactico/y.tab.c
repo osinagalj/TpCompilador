@@ -376,17 +376,31 @@ yyreduce:
     yyval = yyvsp[1-yym];
     switch (yyn)
     {
-case 18:
-#line 43 "Gramatica.y"
-
+case 9:
+#line 21 "Gramatica.y"
+{AccionesSintactico::imprime("lista variables");}
 break;
-case 33:
+case 10:
+#line 22 "Gramatica.y"
+{AccionesSintactico::imprime("identificador");}
+break;
+case 11:
+#line 25 "Gramatica.y"
+{AccionesSintactico::imprime("ejecutable");}
+break;
+case 21:
+#line 47 "Gramatica.y"
+{AccionesSintactico::imprime("IF");}
+break;
+case 22:
+#line 48 "Gramatica.y"
+{AccionesSintactico::imprime("ELSE IF");}
+break;
+case 35:
 #line 74 "Gramatica.y"
-
-
-
+{AccionesSintactico::imprime("factor");}
 break;
-#line 388 "y.tab.c"
+#line 404 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;
