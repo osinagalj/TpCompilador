@@ -28,7 +28,7 @@ int main(){
     //El sintactico lo llama muchas veces
     TablaDeSimbolos tabla;
     tablaSimbolos = &tabla;
-
+//, .6   , -1.2  , 3.f-5   ,   2.f+34   ,      2.5f-1   ,   15.   ,   0.
     analizadorLexico.tablaSimbolos = &tabla;
 
    while(!analizadorLexico.end){
@@ -37,7 +37,6 @@ int main(){
 
         cout << "ID = " + to_string(a.id) + " ";
         cout << a.punteroTS + " ";
-        cout << analizadorLexico.registro.warning;
         cout<<endl;
 
     }

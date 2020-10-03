@@ -43,7 +43,6 @@ void Lexico::tokenEncontrado(){
 void Lexico::guardarToken(int id, string punteroTS){
     this->t.id=id;
     this->t.punteroTS=punteroTS;
-    //this->t.warning=warning;
 }
 
 void Lexico::aumentarCaracter() {
@@ -82,7 +81,7 @@ Lexico::Token Lexico::getToken(string pathArchivo){
 void Lexico::guardarEnTS(int id){
     TablaDeSimbolos::Registro registro;
     registro.id = id;
-    tablaSimbolos->agregarSimbolo(cadena,registro);
+    tablaSimbolos->agregarSimbolo(t.punteroTS,registro);
 }
 
 int Lexico::identificarCaracter(char carac){
@@ -254,30 +253,31 @@ void Lexico::inicializarMatrizAS(){
     matrizAS[4][BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[4][SIMBOLO_FIN_DE_ARCHIVO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[4][SIGNO_SUMA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+
 //CAMINO 5
     //AGREGAR
     matrizAS[5][COLUMNA_DIGITO]= {5, &AccionesSemanticas::agregarCaracter};
     matrizAS[5][COLUMNA_F_MINUSCULA] = {6, &AccionesSemanticas::agregarCaracter};
     //INFORMAR ERROR
-    matrizAS[5][COLUMNA_L_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][COMPARADOR_MAYOR]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][COMPARADOR_IGUAL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][COMPARADOR_MENOR]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][COMILLA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][SIMBOLO_FIN_DE_ARCHIVO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[5][SIGNO_SUMA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[5][COLUMNA_L_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COMPARADOR_MAYOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COMPARADOR_IGUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COMPARADOR_MENOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COMILLA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][SIMBOLO_FIN_DE_ARCHIVO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][SIGNO_SUMA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
 //CAMINO 6
     //AGREGAR
     matrizAS[6][SIGNO_RESTA]= {7, &AccionesSemanticas::agregarCaracter};
@@ -544,5 +544,7 @@ void Lexico::inicializarMatrizAS(){
 
     matrizAS[0][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
 
+
+    matrizAS[0][SIMBOLO_PUNTO]= {5, &AccionesSemanticas::agregarCaracter};
 
 }

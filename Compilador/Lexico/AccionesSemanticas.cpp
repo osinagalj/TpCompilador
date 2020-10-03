@@ -28,7 +28,6 @@ void AccionesSemanticas::devolverReservada(Lexico* lexico, char& c){
 }
 void AccionesSemanticas::devolverConstante(Lexico* lexico, char& c){
     lexico->tokenEncontrado();
-    //lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,CTE);
     lexico->guardarToken(CTE, lexico->cadena);
     lexico->guardarEnTS(CTE);
 
@@ -41,18 +40,13 @@ void AccionesSemanticas::devolverEnteroLargo(Lexico* lexico, char& c){
     long numero = stol(lexico->cadena);
     if(numero <= 2147483648 ){ // preguntar
         lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
-        //lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,LONGINT);
-        //TablaDeSimbolos::Registro registro;
-        //registro.id = LONGINT;
-       // lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,registro);
+
     }else{
         lexico->cadena = to_string(2147483648); //siempre que sea positivo el numero, el sintactico lo chekea
         lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
-        // TablaDeSimbolos::Registro registro;
-        //registro.id = LONGINT;
-        //lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,registro);
-        //Se reemplazo el entero largo por el valor extremo
+
     }
+    lexico->guardarEnTS(LONGINT);
 }
 
 void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c){
@@ -60,6 +54,7 @@ void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c){
     float numero=0;
     int desplazamiento = 0;
     int i = 0;
+    cout<<"FLOAT ACTUAL ANTERIOR = " + lexico->cadena<<endl;
     while (i < lexico->cadena.size()){
         if(lexico->cadena[i]=='f'){ //si hay desplazamiento
             if(lexico->cadena[i+1]=='+'){
@@ -84,8 +79,9 @@ void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c){
             i++;
         }
     }
+    cout<<"FLOAT ACTUAL = " + to_string(numero)<<endl;
     lexico->guardarToken(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
-    //lexico->tablaSimbolos->agregarSimbolo(lexico->cadena,FLOAT);
+    lexico->guardarEnTS(FLOAT);
     lexico->tokenEncontrado();
 }
 
@@ -205,114 +201,3 @@ void AccionesSemanticas::devolverUnico(Lexico* lexico, char& c){
 }
 
 
-
-
-
-
-
-
-
-/*******************************************************************************************************************/
-
-/*
-void AccionesSemanticas::devolverAsignacion(Lexico* lexico, char& c){
-    lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(24, lexico->cadena);
-}
-void AccionesSemanticas::devolverDistinto(Lexico *lexico, char &c) {
-    lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(31, lexico->cadena);
-}
-void AccionesSemanticas::devolverIgual(Lexico* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(25, lexico->cadena);
-}
-*/
-/*
-void AccionesSemanticas::devolverMayor(Lexico* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(26, lexico->cadena);
-}
-*/
-/*
-void AccionesSemanticas::devolverMayorIgual(Lexico* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(27, lexico->cadena);
-}
-*/
-/*
-void AccionesSemanticas::devolverMenor(Lexico* lexico, char& c){
-    //lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(28, lexico->cadena);
-}
- */
-/*
-void AccionesSemanticas::devolverMenorIgual(Lexico* lexico, char& c){
-    lexico->aumentarCaracter();
-    lexico->cadena = lexico->cadena + c;
-
-    lexico->guardarToken(29, lexico->cadena);
-    lexico->tokenEncontrado();
-}
-
-*/
-
-
-
-
-
-
-
-/*
-void AccionesSemanticas::devolverSuma(Lexico *lexico, char & c) {
-    lexico->cadena = lexico->cadena + c;
-    lexico->aumentarCaracter();
-
-    lexico->tokenEncontrado();
-
-    lexico->guardarToken(32, lexico->cadena);
-}
-void AccionesSemanticas::devolverResta(Lexico *lexico, char &c) {
-    lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(33, lexico->cadena);
-}
-void AccionesSemanticas::devolverDivision(Lexico *lexico, char &c) {
-    lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(34, to_string(c));
-}
-
-//MULTIPLICACION
-void AccionesSemanticas::devolverOperador(Lexico* lexico, char& c){
-    lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->guardarToken(22, lexico->cadena);
-}
-*/
-/*
-void AccionesSemanticas::devolverLiteral(Lexico* lexico, char& c){
-    // "(",")","]",";",".",
-    lexico->aumentarCaracter();
-    lexico->tokenEncontrado();
-    lexico->cadena = lexico->cadena + c;
-    cout<<"entro en literales xd"<<endl;
-    lexico->guardarToken(23, lexico->cadena);
-}*/
-
-
-/*
-void AccionesSemanticas::entregarFinArchivo(Lexico *lexico, char &c){ //podriamos meterlo en devolverUNIQUE
-    lexico->cadena = lexico->cadena + c; //devolvemos el $
-    lexico->tokenEncontrado();
-    lexico->aumentarCaracter();
-    lexico->guardarToken(90, lexico->cadena);
-    lexico->end = true;
-}
- */

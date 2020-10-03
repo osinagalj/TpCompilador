@@ -44,8 +44,8 @@ class Lexico{
     public:
             Lexico();
              struct Token{
-             int id;
-             string punteroTS; //clave para el mapa
+                int id;
+                 string punteroTS; //clave para el mapa
              };
 
              struct Registro{
