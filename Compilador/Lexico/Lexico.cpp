@@ -16,21 +16,17 @@ Lexico::Lexico() {
     palabrasReservadas.insert(pair<string,int>("WHILE",WHILE));
     palabrasReservadas.insert(pair<string,int>("LOOP",LOOP));
     palabrasReservadas.insert(pair<string,int>("FLOAT",FLOAT));
-
-    //INTEGER? ULONG?
-
+    palabrasReservadas.insert(pair<string,int>("LONGINT",LONGINT));
+    //INTEGER = CTE;
 }
 
 int Lexico::getIdPalabraReservada(){
-    /*
-    auto search = .find(key);
-    if (search == tablaSimbolos.end()) {
-        //Si no existe 'key' en la tabla de símbolos:
-        tablaSimbolos.insert({key, registro});
+    //Palabra reservada
+    auto search = palabrasReservadas.find(cadena);
+    if (search != palabrasReservadas.end()) {
+        return search->second;
     }
-    palabrasReservadas.find(cadena);
-*/
-    return 0;
+    return ERROR;
 }
 void Lexico::cargarArchivo(string pathArchivo)
 {
@@ -74,11 +70,13 @@ Lexico::Token Lexico::getToken(string pathArchivo){
             while(caracteresAvanzados < linea.size() && !encontroToken && !end){
                 char caracterActual=linea[caracteresAvanzados];
                 string xd(1, caracterActual);
-                //cout<< "caracter = " + xd<<endl;
-                estadoNuevo=identificarCaracter(caracterActual);
-               // cout<<" estado nuevo: " + to_string(estadoNuevo)  <<endl;
+                //cout<< "caracter: " + xd<<endl;
+                estadoNuevo = identificarCaracter(caracterActual);
+               // cout<<" coolumna nuevo: " + to_string(estadoNuevo)  <<endl;
+               // cout<<" estado actual: " + to_string(estadoActual) <<endl;
                 matrizAS[estadoActual][estadoNuevo].Accion(this,caracterActual); //ejecutar acción semántica
                 estadoActual=matrizAS[estadoActual][estadoNuevo].estado; //actualizo el nuevo estado
+                //cout<<" estado nuevo: " + to_string(estadoActual) <<endl;
             }
             if ((caracteresAvanzados < linea.size()) && encontroToken){ // encontré toke
                 archivoOrigen.close(); //cerramos archivo
@@ -161,11 +159,24 @@ int Lexico::identificarCaracter(char carac){
 }
 
 void Lexico::inicializarMatrizAS(){
-//CAMINO 1
+//CAMINO 0
     //INICIALIZAR
+    //CAMINOS DIRECTOS
+    //DEVOLVER OPERADOR
+    matrizAS[0][BL_TAB_NL]= {0, &AccionesSemanticas::descartarCaracter};
+
+    matrizAS[0][SIGNO_SUMA] = {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][SIMBOLO_FIN_DE_ARCHIVO]={ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][SIMBOLO_PUNTO]= {5, &AccionesSemanticas::inicializarToken};
     matrizAS[0][COLUMNA_MINUSCULA] = {1, &AccionesSemanticas::inicializarToken};
     matrizAS[0][COLUMNA_F_MINUSCULA]= {1, &AccionesSemanticas::inicializarToken};
     matrizAS[0][COLUMNA_L_MINUSCULA]= {1, &AccionesSemanticas::inicializarToken};
+
+
+//Camino 1
     //AGREGAR
     matrizAS[1][COLUMNA_MINUSCULA] = {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[1][GUION_BAJO]= {1, &AccionesSemanticas::agregarCaracter};
@@ -542,19 +553,6 @@ void Lexico::inicializarMatrizAS(){
     matrizAS[15][SIGNO_DIVISION]= {0, &AccionesSemanticas::descartarCaracter};
     //FIN DE ARCHIVO EN MEDIO DEL COMENTARIO
     matrizAS[15][SIMBOLO_FIN_DE_ARCHIVO]={0, &AccionesSemanticas::notificarFinArchivoInesperado};
-//CAMINOS DIRECTOS
-    //DEVOLVER OPERADOR
-    matrizAS[0][SIGNO_SUMA] = {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[0][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[0][SIGNO_MULTIPLICACION]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    //DEVOLVER LITERAL
 
-    matrizAS[0][SIMBOLO_FIN_DE_ARCHIVO]={ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[0][BL_TAB_NL]= {0, &AccionesSemanticas::descartarCaracter};
-
-    matrizAS[0][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-
-
-    matrizAS[0][SIMBOLO_PUNTO]= {5, &AccionesSemanticas::agregarCaracter};
 
 }

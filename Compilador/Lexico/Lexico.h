@@ -8,6 +8,7 @@
 #include <string>
 #include "../TablaDeSimbolos/TablaDeSimbolos.h"
 
+#define Estado0 0
 #define COLUMNA_MINUSCULA 0
 #define COLUMNA_MAYUSCULA 1
 #define COLUMNA_L_MINUSCULA 2

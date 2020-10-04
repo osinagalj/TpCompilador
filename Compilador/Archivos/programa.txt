@@ -1,5 +1,4 @@
-/%Programa de prueba%/
-
-id_3 , id_3, id_5, id_6;
-id_9;
+FLOAT variable_1 , variable2 ;
+id_3 = id_2;
+2 + 3;
 $

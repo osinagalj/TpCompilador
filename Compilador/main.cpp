@@ -31,7 +31,13 @@ int main(){
     TablaDeSimbolos tabla;
     tablaSimbolos = &tabla;
     analizadorLexico.tablaSimbolos = &tabla;
+/*
+    while(!analizadorLexico.end) {
+        Lexico::Token a = analizadorLexico.getToken(path);
+        cout << "token " + a.punteroTS + " " + to_string(a.id) << endl;
+    }
 
+*/
     yyparse();
     return 0;
 }

@@ -1,4 +1,4 @@
-%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA  PROC
+%token ID CTE ERROR IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INT DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO  PROC
 %start programa
 %%
 programa:
@@ -6,19 +6,41 @@ programa:
 ;
 bloque_sentencia:
 	 sentencia {AccionesSintactico::imprime("encontro bloque_sentencia");}
-        |bloque_sentencia sentencia {AccionesSintactico::imprime("encontro bloque_sentencia");}
-;
-sentencia:
-	   declarativa {AccionesSintactico::imprime("encontro sentencia declarativa ");}
+	|bloque_sentencia sentencia {AccionesSintactico::imprime("encontro bloque_sentencia");}
 ;
 
+sentencia:
+	  declarativa {AccionesSintactico::imprime("encontro sentencia");}
+          |ejecutable {AccionesSintactico::imprime("encontro sentencia");}
+	  | expresion
+;
 declarativa:
-	lista_de_variables ';' {AccionesSintactico::imprime("encontro declarativa_sentencia");}
+	  tipo lista_de_variables {AccionesSintactico::imprime("encontro declarativa");}
+
 ;
 lista_de_variables:
+	ID ',' lista_de_variables {AccionesSintactico::imprime("encontro lista v");}
+	|ID ';' {AccionesSintactico::imprime("encontro lista v");}
 
-	 ID  ',' lista_de_variables {AccionesSintactico::imprime("encontro lista de variables");}
-	|ID  {AccionesSintactico::imprime("encontro id");}
+;
+ejecutable:
+	 ID '=' ID ';' {AccionesSintactico::imprime("ejecutable ");}
+;
+tipo:
+	 INT {AccionesSintactico::imprime("encontro integer");}
+        |LONGINT {AccionesSintactico::imprime("encontro longint");}
+        |FLOAT {AccionesSintactico::imprime("encontro float");}
+;
+
+expresion:
+	   termino '+' termino ';' {AccionesSintactico::imprime("expresion");}
+;
+termino:
+	 factor {AccionesSintactico::imprime("termino");}
+;
+factor:
+	 ID {AccionesSintactico::imprime("factor ID");}
+	|CTE {AccionesSintactico::imprime("factor CTE");}
 ;
 
 

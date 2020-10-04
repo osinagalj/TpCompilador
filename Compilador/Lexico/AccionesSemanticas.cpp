@@ -10,6 +10,7 @@ void AccionesSemanticas::agregarCaracter(Lexico* lexico, char& c){
     lexico->aumentarCaracter();
 }
 void AccionesSemanticas::devolverIdentificador(Lexico* lexico, char& c){
+
     lexico->tokenEncontrado();
     //Chekear el rango
     if(lexico->cadena.length() > longIdentificador){
@@ -135,10 +136,12 @@ void AccionesSemanticas::devolverComparadorCompuesto(Lexico* lexico, char& c){
 }
 
 void AccionesSemanticas::devolverComparadorSimple(Lexico* lexico, char& c){
-    lexico->aumentarCaracter();
+
+    //lexico->aumentarCaracter();
     lexico->tokenEncontrado();
-    lexico->cadena = lexico->cadena + c;
-    switch(c){
+
+    //lexico->cadena = lexico->cadena + c;
+    switch(lexico->cadena[0]){
         case '<':
             lexico->guardarToken(toascii('<'), "");
             break;
@@ -146,6 +149,7 @@ void AccionesSemanticas::devolverComparadorSimple(Lexico* lexico, char& c){
             lexico->guardarToken(toascii('>'), "");
             break;
         case '=':
+
             lexico->guardarToken(toascii('='), "");
             break;
         }
