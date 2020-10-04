@@ -10,7 +10,7 @@ void AccionesSemanticas::agregarCaracter(Lexico* lexico, char& c){
     lexico->aumentarCaracter();
 }
 void AccionesSemanticas::devolverIdentificador(Lexico* lexico, char& c){
-
+    //RegistroEventos::imprimir("ESTO ES TREMENDO");
     lexico->tokenEncontrado();
     //Chekear el rango
     if(lexico->cadena.length() > longIdentificador){

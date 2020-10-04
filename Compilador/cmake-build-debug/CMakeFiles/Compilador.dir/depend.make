@@ -4,14 +4,19 @@
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.cpp
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/Lexico.h
+CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Salida/RegistroEventos.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Sintactico/y.tab.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../TablaDeSimbolos/TablaDeSimbolos.h
 
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/Lexico.cpp
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/Lexico.h
+CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Salida/RegistroEventos.h
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Sintactico/y.tab.h
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../TablaDeSimbolos/TablaDeSimbolos.h
+
+CMakeFiles/Compilador.dir/Salida/RegistroEventos.cpp.obj: ../Salida/RegistroEventos.cpp
+CMakeFiles/Compilador.dir/Salida/RegistroEventos.cpp.obj: ../Salida/RegistroEventos.h
 
 CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj: ../Sintactico/AccionesSintactico.cpp
 CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj: ../Sintactico/AccionesSintactico.h
@@ -21,6 +26,7 @@ CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.obj: ../TablaDeSim
 
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/Lexico.h
+CMakeFiles/Compilador.dir/main.cpp.obj: ../Salida/RegistroEventos.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/AccionesSintactico.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/y.tab.cpp
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/y.tab.h
