@@ -1,4 +1,8 @@
-%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INT WHILE ERROR LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA  PROC
+%token  ID CTE FLOAT LONGINT INT
+	IF ELSE END_IF OUT
+	MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA
+	WHILE LOOP PROC TRUE FALSE SHADOWING FALSE NA
+	ERROR
 %start programa
 %%
 programa:
@@ -24,6 +28,7 @@ lista_de_variables:
 ;
 ejecutable:
 	 ID '=' expresion ';'{AccionesSintactico::imprime("expresion");}
+	| ID '='  ';'{AccionesSintactico::imprime("ERROR: ASIGNACION VACIA ");}
 	|invocacion_proc {AccionesSintactico::imprime("inv proc");}
 	|sentencia_while ';' {AccionesSintactico::imprime("setencia_while");}
 	|sentencia_if ';' {AccionesSintactico::imprime("sentencia if");}
@@ -36,8 +41,12 @@ parametros:
 	|ID {AccionesSintactico::imprime("id parametros");}
 ;
 procedimiento:
-	PROC ID '(' lista_de_parametros ')' '{' bloque_sentencia '}' {AccionesSintactico::imprime("def proc");}
+	PROC ID '(' lista_de_parametros ')' NA '=' CTE ',' SHADOWING '=' true_false'{' bloque_sentencia '}'  {AccionesSintactico::imprime("def proc");}
+
 ;
+true_false:
+	     TRUE
+	   | FALSE
 lista_de_parametros:
 	 lista_de_parametros ',' tipo ID {AccionesSintactico::imprime("lista parametros");}
 	|tipo ID {AccionesSintactico::imprime("id listapar");}
@@ -45,7 +54,7 @@ lista_de_parametros:
 sentencia_if:
 	 IF '(' condicion ')' bloque_sentencia END_IF {AccionesSintactico::imprime("if");}
 	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {AccionesSintactico::imprime("if else");}
-
+	|IF '(' condicion ')' bloque_sentencia END_IF error {yyerror("if error EN XDDDDDDDDDDDDDDDD");}
 ;
 sentencia_while:
 	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}' {AccionesSintactico::imprime("while");}
@@ -68,13 +77,17 @@ termino:
 	 factor {AccionesSintactico::imprime("factor");}
 	|termino '/' factor {AccionesSintactico::imprime("div");}
 	|termino '*' factor {AccionesSintactico::imprime("mult");}
+
 ;
 factor:
 	 ID {AccionesSintactico::imprime("factor");}
-	|LONGINT {AccionesSintactico::imprime("LONGINT");}
 	|CTE {AccionesSintactico::imprime("cte");}
-	|'-' CTE {$$ = -1*$2; AccionesSintactico::imprime("se hizo negativo wachin");}
+	|'-' CTE {$$ = -1*$2; AccionesSintactico::imprime("se hizo negativo CTE");}
 	|FLOAT
+	|'-' FLOAT {$$ = -1*$2; AccionesSintactico::imprime("se hizo negativo FLOAT");}
+	|LONGINT
+        |'-' LONGINT {$$ = -1*$2; AccionesSintactico::imprime(" se hizo negativo LONGINT");}
+
 ;
 
 tipo:

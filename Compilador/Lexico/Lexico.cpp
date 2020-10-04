@@ -9,16 +9,19 @@ Lexico::Lexico() {
     palabrasReservadas.insert(pair<string,int>("IF",IF));
     palabrasReservadas.insert(pair<string,int>("ELSE",ELSE));
     palabrasReservadas.insert(pair<string,int>("END_IF",END_IF));
-    palabrasReservadas.insert(pair<string,int>("THEN",THEN));
+
     palabrasReservadas.insert(pair<string,int>("OUT",OUT));
-    palabrasReservadas.insert(pair<string,int>("FUNC",FUNC));
-    palabrasReservadas.insert(pair<string,int>("RETURN",RETURN));
     palabrasReservadas.insert(pair<string,int>("WHILE",WHILE));
     palabrasReservadas.insert(pair<string,int>("LOOP",LOOP));
     palabrasReservadas.insert(pair<string,int>("FLOAT",FLOAT));
     palabrasReservadas.insert(pair<string,int>("LONGINT",LONGINT));
     palabrasReservadas.insert(pair<string,int>("INT",INT));
     palabrasReservadas.insert(pair<string,int>("PROC",PROC));
+    palabrasReservadas.insert(pair<string,int>("TRUE",TRUE));
+    palabrasReservadas.insert(pair<string,int>("FALSE",FALSE));
+    palabrasReservadas.insert(pair<string,int>("NA",NA));
+    palabrasReservadas.insert(pair<string,int>("SHADOWING",SHADOWING));
+
     //INTEGER = CTE;
 }
 

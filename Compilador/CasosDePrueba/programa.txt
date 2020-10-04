@@ -1,0 +1,40 @@
+FLOAT variable_1, variable2 ;
+
+PROC var (INT id2, INT id3) NA = 3 , SHADOWING = FALSE {
+    aux=2;
+    WHILE (id_4<=7) LOOP {
+        id_4=9;
+        WHILE (id_2<=3) LOOP {
+            id_2=2;
+        };
+    };
+};
+
+id_3 = 4;
+id_3 = 2 + 3;
+IF (id_3 == 2+3)
+    id_2 = 4;
+END_IF;
+IF (id_3 == 2+3)
+    id_2 = 4;
+ELSE
+    id_2 = 8;
+END_IF;
+
+OUT ("holis");
+
+
+
+var(id2,id3);
+x = 2 - -3;
+x= 245_l;
+
+PROC var (INT id2, INT id3) NA = 2 , SHADOWING = TRUE {
+    x= 3.1f+2;
+};
+x = ;
+
+float_negativo = -7.3;
+longint_negativo = -711;
+
+$

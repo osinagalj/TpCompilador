@@ -11,12 +11,14 @@ void yyerror(const char *s);
 #include "Sintactico/y.tab.cpp"
 
 Lexico analizadorLexico;
-string path = "Compilador\\Archivos\\programa.txt";
+string path = "Compilador\\CasosDePrueba\\programa.txt";
+string pathOut = "Compilador\\Salida\\out.txt";
 
 void yyerror(const char *s){
     cout << s << endl;
 }
 int yylex(){
+
 
     Lexico::Token a = analizadorLexico.getToken(path); /* hola $ */
     cout << "token " + a.punteroTS + " " +to_string(a.id)<<endl;
@@ -26,11 +28,16 @@ int yylex(){
 
 
 int main(){
-
-    //El sintactico lo llama muchas veces
-    TablaDeSimbolos tabla;
-    tablaSimbolos = &tabla;
-    analizadorLexico.tablaSimbolos = &tabla;
+    ifstream archivo_salida;
+    archivo_salida.open(pathOut,ifstream::in);
+    if(archivo_salida.fail()){
+        cout << "Error al abrir el archivo de salida" << endl;
+        exit(1);
+    }else{
+        //El sintactico lo llama muchas veces
+        TablaDeSimbolos tabla;
+        tablaSimbolos = &tabla;
+        analizadorLexico.tablaSimbolos = &tabla;
 /*
     while(!analizadorLexico.end) {
         Lexico::Token a = analizadorLexico.getToken(path);
@@ -38,6 +45,8 @@ int main(){
     }
 
 */
-    yyparse();
+        yyparse();
+    }
+
     return 0;
 }
