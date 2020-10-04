@@ -30,95 +30,45 @@ static char yysccsid[] = "@(#)yaccpar	1.8 (Berkeley) 01/20/90";
 #define YYERRCODE 256
 short yylhs[] = {                                        -1,
     0,    1,    1,    2,    2,    2,    3,    7,    7,    4,
-    4,    4,    6,    6,    6,    5,    5,    5,    9,   10,
-   10,    8,    8,    8,    8,    8,
+    6,    6,    6,    5,    5,    5,    8,    9,    9,
 };
 short yylen[] = {                                         2,
-    1,    1,    2,    2,    2,    2,    2,    3,    1,    3,
-    6,    8,    1,    1,    1,    3,    3,    1,    1,    1,
-    1,    0,    3,    3,    3,    3,
+    1,    1,    2,    1,    1,    2,    2,    3,    2,    4,
+    1,    1,    1,    3,    3,    1,    1,    1,    1,
 };
 short yydefred[] = {                                      0,
-    0,   21,    0,   15,   13,   14,    0,    0,    2,    0,
-    0,    0,    0,    0,   19,    0,    0,    3,    4,    5,
-    6,    0,    7,    0,    0,   10,   20,    0,    0,    0,
-   16,   17,    0,    0,    0,    0,    0,    8,   25,   24,
-   23,   26,    0,    0,   11,    0,   12,
+    0,   19,   13,   11,   12,    0,    0,    2,    4,    5,
+    0,    0,    0,   17,    0,    3,    6,    0,    7,    0,
+    0,    0,    9,    0,   18,   14,   15,   10,    8,
 };
-short yydgoto[] = {                                       7,
-    8,    9,   10,   11,   12,   13,   23,   29,   14,   15,
+short yydgoto[] = {                                       6,
+    7,    8,    9,   10,   11,   12,   19,   13,   14,
 };
-short yysindex[] = {                                   -220,
-  -59,    0,  -35,    0,    0,    0,    0, -220,    0,  -51,
-  -49,  -31, -225,  -39,    0, -223, -231,    0,    0,    0,
-    0,    8,    0, -231, -231,    0,    0, -232,   12, -225,
-    0,    0, -231, -231, -231, -231, -220,    0,    0,    0,
-    0,    0, -245, -220,    0, -227,    0,
+short yysindex[] = {                                   -257,
+  -58,    0,    0,    0,    0,    0, -257,    0,    0,    0,
+  -52, -242,  -37,    0, -241,    0,    0,  -39,    0, -248,
+ -248,  -40,    0, -242,    0,    0,    0,    0,    0,
 };
 short yyrindex[] = {                                      0,
-  -34,    0,    0,    0,    0,    0,    0,   55,    0,    0,
-    0,    0,    0,  -41,    0,    0,   15,    0,    0,    0,
-    0,   -2,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,
+  -41,    0,    0,    0,    0,    0,   21,    0,    0,    0,
+    0,    0,  -36,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
 };
 short yygindex[] = {                                      0,
-  -30,   -7,    0,    0,  -14,    0,   28,    0,   26,    0,
+    0,   15,    0,    0,    0,    0,    1,   -7,    0,
 };
-#define YYTABLESIZE 237
-short yytable[] = {                                      18,
-   18,   16,   28,   24,   17,   25,   43,   19,   20,   20,
-   20,    1,    2,   46,    3,   44,   45,   18,   39,   40,
-   41,   42,    4,    5,   20,   27,    2,   21,    6,    1,
-    2,   22,    3,   26,   47,   18,    1,    2,   18,    3,
-    4,    5,   33,   34,   35,   36,    6,    4,    5,   31,
-   32,   30,   37,    6,    1,   22,    9,   38,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,   18,   18,   18,   18,
+#define YYTABLESIZE 25
+short yytable[] = {                                       1,
+    2,   18,   15,   18,   24,   20,   17,   21,   25,    2,
+    3,    4,   26,   27,   18,   22,    5,   18,   28,   23,
+    1,   16,   16,    0,   29,
 };
-short yycheck[] = {                                      41,
-    8,   61,   17,   43,   40,   45,   37,   59,   43,   59,
-   45,  257,  258,   44,  260,  261,  262,   59,   33,   34,
-   35,   36,  268,  269,   59,  257,  258,   59,  274,  257,
-  258,  257,  260,  257,  262,   43,  257,  258,   46,  260,
-  268,  269,  275,  276,  277,  278,  274,  268,  269,   24,
-   25,   44,   41,  274,    0,   41,   59,   30,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,  275,  276,  277,  278,
+short yycheck[] = {                                     257,
+  258,   43,   61,   45,   44,   43,   59,   45,  257,  258,
+  268,  269,   20,   21,  257,  257,  274,   59,   59,   59,
+    0,    7,   59,   -1,   24,
 };
-#define YYFINAL 7
+#define YYFINAL 6
 #ifndef YYDEBUG
 #define YYDEBUG 0
 #endif
@@ -126,30 +76,28 @@ short yycheck[] = {                                      41,
 #if YYDEBUG
 char *yyname[] = {
 "end-of-file",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,"'('","')'",0,"'+'","','","'-'",0,0,0,0,0,0,0,0,0,0,0,0,0,"';'",0,
-"'='",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,"'+'","','","'-'",0,0,0,0,0,0,0,0,0,0,0,0,0,"';'",0,"'='",0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-"ID","CTE","ERROR","IF","ELSE","END_IF","THEN","OUT","FUNC","RETURN","ULONGINT",
-"FLOAT","INT","DOUBLE","WHILE","UINT","LOOP","LONGINT","MAYORIGUAL",
-"MENORIGUAL","IGUAL","DISTINTO","CADENA","DIGITO","PROC",
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"ID","CTE",
+"ERROR","IF","ELSE","END_IF","THEN","OUT","FUNC","RETURN","ULONGINT","FLOAT",
+"INT","DOUBLE","WHILE","UINT","LOOP","LONGINT","MAYORIGUAL","MENORIGUAL",
+"IGUAL","DISTINTO","CADENA","DIGITO","PROC",
 };
 char *yyrule[] = {
 "$accept : programa",
 "programa : bloque_sentencia",
 "bloque_sentencia : sentencia",
 "bloque_sentencia : bloque_sentencia sentencia",
-"sentencia : declarativa ';'",
-"sentencia : ejecutable ';'",
+"sentencia : declarativa",
+"sentencia : ejecutable",
 "sentencia : expresion ';'",
 "declarativa : tipo lista_de_variables",
 "lista_de_variables : ID ',' lista_de_variables",
-"lista_de_variables : ID",
-"ejecutable : ID '=' ID",
-"ejecutable : IF '(' condicion ')' bloque_sentencia END_IF",
-"ejecutable : IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF",
+"lista_de_variables : ID ';'",
+"ejecutable : ID '=' ID ';'",
 "tipo : INT",
 "tipo : LONGINT",
 "tipo : FLOAT",
@@ -159,11 +107,6 @@ char *yyrule[] = {
 "termino : factor",
 "factor : ID",
 "factor : CTE",
-"condicion :",
-"condicion : expresion IGUAL expresion",
-"condicion : expresion MENORIGUAL expresion",
-"condicion : expresion MAYORIGUAL expresion",
-"condicion : expresion DISTINTO expresion",
 };
 #endif
 #ifndef YYSTYPE
@@ -194,12 +137,18 @@ YYSTYPE yylval;
 short yyss[YYSTACKSIZE];
 YYSTYPE yyvs[YYSTACKSIZE];
 #define yystacksize YYSTACKSIZE
-#line 65 "gramatica.y"
+#line 52 "gramatica.y"
 
 
 
 /*
 
+tipo:
+	 CTE {AccionesSintactico::imprime("encontro integer");}
+        |LONGINT {AccionesSintactico::imprime("encontro longint");}
+        |FLOAT {AccionesSintactico::imprime("encontro float");}
+
+;
 
 
 
@@ -295,7 +244,7 @@ imprimir:
 ;
 %%
 */
-#line 299 "y.tab.c"
+#line 248 "y.tab.c"
 #define YYABORT goto yyabort
 #define YYACCEPT goto yyaccept
 #define YYERROR goto yyerrlab
@@ -456,82 +405,58 @@ case 5:
 {AccionesSintactico::imprime("encontro sentencia");}
 break;
 case 7:
-#line 19 "gramatica.y"
+#line 18 "gramatica.y"
 {AccionesSintactico::imprime("encontro declarativa");}
 break;
 case 8:
-#line 23 "gramatica.y"
+#line 22 "gramatica.y"
 {AccionesSintactico::imprime("encontro lista v");}
 break;
 case 9:
-#line 24 "gramatica.y"
+#line 23 "gramatica.y"
 {AccionesSintactico::imprime("encontro lista v");}
 break;
 case 10:
-#line 29 "gramatica.y"
+#line 27 "gramatica.y"
 {AccionesSintactico::imprime("ejecutable ");}
 break;
 case 11:
-#line 31 "gramatica.y"
-{AccionesSintactico::imprime("if solo ");}
-break;
-case 12:
-#line 32 "gramatica.y"
-{AccionesSintactico::imprime("if con else ");}
-break;
-case 13:
-#line 37 "gramatica.y"
+#line 30 "gramatica.y"
 {AccionesSintactico::imprime("encontro integer");}
 break;
-case 14:
-#line 38 "gramatica.y"
+case 12:
+#line 31 "gramatica.y"
 {AccionesSintactico::imprime("encontro longint");}
 break;
-case 15:
-#line 39 "gramatica.y"
+case 13:
+#line 32 "gramatica.y"
 {AccionesSintactico::imprime("encontro float");}
 break;
+case 14:
+#line 36 "gramatica.y"
+{AccionesSintactico::imprime("expresion");}
+break;
+case 15:
+#line 37 "gramatica.y"
+{AccionesSintactico::imprime("expresion");}
+break;
 case 16:
-#line 43 "gramatica.y"
+#line 38 "gramatica.y"
 {AccionesSintactico::imprime("expresion");}
 break;
 case 17:
-#line 44 "gramatica.y"
-{AccionesSintactico::imprime("expresion");}
+#line 41 "gramatica.y"
+{AccionesSintactico::imprime("termino");}
 break;
 case 18:
 #line 45 "gramatica.y"
-{AccionesSintactico::imprime("expresion");}
-break;
-case 19:
-#line 48 "gramatica.y"
-{AccionesSintactico::imprime("termino");}
-break;
-case 20:
-#line 52 "gramatica.y"
 {AccionesSintactico::imprime("factor ID");}
 break;
-case 21:
-#line 53 "gramatica.y"
+case 19:
+#line 46 "gramatica.y"
 {AccionesSintactico::imprime("factor CTE");}
 break;
-case 23:
-#line 57 "gramatica.y"
-{AccionesSintactico::imprime("condicion");}
-break;
-case 24:
-#line 58 "gramatica.y"
-{AccionesSintactico::imprime("condicion");}
-break;
-case 25:
-#line 59 "gramatica.y"
-{AccionesSintactico::imprime("condicion");}
-break;
-case 26:
-#line 60 "gramatica.y"
-{AccionesSintactico::imprime("condicion");}
-break;
-#line 535 "y.tab.c"
+#line 460 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

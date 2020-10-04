@@ -10,9 +10,10 @@ bloque_sentencia:
 ;
 
 sentencia:
-	  declarativa {AccionesSintactico::imprime("encontro sentencia");}
-          |ejecutable {AccionesSintactico::imprime("encontro sentencia");}
-	  | expresion
+	  declarativa ';'{AccionesSintactico::imprime("encontro sentencia");}
+          |ejecutable ';'{AccionesSintactico::imprime("encontro sentencia");}
+	  | expresion ';'
+
 ;
 declarativa:
 	  tipo lista_de_variables {AccionesSintactico::imprime("encontro declarativa");}
@@ -20,12 +21,18 @@ declarativa:
 ;
 lista_de_variables:
 	ID ',' lista_de_variables {AccionesSintactico::imprime("encontro lista v");}
-	|ID ';' {AccionesSintactico::imprime("encontro lista v");}
+	|ID  {AccionesSintactico::imprime("encontro lista v");}
 
 ;
+
 ejecutable:
-	 ID '=' ID ';' {AccionesSintactico::imprime("ejecutable ");}
+	 ID '=' ID  {AccionesSintactico::imprime("ejecutable ");}
+
+	 | IF '(' condicion ')' bloque_sentencia END_IF  {AccionesSintactico::imprime("if solo ");}
+	 | IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF  {AccionesSintactico::imprime("if con else ");}
+
 ;
+
 tipo:
 	 INT {AccionesSintactico::imprime("encontro integer");}
         |LONGINT {AccionesSintactico::imprime("encontro longint");}
@@ -33,17 +40,26 @@ tipo:
 ;
 
 expresion:
-	   termino '+' termino ';' {AccionesSintactico::imprime("expresion");}
+	   termino '+' termino  {AccionesSintactico::imprime("expresion");}
+	   | termino '-' termino {AccionesSintactico::imprime("expresion");}
+	   | termino {AccionesSintactico::imprime("expresion");}
 ;
 termino:
 	 factor {AccionesSintactico::imprime("termino");}
+
 ;
 factor:
 	 ID {AccionesSintactico::imprime("factor ID");}
 	|CTE {AccionesSintactico::imprime("factor CTE");}
 ;
 
+condicion:
+	|expresion IGUAL expresion {AccionesSintactico::imprime("condicion");}
+	|expresion MENORIGUAL expresion {AccionesSintactico::imprime("condicion");}
+	|expresion MAYORIGUAL expresion {AccionesSintactico::imprime("condicion");}
+	|expresion DISTINTO expresion {AccionesSintactico::imprime("condicion");}
 
+;
 
 %%
 
@@ -51,12 +67,6 @@ factor:
 
 /*
 
-tipo:
-	 CTE {AccionesSintactico::imprime("encontro integer");}
-        |LONGINT {AccionesSintactico::imprime("encontro longint");}
-        |FLOAT {AccionesSintactico::imprime("encontro float");}
-
-;
 
 
 
