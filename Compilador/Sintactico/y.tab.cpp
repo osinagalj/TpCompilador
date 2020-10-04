@@ -116,11 +116,23 @@ YYSTYPE yylval;
 short yyss[YYSTACKSIZE];
 YYSTYPE yyvs[YYSTACKSIZE];
 #define yystacksize YYSTACKSIZE
-#line 25 "gramatica.y"
+#line 27 "gramatica.y"
 
 
 
 /*
+
+tipo:
+	 CTE {AccionesSintactico::imprime("encontro integer");}
+        |LONGINT {AccionesSintactico::imprime("encontro longint");}
+        |FLOAT {AccionesSintactico::imprime("encontro float");}
+
+;
+
+
+
+
+
 %token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA  PROC
 %start programa
 %%
@@ -211,7 +223,7 @@ imprimir:
 ;
 %%
 */
-#line 215 "y.tab.c"
+#line 227 "y.tab.c"
 #define YYABORT goto yyabort
 #define YYACCEPT goto yyaccept
 #define YYERROR goto yyerrlab
@@ -365,10 +377,10 @@ case 3:
 break;
 case 4:
 #line 12 "gramatica.y"
-{AccionesSintactico::imprime("encontro sentencia");}
+{AccionesSintactico::imprime("encontro sentencia declarativa ");}
 break;
 case 5:
-#line 15 "gramatica.y"
+#line 16 "gramatica.y"
 {AccionesSintactico::imprime("encontro declarativa_sentencia");}
 break;
 case 6:
@@ -379,7 +391,7 @@ case 7:
 #line 21 "gramatica.y"
 {AccionesSintactico::imprime("encontro id");}
 break;
-#line 383 "y.tab.c"
+#line 395 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

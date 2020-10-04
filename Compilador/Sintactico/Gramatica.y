@@ -9,17 +9,19 @@ bloque_sentencia:
         |bloque_sentencia sentencia {AccionesSintactico::imprime("encontro bloque_sentencia");}
 ;
 sentencia:
-	 declarativa {AccionesSintactico::imprime("encontro sentencia");}
+	   declarativa {AccionesSintactico::imprime("encontro sentencia declarativa ");}
 ;
+
 declarativa:
 	lista_de_variables ';' {AccionesSintactico::imprime("encontro declarativa_sentencia");}
-
 ;
 lista_de_variables:
 
 	 ID  ',' lista_de_variables {AccionesSintactico::imprime("encontro lista de variables");}
 	|ID  {AccionesSintactico::imprime("encontro id");}
 ;
+
+
 
 %%
 

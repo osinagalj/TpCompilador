@@ -125,7 +125,7 @@ void AccionesSemanticas::devolverComparadorCompuesto(Lexico* lexico, char& c){
         case '>':
             lexico->guardarToken(MENORIGUAL, lexico->cadena); //MENORIGUAL
             break;
-        case '=':
+        case '=': // ==
             lexico->guardarToken(IGUAL, lexico->cadena); //IGUAL
             break;
         case '!':
