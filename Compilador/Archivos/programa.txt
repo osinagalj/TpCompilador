@@ -1,18 +1,15 @@
 FLOAT variable_1 , variable2 ;
-id_3 = id_2;
-2 + 3;
-2 - 3;
-3;
-
-IF ( 2 == 2)
-    id_1 = id_2;
-    id_3 = id_4;
-    id_2 = id_1;
-END_IF;
-IF ( 2 == 2)
-    id_7 = id_8;
-ELSE
-    id_9 = id_10;
-END_IF;
-
+id_3 = 4;
+id_3 = 2 + 3;
+IF (id_3 == 2+3) id_2 = 4; END_IF;
+IF (id_3 == 2+3) id_2 = 4; ELSE id_2 = 8; END_IF;
+OUT ("holis");
+PROC var (INT id2, INT id3) { aux=2; } ;
+WHILE (id_4<=7) LOOP {
+id_4=9;
+WHILE (id_2<=3) LOOP {
+id_2=2;
+} ;
+} ;
+var(id2,id3);
 $

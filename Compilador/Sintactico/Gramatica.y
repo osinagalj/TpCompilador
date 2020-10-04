@@ -1,164 +1,85 @@
-%token ID CTE ERROR IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INT DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO  PROC
+%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INT WHILE ERROR LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA  PROC
 %start programa
 %%
 programa:
-          bloque_sentencia  {AccionesSintactico::imprime("encontro programa");}
+          bloque_sentencia
 ;
 bloque_sentencia:
-	 sentencia {AccionesSintactico::imprime("encontro bloque_sentencia");}
-	|bloque_sentencia sentencia {AccionesSintactico::imprime("encontro bloque_sentencia");}
+	 sentencia {AccionesSintactico::imprime("bloque_sentencia");}
+	|bloque_sentencia sentencia {AccionesSintactico::imprime("bloque_sentencia");}
 ;
-
 sentencia:
-	  declarativa ';'{AccionesSintactico::imprime("encontro sentencia");}
-          |ejecutable ';'{AccionesSintactico::imprime("encontro sentencia");}
-	  | expresion ';'
-
+	 declarativa {AccionesSintactico::imprime("declarativa");}
+	|ejecutable {AccionesSintactico::imprime("ejecutable");}
+	|imprimir {AccionesSintactico::imprime("imprimir");}
 ;
 declarativa:
-	  tipo lista_de_variables {AccionesSintactico::imprime("encontro declarativa");}
+	 tipo lista_de_variables {AccionesSintactico::imprime("declarativa");}
+	|procedimiento ';' {AccionesSintactico::imprime("procedimiento");}
 
 ;
 lista_de_variables:
-	ID ',' lista_de_variables {AccionesSintactico::imprime("encontro lista v");}
-	|ID  {AccionesSintactico::imprime("encontro lista v");}
-
-;
-
-ejecutable:
-	 ID '=' ID  {AccionesSintactico::imprime("ejecutable ");}
-
-	 | IF '(' condicion ')' bloque_sentencia END_IF  {AccionesSintactico::imprime("if solo ");}
-	 | IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF  {AccionesSintactico::imprime("if con else ");}
-
-;
-
-tipo:
-	 INT {AccionesSintactico::imprime("encontro integer");}
-        |LONGINT {AccionesSintactico::imprime("encontro longint");}
-        |FLOAT {AccionesSintactico::imprime("encontro float");}
-;
-
-expresion:
-	   termino '+' termino  {AccionesSintactico::imprime("expresion");}
-	   | termino '-' termino {AccionesSintactico::imprime("expresion");}
-	   | termino {AccionesSintactico::imprime("expresion");}
-;
-termino:
-	 factor {AccionesSintactico::imprime("termino");}
-
-;
-factor:
-	 ID {AccionesSintactico::imprime("factor ID");}
-	|CTE {AccionesSintactico::imprime("factor CTE");}
-;
-
-condicion:
-	|expresion IGUAL expresion {AccionesSintactico::imprime("condicion");}
-	|expresion MENORIGUAL expresion {AccionesSintactico::imprime("condicion");}
-	|expresion MAYORIGUAL expresion {AccionesSintactico::imprime("condicion");}
-	|expresion DISTINTO expresion {AccionesSintactico::imprime("condicion");}
-
-;
-
-%%
-
-
-
-/*
-
-
-
-
-
-
-%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA  PROC
-%start programa
-%%
-programa:
-          bloque_sentencia  {AccionesSintactico::imprime();}
-;
-bloque_sentencia:
-	 sentencia {AccionesSintactico::imprime();}
-	|bloque_sentencia sentencia {AccionesSintactico::imprime();}
-;
-sentencia:
-	 declarativa {AccionesSintactico::imprime();}
-	|ejecutable {AccionesSintactico::imprime();}
-	|imprimir {AccionesSintactico::imprime();}
-;
-declarativa:
-	 tipo lista_de_variables {AccionesSintactico::imprime();}
-	|procedimiento ';' {AccionesSintactico::imprime();}
-
-;
-lista_de_variables:
-	ID ',' lista_de_variables {AccionesSintactico::imprime();}
-	|ID ';' {AccionesSintactico::imprime();}
+	ID ',' lista_de_variables {AccionesSintactico::imprime("lista_variables");}
+	|ID ';' {AccionesSintactico::imprime("id de lista");}
 ;
 ejecutable:
-	 ID '=' expresion ';'{AccionesSintactico::imprime();}
-	|invocacion_proc {AccionesSintactico::imprime();}
-	|sentencia_while ';' {AccionesSintactico::imprime();}
-	|sentencia_if {AccionesSintactico::imprime();}
+	 ID '=' expresion ';'{AccionesSintactico::imprime("expresion");}
+	|invocacion_proc {AccionesSintactico::imprime("inv proc");}
+	|sentencia_while ';' {AccionesSintactico::imprime("setencia_while");}
+	|sentencia_if ';' {AccionesSintactico::imprime("sentencia if");}
 ;
 invocacion_proc:
-	 ID '(' parametros ')' ';' {AccionesSintactico::imprime();}
-
+	 ID '(' parametros ')' ';' {AccionesSintactico::imprime("invocacion proc");}
 ;
 parametros:
-	 parametros ',' ID {AccionesSintactico::imprime();}
-	|ID {AccionesSintactico::imprime();}
+	 parametros ',' ID {AccionesSintactico::imprime("parametros");}
+	|ID {AccionesSintactico::imprime("id parametros");}
 ;
 procedimiento:
-	PROC ID '(' lista_de_parametros ')' bloque_sentencia {AccionesSintactico::imprime();}
+	PROC ID '(' lista_de_parametros ')' '{' bloque_sentencia '}' {AccionesSintactico::imprime("def proc");}
 ;
 lista_de_parametros:
-	 lista_de_parametros ',' tipo ID {AccionesSintactico::imprime();}
-	|tipo ID {AccionesSintactico::imprime();}
+	 lista_de_parametros ',' tipo ID {AccionesSintactico::imprime("lista parametros");}
+	|tipo ID {AccionesSintactico::imprime("id listapar");}
 ;
 sentencia_if:
-	 IF '(' condicion ')' bloque_sentencia END_IF {AccionesSintactico::imprime();}
-	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {AccionesSintactico::imprime();}
+	 IF '(' condicion ')' bloque_sentencia END_IF {AccionesSintactico::imprime("if");}
+	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {AccionesSintactico::imprime("if else");}
 
 ;
 sentencia_while:
-	 WHILE '(' condicion ')' LOOP bloque_sentencia {AccionesSintactico::imprime();}
+	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}' {AccionesSintactico::imprime("while");}
 
 ;
 condicion:
-	|expresion IGUAL expresion {AccionesSintactico::imprime();}
-	|expresion MENORIGUAL expresion {AccionesSintactico::imprime();}
-	|expresion MAYORIGUAL expresion {AccionesSintactico::imprime();}
-	|expresion DISTINTO expresion {AccionesSintactico::imprime();}
+	|expresion IGUAL expresion {AccionesSintactico::imprime("igual");}
+	|expresion MENORIGUAL expresion {AccionesSintactico::imprime("menorigual");}
+	|expresion MAYORIGUAL expresion {AccionesSintactico::imprime("mayorigual");}
+	|expresion DISTINTO expresion {AccionesSintactico::imprime("distinto");}
 
 ;
 expresion:
-	   expresion '+' termino {AccionesSintactico::imprime();}
-	  |expresion '-' termino {AccionesSintactico::imprime();}
-	  |termino {AccionesSintactico::imprime();}
+	   expresion '+' termino {AccionesSintactico::imprime("suma");}
+	  |expresion '-' termino {AccionesSintactico::imprime("resta");}
+	  |termino {AccionesSintactico::imprime("termino");}
 
 ;
 termino:
-	 factor {AccionesSintactico::imprime();}
-	|termino '/' factor {AccionesSintactico::imprime();}
-	|termino '*' factor {AccionesSintactico::imprime();}
+	 factor {AccionesSintactico::imprime("factor");}
+	|termino '/' factor {AccionesSintactico::imprime("div");}
+	|termino '*' factor {AccionesSintactico::imprime("mult");}
 ;
 factor:
-	 ID {AccionesSintactico::imprime();}
-	|CTE {AccionesSintactico::imprime();}
+	 ID {AccionesSintactico::imprime("factor");}
+	|CTE {AccionesSintactico::imprime("cte");}
 ;
 
 tipo:
-	 INTEGER {AccionesSintactico::imprime();}
-        |UINT {AccionesSintactico::imprime();}
-        |LONGINT {AccionesSintactico::imprime();}
-        |ULONGINT {AccionesSintactico::imprime();}
-        |FLOAT {AccionesSintactico::imprime();}
-        |DOUBLE {AccionesSintactico::imprime();}
+	 INT {AccionesSintactico::imprime("INT");}
+        |LONGINT {AccionesSintactico::imprime("LONGINT");}
+        |FLOAT {AccionesSintactico::imprime("FLOAT");}
 ;
 imprimir:
-	OUT '(' CADENA ')' ';' {AccionesSintactico::imprime();}
+	OUT '(' CADENA ')' ';' {AccionesSintactico::imprime("cadena");}
 ;
 %%
-*/

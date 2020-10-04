@@ -17,7 +17,8 @@ Lexico::Lexico() {
     palabrasReservadas.insert(pair<string,int>("LOOP",LOOP));
     palabrasReservadas.insert(pair<string,int>("FLOAT",FLOAT));
     palabrasReservadas.insert(pair<string,int>("LONGINT",LONGINT));
-
+    palabrasReservadas.insert(pair<string,int>("INT",INT));
+    palabrasReservadas.insert(pair<string,int>("PROC",PROC));
     //INTEGER = CTE;
 }
 
