@@ -39,6 +39,8 @@ void AccionesSemanticas::devolverEnteroLargo(Lexico* lexico, char& c){
     //.5    6.3f-3
     //Valor maximo de un entero largo 2147483647
     lexico->tokenEncontrado();
+    lexico->aumentarCaracter();
+    lexico->cadena= lexico->cadena + c;
     lexico->cadena = lexico->cadena.substr (0,lexico->cadena.size()-2);
     long numero = stol(lexico->cadena);
     if(numero <= 2147483648 ){ // preguntar
