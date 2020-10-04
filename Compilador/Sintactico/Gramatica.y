@@ -74,6 +74,7 @@ factor:
 	|LONGINT {AccionesSintactico::imprime("LONGINT");}
 	|CTE {AccionesSintactico::imprime("cte");}
 	|'-' CTE {$$ = -1*$2; AccionesSintactico::imprime("se hizo negativo wachin");}
+	|FLOAT
 ;
 
 tipo:
