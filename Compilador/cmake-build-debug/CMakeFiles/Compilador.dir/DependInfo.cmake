@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp" "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj"
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.cpp" "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj"
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactico/AccionesSintactico.cpp" "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj"
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.cpp" "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.obj"
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/main.cpp" "C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj"
+  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj"
+  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj"
+  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/AccionesSintactico.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj"
+  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.obj"
+  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/main.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -14,17 +14,19 @@ void AccionesSemanticas::devolverIdentificador(Lexico* lexico, char& c){
     //Chekear el rango
     if(lexico->cadena.length() > longIdentificador){
         lexico->cadena =  lexico->cadena.substr (0,20);
-        lexico->guardarToken(MINUSCULA, lexico->cadena);
+        lexico->guardarToken(ID, lexico->cadena);
         lexico->guardarEnTS(ID);
         //"Identificador supera la longitud maxima de 20 caracteres"
     }else{
-        lexico->guardarToken(MINUSCULA, lexico->cadena);
+        lexico->guardarToken(ID, lexico->cadena);
         lexico->guardarEnTS(ID);
     }
 }
 void AccionesSemanticas::devolverReservada(Lexico* lexico, char& c){
     lexico->tokenEncontrado();
-    lexico->guardarToken(MAYUSCULA, lexico->cadena);
+    int id = lexico->getIdPalabraReservada();
+    lexico->guardarToken(id, lexico->cadena);
+
 }
 void AccionesSemanticas::devolverConstante(Lexico* lexico, char& c){
     lexico->tokenEncontrado();
@@ -180,6 +182,9 @@ void AccionesSemanticas::devolverUnico(Lexico* lexico, char& c){
             break;
         case '}': //Multiplicacion
             lexico->guardarToken(toascii('}'), lexico->cadena);
+            break;
+        case ';': //Multiplicacion
+            lexico->guardarToken(toascii(';'), lexico->cadena);
             break;
         case '{': //Multiplicacion
             lexico->guardarToken(toascii('{'), lexico->cadena);

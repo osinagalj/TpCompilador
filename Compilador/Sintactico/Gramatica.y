@@ -2,6 +2,46 @@
 %start programa
 %%
 programa:
+          bloque_sentencia  {AccionesSintactico::imprime("encontro programa");}
+;
+bloque_sentencia:
+	 sentencia {AccionesSintactico::imprime("encontro bloque_sentencia");}
+        |bloque_sentencia sentencia {AccionesSintactico::imprime("encontro bloque_sentencia");}
+;
+sentencia:
+	 declarativa {AccionesSintactico::imprime("encontro sentencia");}
+;
+declarativa:
+	lista_de_variables ';' {AccionesSintactico::imprime("encontro declarativa_sentencia");}
+
+;
+lista_de_variables:
+
+	 ID  ',' lista_de_variables {AccionesSintactico::imprime("encontro lista de variables");}
+	|ID  {AccionesSintactico::imprime("encontro id");}
+;
+
+%%
+
+
+
+/*
+
+tipo:
+	 CTE {AccionesSintactico::imprime("encontro integer");}
+        |LONGINT {AccionesSintactico::imprime("encontro longint");}
+        |FLOAT {AccionesSintactico::imprime("encontro float");}
+
+;
+
+
+
+
+
+%token ID CTE IF ELSE END_IF THEN OUT FUNC RETURN ULONGINT FLOAT INTEGER DOUBLE WHILE UINT LOOP LONGINT MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA DIGITO F_MINUSCLA L_MINUSCULA MAYUSCULA MINUSCULA  PROC
+%start programa
+%%
+programa:
           bloque_sentencia  {AccionesSintactico::imprime();}
 ;
 bloque_sentencia:
@@ -87,3 +127,4 @@ imprimir:
 	OUT '(' CADENA ')' ';' {AccionesSintactico::imprime();}
 ;
 %%
+*/

@@ -1,1 +1,7 @@
-OUT ("enunciado") ;
+/%Programa de prueba%/
+
+id_1;
+id_2;
+
+
+$

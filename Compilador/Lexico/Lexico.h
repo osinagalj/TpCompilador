@@ -57,7 +57,7 @@ class Lexico{
              string cadena;
              void guardarToken(int id,string punt);
              void tokenEncontrado();
-
+             int getIdPalabraReservada();
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
              int getLinea();
              bool end = false;

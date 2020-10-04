@@ -10,7 +10,8 @@ private:
    // static void inicializarVariablesDeObjeto(TablaSimbolos* tabla, string objeto, string clase);
     
 public:
-    static void imprime();
+    static void imprime(string x);
+
     //static map<string, vector<string>> variablesDeClase;
    /* static vector<string> *punteros;
     static void inicializar(vector<string>* p);

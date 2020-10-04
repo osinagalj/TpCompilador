@@ -4,14 +4,12 @@
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.cpp
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/Lexico.h
-CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Sintactico/AccionesSintactico.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Sintactico/y.tab.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../TablaDeSimbolos/TablaDeSimbolos.h
 
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/AccionesSemanticas.h
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/Lexico.cpp
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/Lexico.h
-CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Sintactico/AccionesSintactico.h
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Sintactico/y.tab.h
 CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../TablaDeSimbolos/TablaDeSimbolos.h
 

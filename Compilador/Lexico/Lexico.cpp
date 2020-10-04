@@ -17,9 +17,21 @@ Lexico::Lexico() {
     palabrasReservadas.insert(pair<string,int>("LOOP",LOOP));
     palabrasReservadas.insert(pair<string,int>("FLOAT",FLOAT));
 
+    //INTEGER? ULONG?
+
 }
 
-
+int Lexico::getIdPalabraReservada(){
+    /*
+    auto search = .find(key);
+    if (search == tablaSimbolos.end()) {
+        //Si no existe 'key' en la tabla de símbolos:
+        tablaSimbolos.insert({key, registro});
+    }
+    palabrasReservadas.find(cadena);
+*/
+    return 0;
+}
 void Lexico::cargarArchivo(string pathArchivo)
 {
     archivoOrigen.open(pathArchivo,ifstream::in);
