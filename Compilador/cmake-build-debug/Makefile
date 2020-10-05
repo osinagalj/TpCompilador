@@ -67,10 +67,10 @@ RM = "C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador
+CMAKE_SOURCE_DIR = C:\Users\nicol\Documents\GitHub\TpCompilador\Compilador
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\nicol\Documents\GitHub\TpCompilador\Compilador\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\nicol\Documents\GitHub\TpCompilador\Compilador\cmake-build-debug\CMakeFiles C:\Users\nicol\Documents\GitHub\TpCompilador\Compilador\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\nicol\Documents\GitHub\TpCompilador\Compilador\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -195,6 +195,33 @@ Lexico/Lexico.s: Lexico/Lexico.cpp.s
 Lexico/Lexico.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.s
 .PHONY : Lexico/Lexico.cpp.s
+
+RegistroEventos/RegistroEventos.obj: RegistroEventos/RegistroEventos.cpp.obj
+
+.PHONY : RegistroEventos/RegistroEventos.obj
+
+# target to build an object file
+RegistroEventos/RegistroEventos.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/RegistroEventos/RegistroEventos.cpp.obj
+.PHONY : RegistroEventos/RegistroEventos.cpp.obj
+
+RegistroEventos/RegistroEventos.i: RegistroEventos/RegistroEventos.cpp.i
+
+.PHONY : RegistroEventos/RegistroEventos.i
+
+# target to preprocess a source file
+RegistroEventos/RegistroEventos.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/RegistroEventos/RegistroEventos.cpp.i
+.PHONY : RegistroEventos/RegistroEventos.cpp.i
+
+RegistroEventos/RegistroEventos.s: RegistroEventos/RegistroEventos.cpp.s
+
+.PHONY : RegistroEventos/RegistroEventos.s
+
+# target to generate assembly for a file
+RegistroEventos/RegistroEventos.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/RegistroEventos/RegistroEventos.cpp.s
+.PHONY : RegistroEventos/RegistroEventos.cpp.s
 
 Sintactico/AccionesSintactico.obj: Sintactico/AccionesSintactico.cpp.obj
 
@@ -292,6 +319,9 @@ help:
 	@echo ... Lexico/Lexico.obj
 	@echo ... Lexico/Lexico.i
 	@echo ... Lexico/Lexico.s
+	@echo ... RegistroEventos/RegistroEventos.obj
+	@echo ... RegistroEventos/RegistroEventos.i
+	@echo ... RegistroEventos/RegistroEventos.s
 	@echo ... Sintactico/AccionesSintactico.obj
 	@echo ... Sintactico/AccionesSintactico.i
 	@echo ... Sintactico/AccionesSintactico.s

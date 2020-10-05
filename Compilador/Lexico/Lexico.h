@@ -36,10 +36,10 @@
 const int  nro_estados = 17;
 const int nro_simbolos = 21;
 
+#include "../RegistroEventos/RegistroEventos.h"
 #include "../Sintactico/y.tab.h"
 //si no haces el yacc -d Gramatica.y no te genera el tab.h
 using namespace std;
-
 
 class Lexico{
     public:
@@ -66,6 +66,7 @@ class Lexico{
              bool encontroToken = false;
              Token t;
              int estadoNuevo;
+             RegistroEventos * registrovich;
              TablaDeSimbolos * tablaSimbolos;
              void guardarEnTS(int id);
     private:
