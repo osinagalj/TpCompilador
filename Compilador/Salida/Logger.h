@@ -12,9 +12,7 @@ class Logger{
 public:
     static void open( const string & logFile);
     static void close();
-    // write message
     static void write( const string & message);
-
     //static void lex(const Lexico * lexico);
     static Lexico * lexico;
     Logger();

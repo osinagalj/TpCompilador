@@ -5,7 +5,7 @@ using namespace std;
 
 Lexico::Lexico() {
 
-    inicializarMatrizAS();
+    initializeMatrixSA();
     palabrasReservadas.insert(pair<string,int>("IF",IF));
     palabrasReservadas.insert(pair<string,int>("ELSE",ELSE));
     palabrasReservadas.insert(pair<string,int>("END_IF",END_IF));
@@ -25,32 +25,32 @@ Lexico::Lexico() {
     //INTEGER = CTE;
 }
 
-int Lexico::getIdPalabraReservada(){
-    //Palabra reservada
+int Lexico::getIdPalabraReservada()
+{
     auto search = palabrasReservadas.find(cadena);
     if (search != palabrasReservadas.end()) {
         return search->second;
     }
-    return ERROR;
+    return ERROR; //preguntar
 }
-void Lexico::cargarArchivo(string pathArchivo)
+void Lexico::loadFile(string path)
 {
-    archivoOrigen.open(pathArchivo,ifstream::in);
-    if(archivoOrigen.fail()){
+    source_file.open(path,ifstream::in);
+    if(!source_file.is_open()){
         cout << "Error al abrir el archivo de código fuente" << endl;
         exit(1);
     }else
-        if(linea_actual>1){
+        if(actual_line>1){
             int aux=0;
-            while(aux < linea_actual-1){
+            while(aux < actual_line-1){
                 //cout<<" entro kaka: " <<endl;
                 aux ++;
-                getline(archivoOrigen,linea);
+                getline(source_file,line);
             }
         }
 }
-void Lexico::tokenEncontrado(){
-    this->encontroToken=true;
+void Lexico::set_token_found(){
+    this->token_found=true;
 }
 
 void Lexico::guardarToken(int id, string punteroTS){
@@ -59,36 +59,30 @@ void Lexico::guardarToken(int id, string punteroTS){
 }
 
 void Lexico::aumentarCaracter() {
-    this->caracteresAvanzados++;
+    this->current_character++;
 }
-int Lexico::getLinea() {
-    return this->linea_actual;
+int Lexico::get_number_line() {
+    return this->actual_line;
 }
-Lexico::Token Lexico::getToken(string pathArchivo){
-   this->encontroToken=false;
+Lexico::Token Lexico::getToken(string path){
+   this->token_found=false;
    this->cadena="";
-   estadoActual=0;
-        cargarArchivo(pathArchivo);
-    //cout<< "ENTRO 4"<<endl;
-        while (!archivoOrigen.eof()) {
-            getline(archivoOrigen,linea);
-            while(caracteresAvanzados < linea.size() && !encontroToken && !end){
-                char caracterActual=linea[caracteresAvanzados];
-                string xd(1, caracterActual);
-                //cout<< "caracter: " + xd<<endl;
-                estadoNuevo = identificarCaracter(caracterActual);
-               // cout<<" coolumna nuevo: " + to_string(estadoNuevo)  <<endl;
-               // cout<<" estado actual: " + to_string(estadoActual) <<endl;
-                matrizAS[estadoActual][estadoNuevo].Accion(this,caracterActual); //ejecutar acción semántica
-                estadoActual=matrizAS[estadoActual][estadoNuevo].estado; //actualizo el nuevo estado
-                //cout<<" estado nuevo: " + to_string(estadoActual) <<endl;
+    actual_state=0;
+        loadFile(path);
+        while (!source_file.eof()) {
+            getline(source_file,line);
+            while(current_character < line.size() && !token_found && !end){
+                char caracterActual=line[current_character];
+                estadoNuevo = identify_character(caracterActual);
+                matrizAS[actual_state][estadoNuevo].Action(this,caracterActual); //ejecutar acción semántica
+                actual_state=matrizAS[actual_state][estadoNuevo].state; //actualizo el nuevo estado
             }
-            if ((caracteresAvanzados < linea.size()) && encontroToken){ // encontré toke
-                archivoOrigen.close(); //cerramos archivo
+            if ((current_character < line.size()) && token_found){ // encontré toke
+                source_file.close(); //cerramos archivo
                 return t;
             }else{
-                linea_actual++;
-                caracteresAvanzados = 0;
+                actual_line++;
+                current_character = 0;
             }
         }
         return t;
@@ -99,7 +93,7 @@ void Lexico::guardarEnTS(int id){
     tablaSimbolos->agregarSimbolo(t.punteroTS,registro);
 }
 
-int Lexico::identificarCaracter(char carac){
+int Lexico::identify_character(char carac){
 //esta funcion te devuelve el numero de columna de la matriz de transicion de estado
 
     if(carac=='l')
@@ -163,7 +157,8 @@ int Lexico::identificarCaracter(char carac){
     }
 }
 
-void Lexico::inicializarMatrizAS(){
+//Matriz Semantic Action
+void Lexico::initializeMatrixSA(){
 //CAMINO 0
     //INICIALIZAR
     //CAMINOS DIRECTOS

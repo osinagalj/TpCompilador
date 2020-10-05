@@ -4,6 +4,7 @@
 	WHILE LOOP PROC TRUE FALSE SHADOWING FALSE NA
 	ERROR
 %start programa
+
 %%
 programa:
           bloque_sentencia

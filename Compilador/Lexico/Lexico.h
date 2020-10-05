@@ -50,46 +50,43 @@ class Lexico{
              };
 
              struct Registro{
-
+                 //tipo en un futuro
                  string warning;
              };
              Registro registro;
              Token getToken(string pathArchivo);
              string cadena;
              void guardarToken(int id,string punt);
-             void tokenEncontrado();
+             void set_token_found();
              int getIdPalabraReservada();
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
-             int getLinea();
+             int get_number_line();
              bool end = false;
-             int caracteresAvanzados = 0;
-             bool encontroToken = false;
+
+             bool token_found = false;
              Token t;
              int estadoNuevo;
              TablaDeSimbolos * tablaSimbolos;
              void guardarEnTS(int id);
     private:
-            ifstream archivoOrigen;
+            ifstream source_file;
+            void loadFile(string pathArchivo);
 
-            void cargarArchivo(string pathArchivo);
+            int actual_line = 1; // para informar errores
+            int current_character = 0;
+            string line;
+            int actual_state;
 
-            int linea_actual = 1; // para informar errores
-            string linea;
-            string token = "";
-
-             //indica la celda para conseguir el nuevo estado
-            // string tipo="";
-            int estadoActual;
             //Matriz de Transicion de estados
-            struct Transicion{
-                int estado;
-                void (*Accion)(Lexico*,char & c);
+            struct Transition{
+                int state;
+                void (*Action)(Lexico*,char & c);
             };
-            Lexico::Transicion matrizAS[nro_estados][nro_simbolos];
+            Lexico::Transition matrizAS[nro_estados][nro_simbolos];
 
             map<string, int> palabrasReservadas;
-            void inicializarMatrizAS();
-            int identificarCaracter(char carac);
+            void initializeMatrixSA();
+            int identify_character(char carac);
 
 
 };

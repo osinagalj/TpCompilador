@@ -2,18 +2,13 @@
 #include "Sintactico/AccionesSintactico.h"
 #include "TablaDeSimbolos/TablaDeSimbolos.h"
 #include "Salida/Logger.h"
+
 TablaDeSimbolos * tablaSimbolos;
-Lexico * puntLexico;
-
 Lexico * Logger::lexico = nullptr;
-
-int yylex();
-void yyerror(const char *s);
-#include "Sintactico/y.tab.cpp"
-
 Lexico analizadorLexico;
 string path = "Compilador\\CasosDePrueba\\programa.txt";
 string pathOut = "Compilador\\Salida\\out.txt";
+
 
 void yyerror(const char *s){
     cout << s << endl;
@@ -24,7 +19,7 @@ int yylex() {
 
     return a.id;
 }
-
+#include "Sintactico/y.tab.cpp"
 
 int main(){
 
