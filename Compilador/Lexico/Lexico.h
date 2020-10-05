@@ -80,7 +80,7 @@ class Lexico{
             };
             Lexico::Transition matrizAS[nro_estados][nro_simbolos];
 
-            map<string, int> palabrasReservadas;
+            map<string, int> reserved_words ;
             void initializeMatrixSA();
             int identify_character(char carac);
 

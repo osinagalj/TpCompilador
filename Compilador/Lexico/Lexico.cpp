@@ -6,29 +6,29 @@ using namespace std;
 Lexico::Lexico() {
 
     initializeMatrixSA();
-    palabrasReservadas.insert(pair<string,int>("IF",IF));
-    palabrasReservadas.insert(pair<string,int>("ELSE",ELSE));
-    palabrasReservadas.insert(pair<string,int>("END_IF",END_IF));
+    reserved_words.insert(pair<string,int>("IF",IF));
+    reserved_words.insert(pair<string,int>("ELSE",ELSE));
+    reserved_words.insert(pair<string,int>("END_IF",END_IF));
 
-    palabrasReservadas.insert(pair<string,int>("OUT",OUT));
-    palabrasReservadas.insert(pair<string,int>("WHILE",WHILE));
-    palabrasReservadas.insert(pair<string,int>("LOOP",LOOP));
-    palabrasReservadas.insert(pair<string,int>("FLOAT",FLOAT));
-    palabrasReservadas.insert(pair<string,int>("LONGINT",LONGINT));
-    palabrasReservadas.insert(pair<string,int>("INT",INT));
-    palabrasReservadas.insert(pair<string,int>("PROC",PROC));
-    palabrasReservadas.insert(pair<string,int>("TRUE",TRUE));
-    palabrasReservadas.insert(pair<string,int>("FALSE",FALSE));
-    palabrasReservadas.insert(pair<string,int>("NA",NA));
-    palabrasReservadas.insert(pair<string,int>("SHADOWING",SHADOWING));
+    reserved_words.insert(pair<string,int>("OUT",OUT));
+    reserved_words.insert(pair<string,int>("WHILE",WHILE));
+    reserved_words.insert(pair<string,int>("LOOP",LOOP));
+    reserved_words.insert(pair<string,int>("FLOAT",FLOAT));
+    reserved_words.insert(pair<string,int>("LONGINT",LONGINT));
+    reserved_words.insert(pair<string,int>("INT",INT));
+    reserved_words.insert(pair<string,int>("PROC",PROC));
+    reserved_words.insert(pair<string,int>("TRUE",TRUE));
+    reserved_words.insert(pair<string,int>("FALSE",FALSE));
+    reserved_words.insert(pair<string,int>("NA",NA));
+    reserved_words.insert(pair<string,int>("SHADOWING",SHADOWING));
 
     //INTEGER = CTE;
 }
 
 int Lexico::getIdPalabraReservada()
 {
-    auto search = palabrasReservadas.find(cadena);
-    if (search != palabrasReservadas.end()) {
+    auto search = reserved_words.find(cadena);
+    if (search != reserved_words.end()) {
         return search->second;
     }
     return ERROR; //preguntar
