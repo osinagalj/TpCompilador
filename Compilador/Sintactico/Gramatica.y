@@ -28,7 +28,7 @@ lista_de_variables:
 ;
 ejecutable:
 	 ID '=' expresion ';'{AccionesSintactico::imprime("expresion");}
-	| ID '='  ';'{AccionesSintactico::imprime("ERROR: ASIGNACION VACIA ");}
+	| ID '='  ';'{Logger::write("ASIGNACION VACIA TIENE QUE ENTRAR EN ARCHIVO SALIDA");}
 	|invocacion_proc {AccionesSintactico::imprime("inv proc");}
 	|sentencia_while ';' {AccionesSintactico::imprime("setencia_while");}
 	|sentencia_if ';' {AccionesSintactico::imprime("sentencia if");}

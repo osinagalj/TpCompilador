@@ -421,7 +421,7 @@ case 11:
 break;
 case 12:
 #line 31 "gramatica.y"
-{AccionesSintactico::imprime("DEFINICION VACIA ");}
+{Logger::write("ASIGNACION VACIA TIENE QUE ENTRAR EN ARCHIVO SALIDA");}
 break;
 case 13:
 #line 32 "gramatica.y"

@@ -1,7 +1,7 @@
 #include "AccionesSemanticas.h"
 #include "Lexico.h"
 
-
+#include "../Salida/Logger.h"
 void AccionesSemanticas::inicializarToken(Lexico* lexico, char& c){
     lexico->cadena = c;
     lexico->aumentarCaracter();

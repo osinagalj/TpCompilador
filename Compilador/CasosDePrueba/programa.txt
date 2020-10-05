@@ -1,5 +1,5 @@
 FLOAT variable_1, variable2 ;
-
+x = ;
 PROC var (INT id2, INT id3) NA = 3 , SHADOWING = FALSE {
     aux=2;
     WHILE (id_4<=7) LOOP {

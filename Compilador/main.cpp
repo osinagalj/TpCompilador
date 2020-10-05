@@ -1,8 +1,9 @@
 #include "Lexico/Lexico.h"
 #include "Sintactico/AccionesSintactico.h"
 #include "TablaDeSimbolos/TablaDeSimbolos.h"
+#include "Salida/Logger.h"
 TablaDeSimbolos * tablaSimbolos;
-
+Lexico * puntLexico;
 int yylex();
 void yyerror(const char *s);
 #include "Sintactico/y.tab.cpp"
@@ -25,7 +26,15 @@ int yylex() {
 int main(){
 
     Logger::open(pathOut);
-    Logger::write("saca tu kaka 3999");
+    Logger::write("saca tu kaka 3899");
+
+    Lexico lex;
+    puntLexico = &lex;
+    //Logger::lexico(puntLexico,"MAIN XD");
+
+    Logger log;
+    log.inic(puntLexico);
+
 
     //El sintactico lo llama muchas veces
     TablaDeSimbolos tabla;
@@ -35,7 +44,6 @@ int main(){
     yyparse();
 
     Logger::close();
-
 
     return 0;
 }
