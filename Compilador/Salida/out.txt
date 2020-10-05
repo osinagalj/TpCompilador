@@ -1,0 +1,32 @@
+linea:5  lista_de_variables
+linea:5  lista_de_variables
+linea:7  Asignacion
+linea:8  Error:Asignacion vacia
+linea:11  Asignacion
+linea:12  lista_de_parametros
+linea:14  Asignacion
+linea:14  Condicion mayorIgual
+linea:16  Asignacion
+linea:17  suma
+linea:17  Condicion igual
+linea:18  Asignacion
+linea:20  Asignacion
+linea:21  sentencia if
+linea:22  sentencia while
+linea:26  Declaracion de procedimiento
+linea:27  suma
+linea:27  Asignacion
+linea:28  suma
+linea:28  Condicion igual
+linea:29  Asignacion
+linea:31  sentencia if
+linea:40  Detecto sentencia OUT
+linea:41  invocacion procedimiento
+linea:42  resta
+linea:42  Asignacion
+linea:44  Asignacion
+linea:44  lista_de_parametros
+linea:46  Asignacion
+linea:49  Declaracion de procedimiento
+linea:50  Asignacion
+linea:52  Asignacion

@@ -6,29 +6,29 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
 iostream
 -
 ../SymbolTable/SymbolTable.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/SymbolTable.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h
 iostream
 -
 fstream
 -
 AccionesSemanticas.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
 map
 -
 string
 -
 ../SymbolTable/SymbolTable.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/SymbolTable.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
 ../Sintactico/y.tab.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Salida/Logger.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.h
 string
 -
 fstream
@@ -36,37 +36,37 @@ fstream
 iostream
 -
 ../Lexico/Lexico.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexico/Lexico.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactico/AccionesSintactico.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/AccionesSintactico.h
 map
 -
 iostream
 -
 ../SymbolTable/SymbolTable.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/SymbolTable.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.cpp
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.cpp
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/SymbolTable.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
 iostream
 -
 map
 -
 ../Sintactico/y.tab.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/main.cpp
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/main.cpp
 Sintactico/AccionesSintactico.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactico/AccionesSintactico.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/AccionesSintactico.h
 SymbolTable/SymbolTable.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/SymbolTable.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
 Salida/Logger.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Salida/Logger.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.h
 fstream
 -
 Sintactico/y.tab.cpp
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactico/y.tab.cpp
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.cpp
 

@@ -26,11 +26,8 @@ void yyerror(const char *s){
 
 int yylex() {
 
-    Lexico::Token current_token = analizadorLexico.getToken(path); /* hola $ */
+    Lexico::Token current_token = analizadorLexico.getToken(path);
     cout << "token " + current_token.pointerST + " " + to_string(current_token.id) << endl;
-
-    yylval= stoi(current_token.pointerST);
-
     return current_token.id;
 }
 
@@ -47,7 +44,7 @@ int main(){
     Lexico::symbolTable = &tabla;
 
     yyparse();
-    tablaSimbolos->printTable();
+    //tablaSimbolos->printTable();
     Logger::close();
 
     return 0;
