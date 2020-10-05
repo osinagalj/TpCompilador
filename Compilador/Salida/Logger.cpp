@@ -13,6 +13,5 @@ void Logger::close(){
 }
 void Logger::write(const string& message){
     ostream& stream =  instance.fileStream ;
-    string s = "linea:" + to_string(lexico->get_number_line()) + "  " + message;
-    stream << s<< endl;
+    stream << "linea:" + to_string(lexico->get_number_line()) + "  " + message<< endl;
 }

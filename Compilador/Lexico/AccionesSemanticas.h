@@ -2,7 +2,7 @@
 #define COMPILADOR_ACCIONESSEMANTICAS_H
 
 #include <iostream>
-#include "../TablaDeSimbolos/TablaDeSimbolos.h"
+#include "../SymbolTable/SymbolTable.h"
 
 
 

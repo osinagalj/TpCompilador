@@ -250,32 +250,32 @@ Sintactico/AccionesSintactico.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.s
 .PHONY : Sintactico/AccionesSintactico.cpp.s
 
-TablaDeSimbolos/TablaDeSimbolos.obj: TablaDeSimbolos/TablaDeSimbolos.cpp.obj
+SymbolTable/SymbolTable.obj: SymbolTable/SymbolTable.cpp.obj
 
-.PHONY : TablaDeSimbolos/TablaDeSimbolos.obj
+.PHONY : SymbolTable/SymbolTable.obj
 
 # target to build an object file
-TablaDeSimbolos/TablaDeSimbolos.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.obj
-.PHONY : TablaDeSimbolos/TablaDeSimbolos.cpp.obj
+SymbolTable/SymbolTable.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj
+.PHONY : SymbolTable/SymbolTable.cpp.obj
 
-TablaDeSimbolos/TablaDeSimbolos.i: TablaDeSimbolos/TablaDeSimbolos.cpp.i
+SymbolTable/SymbolTable.i: SymbolTable/SymbolTable.cpp.i
 
-.PHONY : TablaDeSimbolos/TablaDeSimbolos.i
+.PHONY : SymbolTable/SymbolTable.i
 
 # target to preprocess a source file
-TablaDeSimbolos/TablaDeSimbolos.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.i
-.PHONY : TablaDeSimbolos/TablaDeSimbolos.cpp.i
+SymbolTable/SymbolTable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.i
+.PHONY : SymbolTable/SymbolTable.cpp.i
 
-TablaDeSimbolos/TablaDeSimbolos.s: TablaDeSimbolos/TablaDeSimbolos.cpp.s
+SymbolTable/SymbolTable.s: SymbolTable/SymbolTable.cpp.s
 
-.PHONY : TablaDeSimbolos/TablaDeSimbolos.s
+.PHONY : SymbolTable/SymbolTable.s
 
 # target to generate assembly for a file
-TablaDeSimbolos/TablaDeSimbolos.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.s
-.PHONY : TablaDeSimbolos/TablaDeSimbolos.cpp.s
+SymbolTable/SymbolTable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.s
+.PHONY : SymbolTable/SymbolTable.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -325,9 +325,9 @@ help:
 	@echo ... Sintactico/AccionesSintactico.obj
 	@echo ... Sintactico/AccionesSintactico.i
 	@echo ... Sintactico/AccionesSintactico.s
-	@echo ... TablaDeSimbolos/TablaDeSimbolos.obj
-	@echo ... TablaDeSimbolos/TablaDeSimbolos.i
-	@echo ... TablaDeSimbolos/TablaDeSimbolos.s
+	@echo ... SymbolTable/SymbolTable.obj
+	@echo ... SymbolTable/SymbolTable.i
+	@echo ... SymbolTable/SymbolTable.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

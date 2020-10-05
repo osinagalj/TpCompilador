@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj"
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj"
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/AccionesSintactico.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj"
-  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/TablaDeSimbolos/TablaDeSimbolos.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.obj"
+  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj"
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/main.cpp" "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -17,26 +17,28 @@ void AccionesSemanticas::devolverIdentificador(Lexico* lexico, char& c){
     if(lexico->cadena.length() > longIdentificador){
         lexico->cadena =  lexico->cadena.substr (0,20);
         lexico->guardarToken(ID, lexico->cadena);
-        lexico->guardarEnTS(ID);
+        lexico->saveInST(ID);
         //"Identificador supera la longitud maxima de 20 caracteres"
     }else{
         lexico->guardarToken(ID, lexico->cadena);
-        lexico->guardarEnTS(ID);
+        lexico->saveInST(ID);
     }
 }
-void AccionesSemanticas::devolverReservada(Lexico* lexico, char& c){
+void AccionesSemanticas::devolverReservada(Lexico* lexico, char& c)
+{
     lexico->set_token_found();
     int id = lexico->getIdPalabraReservada();
     lexico->guardarToken(id, lexico->cadena);
-
 }
-void AccionesSemanticas::devolverConstante(Lexico* lexico, char& c){
+void AccionesSemanticas::devolverConstante(Lexico* lexico, char& c)
+{
     lexico->set_token_found();
     lexico->guardarToken(CTE, lexico->cadena);
-    lexico->guardarEnTS(CTE);
+    lexico->saveInST(CTE);
 
 }
-void AccionesSemanticas::devolverEnteroLargo(Lexico* lexico, char& c){
+void AccionesSemanticas::devolverEnteroLargo(Lexico* lexico, char& c)
+{
     //.5    6.3f-3
     //Valor maximo de un entero largo 2147483647
     lexico->set_token_found();
@@ -52,9 +54,10 @@ void AccionesSemanticas::devolverEnteroLargo(Lexico* lexico, char& c){
         lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
 
     }
-    lexico->guardarEnTS(LONGINT);
+    lexico->saveInST(LONGINT);
 }
-void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c){
+void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c)
+{
     string acumulado="";
     float numero=0;
     int desplazamiento = 0;
@@ -89,18 +92,13 @@ void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c){
         }
     }
     lexico->guardarToken(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
-    lexico->guardarEnTS(FLOAT);
+    lexico->saveInST(FLOAT);
     lexico->set_token_found();
 }
-/*
-void AccionesSemanticas::finCadena(Lexico* lexico, char& c){
-    //HAY QUE AGREGAR EL " AL STRING PARA CUANDDO LO GUARDEMOS EN LA TABLA DE SIMBOLOS, SI NO LO GUARDAMOS HA YQUE ELIMINAR LAS COMILLAS QUE ABREN LA CADENA CAMBIANDO LA AS de la matriz.
-    lexico->set_token_found();
-    lexico->guardarToken(30, lexico->cadena);
-}
-*/
+
 //Blancos,TAB, Salto de linea
-void AccionesSemanticas::descartarCaracter(Lexico *lexico, char &c) {
+void AccionesSemanticas::descartarCaracter(Lexico *lexico, char &c)
+{
     lexico->aumentarCaracter();
     lexico->cadena="";
 }
@@ -139,11 +137,8 @@ void AccionesSemanticas::devolverComparadorCompuesto(Lexico* lexico, char& c){
 }
 
 void AccionesSemanticas::devolverComparadorSimple(Lexico* lexico, char& c){
-
-    //lexico->aumentarCaracter();
+//No aumentamos token porque estamos parados en el siguiente
     lexico->set_token_found();
-
-    //lexico->cadena = lexico->cadena + c;
     switch(lexico->cadena[0]){
         case '<':
             lexico->guardarToken(toascii('<'), "");
@@ -159,7 +154,8 @@ void AccionesSemanticas::devolverComparadorSimple(Lexico* lexico, char& c){
 }
 
 
-void AccionesSemanticas::devolverUnico(Lexico* lexico, char& c){
+void AccionesSemanticas::devolverUnico(Lexico* lexico, char& c)
+{
     lexico->aumentarCaracter();
     lexico->set_token_found();
     lexico->cadena = lexico->cadena + c;
@@ -200,9 +196,8 @@ void AccionesSemanticas::devolverUnico(Lexico* lexico, char& c){
             lexico->guardarToken(toascii('.'), lexico->cadena);
             break;
         case '"': //Multiplicacion
-            //cout<<"entro en comilla " ass  \" "<<endl;
             lexico->guardarToken(CADENA, lexico->cadena);
-            lexico->guardarEnTS(CADENA);
+            lexico->saveInST(CADENA);
             break;
         case '$': //Multiplicacion
             lexico->guardarToken(0, lexico->cadena); //capaz es 0 el ID

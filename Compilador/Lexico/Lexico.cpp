@@ -40,9 +40,9 @@ void Lexico::loadFile(string path)
         cout << "Error al abrir el archivo de código fuente" << endl;
         exit(1);
     }else
-        if(actual_line>1){
+        if(current_line>1){
             int aux=0;
-            while(aux < actual_line-1){
+            while(aux < current_line-1){
                 //cout<<" entro kaka: " <<endl;
                 aux ++;
                 getline(source_file,line);
@@ -53,16 +53,16 @@ void Lexico::set_token_found(){
     this->token_found=true;
 }
 
-void Lexico::guardarToken(int id, string punteroTS){
+void Lexico::guardarToken(int id, string pointerST){
     this->t.id=id;
-    this->t.punteroTS=punteroTS;
+    this->t.pointerST=pointerST;
 }
 
 void Lexico::aumentarCaracter() {
     this->current_character++;
 }
 int Lexico::get_number_line() {
-    return this->actual_line;
+    return this->current_line;
 }
 Lexico::Token Lexico::getToken(string path){
    this->token_found=false;
@@ -73,24 +73,24 @@ Lexico::Token Lexico::getToken(string path){
             getline(source_file,line);
             while(current_character < line.size() && !token_found && !end){
                 char caracterActual=line[current_character];
-                estadoNuevo = identify_character(caracterActual);
-                matrizAS[actual_state][estadoNuevo].Action(this,caracterActual); //ejecutar acción semántica
-                actual_state=matrizAS[actual_state][estadoNuevo].state; //actualizo el nuevo estado
+                new_state = identify_character(caracterActual);
+                matrizAS[actual_state][new_state].Action(this,caracterActual); //ejecutar acción semántica
+                actual_state=matrizAS[actual_state][new_state].state; //actualizo el nuevo estado
             }
             if ((current_character < line.size()) && token_found){ // encontré toke
                 source_file.close(); //cerramos archivo
                 return t;
             }else{
-                actual_line++;
+                current_line++;
                 current_character = 0;
             }
         }
         return t;
 }
-void Lexico::guardarEnTS(int id){
-    TablaDeSimbolos::Registro registro;
+void Lexico::saveInST(int id){
+    SymbolTable::Registro registro;
     registro.id = id;
-    tablaSimbolos->agregarSimbolo(t.punteroTS,registro);
+    symbolTable->addSymbol(t.pointerST,registro);
 }
 
 int Lexico::identify_character(char carac){
@@ -101,9 +101,9 @@ int Lexico::identify_character(char carac){
     if(carac=='f')
         return COLUMNA_F_MINUSCULA;
     if (carac<='z' && carac>='a') // es minus
-        return COLUMNA_MINUSCULA;
+        return COLUMN_LOWERCASE;
     if (carac<='Z' && carac>='A') //es mayus
-        return COLUMNA_MAYUSCULA;
+        return COLUMN_UPPERCASE;
     if (carac>='0' && carac<='9')// es dig
         return COLUMNA_DIGITO;
 
@@ -171,21 +171,21 @@ void Lexico::initializeMatrixSA(){
     matrizAS[0][SIMBOLO_FIN_DE_ARCHIVO]={ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
     matrizAS[0][LITERALES]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
     matrizAS[0][SIMBOLO_PUNTO]= {5, &AccionesSemanticas::inicializarToken};
-    matrizAS[0][COLUMNA_MINUSCULA] = {1, &AccionesSemanticas::inicializarToken};
+    matrizAS[0][COLUMN_LOWERCASE] = {1, &AccionesSemanticas::inicializarToken};
     matrizAS[0][COLUMNA_F_MINUSCULA]= {1, &AccionesSemanticas::inicializarToken};
     matrizAS[0][COLUMNA_L_MINUSCULA]= {1, &AccionesSemanticas::inicializarToken};
 
 
 //Camino 1
     //AGREGAR
-    matrizAS[1][COLUMNA_MINUSCULA] = {1, &AccionesSemanticas::agregarCaracter};
+    matrizAS[1][COLUMN_LOWERCASE] = {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[1][GUION_BAJO]= {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[1][COLUMNA_F_MINUSCULA]= {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[1][COLUMNA_L_MINUSCULA]= {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[1][COLUMNA_DIGITO]= {1, &AccionesSemanticas::agregarCaracter};
     //ENTREGAR ID
     matrizAS[1][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
     matrizAS[1][SIMBOLO_PUNTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
     matrizAS[1][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
     matrizAS[1][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
@@ -202,9 +202,9 @@ void Lexico::initializeMatrixSA(){
     matrizAS[1][SIGNO_SUMA]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
 //CAMINO 2
     //INICIALIZAR
-    matrizAS[0][COLUMNA_MAYUSCULA] = {2, &AccionesSemanticas::inicializarToken};
+    matrizAS[0][COLUMN_UPPERCASE] = {2, &AccionesSemanticas::inicializarToken};
     //AGREGAR
-    matrizAS[2][COLUMNA_MAYUSCULA] = {2, &AccionesSemanticas::agregarCaracter};
+    matrizAS[2][COLUMN_UPPERCASE] = {2, &AccionesSemanticas::agregarCaracter};
     matrizAS[2][GUION_BAJO]= {2, &AccionesSemanticas::agregarCaracter};
     //ENTREGAR PAL RESERVADA
     matrizAS[2][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
@@ -212,7 +212,7 @@ void Lexico::initializeMatrixSA(){
     matrizAS[2][COLUMNA_F_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
     matrizAS[2][COLUMNA_L_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
     matrizAS[2][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
     matrizAS[2][SIMBOLO_PUNTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
     matrizAS[2][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
     matrizAS[2][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
@@ -235,8 +235,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[3][SIMBOLO_PUNTO]={5, &AccionesSemanticas::agregarCaracter};
     //ENTREGAR CONSTANTE SIMPLE
     matrizAS[3][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
     matrizAS[3][COLUMNA_F_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
     matrizAS[3][COLUMNA_L_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
     matrizAS[3][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
@@ -260,8 +260,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[4][COLUMNA_DIGITO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[4][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[4][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[4][COLUMNA_F_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[4][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[4][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
@@ -286,8 +286,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[5][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[5][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[5][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[5][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[5][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[5][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
@@ -312,8 +312,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[6][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[6][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[6][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[6][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[6][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
 
@@ -337,8 +337,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[7][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[7][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[7][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[7][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[7][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
     matrizAS[7][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::devolverEnteroLargo};
@@ -365,8 +365,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[8][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[8][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
@@ -390,8 +390,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[9][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[9][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
@@ -415,8 +415,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[10][SIMBOLO_DISTINTO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[10][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[10][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[10][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[10][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
     matrizAS[10][SIGNO_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
@@ -439,8 +439,8 @@ void Lexico::initializeMatrixSA(){
     //matrizAS[11][COMPARADOR_IGUAL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError}; estaba repetido xd, 20 min buscando por que se me rompia el !=
     matrizAS[11][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[11][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[11][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[11][SIMBOLO_PORCENTAJE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
     matrizAS[11][SIGNO_RESTA]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
@@ -466,8 +466,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[12][COMPARADOR_IGUAL]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][GUION_BAJO]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][SIMBOLO_PUNTO]={12, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COLUMNA_MAYUSCULA]= {12, &AccionesSemanticas::agregarCaracter};
-    matrizAS[12][COLUMNA_MINUSCULA]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COLUMN_UPPERCASE]= {12, &AccionesSemanticas::agregarCaracter};
+    matrizAS[12][COLUMN_LOWERCASE]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][OTRO]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][SIMBOLO_PORCENTAJE]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][SIGNO_DIVISION]= {12, &AccionesSemanticas::agregarCaracter};
@@ -492,8 +492,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[13][COLUMNA_L_MINUSCULA] = {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
     matrizAS[13][GUION_BAJO]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
     matrizAS[13][SIMBOLO_PUNTO]={ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMNA_MAYUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMNA_MINUSCULA]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
     matrizAS[13][OTRO]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
     matrizAS[13][COMILLA]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
     matrizAS[13][COMPARADOR_MENOR]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
@@ -515,8 +515,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[14][COLUMNA_L_MINUSCULA] = {14, &AccionesSemanticas::descartarCaracter};
     matrizAS[14][GUION_BAJO]= {14, &AccionesSemanticas::descartarCaracter};
     matrizAS[14][SIMBOLO_PUNTO]={14, &AccionesSemanticas::descartarCaracter};
-    matrizAS[14][COLUMNA_MAYUSCULA]= {14, &AccionesSemanticas::descartarCaracter};
-    matrizAS[14][COLUMNA_MINUSCULA]= {14, &AccionesSemanticas::descartarCaracter};
+    matrizAS[14][COLUMN_UPPERCASE]= {14, &AccionesSemanticas::descartarCaracter};
+    matrizAS[14][COLUMN_LOWERCASE]= {14, &AccionesSemanticas::descartarCaracter};
     matrizAS[14][OTRO]= {14, &AccionesSemanticas::descartarCaracter};
     matrizAS[14][COMILLA]= {14, &AccionesSemanticas::descartarCaracter};
     matrizAS[14][COMPARADOR_MENOR]= {14, &AccionesSemanticas::descartarCaracter};
@@ -539,8 +539,8 @@ void Lexico::initializeMatrixSA(){
     matrizAS[15][COLUMNA_L_MINUSCULA] = {14, &AccionesSemanticas::descartarCaracter};
     matrizAS[15][GUION_BAJO]= {14, &AccionesSemanticas::descartarCaracter};
     matrizAS[15][SIMBOLO_PUNTO]={14, &AccionesSemanticas::descartarCaracter};
-    matrizAS[15][COLUMNA_MAYUSCULA]= {14, &AccionesSemanticas::descartarCaracter};
-    matrizAS[15][COLUMNA_MINUSCULA]= {14, &AccionesSemanticas::descartarCaracter};
+    matrizAS[15][COLUMN_UPPERCASE]= {14, &AccionesSemanticas::descartarCaracter};
+    matrizAS[15][COLUMN_LOWERCASE]= {14, &AccionesSemanticas::descartarCaracter};
 
     matrizAS[15][OTRO]= {14, &AccionesSemanticas::descartarCaracter};
     matrizAS[15][COMILLA]= {14, &AccionesSemanticas::descartarCaracter};

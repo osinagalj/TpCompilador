@@ -85,11 +85,11 @@ termino:
 factor:
 	 ID {Logger::write("ID");}
 	|CTE {Logger::write("CTE");}
-	|'-' CTE {$$ = -1*$2; Logger::write("- CTE");}
+	|'-' CTE {$$ = -1*$2; }
 	|FLOAT
-	|'-' FLOAT {$$ = -1*$2;Logger::write("- FLOAT");}
+	|'-' FLOAT {$$ = -1*$2;}
 	|LONGINT
-        |'-' LONGINT {$$ = -1*$2; Logger::write("- LONGINT");}
+        |'-' LONGINT {$$ = -1*$2; }
 
 ;
 

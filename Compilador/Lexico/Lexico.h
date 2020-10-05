@@ -6,11 +6,11 @@
 #include "AccionesSemanticas.h"
 #include <map>
 #include <string>
-#include "../TablaDeSimbolos/TablaDeSimbolos.h"
+#include "../SymbolTable/SymbolTable.h"
 
-#define Estado0 0
-#define COLUMNA_MINUSCULA 0
-#define COLUMNA_MAYUSCULA 1
+
+#define COLUMN_LOWERCASE 0
+#define COLUMN_UPPERCASE 1
 #define COLUMNA_L_MINUSCULA 2
 #define COLUMNA_F_MINUSCULA 3
 #define COLUMNA_DIGITO 4
@@ -46,7 +46,7 @@ class Lexico{
             Lexico();
              struct Token{
                 int id;
-                 string punteroTS; //clave para el mapa
+                string pointerST; //clave para el mapa
              };
 
              struct Registro{
@@ -62,17 +62,16 @@ class Lexico{
              void aumentarCaracter(); //si el caracter leido es valido aumentamos
              int get_number_line();
              bool end = false;
-
              bool token_found = false;
              Token t;
-             int estadoNuevo;
-             TablaDeSimbolos * tablaSimbolos;
-             void guardarEnTS(int id);
+             int new_state;
+             SymbolTable * symbolTable;
+             void saveInST(int id);
     private:
             ifstream source_file;
             void loadFile(string pathArchivo);
 
-            int actual_line = 1; // para informar errores
+            int current_line = 1; // para informar errores
             int current_character = 0;
             string line;
             int actual_state;

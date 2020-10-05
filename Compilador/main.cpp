@@ -1,9 +1,9 @@
 //#include "Lexico/Lexico.h"
 #include "Sintactico/AccionesSintactico.h"
-#include "TablaDeSimbolos/TablaDeSimbolos.h"
+#include "SymbolTable/SymbolTable.h"
 #include "Salida/Logger.h"
 
-TablaDeSimbolos * tablaSimbolos;
+SymbolTable * tablaSimbolos;
 Lexico * Logger::lexico = nullptr;
 Lexico analizadorLexico;
 string path = "Compilador\\CasosDePrueba\\programa.txt";
@@ -14,10 +14,10 @@ void yyerror(const char *s){
     cout << s << endl;
 }
 int yylex() {
-    Lexico::Token a = analizadorLexico.getToken(path); /* hola $ */
-    cout << "token " + a.punteroTS + " " + to_string(a.id) << endl;
+    Lexico::Token current_token = analizadorLexico.getToken(path); /* hola $ */
+    cout << "token " + current_token.pointerST + " " + to_string(current_token.id) << endl;
 
-    return a.id;
+    return current_token.id;
 }
 #include "Sintactico/y.tab.cpp"
 
@@ -27,12 +27,12 @@ int main(){
     Logger log;
     Logger::lexico = &analizadorLexico;
 
-    TablaDeSimbolos tabla;
+    SymbolTable tabla;
     tablaSimbolos = &tabla;
-    analizadorLexico.tablaSimbolos = &tabla;
+    analizadorLexico.symbolTable = &tabla;
 
     yyparse();
-
+    tablaSimbolos->printTable();
     Logger::close();
 
     return 0;
