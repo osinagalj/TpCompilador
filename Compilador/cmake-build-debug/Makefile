@@ -196,33 +196,6 @@ Lexico/Lexico.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.s
 .PHONY : Lexico/Lexico.cpp.s
 
-Salida/RegistroEventos.obj: Salida/RegistroEventos.cpp.obj
-
-.PHONY : Salida/RegistroEventos.obj
-
-# target to build an object file
-Salida/RegistroEventos.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Salida/RegistroEventos.cpp.obj
-.PHONY : Salida/RegistroEventos.cpp.obj
-
-Salida/RegistroEventos.i: Salida/RegistroEventos.cpp.i
-
-.PHONY : Salida/RegistroEventos.i
-
-# target to preprocess a source file
-Salida/RegistroEventos.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Salida/RegistroEventos.cpp.i
-.PHONY : Salida/RegistroEventos.cpp.i
-
-Salida/RegistroEventos.s: Salida/RegistroEventos.cpp.s
-
-.PHONY : Salida/RegistroEventos.s
-
-# target to generate assembly for a file
-Salida/RegistroEventos.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Salida/RegistroEventos.cpp.s
-.PHONY : Salida/RegistroEventos.cpp.s
-
 Sintactico/AccionesSintactico.obj: Sintactico/AccionesSintactico.cpp.obj
 
 .PHONY : Sintactico/AccionesSintactico.obj
@@ -319,9 +292,6 @@ help:
 	@echo ... Lexico/Lexico.obj
 	@echo ... Lexico/Lexico.i
 	@echo ... Lexico/Lexico.s
-	@echo ... Salida/RegistroEventos.obj
-	@echo ... Salida/RegistroEventos.i
-	@echo ... Salida/RegistroEventos.s
 	@echo ... Sintactico/AccionesSintactico.obj
 	@echo ... Sintactico/AccionesSintactico.i
 	@echo ... Sintactico/AccionesSintactico.s

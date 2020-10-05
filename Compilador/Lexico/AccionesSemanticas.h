@@ -4,7 +4,7 @@
 #include <iostream>
 #include "../TablaDeSimbolos/TablaDeSimbolos.h"
 
-#include "../Salida/RegistroEventos.h"
+
 
 using namespace std;
 //#include "Lexico.h"// NO SE PUEDE
