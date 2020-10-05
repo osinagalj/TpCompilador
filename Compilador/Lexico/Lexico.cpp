@@ -165,11 +165,11 @@ void Lexico::initializeMatrixSA(){
     //DEVOLVER OPERADOR
     matrizAS[0][COLUMN_BL_TAB_NL]= {0, &AccionesSemanticas::descartarCaracter};
 
-    matrizAS[0][COLUMN_SUM] = {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[0][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[0][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[0][COLUMN_END_FILE]={ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[0][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][COLUMN_SUM] = {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][COLUMN_END_FILE]={FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[0][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
     matrizAS[0][COLUMN_DOT]= {5, &AccionesSemanticas::inicializarToken};
     matrizAS[0][COLUMN_LOWERCASE] = {1, &AccionesSemanticas::inicializarToken};
     matrizAS[0][COLUMN_LOWERCASE_F]= {1, &AccionesSemanticas::inicializarToken};
@@ -184,22 +184,22 @@ void Lexico::initializeMatrixSA(){
     matrizAS[1][COLUMN_LOWERCASE_L]= {1, &AccionesSemanticas::agregarCaracter};
     matrizAS[1][COLUMN_DIGIT]= {1, &AccionesSemanticas::agregarCaracter};
     //ENTREGAR ID
-    matrizAS[1][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_DOT]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
-    matrizAS[1][COLUMN_SUM]= {ESTADO_FINAL, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_DOT]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
+    matrizAS[1][COLUMN_SUM]= {FINAL_STATE, &AccionesSemanticas::devolverIdentificador};
 //CAMINO 2
     //INICIALIZAR
     matrizAS[0][COLUMN_UPPERCASE] = {2, &AccionesSemanticas::inicializarToken};
@@ -207,25 +207,25 @@ void Lexico::initializeMatrixSA(){
     matrizAS[2][COLUMN_UPPERCASE] = {2, &AccionesSemanticas::agregarCaracter};
     matrizAS[2][COLUMN_UNDERSCORE]= {2, &AccionesSemanticas::agregarCaracter};
     //ENTREGAR PAL RESERVADA
-    matrizAS[2][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_DIGIT]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_LOWERCASE_F]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_LOWERCASE_L]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_DOT]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
-    matrizAS[2][COLUMN_SUM]= {ESTADO_FINAL, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_DIGIT]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_LOWERCASE_F]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_LOWERCASE_L]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_DOT]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
+    matrizAS[2][COLUMN_SUM]= {FINAL_STATE, &AccionesSemanticas::devolverReservada};
 //CAMINO 3
     //INICIALIZAR
     matrizAS[0][COLUMN_DIGIT] = {3, &AccionesSemanticas::inicializarToken};
@@ -234,221 +234,221 @@ void Lexico::initializeMatrixSA(){
     matrizAS[3][COLUMN_UNDERSCORE]= {4, &AccionesSemanticas::agregarCaracter};
     matrizAS[3][COLUMN_DOT]={5, &AccionesSemanticas::agregarCaracter};
     //ENTREGAR CONSTANTE SIMPLE
-    matrizAS[3][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_LOWERCASE_F]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_LOWERCASE_L]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
-    matrizAS[3][COLUMN_SUM]= {ESTADO_FINAL, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_LOWERCASE_F]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_LOWERCASE_L]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
+    matrizAS[3][COLUMN_SUM]= {FINAL_STATE, &AccionesSemanticas::devolverConstante};
 //CAMINO 4
     //ENTREGAR ENTERO LARGO
-    matrizAS[4][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::devolverEnteroLargo};
+    matrizAS[4][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::devolverEnteroLargo};
     //INFORMAR ERROR
-    matrizAS[4][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_DIGIT]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_LOWERCASE_F]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[4][COLUMN_SUM]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_DIGIT]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_LOWERCASE_F]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][OTHER]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[4][COLUMN_SUM]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
 
 //CAMINO 5
     //AGREGAR
     matrizAS[5][COLUMN_DIGIT]= {5, &AccionesSemanticas::agregarCaracter};
     matrizAS[5][COLUMN_LOWERCASE_F] = {6, &AccionesSemanticas::agregarCaracter};
     //INFORMAR ERROR
-    matrizAS[5][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[5][COLUMN_SUM]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[5][COLUMN_SUM]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
 //CAMINO 6
     //AGREGAR
     matrizAS[6][COLUMN_SUBTRACTION]= {7, &AccionesSemanticas::agregarCaracter};
     matrizAS[6][COLUMN_SUM] = {7, &AccionesSemanticas::agregarCaracter};
     //INFORMAR ERROR
-    matrizAS[6][COLUMN_DIGIT]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_LOWERCASE_F] = {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_DIGIT]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_LOWERCASE_F] = {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][OTHER]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
 
-    matrizAS[6][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[6][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[6][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
 //CAMINO 7
     //AGREGAR
     matrizAS[7][COLUMN_DIGIT]= {7, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER FLOAT
-    matrizAS[7][COLUMN_SUM] = {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_LOWERCASE_F] = {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverEnteroLargo};
-    matrizAS[7][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
-    matrizAS[7][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_SUM] = {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_LOWERCASE_F] = {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverEnteroLargo};
+    matrizAS[7][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
+    matrizAS[7][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::devolverFloat};
 //CAMINO 8
     //AGREGAR
     matrizAS[0][COLUMN_LESS]= {8, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER MENOR IGUAL
-    matrizAS[8][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
+    matrizAS[8][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorCompuesto};
     //DEVOLVER MENOR
-    matrizAS[8][COLUMN_DIGIT]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_SUM] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_LOWERCASE_F] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[8][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_DIGIT]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_SUM] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_LOWERCASE_F] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[8][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
 //CAMINO 9
     //AGREGAR
     matrizAS[0][COLUMN_GREATER]= {9, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER MAYOR IGUAL
-    matrizAS[9][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
+    matrizAS[9][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorCompuesto};
     //DEVOLVER MENOR
-    matrizAS[9][COLUMN_DIGIT]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_SUM] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_LOWERCASE_F] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[9][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_DIGIT]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_SUM] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_LOWERCASE_F] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[9][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
 //CAMINO 10
     //AGREGAR
     matrizAS[0][COLUMN_EQUAL]= {10, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER IGUAL
-    matrizAS[10][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
+    matrizAS[10][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorCompuesto};
     //DEVOLVER ASIGNACION
-    matrizAS[10][COLUMN_DIGIT]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_SUM] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_LOWERCASE_F] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
-    matrizAS[10][COLUMN_END_FILE]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_DIGIT]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_SUM] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_LOWERCASE_F] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
+    matrizAS[10][COLUMN_END_FILE]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorSimple};
 //CAMINO 11
     //AGREGAR
     matrizAS[0][COLUMN_COLUMN_DIFFERENT]= {11, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER DISTINTO
-    matrizAS[11][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverComparadorCompuesto};
+    matrizAS[11][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverComparadorCompuesto};
     //INFORMAR ERROR
-    matrizAS[11][COLUMN_DIGIT]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_LOWERCASE_F] = {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    //matrizAS[11][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError}; estaba repetido xd, 20 min buscando por que se me rompia el !=
-    matrizAS[11][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_PERCENTAGE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_DIVISION]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
-    matrizAS[11][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_DIGIT]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_LOWERCASE_F] = {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    //matrizAS[11][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::mensajeError}; estaba repetido xd, 20 min buscando por que se me rompia el !=
+    matrizAS[11][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][OTHER]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_PERCENTAGE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_DIVISION]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
+    matrizAS[11][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::mensajeError};
 //CAMINO 12
     //AGREGAR
 
@@ -475,30 +475,30 @@ void Lexico::initializeMatrixSA(){
     matrizAS[12][COLUMN_GREATER]= {12, &AccionesSemanticas::agregarCaracter};
     matrizAS[12][COLUMN_BL_TAB_NL]= {12, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER CADENA
-    matrizAS[12][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[12][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
 //CAMINO 13
     //AGREGAR
     matrizAS[0][COLUMN_DIVISION]= {13, &AccionesSemanticas::agregarCaracter};
     //DEVOLVER DIVISION
-    matrizAS[13][COLUMN_COLUMN_DIFFERENT]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_EQUAL]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_SUM] = {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_SUBTRACTION]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_MULTIPLICATION]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_LITERALS]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_END_FILE]={ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_DIGIT]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_LOWERCASE_F] = {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_LOWERCASE_L] = {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_UNDERSCORE]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_DOT]={ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_UPPERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_LOWERCASE]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][OTHER]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_QUOTE]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_LESS]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_GREATER]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
-    matrizAS[13][COLUMN_BL_TAB_NL]= {ESTADO_FINAL, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_EQUAL]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_SUM] = {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_SUBTRACTION]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_MULTIPLICATION]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_LITERALS]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_END_FILE]={FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_DIGIT]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_LOWERCASE_F] = {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_LOWERCASE_L] = {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_UNDERSCORE]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_DOT]={FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_UPPERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_LOWERCASE]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][OTHER]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_LESS]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_GREATER]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
+    matrizAS[13][COLUMN_BL_TAB_NL]= {FINAL_STATE, &AccionesSemanticas::devolverUnico};
     //INICIO DE COMENTARIO
     matrizAS[13][COLUMN_PERCENTAGE]= {14, &AccionesSemanticas::descartarCaracter};
 //CAMINO 14

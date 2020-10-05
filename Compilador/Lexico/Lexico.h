@@ -7,7 +7,8 @@
 #include <map>
 #include <string>
 #include "../SymbolTable/SymbolTable.h"
-
+#include "../Sintactico/y.tab.h"
+using namespace std;
 
 #define COLUMN_LOWERCASE 0
 #define COLUMN_UPPERCASE 1
@@ -30,16 +31,11 @@
 #define COLUMN_END_FILE 18              //'$' for this case
 #define OTHER 19
 #define COLUMN_SUM 20
-
-#define longIdentificador 21 //XQ NO ES 20?????????????????
-
-#define ESTADO_FINAL -1
+#define FINAL_STATE -1
 const int  nro_estados = 17;
 const int nro_simbolos = 21;
 
-#include "../Sintactico/y.tab.h"
-//si no haces el yacc -d Gramatica.y no te genera el tab.h
-using namespace std;
+#define longIdentificador 21 //XQ NO ES 20?????????????????
 
 
 class Lexico{
