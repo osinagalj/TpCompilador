@@ -1,17 +1,17 @@
 #include "AccionesSemanticas.h"
 //#include "Lexico.h"
-
 #include "../Salida/Logger.h"
-void AccionesSemanticas::inicializarToken(Lexico* lexico, char& c){
+
+void AccionesSemanticas::initialize_token(Lexico* lexico, char& c){
     lexico->cadena = c;
     lexico->aumentarCaracter();
 }
-void AccionesSemanticas::agregarCaracter(Lexico* lexico, char& c){
+void AccionesSemanticas::add_character(Lexico* lexico, char& c){
     lexico->cadena = lexico->cadena + c;
     lexico->aumentarCaracter();
 }
-void AccionesSemanticas::devolverIdentificador(Lexico* lexico, char& c){
-    //Logger::write("ESTO ES TREMENDO");
+void AccionesSemanticas::finish_identifier(Lexico* lexico, char& c){
+
     lexico->set_token_found();
     //Chekear el rango
     if(lexico->cadena.length() > longIdentificador){
@@ -24,20 +24,20 @@ void AccionesSemanticas::devolverIdentificador(Lexico* lexico, char& c){
         lexico->saveInST(ID);
     }
 }
-void AccionesSemanticas::devolverReservada(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_reserved_word(Lexico* lexico, char& c)
 {
     lexico->set_token_found();
     int id = lexico->getIdPalabraReservada();
     lexico->guardarToken(id, lexico->cadena);
 }
-void AccionesSemanticas::devolverConstante(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_constant(Lexico* lexico, char& c)
 {
     lexico->set_token_found();
     lexico->guardarToken(CTE, lexico->cadena);
     lexico->saveInST(CTE);
 
 }
-void AccionesSemanticas::devolverEnteroLargo(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_longint(Lexico* lexico, char& c)
 {
     //.5    6.3f-3
     //Valor maximo de un entero largo 2147483647
@@ -56,7 +56,7 @@ void AccionesSemanticas::devolverEnteroLargo(Lexico* lexico, char& c)
     }
     lexico->saveInST(LONGINT);
 }
-void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_float(Lexico* lexico, char& c)
 {
     string acumulado="";
     float numero=0;
@@ -97,7 +97,7 @@ void AccionesSemanticas::devolverFloat(Lexico* lexico, char& c)
 }
 
 //Blancos,TAB, Salto de linea
-void AccionesSemanticas::descartarCaracter(Lexico *lexico, char &c)
+void AccionesSemanticas::discard_character(Lexico *lexico, char &c)
 {
     lexico->aumentarCaracter();
     lexico->cadena="";
@@ -108,7 +108,7 @@ void AccionesSemanticas::notificarFinArchivoInesperado(Lexico* lexico, char& c){
     lexico->registro.warning = "Se encontró fin de archivo adentro de un comentario o cadena de caracteres"; //Puede ser en un comentario o una cadena de caracter
 }
 
-void AccionesSemanticas::mensajeError(Lexico* lexico, char& c){
+void AccionesSemanticas::error_mensagge(Lexico* lexico, char& c){
     lexico->aumentarCaracter();
     // EN UN FUTURO GUARDAR EN UN ARCHIVO TODOS LOS ERRORES
     cout<< lexico->get_number_line()<<endl;
@@ -116,7 +116,7 @@ void AccionesSemanticas::mensajeError(Lexico* lexico, char& c){
 }
 
 // Comparadores: <=,>=,==,!=
-void AccionesSemanticas::devolverComparadorCompuesto(Lexico* lexico, char& c){
+void AccionesSemanticas::finish_composite_comparator(Lexico* lexico, char& c){
     lexico->aumentarCaracter();
     lexico->set_token_found();
     lexico->cadena = lexico->cadena + c;
@@ -136,7 +136,7 @@ void AccionesSemanticas::devolverComparadorCompuesto(Lexico* lexico, char& c){
         }
 }
 
-void AccionesSemanticas::devolverComparadorSimple(Lexico* lexico, char& c){
+void AccionesSemanticas::finish_simple_comparator(Lexico* lexico, char& c){
 //No aumentamos token porque estamos parados en el siguiente
     lexico->set_token_found();
     switch(lexico->cadena[0]){
@@ -154,7 +154,7 @@ void AccionesSemanticas::devolverComparadorSimple(Lexico* lexico, char& c){
 }
 
 
-void AccionesSemanticas::devolverUnico(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_symbol(Lexico* lexico, char& c)
 {
     lexico->aumentarCaracter();
     lexico->set_token_found();

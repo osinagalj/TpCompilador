@@ -17,20 +17,20 @@ class AccionesSemanticas {
         int numeroCadena = 0;
     public:
         //nuevas
-        static void devolverUnico(Lexico* lexico, char& c);
-        static void devolverComparadorSimple(Lexico* lexico, char& c);
-        static void devolverComparadorCompuesto(Lexico* lexico, char& c);
+        static void finish_symbol(Lexico* lexico, char& c);
+        static void finish_simple_comparator(Lexico* lexico, char& c);
+        static void finish_composite_comparator(Lexico* lexico, char& c);
 
-        static void inicializarToken(Lexico* lexico, char& c);
-        static void devolverIdentificador(Lexico* lexico, char& c);
-        static void descartarCaracter(Lexico* lexico, char& c);
-        static void devolverReservada(Lexico* lexico, char& c);
-        static void agregarCaracter(Lexico* lexico, char& c);
-        static void devolverEnteroLargo(Lexico* lexico, char& c);
-        static void devolverFloat(Lexico* lexico, char& c);
-        static void devolverConstante(Lexico* lexico, char& c);
+        static void initialize_token(Lexico* lexico, char& c);
+        static void finish_identifier(Lexico* lexico, char& c);
+        static void discard_character(Lexico* lexico, char& c);
+        static void finish_reserved_word(Lexico* lexico, char& c);
+        static void add_character(Lexico* lexico, char& c);
+        static void finish_longint(Lexico* lexico, char& c);
+        static void finish_float(Lexico* lexico, char& c);
+        static void finish_constant(Lexico* lexico, char& c);
         static void notificarFinArchivoInesperado(Lexico* lexico, char& c);
-        static void mensajeError(Lexico* lexico, char& c);
+        static void error_mensagge(Lexico* lexico, char& c);
 
     private:
 
