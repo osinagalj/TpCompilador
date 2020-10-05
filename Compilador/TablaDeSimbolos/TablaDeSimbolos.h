@@ -15,6 +15,7 @@ class TablaDeSimbolos {
             void agregarSimbolo(string key, Registro registro);
 
             bool existeSimbolo(string key, Registro reg);
+
     //getIdPalabraReservada
             Registro getID(string key, Registro reg);
             void imprimir();

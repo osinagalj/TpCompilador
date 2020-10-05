@@ -4,8 +4,8 @@
 #include <iostream>
 #include "../TablaDeSimbolos/TablaDeSimbolos.h"
 
-#include "../RegistroEventos//RegistroEventos.h"
 
+#include "../Salida/Logger.h"
 using namespace std;
 //#include "Lexico.h"// NO SE PUEDE
 class Lexico;
@@ -20,6 +20,7 @@ class AccionesSemanticas {
         static void devolverUnico(Lexico* lexico, char& c);
         static void devolverComparadorSimple(Lexico* lexico, char& c);
         static void devolverComparadorCompuesto(Lexico* lexico, char& c);
+
         static void inicializarToken(Lexico* lexico, char& c);
         static void devolverIdentificador(Lexico* lexico, char& c);
         static void descartarCaracter(Lexico* lexico, char& c);

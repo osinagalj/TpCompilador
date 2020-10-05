@@ -2,7 +2,7 @@
 
 TablaDeSimbolos::TablaDeSimbolos(){}
 //Este lo llamra el LEXICO
-void TablaDeSimbolos::agregarSimbolo(string key, Registro registro){
+void TablaDeSimbolos::agregarSimbolo(string key, Registro registro) {
 
     auto search = tablaDeSimbolos.find(key);
     if (search == tablaDeSimbolos.end()) {

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj"
   "CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj"
-  "CMakeFiles/Compilador.dir/RegistroEventos/RegistroEventos.cpp.obj"
+  "CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj"
   "CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj"
   "CMakeFiles/Compilador.dir/TablaDeSimbolos/TablaDeSimbolos.cpp.obj"
   "CMakeFiles/Compilador.dir/main.cpp.obj"

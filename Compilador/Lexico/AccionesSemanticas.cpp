@@ -1,6 +1,7 @@
 #include "AccionesSemanticas.h"
 #include "Lexico.h"
 
+
 void AccionesSemanticas::inicializarToken(Lexico* lexico, char& c){
     lexico->cadena = c;
     lexico->aumentarCaracter();
@@ -10,7 +11,7 @@ void AccionesSemanticas::agregarCaracter(Lexico* lexico, char& c){
     lexico->aumentarCaracter();
 }
 void AccionesSemanticas::devolverIdentificador(Lexico* lexico, char& c){
-    //RegistroEventos::imprimir("ESTO ES TREMENDO");
+    Logger::write("ESTO ES TREMENDO");
     lexico->tokenEncontrado();
     //Chekear el rango
     if(lexico->cadena.length() > longIdentificador){
