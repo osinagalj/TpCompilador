@@ -1,5 +1,5 @@
 #include "Logger.h"
-#include "../Lexico/Lexico.h"
+
 Logger Logger::instance;
 
 Logger::Logger(){}
@@ -13,9 +13,14 @@ void Logger::close(){
 }
 void Logger::write(const string& message){
     ostream& stream =  instance.fileStream ;
-
-    stream << message<< endl;
+    string s = "linea:" + to_string(lexico->getLinea()) + "  " + message;
+    stream << s<< endl;
 }
+/*
+void Logger::lex(const Lexico * lexico){
+    lexico2 = lexico;
+}
+ */
 /*
 void Logger::lexico(Lexico* lexico, string message ){
     int x = lexico->getLinea();
@@ -23,9 +28,10 @@ void Logger::lexico(Lexico* lexico, string message ){
     write(message);
 
 }*/
-
+/*
 void Logger::inic(Lexico *lexico) {
     lexico2 = lexico;
     cout<<"LEXICO LINEA XD = " + to_string( lexico2->getLinea());
     write("LEXICO LINEA XD");
 }
+ */

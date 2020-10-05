@@ -1,3 +1,166 @@
-saca tu kaka 3899
-LEXICO LINEA XD
-ASIGNACION VACIA TIENE QUE ENTRAR EN ARCHIVO SALIDA
+linea:1  FLOAT
+linea:2  lista_de_variables
+linea:2  lista_de_variables
+linea:2  declarativa
+linea:2  sentencia 
+linea:2  Bloque sentencia
+linea:3  ejecutable
+linea:3  sentencia 
+linea:3  Bloque sentencia
+linea:3  INT
+linea:3  lista_de_parametros
+linea:3  INT
+linea:3  lista_de_parametros
+linea:4  CTE
+linea:4  factor
+linea:5  termino
+linea:5  ejecutable
+linea:5  sentencia 
+linea:5  Bloque sentencia
+linea:5  ID
+linea:5  factor
+linea:5  termino
+linea:5  CTE
+linea:5  factor
+linea:5  termino
+linea:5  condicion
+linea:6  CTE
+linea:6  factor
+linea:7  termino
+linea:7  ejecutable
+linea:7  sentencia 
+linea:7  Bloque sentencia
+linea:7  ID
+linea:7  factor
+linea:7  termino
+linea:7  CTE
+linea:7  factor
+linea:7  termino
+linea:7  condicion
+linea:8  CTE
+linea:8  factor
+linea:9  termino
+linea:9  ejecutable
+linea:9  sentencia 
+linea:9  Bloque sentencia
+linea:9  lista_de_parametros
+linea:10  ejecutable
+linea:10  sentencia 
+linea:10  Bloque sentencia
+linea:10  lista_de_parametros
+linea:11  ejecutable
+linea:11  sentencia 
+linea:11  Bloque sentencia
+linea:11  procedimiento
+linea:13  declarativa
+linea:13  sentencia 
+linea:13  Bloque sentencia
+linea:13  CTE
+linea:13  factor
+linea:14  termino
+linea:14  ejecutable
+linea:14  sentencia 
+linea:14  Bloque sentencia
+linea:14  CTE
+linea:14  factor
+linea:14  termino
+linea:14  CTE
+linea:14  factor
+linea:15  suma
+linea:15  ejecutable
+linea:15  sentencia 
+linea:15  Bloque sentencia
+linea:15  ID
+linea:15  factor
+linea:15  termino
+linea:15  CTE
+linea:15  factor
+linea:15  termino
+linea:15  CTE
+linea:15  factor
+linea:16  suma
+linea:16  condicion igual
+linea:16  CTE
+linea:16  factor
+linea:17  termino
+linea:17  ejecutable
+linea:17  sentencia 
+linea:17  Bloque sentencia
+linea:18  lista_de_parametros
+linea:18  ejecutable
+linea:18  sentencia 
+linea:18  Bloque sentencia
+linea:18  ID
+linea:18  factor
+linea:18  termino
+linea:18  CTE
+linea:18  factor
+linea:18  termino
+linea:18  CTE
+linea:18  factor
+linea:19  suma
+linea:19  condicion igual
+linea:19  CTE
+linea:19  factor
+linea:20  termino
+linea:20  ejecutable
+linea:20  sentencia 
+linea:20  Bloque sentencia
+linea:21  CTE
+linea:21  factor
+linea:22  termino
+linea:22  ejecutable
+linea:22  sentencia 
+linea:22  Bloque sentencia
+linea:22  lista_de_parametros
+linea:24  ejecutable
+linea:24  sentencia 
+linea:24  Bloque sentencia
+linea:28  imprimir out
+linea:28  sentencia 
+linea:28  Bloque sentencia
+linea:28  parametros
+linea:28  parametros
+linea:29  invocacion_proc
+linea:29  ejecutable
+linea:29  sentencia 
+linea:29  Bloque sentencia
+linea:29  CTE
+linea:29  factor
+linea:29  termino
+linea:29  - CTE
+linea:29  factor
+linea:30  resta
+linea:30  ejecutable
+linea:30  sentencia 
+linea:30  Bloque sentencia
+linea:30  factor
+linea:32  termino
+linea:32  ejecutable
+linea:32  sentencia 
+linea:32  Bloque sentencia
+linea:32  INT
+linea:32  lista_de_parametros
+linea:32  INT
+linea:32  lista_de_parametros
+linea:33  factor
+linea:34  termino
+linea:34  ejecutable
+linea:34  sentencia 
+linea:34  Bloque sentencia
+linea:34  procedimiento
+linea:37  declarativa
+linea:37  sentencia 
+linea:37  Bloque sentencia
+linea:37  - FLOAT
+linea:37  factor
+linea:38  termino
+linea:38  ejecutable
+linea:38  sentencia 
+linea:38  Bloque sentencia
+linea:38  - CTE
+linea:38  factor
+linea:40  termino
+linea:40  ejecutable
+linea:40  sentencia 
+linea:40  Bloque sentencia

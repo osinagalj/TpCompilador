@@ -1,5 +1,5 @@
 #include "AccionesSemanticas.h"
-#include "Lexico.h"
+//#include "Lexico.h"
 
 #include "../Salida/Logger.h"
 void AccionesSemanticas::inicializarToken(Lexico* lexico, char& c){

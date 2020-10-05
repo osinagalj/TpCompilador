@@ -2,8 +2,8 @@
 #include <fstream>
 #include <iostream>
 
-//#include "../Lexico/Lexico.h"
-class Lexico;
+#include "../Lexico/Lexico.h"
+//class Lexico;
 
 using namespace std;
 
@@ -14,11 +14,11 @@ public:
     static void close();
     // write message
     static void write( const string & message);
-    void inic(Lexico* lexico);
+
+    //static void lex(const Lexico * lexico);
+    static Lexico * lexico;
     Logger();
 private:
-
-    Lexico * lexico2;
     //Lexi
     ofstream fileStream;
     //Logger instance (singleton)

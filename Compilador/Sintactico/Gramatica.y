@@ -9,93 +9,95 @@ programa:
           bloque_sentencia
 ;
 bloque_sentencia:
-	 sentencia {AccionesSintactico::imprime("bloque_sentencia");}
-	|bloque_sentencia sentencia {AccionesSintactico::imprime("bloque_sentencia");}
+	 sentencia {Logger::write("Bloque sentencia");}
+	|bloque_sentencia sentencia {Logger::write("Bloque sentencia");}
 ;
 sentencia:
-	 declarativa {AccionesSintactico::imprime("declarativa");}
-	|ejecutable {AccionesSintactico::imprime("ejecutable");}
-	|imprimir {AccionesSintactico::imprime("imprimir");}
+	 declarativa {Logger::write("sentencia ");}
+	|ejecutable {Logger::write("sentencia ");}
+	|imprimir {Logger::write("sentencia ");}
 ;
 declarativa:
-	 tipo lista_de_variables {AccionesSintactico::imprime("declarativa");}
-	|procedimiento ';' {AccionesSintactico::imprime("procedimiento");}
+	 tipo lista_de_variables {Logger::write("declarativa");}
+	|procedimiento ';'{Logger::write("declarativa");}
 
 ;
 lista_de_variables:
-	ID ',' lista_de_variables {AccionesSintactico::imprime("lista_variables");}
-	|ID ';' {AccionesSintactico::imprime("id de lista");}
+	ID ',' lista_de_variables {Logger::write("lista_de_variables");}
+	|ID ';'{Logger::write("lista_de_variables");}
 ;
 ejecutable:
-	 ID '=' expresion ';'{AccionesSintactico::imprime("expresion");}
-	| ID '='  ';'{Logger::write("ASIGNACION VACIA TIENE QUE ENTRAR EN ARCHIVO SALIDA");}
-	|invocacion_proc {AccionesSintactico::imprime("inv proc");}
-	|sentencia_while ';' {AccionesSintactico::imprime("setencia_while");}
-	|sentencia_if ';' {AccionesSintactico::imprime("sentencia if");}
+	 ID '=' expresion ';'{Logger::write("ejecutable");}
+	| ID '='  ';'{Logger::write("ejecutable");}
+	|invocacion_proc {Logger::write("ejecutable");}
+	|sentencia_while ';'{Logger::write("ejecutable");}
+	|sentencia_if ';'{Logger::write("ejecutable");}
 ;
 invocacion_proc:
-	 ID '(' parametros ')' ';' {AccionesSintactico::imprime("invocacion proc");}
+	 ID '(' parametros ')' ';'{Logger::write("invocacion_proc");}
 ;
 parametros:
-	 parametros ',' ID {AccionesSintactico::imprime("parametros");}
-	|ID {AccionesSintactico::imprime("id parametros");}
+	 parametros ',' ID {Logger::write("parametros");}
+	|ID {Logger::write("parametros");}
 ;
 procedimiento:
-	PROC ID '(' lista_de_parametros ')' NA '=' CTE ',' SHADOWING '=' true_false'{' bloque_sentencia '}'  {AccionesSintactico::imprime("def proc");}
+	PROC ID '(' lista_de_parametros ')' NA '=' CTE ',' SHADOWING '=' true_false'{' bloque_sentencia '}'  {Logger::write("procedimiento");}
 
 ;
 true_false:
 	     TRUE
 	   | FALSE
 lista_de_parametros:
-	 lista_de_parametros ',' tipo ID {AccionesSintactico::imprime("lista parametros");}
-	|tipo ID {AccionesSintactico::imprime("id listapar");}
-;
+	 lista_de_parametros ',' tipo ID {Logger::write("lista_de_parametros");}
+	|tipo ID {Logger::write("lista_de_parametros");}
+
 sentencia_if:
-	 IF '(' condicion ')' bloque_sentencia END_IF {AccionesSintactico::imprime("if");}
-	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {AccionesSintactico::imprime("if else");}
-	|IF '(' condicion ')' bloque_sentencia END_IF error {yyerror("if error EN XDDDDDDDDDDDDDDDD");}
+	 IF '(' condicion ')' bloque_sentencia END_IF {Logger::write("lista_de_parametros");}
+	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {Logger::write("lista_de_parametros");}
+	|IF '(' condicion ')' bloque_sentencia END_IF error {Logger::write("lista_de_parametros");}
 ;
 sentencia_while:
-	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}' {AccionesSintactico::imprime("while");}
+	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}'{Logger::write("lista_de_parametros");}
 
 ;
 condicion:
-	|expresion IGUAL expresion {AccionesSintactico::imprime("igual");}
-	|expresion MENORIGUAL expresion {AccionesSintactico::imprime("menorigual");}
-	|expresion MAYORIGUAL expresion {AccionesSintactico::imprime("mayorigual");}
-	|expresion DISTINTO expresion {AccionesSintactico::imprime("distinto");}
+	|expresion IGUAL expresion {Logger::write("condicion igual");}
+	|expresion MENORIGUAL expresion {Logger::write("condicion menorigual");}
+	|expresion MAYORIGUAL expresion {Logger::write("condicion");}
+	|expresion DISTINTO expresion {Logger::write("lista_de_parametros");}
+	|expresion '>' expresion {Logger::write("mayor");}
+        |expresion '<' expresion {Logger::write("menor");}
 
 ;
 expresion:
-	   expresion '+' termino {AccionesSintactico::imprime("suma");}
-	  |expresion '-' termino {AccionesSintactico::imprime("resta");}
-	  |termino {AccionesSintactico::imprime("termino");}
+	   expresion '+' termino {Logger::write("suma");}
+	  |expresion '-' termino {Logger::write("resta");}
+	  |termino {Logger::write("termino");}
 
 ;
 termino:
-	 factor {AccionesSintactico::imprime("factor");}
-	|termino '/' factor {AccionesSintactico::imprime("div");}
-	|termino '*' factor {AccionesSintactico::imprime("mult");}
+	 factor{Logger::write("factor");}
+	|termino '/' factor {Logger::write("division");}
+	|termino '*' factor {Logger::write("multiplicacion");}
 
 ;
 factor:
-	 ID {AccionesSintactico::imprime("factor");}
-	|CTE {AccionesSintactico::imprime("cte");}
-	|'-' CTE {$$ = -1*$2; AccionesSintactico::imprime("se hizo negativo CTE");}
+	 ID {Logger::write("ID");}
+	|CTE {Logger::write("CTE");}
+	|'-' CTE {$$ = -1*$2; Logger::write("- CTE");}
 	|FLOAT
-	|'-' FLOAT {$$ = -1*$2; AccionesSintactico::imprime("se hizo negativo FLOAT");}
+	|'-' FLOAT {$$ = -1*$2;Logger::write("- FLOAT");}
 	|LONGINT
-        |'-' LONGINT {$$ = -1*$2; AccionesSintactico::imprime(" se hizo negativo LONGINT");}
+        |'-' LONGINT {$$ = -1*$2; Logger::write("- LONGINT");}
 
 ;
 
 tipo:
-	 INT {AccionesSintactico::imprime("INT");}
-        |LONGINT {AccionesSintactico::imprime("LONGINT");}
-        |FLOAT {AccionesSintactico::imprime("FLOAT");}
+	 INT {Logger::write("INT");}
+        |LONGINT {Logger::write("LONGINT");}
+        |FLOAT {Logger::write("FLOAT");}
 ;
 imprimir:
-	OUT '(' CADENA ')' ';' {AccionesSintactico::imprime("cadena");}
+	OUT '(' CADENA ')' ';' {Logger::write("imprimir out");}
 ;
 %%
