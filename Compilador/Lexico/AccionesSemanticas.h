@@ -29,7 +29,8 @@ class AccionesSemanticas {
         static void finish_longint(Lexico* lexico, char& c);
         static void finish_float(Lexico* lexico, char& c);
         static void finish_constant(Lexico* lexico, char& c);
-        static void notificarFinArchivoInesperado(Lexico* lexico, char& c);
+        static void eof_unexpected(Lexico* lexico, char& c);
+
         static void error_mensagge(Lexico* lexico, char& c);
 
     private:

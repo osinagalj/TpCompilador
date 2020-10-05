@@ -104,7 +104,7 @@ void AccionesSemanticas::discard_character(Lexico *lexico, char &c)
 }
 
 //$ en medio de un comentario o cadena de caracter
-void AccionesSemanticas::notificarFinArchivoInesperado(Lexico* lexico, char& c){
+void AccionesSemanticas::eof_unexpected(Lexico* lexico, char& c){
     lexico->registro.warning = "Se encontró fin de archivo adentro de un comentario o cadena de caracteres"; //Puede ser en un comentario o una cadena de caracter
 }
 

@@ -459,7 +459,7 @@ void Lexico::initializeMatrixSA(){
     matrizAS[12][COLUMN_SUBTRACTION]= {12, &AccionesSemanticas::add_character};
     matrizAS[12][COLUMN_MULTIPLICATION]= {12, &AccionesSemanticas::add_character};
     matrizAS[12][COLUMN_LITERALS]= {12, &AccionesSemanticas::add_character};
-    matrizAS[12][COLUMN_END_FILE]={0, &AccionesSemanticas::notificarFinArchivoInesperado};  // ACÁ PASABA ALGO?
+    matrizAS[12][COLUMN_END_FILE]={0, &AccionesSemanticas::eof_unexpected};  // ACÁ PASABA ALGO?
     matrizAS[12][COLUMN_DIGIT]= {12, &AccionesSemanticas::add_character};
     matrizAS[12][COLUMN_LOWERCASE_F] = {12, &AccionesSemanticas::add_character};
     matrizAS[12][COLUMN_LOWERCASE_L] = {12, &AccionesSemanticas::add_character};
@@ -525,7 +525,7 @@ void Lexico::initializeMatrixSA(){
     //POSIBLE FIN DE COMENTARIO
     matrizAS[14][COLUMN_PERCENTAGE]= {15, &AccionesSemanticas::discard_character};
     //FIN DE ARCHIVO EN MEDIO DEL COMENTARIO
-    matrizAS[14][COLUMN_END_FILE]={0, &AccionesSemanticas::notificarFinArchivoInesperado};
+    matrizAS[14][COLUMN_END_FILE]={0, &AccionesSemanticas::eof_unexpected};
 //CAMINO 15
     //AGREGAR (VUELVO A ESTADO 14 PORQUE NO SE CERRO EL COMENTARIO)
     matrizAS[15][COLUMN_COLUMN_DIFFERENT]= {14, &AccionesSemanticas::discard_character};
@@ -552,7 +552,7 @@ void Lexico::initializeMatrixSA(){
     //FIN COMENTARIO (descartar)
     matrizAS[15][COLUMN_DIVISION]= {0, &AccionesSemanticas::discard_character};
     //FIN DE ARCHIVO EN MEDIO DEL COMENTARIO
-    matrizAS[15][COLUMN_END_FILE]={0, &AccionesSemanticas::notificarFinArchivoInesperado};
+    matrizAS[15][COLUMN_END_FILE]={0, &AccionesSemanticas::eof_unexpected};
 
 
 }
