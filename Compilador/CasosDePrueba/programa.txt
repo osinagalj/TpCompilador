@@ -32,7 +32,7 @@ x= 245_l;
 PROC var (INT id2, INT id3) NA = 2 , SHADOWING = TRUE {
     x= 3.1f+2;
 };
-x = ;
+
 
 float_negativo = -7.3;
 longint_negativo = -711;

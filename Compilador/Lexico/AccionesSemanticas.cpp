@@ -11,7 +11,7 @@ void AccionesSemanticas::agregarCaracter(Lexico* lexico, char& c){
     lexico->aumentarCaracter();
 }
 void AccionesSemanticas::devolverIdentificador(Lexico* lexico, char& c){
-    Logger::write("ESTO ES TREMENDO");
+    //Logger::write("ESTO ES TREMENDO");
     lexico->tokenEncontrado();
     //Chekear el rango
     if(lexico->cadena.length() > longIdentificador){
