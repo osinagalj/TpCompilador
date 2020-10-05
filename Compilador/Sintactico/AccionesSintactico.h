@@ -3,6 +3,7 @@
 #define COMPILADOR_ACCIONESSINTACTICO_H
 #include <map>
 #include <iostream>
+#include "../SymbolTable/SymbolTable.h"
 using namespace std;
 class AccionesSintactico {
 private:
@@ -12,6 +13,10 @@ private:
 public:
     static void imprime(string x);
 
+    //static void chequearRangoCtePositiva(SymbolTable tablita,string pointer);
+    static void negativizarVar(SymbolTable * tablita,int yylval);
+
+    //static bool checkDivisionCero(string pointer);
     //static map<string, vector<string>> variablesDeClase;
    /* static vector<string> *punteros;
     static void inicializar(vector<string>* p);

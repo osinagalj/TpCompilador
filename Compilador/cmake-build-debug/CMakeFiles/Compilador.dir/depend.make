@@ -23,6 +23,8 @@ CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../SymbolTable/SymbolTable.h
 
 CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj: ../Sintactico/AccionesSintactico.cpp
 CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj: ../Sintactico/AccionesSintactico.h
+CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj: ../Sintactico/y.tab.h
+CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj: ../SymbolTable/SymbolTable.h
 
 CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: ../Sintactico/y.tab.h
 CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: ../SymbolTable/SymbolTable.cpp

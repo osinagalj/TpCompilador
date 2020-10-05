@@ -387,186 +387,178 @@ yyreduce:
     switch (yyn)
     {
 case 2:
-#line 12 "gramatica.y"
+#line 15 "gramatica.y"
 {Logger::write("Bloque sentencia");}
 break;
 case 3:
-#line 13 "gramatica.y"
+#line 16 "gramatica.y"
 {Logger::write("Bloque sentencia");}
 break;
 case 4:
-#line 16 "gramatica.y"
+#line 19 "gramatica.y"
 {Logger::write("sentencia ");}
 break;
 case 5:
-#line 17 "gramatica.y"
+#line 20 "gramatica.y"
 {Logger::write("sentencia ");}
 break;
 case 6:
-#line 18 "gramatica.y"
+#line 21 "gramatica.y"
 {Logger::write("sentencia ");}
 break;
 case 7:
-#line 21 "gramatica.y"
+#line 24 "gramatica.y"
 {Logger::write("declarativa");}
 break;
 case 8:
-#line 22 "gramatica.y"
+#line 25 "gramatica.y"
 {Logger::write("declarativa");}
 break;
 case 9:
-#line 26 "gramatica.y"
+#line 29 "gramatica.y"
 {Logger::write("lista_de_variables");}
 break;
 case 10:
-#line 27 "gramatica.y"
+#line 30 "gramatica.y"
 {Logger::write("lista_de_variables");}
 break;
 case 11:
-#line 30 "gramatica.y"
-{Logger::write("ejecutable");}
-break;
-case 12:
-#line 31 "gramatica.y"
-{Logger::write("ejecutable");}
-break;
-case 13:
-#line 32 "gramatica.y"
-{Logger::write("ejecutable");}
-break;
-case 14:
 #line 33 "gramatica.y"
 {Logger::write("ejecutable");}
 break;
-case 15:
+case 12:
 #line 34 "gramatica.y"
 {Logger::write("ejecutable");}
 break;
-case 16:
+case 13:
+#line 35 "gramatica.y"
+{Logger::write("ejecutable");}
+break;
+case 14:
+#line 36 "gramatica.y"
+{Logger::write("ejecutable");}
+break;
+case 15:
 #line 37 "gramatica.y"
+{Logger::write("ejecutable");}
+break;
+case 16:
+#line 40 "gramatica.y"
 {Logger::write("invocacion_proc");}
 break;
 case 17:
-#line 40 "gramatica.y"
+#line 43 "gramatica.y"
 {Logger::write("parametros");}
 break;
 case 18:
-#line 41 "gramatica.y"
+#line 44 "gramatica.y"
 {Logger::write("parametros");}
 break;
 case 19:
-#line 44 "gramatica.y"
+#line 47 "gramatica.y"
 {Logger::write("procedimiento");}
 break;
 case 22:
-#line 51 "gramatica.y"
+#line 54 "gramatica.y"
 {Logger::write("lista_de_parametros");}
 break;
 case 23:
-#line 52 "gramatica.y"
-{Logger::write("lista_de_parametros");}
-break;
-case 24:
 #line 55 "gramatica.y"
 {Logger::write("lista_de_parametros");}
 break;
+case 24:
+#line 58 "gramatica.y"
+{Logger::write("lista_de_parametros");}
+break;
 case 25:
-#line 56 "gramatica.y"
+#line 59 "gramatica.y"
 {Logger::write("lista_de_parametros");}
 break;
 case 26:
-#line 57 "gramatica.y"
-{Logger::write("lista_de_parametros");}
-break;
-case 27:
 #line 60 "gramatica.y"
 {Logger::write("lista_de_parametros");}
 break;
-case 29:
-#line 64 "gramatica.y"
-{Logger::write("condicion igual");}
-break;
-case 30:
-#line 65 "gramatica.y"
-{Logger::write("condicion menorigual");}
-break;
-case 31:
-#line 66 "gramatica.y"
-{Logger::write("condicion");}
-break;
-case 32:
-#line 67 "gramatica.y"
+case 27:
+#line 63 "gramatica.y"
 {Logger::write("lista_de_parametros");}
 break;
-case 33:
+case 29:
+#line 67 "gramatica.y"
+{Logger::write("Condicion igual");}
+break;
+case 30:
 #line 68 "gramatica.y"
-{Logger::write("mayor");}
+{Logger::write("Condicion menorigual");}
+break;
+case 31:
+#line 69 "gramatica.y"
+{Logger::write("Condicion mayorIgual");}
+break;
+case 32:
+#line 70 "gramatica.y"
+{Logger::write("Condicion distinto");}
+break;
+case 33:
+#line 71 "gramatica.y"
+{Logger::write("Condicion de mayor");}
 break;
 case 34:
-#line 69 "gramatica.y"
-{Logger::write("menor");}
+#line 72 "gramatica.y"
+{Logger::write("Condicion de menor");}
 break;
 case 35:
-#line 73 "gramatica.y"
+#line 75 "gramatica.y"
 {Logger::write("suma");}
 break;
 case 36:
-#line 74 "gramatica.y"
+#line 76 "gramatica.y"
 {Logger::write("resta");}
 break;
 case 37:
-#line 75 "gramatica.y"
+#line 77 "gramatica.y"
 {Logger::write("termino");}
 break;
 case 38:
-#line 79 "gramatica.y"
+#line 81 "gramatica.y"
 {Logger::write("factor");}
 break;
-case 39:
-#line 80 "gramatica.y"
-{Logger::write("division");}
-break;
 case 40:
-#line 81 "gramatica.y"
+#line 86 "gramatica.y"
 {Logger::write("multiplicacion");}
 break;
 case 41:
-#line 85 "gramatica.y"
+#line 90 "gramatica.y"
 {Logger::write("ID");}
 break;
 case 42:
-#line 86 "gramatica.y"
+#line 91 "gramatica.y"
 {Logger::write("CTE");}
 break;
 case 43:
-#line 87 "gramatica.y"
-{yyval = -1*yyvsp[0]; Logger::write("- CTE");}
-break;
-case 45:
-#line 89 "gramatica.y"
-{yyval = -1*yyvsp[0];Logger::write("- FLOAT");}
+#line 92 "gramatica.y"
+{yyval = -1*yyvsp[0]; Logger::write("- CTE") ; AccionesSintactico::negativizarVar(Lexico::symbolTable,yyvsp[0]);}
 break;
 case 47:
-#line 91 "gramatica.y"
-{yyval = -1*yyvsp[0]; Logger::write("- LONGINT");}
+#line 96 "gramatica.y"
+{yyval = -1*yyvsp[0]; Logger::write("- LONGINT"); AccionesSintactico::negativizarVar(Lexico::symbolTable,yyvsp[0]);}
 break;
 case 48:
-#line 96 "gramatica.y"
+#line 100 "gramatica.y"
 {Logger::write("INT");}
 break;
 case 49:
-#line 97 "gramatica.y"
+#line 101 "gramatica.y"
 {Logger::write("LONGINT");}
 break;
 case 50:
-#line 98 "gramatica.y"
+#line 102 "gramatica.y"
 {Logger::write("FLOAT");}
 break;
 case 51:
-#line 101 "gramatica.y"
-{Logger::write("imprimir out");}
+#line 105 "gramatica.y"
+{Logger::write("Imprimir out");}
 break;
-#line 570 "y.tab.c"
+#line 562 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

@@ -3,6 +3,8 @@
 	MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA
 	WHILE LOOP PROC TRUE FALSE SHADOWING FALSE NA
 	ERROR
+
+
 %start programa
 
 %%
@@ -62,13 +64,12 @@ sentencia_while:
 
 ;
 condicion:
-	|expresion IGUAL expresion {Logger::write("condicion igual");}
-	|expresion MENORIGUAL expresion {Logger::write("condicion menorigual");}
-	|expresion MAYORIGUAL expresion {Logger::write("condicion");}
-	|expresion DISTINTO expresion {Logger::write("lista_de_parametros");}
-	|expresion '>' expresion {Logger::write("mayor");}
-        |expresion '<' expresion {Logger::write("menor");}
-
+	|expresion IGUAL expresion {Logger::write("Condicion igual");}
+	|expresion MENORIGUAL expresion {Logger::write("Condicion menorigual");}
+	|expresion MAYORIGUAL expresion {Logger::write("Condicion mayorIgual");}
+	|expresion DISTINTO expresion {Logger::write("Condicion distinto");}
+	|expresion '>' expresion {Logger::write("Condicion de mayor");}
+        |expresion '<' expresion {Logger::write("Condicion de menor");}
 ;
 expresion:
 	   expresion '+' termino {Logger::write("suma");}
@@ -78,19 +79,21 @@ expresion:
 ;
 termino:
 	 factor{Logger::write("factor");}
-	|termino '/' factor {Logger::write("division");}
+	|termino '/' factor /*{if(AccionesSintactico::checkDivisionCero($3){
+				Logger::write("division");
+				}else{
+				Logger::write("Se dividio por cero");} )}*/
 	|termino '*' factor {Logger::write("multiplicacion");}
 
 ;
 factor:
 	 ID {Logger::write("ID");}
 	|CTE {Logger::write("CTE");}
-	|'-' CTE {$$ = -1*$2; }
+	|'-' CTE {$$ = -1*$2; Logger::write("- CTE") ; AccionesSintactico::negativizarVar(Lexico::symbolTable,$2);}
 	|FLOAT
-	|'-' FLOAT {$$ = -1*$2;}
-	|LONGINT
-        |'-' LONGINT {$$ = -1*$2; }
-
+	|'-' FLOAT //{$$ = -1*$2;Logger::write("- FLOAT") ; AccionesSintactico::negativizarVar(Lexico::symbolTable,$2);}
+	|LONGINT  //{$$ = -1*$1;Logger::write("- FLOAT") ; AccionesSintactico::chequearRangoCtePositiva(Lexico::symbolTable,$1);}
+        |'-' LONGINT {$$ = -1*$2; Logger::write("- LONGINT"); AccionesSintactico::negativizarVar(Lexico::symbolTable,$2);}
 ;
 
 tipo:
@@ -99,6 +102,6 @@ tipo:
         |FLOAT {Logger::write("FLOAT");}
 ;
 imprimir:
-	OUT '(' CADENA ')' ';' {Logger::write("imprimir out");}
+	OUT '(' CADENA ')' ';' {Logger::write("Imprimir out");}
 ;
 %%

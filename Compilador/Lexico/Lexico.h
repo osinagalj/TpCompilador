@@ -62,7 +62,7 @@ class Lexico{
              bool token_found = false;
              Token t;
              int new_state;
-             SymbolTable * symbolTable;
+             static SymbolTable * symbolTable;
              void saveInST(int id);
     private:
             ifstream source_file;
