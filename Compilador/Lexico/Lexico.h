@@ -11,26 +11,27 @@
 
 #define COLUMN_LOWERCASE 0
 #define COLUMN_UPPERCASE 1
-#define COLUMNA_L_MINUSCULA 2
-#define COLUMNA_F_MINUSCULA 3
-#define COLUMNA_DIGITO 4
-#define SIMBOLO_PUNTO 5
-#define SIGNO_MULTIPLICACION 6
-#define SIGNO_RESTA 7
-#define GUION_BAJO 8
-#define COMPARADOR_IGUAL 9
-#define COMPARADOR_MENOR 10
-#define COMPARADOR_MAYOR 11
-#define SIMBOLO_DISTINTO 12
-#define COMILLA 13
-#define SIGNO_DIVISION 14
-#define SIMBOLO_PORCENTAJE 15
-#define LITERALES 16
-#define BL_TAB_NL 17
-#define SIMBOLO_FIN_DE_ARCHIVO 18
-#define OTRO 19
-#define SIGNO_SUMA 20
-#define longIdentificador 21
+#define COLUMN_LOWERCASE_L 2
+#define COLUMN_LOWERCASE_F 3
+#define COLUMN_DIGIT 4
+#define COLUMN_DOT 5                    //'.'
+#define COLUMN_MULTIPLICATION 6
+#define COLUMN_SUBTRACTION 7            //"-"
+#define COLUMN_UNDERSCORE 8             //"_"
+#define COLUMN_EQUAL 9
+#define COLUMN_LESS 10
+#define COLUMN_GREATER 11
+#define COLUMN_COLUMN_DIFFERENT 12      //"!"
+#define COLUMN_QUOTE 13                 //'"'
+#define COLUMN_DIVISION 14
+#define COLUMN_PERCENTAGE 15
+#define COLUMN_LITERALS 16
+#define COLUMN_BL_TAB_NL 17
+#define COLUMN_END_FILE 18              //'$' for this case
+#define OTHER 19
+#define COLUMN_SUM 20
+
+#define longIdentificador 21 //XQ NO ES 20?????????????????
 
 #define ESTADO_FINAL -1
 const int  nro_estados = 17;
