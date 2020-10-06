@@ -8,36 +8,36 @@
 
 
 programa:
-          bloque_sentencia
+         bloque_sentencia
 ;
 
 bloque_sentencia:
-	 sentencia
-	|bloque_sentencia sentencia
+	 	   sentencia
+		 | bloque_sentencia sentencia
 ;
 
 sentencia:
-	 declarativa
-	|ejecutable
-	|imprimir
+	    declarativa
+	  | ejecutable
+	  | imprimir
 ;
 
 declarativa:
-	 tipo lista_de_variables
-	|procedimiento ';'{Logger::write("Declaracion de procedimiento");}
+	      tipo lista_de_variables
+	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
 ;
 
 lista_de_variables:
-	ID ',' lista_de_variables {Logger::write("lista_de_variables");}
-	|ID ';'
+		     ID ',' lista_de_variables {Logger::write("lista_de_variables");}
+		   | ID ';'
 ;
 
 ejecutable:
-	 ID '=' expresion ';'{Logger::write("Asignacion");}
-	| ID '='  ';'{Logger::write("Error:Asignacion vacia");}
-	|invocacion_proc {Logger::write("invocacion procedimiento");}
-	|sentencia_while ';'{Logger::write("sentencia while");}
-	|sentencia_if ';'{Logger::write("sentencia if");}
+	     ID '=' expresion ';'{Logger::write("Asignacion");}
+	   | ID '='  ';'{Logger::write("Error:Asignacion vacia");}
+	   | invocacion_proc {Logger::write("invocacion procedimiento");}
+	   | sentencia_while ';'{Logger::write("sentencia while");}
+	   | sentencia_if ';'{Logger::write("sentencia if");}
 ;
 
 invocacion_proc:
@@ -60,27 +60,27 @@ true_false:
 ;
 
 lista_de_parametros:
-	 lista_de_parametros ',' tipo ID {Logger::write("lista_de_parametros");}
-	|tipo ID
+	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_parametros");}
+		    | tipo ID
 ;
 
 sentencia_if:
-	 IF '(' condicion ')' bloque_sentencia END_IF
-	|IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF
-	|IF '(' condicion ')' bloque_sentencia END_IF error
+	       IF '(' condicion ')' bloque_sentencia END_IF
+	     | IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF
+	     | IF '(' condicion ')' bloque_sentencia END_IF error
 ;
 
 sentencia_while:
-	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}'
+	 	WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}'
 ;
 
 condicion:
-	|expresion IGUAL expresion {Logger::write("Condicion igual");}
-	|expresion MENORIGUAL expresion {Logger::write("Condicion menorigual");}
-	|expresion MAYORIGUAL expresion {Logger::write("Condicion mayorIgual");}
-	|expresion DISTINTO expresion {Logger::write("Condicion distinto");}
-	|expresion '>' expresion {Logger::write("Condicion de mayor");}
-        |expresion '<' expresion {Logger::write("Condicion de menor");}
+	  | expresion IGUAL expresion {Logger::write("Condicion igual");}
+	  | expresion MENORIGUAL expresion {Logger::write("Condicion menorigual");}
+	  | expresion MAYORIGUAL expresion {Logger::write("Condicion mayorIgual");}
+	  | expresion DISTINTO expresion {Logger::write("Condicion distinto");}
+	  | expresion '>' expresion {Logger::write("Condicion de mayor");}
+          | expresion '<' expresion {Logger::write("Condicion de menor");}
 ;
 
 expresion:
@@ -92,10 +92,10 @@ expresion:
 
 termino:
 	 factor
-	|termino '/' factor /*{if(Sintactic_actions::checkDivisionCero($3){
-				Logger::write("division");
+	|termino '/' factor /*{ if(Sintactic_actions::checkDivisionCero($3)){
+					Logger::write("division");
 				}else{
-				Logger::write("Se dividio por cero");} )}*/
+					Logger::write("Se dividio por cero");} )}*/
 	|termino '*' factor
 ;
 
@@ -110,12 +110,12 @@ factor:
 ;
 
 tipo:
-	 INT
-        |LONGINT
-        |FLOAT
+       INT
+     | LONGINT
+     | FLOAT
 ;
 imprimir:
-	OUT '(' CADENA ')' ';' {Logger::write("Detecto sentencia OUT");}
+	 OUT '(' CADENA ')' ';' {Logger::write("Detecto sentencia OUT");}
 ;
 
 
