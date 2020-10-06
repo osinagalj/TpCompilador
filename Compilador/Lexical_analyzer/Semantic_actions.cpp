@@ -36,9 +36,10 @@ void Semantic_actions::finish_reserved_word(Lexical_analyzer* lexical_analyzer, 
 
 void Semantic_actions::finish_constant(Lexical_analyzer* lexical_analyzer, char& c)
 {
+    Logger::write("NO SE PERMITEN CONSTATNTES DEL TIPO INTEGER");
     lexical_analyzer->set_token_found();
-    lexical_analyzer->save_token(CTE, lexical_analyzer->word);
-    lexical_analyzer->save_in_ST(CTE);
+    lexical_analyzer->save_token(LONGINT, lexical_analyzer->word);
+    lexical_analyzer->save_in_ST(LONGINT);
 
 }
 

@@ -1,4 +1,4 @@
-%token  ID CTE FLOAT LONGINT INT STRING
+%token  ID FLOAT LONGINT INT STRING
 	IF ELSE END_IF OUT
 	GREATER_OR_EQUAL LESS_OR_EQUAL EQUAL DIFFERENT
 	WHILE LOOP
@@ -55,7 +55,7 @@ parametros:
 ;
 
 procedimiento:
-	PROC ID '(' lista_de_parametros ')' NA '=' CTE ',' SHADOWING '=' true_false'{' bloque_sentencia '}'
+	PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}'
 
 ;
 
@@ -106,12 +106,10 @@ termino:
 
 factor:
 	 ID
-	|CTE
-	|'-' CTE { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 	|FLOAT
-	|'-' FLOAT
+	|'-' FLOAT { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 	|LONGINT
-        |'-' LONGINT
+        |'-' LONGINT { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 ;
 
 tipo:

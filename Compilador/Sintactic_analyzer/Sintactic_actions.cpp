@@ -8,14 +8,14 @@ void Sintactic_actions::chequearRangoCtePositiva(Symbol_table tablita,string poi
 
 }*/
 
-void Sintactic_actions::negativizarVar(Symbol_table * tablita, char * cadena ){
+void Sintactic_actions::negativizarVar(Symbol_table * tablita, char * key ){
     string aux ="";
     int longitud = 0;
-    while (*cadena != '\0') {
+    while (*key != '\0') {
         longitud++;
-        aux = aux + *cadena;
-        printf( "%c\n", *cadena );	/* Mostramos la letra actual */
-        cadena++;			/* Vamos a la siguiente letra */
+        aux = aux + *key;
+        printf( "%c\n", *key );	/* Mostramos la letra actual */
+        key++;			/* Vamos a la siguiente letra */
     }
 
     cout<<"aux = " + aux <<endl;
@@ -27,7 +27,7 @@ void Sintactic_actions::negativizarVar(Symbol_table * tablita, char * cadena ){
 
     Symbol_table::Registry a = tablita->removeSymbol("711");
 
-    tablita->addSymbol(aux,a);
+   tablita->addSymbol(aux,a);
 }
 
 

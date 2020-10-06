@@ -8,24 +8,19 @@ linea:11  Asignacion
 linea:12  lista_de_parametros
 linea:15  Condicion mayorIgual
 linea:18  Asignacion
-linea:19  suma
 linea:19  Condicion distinto
 linea:20  Asignacion
 linea:22  Asignacion
 linea:23  sentencia if
 linea:24  sentencia while
-linea:26  Declaracion de procedimiento
-linea:27  suma
-linea:27  Condicion igual
-linea:28  Asignacion
-linea:33  sentencia if
-linea:37  Detecto sentencia OUT
-linea:39  invocacion procedimiento
-linea:40  resta
-linea:40  Asignacion
+linea:25  Declaracion de procedimiento
+linea:29  invocacion procedimiento
+linea:30  Condicion igual
+linea:31  Asignacion
+linea:34  sentencia if
+linea:39  Detecto sentencia OUT
+linea:41  Asignacion
 linea:42  Asignacion
-linea:42  lista_de_parametros
-linea:44  Asignacion
-linea:47  Declaracion de procedimiento
-linea:48  Asignacion
-linea:50  Asignacion
+linea:42  NO SE PERMITEN CONSTATNTES DEL TIPO INTEGER
+linea:42  Asignacion
+linea:47  Asignacion

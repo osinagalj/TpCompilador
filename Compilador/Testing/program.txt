@@ -4,48 +4,45 @@
 FLOAT x, y , z ;
 
 /% Asignaciones.%/
-x = 3;
+x = 3_l;
 y = ;
 z = 5.0f+3;
-id_3 = 2 + 3;
+id_3 = 2_l + 3_l;
 
 /% Sentencias de control.%/
-PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE
+PROC var (INT id2, INT id3) NA = 1_l , SHADOWING = TRUE
 {
 
-    WHILE (id_4<=7) LOOP
+    WHILE (id_4<=7_l) LOOP
     {
-        id_4 = 9;
-        IF (id_3 != 2+3)
-            id_2 = 4;
+        id_4 = 9_l;
+        IF (id_3 != 2_l)
+            id_2 = 4_l;
         ELSE
-            id_2 = 8;
+            id_2 = 8_l;
         END_IF;
     };
 };
+/% Invocacion de procedimientos .%/
+var(id2,id3);
 
-IF (id_3 == 2+3)
-    id_2 = 4;
+
+IF (id_3 == 2_l)
+    id_2 = 4_l;
 END_IF;
 
 
-
-
+/% Variables con valores negativos %/
 OUT ("holis");
 
 
 
-var(id2,id3);
-
-x = 2 - -3;
-x= 245_l;
-
-PROC var (INT id2, INT id3) NA = 2 , SHADOWING = TRUE {
-    x= 3.1f+2;
-};
+/% Variables con valores negativos %/
+x = -7.3;
+y = -711_l;
+y = 711;        /% Caso no valido, no se permiten los INTEGER %/
+z = -8_l;
 
 
-float_negativo = -7.3;
-longint_negativo = -711;
 
 $

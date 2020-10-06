@@ -31,7 +31,7 @@ int main()
     Lexical_analyzer::symbolTable = &tabla;
 
     yyparse();
-    tabla.printTable();
+
 
     Logger::close();
     tabla.printTable();
