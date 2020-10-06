@@ -7,7 +7,7 @@
 #include <map>
 #include <string>
 #include "../SymbolTable/Symbol_table.h"
-#include "../Sintactico/y.tab.h"
+#include "../Sintactic_analyzer/y.tab.h"
 using namespace std;
 
 #define COLUMN_LOWERCASE 0

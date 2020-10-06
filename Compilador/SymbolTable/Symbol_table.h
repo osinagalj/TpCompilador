@@ -2,7 +2,7 @@
 #define COMPILADOR_SYMBOL_TABLE_H
 #include <iostream>
 #include <map>
-#include "../Sintactico/y.tab.h"
+#include "../Sintactic_analyzer/y.tab.h"
 using namespace std;
 
 class Symbol_table {

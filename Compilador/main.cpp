@@ -1,12 +1,12 @@
 //#include "Lexical_analyzer/Lexical_analyzer.h"
-#include "Sintactico/Sintactic_actions.h"
+#include "Sintactic_analyzer/Sintactic_actions.h"
 #include "SymbolTable/Symbol_table.h"
 #include "Output//Logger.h"
 #include <fstream>
 using namespace std;
 int yylex();
 void yyerror(const char *s);
-#include "Sintactico/y.tab.cpp"
+#include "Sintactic_analyzer/y.tab.cpp"
 
 /*-----------------------           variables             ----------------------------------------*/
 string path = "Compilador\\Testing\\program.txt";

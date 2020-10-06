@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "../Lexico/Lexical_analyzer.h"
+#include "../Lexical_analyzer/Lexical_analyzer.h"
 //class Lexical_analyzer;
 
 using namespace std;

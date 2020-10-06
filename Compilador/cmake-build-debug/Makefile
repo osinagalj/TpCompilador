@@ -142,59 +142,59 @@ Compilador/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/build
 .PHONY : Compilador/fast
 
-Lexico/Lexical_analyzer.obj: Lexico/Lexical_analyzer.cpp.obj
+Lexical_analyzer/Lexical_analyzer.obj: Lexical_analyzer/Lexical_analyzer.cpp.obj
 
-.PHONY : Lexico/Lexical_analyzer.obj
-
-# target to build an object file
-Lexico/Lexical_analyzer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj
-.PHONY : Lexico/Lexical_analyzer.cpp.obj
-
-Lexico/Lexical_analyzer.i: Lexico/Lexical_analyzer.cpp.i
-
-.PHONY : Lexico/Lexical_analyzer.i
-
-# target to preprocess a source file
-Lexico/Lexical_analyzer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.i
-.PHONY : Lexico/Lexical_analyzer.cpp.i
-
-Lexico/Lexical_analyzer.s: Lexico/Lexical_analyzer.cpp.s
-
-.PHONY : Lexico/Lexical_analyzer.s
-
-# target to generate assembly for a file
-Lexico/Lexical_analyzer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.s
-.PHONY : Lexico/Lexical_analyzer.cpp.s
-
-Lexico/Semantic_actions.obj: Lexico/Semantic_actions.cpp.obj
-
-.PHONY : Lexico/Semantic_actions.obj
+.PHONY : Lexical_analyzer/Lexical_analyzer.obj
 
 # target to build an object file
-Lexico/Semantic_actions.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj
-.PHONY : Lexico/Semantic_actions.cpp.obj
+Lexical_analyzer/Lexical_analyzer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.obj
+.PHONY : Lexical_analyzer/Lexical_analyzer.cpp.obj
 
-Lexico/Semantic_actions.i: Lexico/Semantic_actions.cpp.i
+Lexical_analyzer/Lexical_analyzer.i: Lexical_analyzer/Lexical_analyzer.cpp.i
 
-.PHONY : Lexico/Semantic_actions.i
+.PHONY : Lexical_analyzer/Lexical_analyzer.i
 
 # target to preprocess a source file
-Lexico/Semantic_actions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.i
-.PHONY : Lexico/Semantic_actions.cpp.i
+Lexical_analyzer/Lexical_analyzer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.i
+.PHONY : Lexical_analyzer/Lexical_analyzer.cpp.i
 
-Lexico/Semantic_actions.s: Lexico/Semantic_actions.cpp.s
+Lexical_analyzer/Lexical_analyzer.s: Lexical_analyzer/Lexical_analyzer.cpp.s
 
-.PHONY : Lexico/Semantic_actions.s
+.PHONY : Lexical_analyzer/Lexical_analyzer.s
 
 # target to generate assembly for a file
-Lexico/Semantic_actions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.s
-.PHONY : Lexico/Semantic_actions.cpp.s
+Lexical_analyzer/Lexical_analyzer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.s
+.PHONY : Lexical_analyzer/Lexical_analyzer.cpp.s
+
+Lexical_analyzer/Semantic_actions.obj: Lexical_analyzer/Semantic_actions.cpp.obj
+
+.PHONY : Lexical_analyzer/Semantic_actions.obj
+
+# target to build an object file
+Lexical_analyzer/Semantic_actions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexical_analyzer/Semantic_actions.cpp.obj
+.PHONY : Lexical_analyzer/Semantic_actions.cpp.obj
+
+Lexical_analyzer/Semantic_actions.i: Lexical_analyzer/Semantic_actions.cpp.i
+
+.PHONY : Lexical_analyzer/Semantic_actions.i
+
+# target to preprocess a source file
+Lexical_analyzer/Semantic_actions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexical_analyzer/Semantic_actions.cpp.i
+.PHONY : Lexical_analyzer/Semantic_actions.cpp.i
+
+Lexical_analyzer/Semantic_actions.s: Lexical_analyzer/Semantic_actions.cpp.s
+
+.PHONY : Lexical_analyzer/Semantic_actions.s
+
+# target to generate assembly for a file
+Lexical_analyzer/Semantic_actions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexical_analyzer/Semantic_actions.cpp.s
+.PHONY : Lexical_analyzer/Semantic_actions.cpp.s
 
 Output/Logger.obj: Output/Logger.cpp.obj
 
@@ -223,32 +223,32 @@ Output/Logger.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Output/Logger.cpp.s
 .PHONY : Output/Logger.cpp.s
 
-Sintactico/Sintactic_actions.obj: Sintactico/Sintactic_actions.cpp.obj
+Sintactic_analyzer/Sintactic_actions.obj: Sintactic_analyzer/Sintactic_actions.cpp.obj
 
-.PHONY : Sintactico/Sintactic_actions.obj
+.PHONY : Sintactic_analyzer/Sintactic_actions.obj
 
 # target to build an object file
-Sintactico/Sintactic_actions.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj
-.PHONY : Sintactico/Sintactic_actions.cpp.obj
+Sintactic_analyzer/Sintactic_actions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.obj
+.PHONY : Sintactic_analyzer/Sintactic_actions.cpp.obj
 
-Sintactico/Sintactic_actions.i: Sintactico/Sintactic_actions.cpp.i
+Sintactic_analyzer/Sintactic_actions.i: Sintactic_analyzer/Sintactic_actions.cpp.i
 
-.PHONY : Sintactico/Sintactic_actions.i
+.PHONY : Sintactic_analyzer/Sintactic_actions.i
 
 # target to preprocess a source file
-Sintactico/Sintactic_actions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.i
-.PHONY : Sintactico/Sintactic_actions.cpp.i
+Sintactic_analyzer/Sintactic_actions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.i
+.PHONY : Sintactic_analyzer/Sintactic_actions.cpp.i
 
-Sintactico/Sintactic_actions.s: Sintactico/Sintactic_actions.cpp.s
+Sintactic_analyzer/Sintactic_actions.s: Sintactic_analyzer/Sintactic_actions.cpp.s
 
-.PHONY : Sintactico/Sintactic_actions.s
+.PHONY : Sintactic_analyzer/Sintactic_actions.s
 
 # target to generate assembly for a file
-Sintactico/Sintactic_actions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.s
-.PHONY : Sintactico/Sintactic_actions.cpp.s
+Sintactic_analyzer/Sintactic_actions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.s
+.PHONY : Sintactic_analyzer/Sintactic_actions.cpp.s
 
 SymbolTable/Symbol_table.obj: SymbolTable/Symbol_table.cpp.obj
 
@@ -313,18 +313,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Compilador
-	@echo ... Lexico/Lexical_analyzer.obj
-	@echo ... Lexico/Lexical_analyzer.i
-	@echo ... Lexico/Lexical_analyzer.s
-	@echo ... Lexico/Semantic_actions.obj
-	@echo ... Lexico/Semantic_actions.i
-	@echo ... Lexico/Semantic_actions.s
+	@echo ... Lexical_analyzer/Lexical_analyzer.obj
+	@echo ... Lexical_analyzer/Lexical_analyzer.i
+	@echo ... Lexical_analyzer/Lexical_analyzer.s
+	@echo ... Lexical_analyzer/Semantic_actions.obj
+	@echo ... Lexical_analyzer/Semantic_actions.i
+	@echo ... Lexical_analyzer/Semantic_actions.s
 	@echo ... Output/Logger.obj
 	@echo ... Output/Logger.i
 	@echo ... Output/Logger.s
-	@echo ... Sintactico/Sintactic_actions.obj
-	@echo ... Sintactico/Sintactic_actions.i
-	@echo ... Sintactico/Sintactic_actions.s
+	@echo ... Sintactic_analyzer/Sintactic_actions.obj
+	@echo ... Sintactic_analyzer/Sintactic_actions.i
+	@echo ... Sintactic_analyzer/Sintactic_actions.s
 	@echo ... SymbolTable/Symbol_table.obj
 	@echo ... SymbolTable/Symbol_table.i
 	@echo ... SymbolTable/Symbol_table.s
