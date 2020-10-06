@@ -95,10 +95,10 @@
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Semantic_actions.h">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.cpp">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Output/Logger.cpp">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.h">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Output/Logger.h">
 			<Option target="Compilador"/>
 		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/Sintactic_actions.cpp">
@@ -107,10 +107,10 @@
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/Sintactic_actions.h">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.cpp">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/Symbol_table.cpp">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/Symbol_table.h">
 			<Option target="Compilador"/>
 		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/main.cpp">

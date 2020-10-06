@@ -115,18 +115,18 @@ CMakeFiles/Compilador.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/main.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\main.cpp -o CMakeFiles\Compilador.dir\main.cpp.s
 
-CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: CMakeFiles/Compilador.dir/flags.make
-CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: ../SymbolTable/SymbolTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\SymbolTable\SymbolTable.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\SymbolTable\SymbolTable.cpp
+CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: CMakeFiles/Compilador.dir/flags.make
+CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: ../SymbolTable/Symbol_table.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\SymbolTable\Symbol_table.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\SymbolTable\Symbol_table.cpp
 
-CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\SymbolTable\SymbolTable.cpp > CMakeFiles\Compilador.dir\SymbolTable\SymbolTable.cpp.i
+CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\SymbolTable\Symbol_table.cpp > CMakeFiles\Compilador.dir\SymbolTable\Symbol_table.cpp.i
 
-CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\SymbolTable\SymbolTable.cpp -o CMakeFiles\Compilador.dir\SymbolTable\SymbolTable.cpp.s
+CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\SymbolTable\Symbol_table.cpp -o CMakeFiles\Compilador.dir\SymbolTable\Symbol_table.cpp.s
 
 CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: CMakeFiles/Compilador.dir/flags.make
 CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: ../Sintactico/Sintactic_actions.cpp
@@ -141,27 +141,27 @@ CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Sintactico\Sintactic_actions.cpp -o CMakeFiles\Compilador.dir\Sintactico\Sintactic_actions.cpp.s
 
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: CMakeFiles/Compilador.dir/flags.make
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Salida/Logger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Salida\Logger.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Salida\Logger.cpp
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: CMakeFiles/Compilador.dir/flags.make
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: ../Output/Logger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Compilador.dir/Output/Logger.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Output\Logger.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Output\Logger.cpp
 
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Salida/Logger.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Salida\Logger.cpp > CMakeFiles\Compilador.dir\Salida\Logger.cpp.i
+CMakeFiles/Compilador.dir/Output/Logger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Output/Logger.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Output\Logger.cpp > CMakeFiles\Compilador.dir\Output\Logger.cpp.i
 
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Salida/Logger.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Salida\Logger.cpp -o CMakeFiles\Compilador.dir\Salida\Logger.cpp.s
+CMakeFiles/Compilador.dir/Output/Logger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Output/Logger.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Output\Logger.cpp -o CMakeFiles\Compilador.dir\Output\Logger.cpp.s
 
 # Object files for target Compilador
 Compilador_OBJECTS = \
 "CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj" \
 "CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj" \
 "CMakeFiles/Compilador.dir/main.cpp.obj" \
-"CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj" \
+"CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj" \
 "CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj" \
-"CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj"
+"CMakeFiles/Compilador.dir/Output/Logger.cpp.obj"
 
 # External object files for target Compilador
 Compilador_EXTERNAL_OBJECTS =
@@ -169,9 +169,9 @@ Compilador_EXTERNAL_OBJECTS =
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/main.cpp.obj
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/Output/Logger.cpp.obj
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/build.make
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/linklibs.rsp
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe: CMakeFiles/Compilador.dir/objects1.rsp

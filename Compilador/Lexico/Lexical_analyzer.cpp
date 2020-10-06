@@ -23,7 +23,7 @@ Lexical_analyzer::Lexical_analyzer() {
     //INTEGER = CTE;
 }
 
-int Lexical_analyzer::getIdPalabraReservada()
+int Lexical_analyzer::get_reserved_word()
 {
     auto search = reserved_words.find(word);
     if (search != reserved_words.end()) {
@@ -92,7 +92,7 @@ Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
 }
 void Lexical_analyzer::save_in_ST(int id)
 {
-    SymbolTable::Registry registry;
+    Symbol_table::Registry registry;
     registry.id = id;
     symbolTable->addSymbol(t.pointerST,registry);
 }

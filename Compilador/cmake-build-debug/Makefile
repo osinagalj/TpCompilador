@@ -196,32 +196,32 @@ Lexico/Semantic_actions.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.s
 .PHONY : Lexico/Semantic_actions.cpp.s
 
-Salida/Logger.obj: Salida/Logger.cpp.obj
+Output/Logger.obj: Output/Logger.cpp.obj
 
-.PHONY : Salida/Logger.obj
+.PHONY : Output/Logger.obj
 
 # target to build an object file
-Salida/Logger.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj
-.PHONY : Salida/Logger.cpp.obj
+Output/Logger.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Output/Logger.cpp.obj
+.PHONY : Output/Logger.cpp.obj
 
-Salida/Logger.i: Salida/Logger.cpp.i
+Output/Logger.i: Output/Logger.cpp.i
 
-.PHONY : Salida/Logger.i
+.PHONY : Output/Logger.i
 
 # target to preprocess a source file
-Salida/Logger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Salida/Logger.cpp.i
-.PHONY : Salida/Logger.cpp.i
+Output/Logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Output/Logger.cpp.i
+.PHONY : Output/Logger.cpp.i
 
-Salida/Logger.s: Salida/Logger.cpp.s
+Output/Logger.s: Output/Logger.cpp.s
 
-.PHONY : Salida/Logger.s
+.PHONY : Output/Logger.s
 
 # target to generate assembly for a file
-Salida/Logger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Salida/Logger.cpp.s
-.PHONY : Salida/Logger.cpp.s
+Output/Logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Output/Logger.cpp.s
+.PHONY : Output/Logger.cpp.s
 
 Sintactico/Sintactic_actions.obj: Sintactico/Sintactic_actions.cpp.obj
 
@@ -250,32 +250,32 @@ Sintactico/Sintactic_actions.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.s
 .PHONY : Sintactico/Sintactic_actions.cpp.s
 
-SymbolTable/SymbolTable.obj: SymbolTable/SymbolTable.cpp.obj
+SymbolTable/Symbol_table.obj: SymbolTable/Symbol_table.cpp.obj
 
-.PHONY : SymbolTable/SymbolTable.obj
+.PHONY : SymbolTable/Symbol_table.obj
 
 # target to build an object file
-SymbolTable/SymbolTable.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj
-.PHONY : SymbolTable/SymbolTable.cpp.obj
+SymbolTable/Symbol_table.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj
+.PHONY : SymbolTable/Symbol_table.cpp.obj
 
-SymbolTable/SymbolTable.i: SymbolTable/SymbolTable.cpp.i
+SymbolTable/Symbol_table.i: SymbolTable/Symbol_table.cpp.i
 
-.PHONY : SymbolTable/SymbolTable.i
+.PHONY : SymbolTable/Symbol_table.i
 
 # target to preprocess a source file
-SymbolTable/SymbolTable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.i
-.PHONY : SymbolTable/SymbolTable.cpp.i
+SymbolTable/Symbol_table.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.i
+.PHONY : SymbolTable/Symbol_table.cpp.i
 
-SymbolTable/SymbolTable.s: SymbolTable/SymbolTable.cpp.s
+SymbolTable/Symbol_table.s: SymbolTable/Symbol_table.cpp.s
 
-.PHONY : SymbolTable/SymbolTable.s
+.PHONY : SymbolTable/Symbol_table.s
 
 # target to generate assembly for a file
-SymbolTable/SymbolTable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.s
-.PHONY : SymbolTable/SymbolTable.cpp.s
+SymbolTable/Symbol_table.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.s
+.PHONY : SymbolTable/Symbol_table.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -319,15 +319,15 @@ help:
 	@echo ... Lexico/Semantic_actions.obj
 	@echo ... Lexico/Semantic_actions.i
 	@echo ... Lexico/Semantic_actions.s
-	@echo ... Salida/Logger.obj
-	@echo ... Salida/Logger.i
-	@echo ... Salida/Logger.s
+	@echo ... Output/Logger.obj
+	@echo ... Output/Logger.i
+	@echo ... Output/Logger.s
 	@echo ... Sintactico/Sintactic_actions.obj
 	@echo ... Sintactico/Sintactic_actions.i
 	@echo ... Sintactico/Sintactic_actions.s
-	@echo ... SymbolTable/SymbolTable.obj
-	@echo ... SymbolTable/SymbolTable.i
-	@echo ... SymbolTable/SymbolTable.s
+	@echo ... SymbolTable/Symbol_table.obj
+	@echo ... SymbolTable/Symbol_table.i
+	@echo ... SymbolTable/Symbol_table.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

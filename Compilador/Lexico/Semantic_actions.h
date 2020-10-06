@@ -1,7 +1,7 @@
 #ifndef COMPILADOR_SEMANTIC_ACTIONS_H
 #define COMPILADOR_SEMANTIC_ACTIONS_H
 #include <iostream>
-#include "../SymbolTable/SymbolTable.h"
+#include "../SymbolTable/Symbol_table.h"
 using namespace std;
 
 

@@ -1,7 +1,7 @@
 //#include "Lexical_analyzer/Lexical_analyzer.h"
 #include "Sintactico/Sintactic_actions.h"
-#include "SymbolTable/SymbolTable.h"
-#include "Salida/Logger.h"
+#include "SymbolTable/Symbol_table.h"
+#include "Output//Logger.h"
 #include <fstream>
 using namespace std;
 int yylex();
@@ -10,10 +10,10 @@ void yyerror(const char *s);
 
 /*-----------------------           variables             ----------------------------------------*/
 string path = "Compilador\\Testing\\program.txt";
-string pathOut = "Compilador\\Salida\\out.txt";
+string pathOut = "Compilador\\Output\\out.txt";
 Lexical_analyzer lexical_analyzer;
 Lexical_analyzer * Logger::lexico = nullptr;
-SymbolTable * Lexical_analyzer::symbolTable= nullptr;
+Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
@@ -24,7 +24,7 @@ int main()
     Logger log;
     Logger::lexico = &lexical_analyzer;
 
-    SymbolTable tabla;
+    Symbol_table tabla;
     lexical_analyzer.symbolTable = &tabla;
     Lexical_analyzer::symbolTable = &tabla;
 

@@ -6,40 +6,40 @@ CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Lexico/Lexical_ana
 CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Lexico/Lexical_analyzer_header.h
 CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Lexico/Semantic_actions.h
 CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Sintactico/y.tab.h
-CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../SymbolTable/SymbolTable.h
+CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../SymbolTable/Symbol_table.h
 
 CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../Lexico/Lexical_analyzer.h
 CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../Lexico/Lexical_analyzer_header.h
 CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../Lexico/Semantic_actions.cpp
 CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../Lexico/Semantic_actions.h
-CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../Salida/Logger.h
+CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../Output/Logger.h
 CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../Sintactico/y.tab.h
-CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../SymbolTable/SymbolTable.h
+CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../SymbolTable/Symbol_table.h
 
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Lexico/Lexical_analyzer.h
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Lexico/Lexical_analyzer_header.h
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Lexico/Semantic_actions.h
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Salida/Logger.cpp
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Salida/Logger.h
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Sintactico/y.tab.h
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../SymbolTable/SymbolTable.h
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: ../Lexico/Lexical_analyzer.h
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: ../Lexico/Lexical_analyzer_header.h
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: ../Lexico/Semantic_actions.h
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: ../Output/Logger.cpp
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: ../Output/Logger.h
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: ../Sintactico/y.tab.h
+CMakeFiles/Compilador.dir/Output/Logger.cpp.obj: ../SymbolTable/Symbol_table.h
 
 CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: ../Sintactico/Sintactic_actions.cpp
 CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: ../Sintactico/Sintactic_actions.h
 CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: ../Sintactico/y.tab.h
-CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: ../SymbolTable/SymbolTable.h
+CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: ../SymbolTable/Symbol_table.h
 
-CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: ../Sintactico/y.tab.h
-CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: ../SymbolTable/SymbolTable.cpp
-CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: ../SymbolTable/SymbolTable.h
+CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: ../Sintactico/y.tab.h
+CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: ../SymbolTable/Symbol_table.cpp
+CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: ../SymbolTable/Symbol_table.h
 
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/Lexical_analyzer.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/Lexical_analyzer_header.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/Semantic_actions.h
-CMakeFiles/Compilador.dir/main.cpp.obj: ../Salida/Logger.h
+CMakeFiles/Compilador.dir/main.cpp.obj: ../Output/Logger.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/Sintactic_actions.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/y.tab.cpp
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/y.tab.h
-CMakeFiles/Compilador.dir/main.cpp.obj: ../SymbolTable/SymbolTable.h
+CMakeFiles/Compilador.dir/main.cpp.obj: ../SymbolTable/Symbol_table.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../main.cpp
 

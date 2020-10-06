@@ -1,5 +1,5 @@
 #include "Semantic_actions.h"
-#include "../Salida/Logger.h"
+#include "../Output/Logger.h"
 
 void Semantic_actions::initialize_token(Lexical_analyzer* lexical_analyzer, char& c){
     lexical_analyzer->word = c;
@@ -29,7 +29,7 @@ void Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, cha
 void Semantic_actions::finish_reserved_word(Lexical_analyzer* lexical_analyzer, char& c)
 {
     lexical_analyzer->set_token_found();
-    int id = lexical_analyzer->getIdPalabraReservada();
+    int id = lexical_analyzer->get_reserved_word();
     lexical_analyzer->save_token(id, lexical_analyzer->word);
 }
 
@@ -49,8 +49,8 @@ void Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& 
     lexical_analyzer->increase_character();
     lexical_analyzer->word= lexical_analyzer->word + c;
     lexical_analyzer->word = lexical_analyzer->word.substr (0,lexical_analyzer->word.size()-2);
-    long numero = stol(lexical_analyzer->word);
-    if(numero <= 2147483648 ){
+    long number = stol(lexical_analyzer->word);
+    if(number <= 2147483648 ){
         lexical_analyzer->save_token(LONGINT, lexical_analyzer->word);
 
     }else{
@@ -64,7 +64,7 @@ void Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& 
 void Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
 {
     string acumulado="";
-    float numero=0;
+    float number=0;
     int desplazamiento = 0;
     int i = 0;
     if(lexical_analyzer->word[0] == '.'){
@@ -76,26 +76,26 @@ void Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
             if(lexical_analyzer->word[i+1]=='+'){
                 desplazamiento= stoi(lexical_analyzer->word.substr(i+2,lexical_analyzer->word.size()));
                 //cout<<desplazamiento<<endl;
-                numero=stof(acumulado);
+                number=stof(acumulado);
                 for(int i=0; i< desplazamiento; i++){
-                    numero= numero * 10;
+                    number= number * 10;
                 }
                 i = lexical_analyzer->word.size();
             }else{
                 desplazamiento=stoi(lexical_analyzer->word.substr(i+2,lexical_analyzer->word.size()));
-                numero=stof(acumulado);
+                number=stof(acumulado);
                 for(int i=0; i< desplazamiento; i++){
-                    numero= numero / 10;
+                    number= number / 10;
                 }
                 i = lexical_analyzer->word.size();
             }
         }else {
             acumulado = acumulado + lexical_analyzer->word[i];
-            numero = stof(acumulado);
+            number = stof(acumulado);
             i++;
         }
     }
-    lexical_analyzer->save_token(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
+    lexical_analyzer->save_token(FLOAT, to_string(number)); //CAMBIAR A ID DE FLOAT DESP
     lexical_analyzer->save_in_ST(FLOAT);
     lexical_analyzer->set_token_found();
 }

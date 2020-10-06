@@ -15,14 +15,14 @@ class Lexical_analyzer{
              string word;
              void save_token(int id,string punt);
              void set_token_found();
-             int getIdPalabraReservada();
+             int get_reserved_word();
              void increase_character(); //si el caracter leido es valido aumentamos
              int get_number_line();
              bool end = false;
              bool token_found = false;
              Token t;
-             int new_state;
-             static SymbolTable * symbolTable;
+
+             static Symbol_table * symbolTable;
              void save_in_ST(int id);
     private:
             ifstream source_file;
@@ -32,7 +32,7 @@ class Lexical_analyzer{
             int current_character = 0;
             string line;
             int actual_state;
-
+            int new_state;
             //Matriz de Transicion de estados
             struct Transition{
                 int state;

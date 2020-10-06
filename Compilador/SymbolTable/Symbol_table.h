@@ -1,14 +1,14 @@
-#ifndef COMPILADOR_SYMBOLTABLE_H
-#define COMPILADOR_SYMBOLTABLE_H
+#ifndef COMPILADOR_SYMBOL_TABLE_H
+#define COMPILADOR_SYMBOL_TABLE_H
 #include <iostream>
 #include <map>
 #include "../Sintactico/y.tab.h"
 using namespace std;
 
-class SymbolTable {
+class Symbol_table {
 
     public:
-            SymbolTable();
+            Symbol_table();
             struct Registry{
                 int id;
                 //En un futuro agregar el tipo
@@ -20,4 +20,4 @@ class SymbolTable {
             map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key
 };
 
-#endif //COMPILADOR_SYMBOLTABLE_H
+#endif //COMPILADOR_SYMBOL_TABLE_H

@@ -3,7 +3,7 @@
 #define COMPILADOR_SINTACTIC_ACTIONS_H
 #include <map>
 #include <iostream>
-#include "../SymbolTable/SymbolTable.h"
+#include "../SymbolTable/Symbol_table.h"
 using namespace std;
 class Sintactic_actions {
 private:
@@ -13,8 +13,8 @@ private:
 public:
     static void imprime(string x);
 
-    //static void chequearRangoCtePositiva(SymbolTable tablita,string pointer);
-    static void negativizarVar(SymbolTable * tablita,int yylval);
+    //static void chequearRangoCtePositiva(Symbol_table tablita,string pointer);
+    static void negativizarVar(Symbol_table * tablita, int yylval);
 
     //static bool checkDivisionCero(string pointer);
     //static map<string, vector<string>> variablesDeClase;

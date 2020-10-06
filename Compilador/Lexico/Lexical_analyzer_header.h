@@ -6,7 +6,7 @@
 #include "Semantic_actions.h"
 #include <map>
 #include <string>
-#include "../SymbolTable/SymbolTable.h"
+#include "../SymbolTable/Symbol_table.h"
 #include "../Sintactico/y.tab.h"
 using namespace std;
 

@@ -1,8 +1,8 @@
-#include "SymbolTable.h"
+#include "Symbol_table.h"
 
-SymbolTable::SymbolTable(){}
+Symbol_table::Symbol_table(){}
 //Este lo llamra el LEXICO
-void SymbolTable::addSymbol(string key, Registry registro)
+void Symbol_table::addSymbol(string key, Registry registro)
 {
     auto search = symbol_table.find(key);
     if (search == symbol_table.end()) {
@@ -13,16 +13,16 @@ void SymbolTable::addSymbol(string key, Registry registro)
 }
 /*
 //EL sintactico lo consulta
-SymbolTable::Registro SymbolTable::getID(string key, Registro reg){
+Symbol_table::Registro Symbol_table::getID(string key, Registro reg){
     if(tablaDeSimbolos.find(key) == tablaDeSimbolos.end()){
-        SymbolTable::Registro registro;
+        Symbol_table::Registro registro;
         registro.id = -1;
         return registro;
     }
     return tablaDeSimbolos.find(key)->second;
 }
 */
-void SymbolTable::printTable(){
+void Symbol_table::printTable(){
     cout<<endl;
     cout<<"--------------------------IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
     for (map<string,Registry>::iterator it=symbol_table.begin(); it!=symbol_table.end(); ++it)

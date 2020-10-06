@@ -4,9 +4,9 @@ file(REMOVE_RECURSE
   "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.pdb"
   "CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj"
   "CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj"
-  "CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj"
+  "CMakeFiles/Compilador.dir/Output/Logger.cpp.obj"
   "CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj"
-  "CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj"
+  "CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj"
   "CMakeFiles/Compilador.dir/main.cpp.obj"
   "libCompilador.dll.a"
 )
