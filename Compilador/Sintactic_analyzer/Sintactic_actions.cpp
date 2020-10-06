@@ -11,11 +11,13 @@ string Sintactic_actions::convert_to_string(char * key){
     string aux ="";
     int longitud = 0;
     while (*key != '\0') {
+
         longitud++;
         aux = aux + *key;
         printf( "%c\n", *key );	/* Mostramos la letra actual */
         key++;			/* Vamos a la siguiente letra */
     }
+    return aux;
 
 }
 void Sintactic_actions::negativizarVar(Symbol_table * tablita, char * key ){

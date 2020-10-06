@@ -16,6 +16,7 @@ class Semantic_actions {
         //discrad character
         static void discard_character(Lexical_analyzer* lexico, char& c);
         //finish token
+        static void finalizarDivision(Lexical_analyzer* lexico, char& c);
         static void finish_symbol(Lexical_analyzer* lexico, char& c);
         static void finish_simple_comparator(Lexical_analyzer* lexico, char& c);
         static void finish_composite_comparator(Lexical_analyzer* lexico, char& c);

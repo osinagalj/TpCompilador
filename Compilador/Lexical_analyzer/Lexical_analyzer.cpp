@@ -485,25 +485,25 @@ void Lexical_analyzer::initializeMatrixSA(){
     matrizAS[0][COLUMN_DIVISION]= {13, &Semantic_actions::add_character};
     //DEVOLVER DIVISION
 
-    matrizAS[13][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_EQUAL]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_SUM] = {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_SUBTRACTION]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_MULTIPLICATION]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_LITERALS]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_END_FILE]={FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_DIGIT]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_LOWERCASE_F] = {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_LOWERCASE_L] = {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_UNDERSCORE]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_DOT]={FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_UPPERCASE]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_LOWERCASE]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][OTHER]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_QUOTE]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_LESS]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_GREATER]= {FINAL_STATE, &Semantic_actions::finish_symbol};
-    matrizAS[13][COLUMN_BL_TAB_NL]= {FINAL_STATE, &Semantic_actions::finish_symbol};
+    matrizAS[13][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_EQUAL]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_SUM] = {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_SUBTRACTION]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_MULTIPLICATION]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_LITERALS]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_END_FILE]={FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_DIGIT]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_LOWERCASE_F] = {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_LOWERCASE_L] = {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_UNDERSCORE]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_DOT]={FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_UPPERCASE]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_LOWERCASE]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][OTHER]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_QUOTE]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_LESS]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_GREATER]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
+    matrizAS[13][COLUMN_BL_TAB_NL]= {FINAL_STATE, &Semantic_actions::finalizarDivision};
     //INICIO DE COMENTARIO
     matrizAS[13][COLUMN_PERCENTAGE]= {14, &Semantic_actions::discard_character};
 //CAMINO 14

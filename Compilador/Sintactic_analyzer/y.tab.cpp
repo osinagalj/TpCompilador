@@ -2,7 +2,7 @@
 static char yysccsid[] = "@(#)yaccpar	1.8 (Berkeley) 01/20/90";
 #endif
 #define YYBYACC 1
-#line 7 "gramatica.y"
+#line 7 "Gramatica.y"
 typedef union {
     int entero;
     char * cadena;
@@ -382,83 +382,83 @@ yyreduce:
     switch (yyn)
     {
 case 8:
-#line 32 "gramatica.y"
+#line 32 "Gramatica.y"
 {Logger::write("Declaracion de procedimiento");}
 break;
 case 9:
-#line 36 "gramatica.y"
+#line 36 "Gramatica.y"
 {Logger::write("lista_de_variables");}
 break;
 case 11:
-#line 41 "gramatica.y"
+#line 41 "Gramatica.y"
 {Logger::write("Asignacion");}
 break;
 case 12:
-#line 42 "gramatica.y"
+#line 42 "Gramatica.y"
 {Logger::write("Error:Asignacion vacia");}
 break;
 case 13:
-#line 43 "gramatica.y"
+#line 43 "Gramatica.y"
 {Logger::write("invocacion procedimiento");}
 break;
 case 14:
-#line 44 "gramatica.y"
+#line 44 "Gramatica.y"
 {Logger::write("sentencia while");}
 break;
 case 15:
-#line 45 "gramatica.y"
+#line 45 "Gramatica.y"
 {Logger::write("sentencia if");}
 break;
 case 22:
-#line 68 "gramatica.y"
+#line 68 "Gramatica.y"
 {Logger::write("lista_de_parametros");}
 break;
 case 29:
-#line 83 "gramatica.y"
+#line 83 "Gramatica.y"
 {Logger::write("Condicion igual");}
 break;
 case 30:
-#line 84 "gramatica.y"
+#line 84 "Gramatica.y"
 {Logger::write("Condicion distinto");}
 break;
 case 31:
-#line 85 "gramatica.y"
+#line 85 "Gramatica.y"
 {Logger::write("Condicion menorigual");}
 break;
 case 32:
-#line 86 "gramatica.y"
+#line 86 "Gramatica.y"
 {Logger::write("Condicion mayorIgual");}
 break;
 case 33:
-#line 87 "gramatica.y"
+#line 87 "Gramatica.y"
 {Logger::write("Condicion de mayor");}
 break;
 case 34:
-#line 88 "gramatica.y"
+#line 88 "Gramatica.y"
 {Logger::write("Condicion de menor");}
 break;
 case 35:
-#line 92 "gramatica.y"
+#line 92 "Gramatica.y"
 {Logger::write("suma");}
 break;
 case 36:
-#line 93 "gramatica.y"
+#line 93 "Gramatica.y"
 {Logger::write("resta");}
 break;
 case 39:
-#line 100 "gramatica.y"
+#line 100 "Gramatica.y"
 { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 43:
-#line 108 "gramatica.y"
+#line 107 "Gramatica.y"
 { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 45:
-#line 110 "gramatica.y"
+#line 109 "Gramatica.y"
 { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 49:
-#line 119 "gramatica.y"
+#line 118 "Gramatica.y"
 {Logger::write("Detecto sentencia OUT");}
 break;
 #line 465 "y.tab.c"

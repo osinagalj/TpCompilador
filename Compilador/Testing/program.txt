@@ -1,51 +1,51 @@
-                        /% Programa de prueba Grupo-2. Esto es un comentario. %/
+/% Programa de prueba Grupo-2. Esto es un comentario. %/
 
-                            /% Declaracion de variables.%/
-FLOAT x, y , z ;
-/% Agregar caso a la gramatica ?? identificado_cadena = "hola mundo";  %/
+/% Declaracion de variables.%/
+FLOAT x , y , z ;
 
-                                /% Asignaciones.%/
-x = 3_l;
+/% Asignaciones.%/
+x = 3;
 y = ;
 z = 5.0f+3;
-id_3 = 2_l + 3_l;
-
-                                /% Sentencias de control.%/
-PROC var (INT id2, INT id3) NA = 1_l , SHADOWING = TRUE
+id_3 = 2 + 3;
+id_3 = 2 * 3;
+/% Sentencias de control.%/
+PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE
 {
-
-    WHILE (id_4<=7_l) LOOP
+    aux = 2;
+    WHILE (id_4<=7) LOOP
     {
-        id_4 = 9_l;
-        IF (id_3 != 2_l)
-            id_2 = 4_l;
+        id_4 = 9;
+        IF (id_3 != 2+3)
+            id_2 = 4;
         ELSE
-            id_2 = 8_l;
+            id_2 = 8;
         END_IF;
     };
 };
-                                /% Invocacion de procedimientos .%/
-var(id2,id3);
 
-
-IF (id_3 == 2_l)
-    id_2 = 4_l;
+IF (id_3 == 2+3)
+    id_2 = 4;
 END_IF;
 
 
-                                /% Sentencias de salida %/
+
+
 OUT ("holis");
 
-x = 7 * 9;  /% caso valido %/
-/% x = 8/7 ; No anda %/
 
 
-                               /% Variables con valores negativos %/
-x = -7.3;
-y = -711_l;
-y = 93;        /% Caso no valido, no se permiten los INTEGER %/
-z = -8_l;
+var(id2,id3);
+
+x = 2 - -3;
+x= 245_l;
+
+PROC var (INT id2, INT id3) NA = 2 , SHADOWING = TRUE {
+    x= 3.1f+2;
+};
 
 
+float_negativo = -7.3;
+longint_negativo = -711;
 
 $

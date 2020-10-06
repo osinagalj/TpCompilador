@@ -161,6 +161,12 @@ void Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyz
         }
 }
 
+void Semantic_actions::finalizarDivision(Lexical_analyzer* lexical_analyzer, char& c){
+        lexical_analyzer->set_token_found();
+        lexical_analyzer->save_token(toascii('/'),lexical_analyzer->word);
+}
+
+
 void Semantic_actions::finish_symbol(Lexical_analyzer * lexical_analyzer, char & c)
 {
     lexical_analyzer->increase_character();
@@ -168,9 +174,6 @@ void Semantic_actions::finish_symbol(Lexical_analyzer * lexical_analyzer, char &
     lexical_analyzer->word = lexical_analyzer->word + c;
     switch(c)
     {
-        case '/':
-            lexical_analyzer->save_token(toascii('/'), lexical_analyzer->word);
-            break;
         case '-':
             lexical_analyzer->save_token(toascii('-'), lexical_analyzer->word);
             break;
