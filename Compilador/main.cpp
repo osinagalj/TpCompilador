@@ -18,6 +18,10 @@ Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 /*-----------------------------------------------------------------------------------------------*/
 int main()
 {
+
+
+
+
     Logger::open(pathOut);
     Logger log;
     Logger::lexico = &lexical_analyzer;
@@ -27,8 +31,10 @@ int main()
     Lexical_analyzer::symbolTable = &tabla;
 
     yyparse();
-    //tablaSimbolos->printTable();
+    tabla.printTable();
+
     Logger::close();
+    tabla.printTable();
 
     return 0;
 }
@@ -48,6 +54,11 @@ int yylex()
     Lexical_analyzer::Token current_token = lexical_analyzer.getToken(path);
     cout << "token " + current_token.pointerST + " " + to_string(current_token.id) << endl;
     //yylval.integer= (int*)&current_token.id;
+    //string s = lexical_analyzer.symbolTable->getPuntero(current_token.pointerST);
+    //cout<<"imprime el " + s <<endl;
+    //char * c = "lautaro osinaga";
     //yylval.cadena= lexical_analyzer.symbolTable->getPuntero(current_token.pointerST);
+    yylval.cadena= &current_token.pointerST[0];
+    //yylval.cadena = c;
     return current_token.id;
 }

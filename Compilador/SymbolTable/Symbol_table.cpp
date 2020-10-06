@@ -32,7 +32,17 @@ void Symbol_table::printTable(){
 }
 
 char * Symbol_table::getPuntero(string puntero) {
+    char * hola ;
+    hola = &puntero[0];
+    /*
     _Rb_tree_iterator<pair<const basic_string<char>, Registry>> reg=this->symbol_table.find(puntero);
     char *aux= (char*)&reg->first;
-    return aux;
+     */
+    return hola;
+}
+Symbol_table::Registry Symbol_table::removeSymbol(string key){
+    Registry reg;
+    reg.id = symbol_table.find(key)->second.id;
+    this->symbol_table.erase(key); //elimino el viejo
+    return reg;
 }

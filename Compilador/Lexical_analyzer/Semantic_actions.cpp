@@ -1,5 +1,6 @@
 #include "Semantic_actions.h"
 #include "../Output/Logger.h"
+#include "../Sintactic_analyzer/y.tab.h"
 
 void Semantic_actions::initialize_token(Lexical_analyzer* lexical_analyzer, char& c){
     lexical_analyzer->word = c;

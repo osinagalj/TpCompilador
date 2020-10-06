@@ -6,7 +6,6 @@ linea:9  Asignacion
 linea:11  suma
 linea:11  Asignacion
 linea:12  lista_de_parametros
-linea:15  Asignacion
 linea:15  Condicion mayorIgual
 linea:18  Asignacion
 linea:19  suma

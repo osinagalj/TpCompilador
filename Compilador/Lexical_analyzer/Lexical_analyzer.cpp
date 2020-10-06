@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Lexical_analyzer.h"
-
+#include "../Sintactic_analyzer/y.tab.h"
 using namespace std;
 
 Lexical_analyzer::Lexical_analyzer() {

@@ -14,32 +14,8 @@ public:
     static void imprime(string x);
 
     //static void chequearRangoCtePositiva(Symbol_table tablita,string pointer);
-    static void negativizarVar(Symbol_table * tablita, int yylval);
+    static void negativizarVar(Symbol_table * tablita, char * yylval);
 
-    //static bool checkDivisionCero(string pointer);
-    //static map<string, vector<string>> variablesDeClase;
-   /* static vector<string> *punteros;
-    static void inicializar(vector<string>* p);
-    static string claseActual;
-    static void negativizarConstante(TablaSimbolos* tabla, vector<string>& punteros, int indice);
-    //Informar errores de sintaxis
-    static void declararVariable(TablaSimbolos* tabla, int tipo, vector<string>& variables, int modificador = 0);
-
-    static void cargarClase(TablaSimbolos* tabla, string clase, string clasePadre);
-    static void cargarClase(TablaSimbolos* tabla, string clase);
-
-    static void nuevoFactor(TablaSimbolos* tabla, string factor);
-    static void nuevoFactorDeClase(TablaSimbolos* tabla, string obj, string variable);
-
-    static void nuevoMetodo(TablaSimbolos* tabla, string nombre, int visibilidad);
-    static void finalizarMetodo();
-    static void finalizarClase();
-
-    static void llamadoAMetodo(TablaSimbolos* tabla, string objeto, string metodo);
-    static void llamadoAMetodo(TablaSimbolos* tabla, string metodo);
-
-    static void verificarIntFor(TablaSimbolos* tabla, string simbolo);
-    */
 };
 
 

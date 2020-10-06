@@ -4,7 +4,10 @@
 	WHILE LOOP
 	PROC TRUE FALSE SHADOWING NA
 	ERROR
-
+%union {
+    int entero;
+    char * cadena;
+    }
 %start programa
 %%
 
@@ -104,11 +107,11 @@ termino:
 factor:
 	 ID
 	|CTE
-	|'-' CTE {$$ = -1*$2;  Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2);}
+	|'-' CTE { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 	|FLOAT
-	|'-' FLOAT //{$$ = -1*$2; Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2);}
-	|LONGINT  //{$$ = -1*$1;; Sintactic_actions::chequearRangoCtePositiva(Lexical_analyzer::symbolTable,$1);}
-        |'-' LONGINT {$$ = -1*$2; Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2);}
+	|'-' FLOAT
+	|LONGINT
+        |'-' LONGINT
 ;
 
 tipo:

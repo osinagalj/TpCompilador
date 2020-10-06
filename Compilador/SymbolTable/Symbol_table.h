@@ -2,7 +2,7 @@
 #define COMPILADOR_SYMBOL_TABLE_H
 #include <iostream>
 #include <map>
-#include "../Sintactic_analyzer/y.tab.h"
+
 using namespace std;
 
 class Symbol_table {
@@ -15,6 +15,7 @@ class Symbol_table {
             };
             void addSymbol(string key, Registry registry);
             void printTable();
+            Registry removeSymbol(string key);
             char * getPuntero(string puntero);
     private:
             map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key

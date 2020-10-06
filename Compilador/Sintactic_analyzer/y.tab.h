@@ -20,3 +20,8 @@
 #define SHADOWING 276
 #define NA 277
 #define ERROR 278
+typedef union {
+    int entero;
+    char * cadena;
+    } YYSTYPE;
+extern YYSTYPE yylval;
