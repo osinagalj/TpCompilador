@@ -1,15 +1,16 @@
-/% Programa de prueba Grupo-2. Esto es un comentario. %/
+                        /% Programa de prueba Grupo-2. Esto es un comentario. %/
 
-/% Declaracion de variables.%/
+                            /% Declaracion de variables.%/
 FLOAT x, y , z ;
+/% Agregar caso a la gramatica ?? identificado_cadena = "hola mundo";  %/
 
-/% Asignaciones.%/
+                                /% Asignaciones.%/
 x = 3_l;
 y = ;
 z = 5.0f+3;
 id_3 = 2_l + 3_l;
 
-/% Sentencias de control.%/
+                                /% Sentencias de control.%/
 PROC var (INT id2, INT id3) NA = 1_l , SHADOWING = TRUE
 {
 
@@ -23,7 +24,7 @@ PROC var (INT id2, INT id3) NA = 1_l , SHADOWING = TRUE
         END_IF;
     };
 };
-/% Invocacion de procedimientos .%/
+                                /% Invocacion de procedimientos .%/
 var(id2,id3);
 
 
@@ -32,12 +33,12 @@ IF (id_3 == 2_l)
 END_IF;
 
 
-/% Variables con valores negativos %/
+                                /% Sentencias de salida %/
 OUT ("holis");
 
 
 
-/% Variables con valores negativos %/
+                               /% Variables con valores negativos %/
 x = -7.3;
 y = -711_l;
 y = 711;        /% Caso no valido, no se permiten los INTEGER %/

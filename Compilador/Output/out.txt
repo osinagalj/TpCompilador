@@ -1,26 +1,26 @@
-linea:5  lista_de_variables
-linea:5  lista_de_variables
-linea:7  Asignacion
-linea:8  Error:Asignacion vacia
-linea:9  Asignacion
-linea:11  suma
-linea:11  Asignacion
-linea:12  lista_de_parametros
-linea:15  Condicion mayorIgual
-linea:18  Asignacion
-linea:19  Condicion distinto
-linea:20  Asignacion
-linea:22  Asignacion
-linea:23  sentencia if
-linea:24  sentencia while
-linea:25  Declaracion de procedimiento
-linea:29  invocacion procedimiento
-linea:30  Condicion igual
-linea:31  Asignacion
-linea:34  sentencia if
-linea:39  Detecto sentencia OUT
-linea:41  Asignacion
+linea:4  lista_de_variables
+linea:4  lista_de_variables
+linea:8  Asignacion
+linea:9  Error:Asignacion vacia
+linea:10  Asignacion
+linea:12  suma
+linea:12  Asignacion
+linea:13  lista_de_parametros
+linea:16  Condicion mayorIgual
+linea:19  Asignacion
+linea:20  Condicion distinto
+linea:21  Asignacion
+linea:23  Asignacion
+linea:24  sentencia if
+linea:25  sentencia while
+linea:26  Declaracion de procedimiento
+linea:30  invocacion procedimiento
+linea:31  Condicion igual
+linea:32  Asignacion
+linea:35  sentencia if
+linea:40  Detecto sentencia OUT
 linea:42  Asignacion
-linea:42  NO SE PERMITEN CONSTATNTES DEL TIPO INTEGER
-linea:42  Asignacion
-linea:47  Asignacion
+linea:43  Asignacion
+linea:43  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:43  Asignacion
+linea:48  Asignacion
