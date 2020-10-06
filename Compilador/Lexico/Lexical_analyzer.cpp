@@ -90,7 +90,7 @@ Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
         }
         return t;
 }
-void Lexical_analyzer::saveInST(int id)
+void Lexical_analyzer::save_in_ST(int id)
 {
     SymbolTable::Registry registry;
     registry.id = id;

@@ -7,15 +7,16 @@ FLOAT x, y , z ;
 x = 3;
 y = ;
 z = 5.0f+3;
+id_3 = 2 + 3;
 
-/% Sentencia de control.%/
+/% Sentencias de control.%/
 PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE
 {
     aux = 2;
     WHILE (id_4<=7) LOOP
     {
-        id_4=9;
-        IF (id_3 == 2+3)
+        id_4 = 9;
+        IF (id_3 != 2+3)
             id_2 = 4;
         ELSE
             id_2 = 8;
@@ -23,23 +24,19 @@ PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE
     };
 };
 
-
-
-id_3 = 2 + 3;
 IF (id_3 == 2+3)
     id_2 = 4;
 END_IF;
+
+
+
 
 OUT ("holis");
 
 
 
-
-
-
-
-
 var(id2,id3);
+
 x = 2 - -3;
 x= 245_l;
 

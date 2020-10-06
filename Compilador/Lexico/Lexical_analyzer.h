@@ -23,7 +23,7 @@ class Lexical_analyzer{
              Token t;
              int new_state;
              static SymbolTable * symbolTable;
-             void saveInST(int id);
+             void save_in_ST(int id);
     private:
             ifstream source_file;
             void loadFile(string pathArchivo);

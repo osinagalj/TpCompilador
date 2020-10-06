@@ -18,11 +18,11 @@ void Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, cha
     if(lexical_analyzer->word.length() > longIdentificador){
         lexical_analyzer->word =  lexical_analyzer->word.substr (0,20);
         lexical_analyzer->save_token(ID, lexical_analyzer->word);
-        lexical_analyzer->saveInST(ID);
+        lexical_analyzer->save_in_ST(ID);
         //"Identificador supera la longitud maxima de 20 caracteres"
     }else{
         lexical_analyzer->save_token(ID, lexical_analyzer->word);
-        lexical_analyzer->saveInST(ID);
+        lexical_analyzer->save_in_ST(ID);
     }
 }
 
@@ -37,7 +37,7 @@ void Semantic_actions::finish_constant(Lexical_analyzer* lexical_analyzer, char&
 {
     lexical_analyzer->set_token_found();
     lexical_analyzer->save_token(CTE, lexical_analyzer->word);
-    lexical_analyzer->saveInST(CTE);
+    lexical_analyzer->save_in_ST(CTE);
 
 }
 
@@ -50,15 +50,15 @@ void Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& 
     lexical_analyzer->word= lexical_analyzer->word + c;
     lexical_analyzer->word = lexical_analyzer->word.substr (0,lexical_analyzer->word.size()-2);
     long numero = stol(lexical_analyzer->word);
-    if(numero <= 2147483648 ){ // preguntar
-        lexical_analyzer->save_token(LONGINT, lexical_analyzer->word); //cambiar el 5
+    if(numero <= 2147483648 ){
+        lexical_analyzer->save_token(LONGINT, lexical_analyzer->word);
 
     }else{
         lexical_analyzer->word = to_string(2147483648); //siempre que sea positivo el numero, el sintactico lo chekea
-        lexical_analyzer->save_token(LONGINT, lexical_analyzer->word); //cambiar el 5
+        lexical_analyzer->save_token(LONGINT, lexical_analyzer->word);
 
     }
-    lexical_analyzer->saveInST(LONGINT);
+    lexical_analyzer->save_in_ST(LONGINT);
 }
 
 void Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
@@ -83,7 +83,6 @@ void Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
                 i = lexical_analyzer->word.size();
             }else{
                 desplazamiento=stoi(lexical_analyzer->word.substr(i+2,lexical_analyzer->word.size()));
-                //cout<<desplazamiento<<endl;
                 numero=stof(acumulado);
                 for(int i=0; i< desplazamiento; i++){
                     numero= numero / 10;
@@ -97,7 +96,7 @@ void Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
         }
     }
     lexical_analyzer->save_token(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
-    lexical_analyzer->saveInST(FLOAT);
+    lexical_analyzer->save_in_ST(FLOAT);
     lexical_analyzer->set_token_found();
 }
 
@@ -128,22 +127,23 @@ void Semantic_actions::finish_composite_comparator(Lexical_analyzer* lexical_ana
     lexical_analyzer->word = lexical_analyzer->word + c;
     switch(lexical_analyzer->word[0]){  //El primer caracter es siempre un = en un comparador compuesto
         case '<':
-            lexical_analyzer->save_token(MAYORIGUAL, lexical_analyzer->word); //MAYORIGUAL
+            lexical_analyzer->save_token(GREATER_OR_EQUAL, lexical_analyzer->word); //MAYORIGUAL
             break;
         case '>':
-            lexical_analyzer->save_token(MENORIGUAL, lexical_analyzer->word); //MENORIGUAL
+            lexical_analyzer->save_token(LESS_OR_EQUAL, lexical_analyzer->word); //MENORIGUAL
             break;
         case '=': // ==
-            lexical_analyzer->save_token(IGUAL, lexical_analyzer->word); //IGUAL
+            lexical_analyzer->save_token(EQUAL, lexical_analyzer->word); //IGUAL
             break;
         case '!':
-            lexical_analyzer->save_token(DISTINTO, lexical_analyzer->word); //DISTINTO
+            lexical_analyzer->save_token(DIFFERENT, lexical_analyzer->word); //DISTINTO
             break;
         }
 }
 
-void Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyzer, char& c){
 //No aumentamos token porque estamos parados en el siguiente
+void Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyzer, char& c)
+{
     lexical_analyzer->set_token_found();
     switch(lexical_analyzer->word[0]){
         case '<':
@@ -159,7 +159,7 @@ void Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyz
         }
 }
 
-void Semantic_actions::finish_symbol(Lexical_analyzer* lexical_analyzer, char& c)
+void Semantic_actions::finish_symbol(Lexical_analyzer * lexical_analyzer, char & c)
 {
     lexical_analyzer->increase_character();
     lexical_analyzer->set_token_found();
@@ -200,8 +200,8 @@ void Semantic_actions::finish_symbol(Lexical_analyzer* lexical_analyzer, char& c
             lexical_analyzer->save_token(toascii('.'), lexical_analyzer->word);
             break;
         case '"':
-            lexical_analyzer->save_token(CADENA, lexical_analyzer->word);
-            lexical_analyzer->saveInST(CADENA);
+            lexical_analyzer->save_token(STRING, lexical_analyzer->word);
+            lexical_analyzer->save_in_ST(STRING);
             break;
         case '$':
             lexical_analyzer->save_token(0, lexical_analyzer->word); // yyparse() end with yylex() = 0

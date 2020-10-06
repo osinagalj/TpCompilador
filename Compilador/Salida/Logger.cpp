@@ -6,6 +6,9 @@ Logger::Logger(){}
 
 void Logger::open( const string& logFile){
     instance.fileStream.open(logFile.c_str());
+    if(!instance.fileStream.is_open()){
+        exit(2);
+    }
 }
 void Logger::close(){
     instance.fileStream.close();

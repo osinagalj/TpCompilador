@@ -9,7 +9,7 @@ void yyerror(const char *s);
 #include "Sintactico/y.tab.cpp"
 
 /*-----------------------           variables             ----------------------------------------*/
-string path = "Compilador\\CasosDePrueba\\programa.txt";
+string path = "Compilador\\Testing\\program.txt";
 string pathOut = "Compilador\\Salida\\out.txt";
 Lexical_analyzer lexical_analyzer;
 Lexical_analyzer * Logger::lexico = nullptr;

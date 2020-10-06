@@ -1,7 +1,8 @@
-%token  ID CTE FLOAT LONGINT INT
+%token  ID CTE FLOAT LONGINT INT STRING
 	IF ELSE END_IF OUT
-	MAYORIGUAL MENORIGUAL IGUAL DISTINTO CADENA
-	WHILE LOOP PROC TRUE FALSE SHADOWING FALSE NA
+	GREATER_OR_EQUAL LESS_OR_EQUAL EQUAL DIFFERENT
+	WHILE LOOP
+	PROC TRUE FALSE SHADOWING NA
 	ERROR
 %start programa
 %%
@@ -75,10 +76,10 @@ sentencia_while:
 ;
 
 condicion:
-	  | expresion IGUAL expresion {Logger::write("Condicion igual");}
-	  | expresion MENORIGUAL expresion {Logger::write("Condicion menorigual");}
-	  | expresion MAYORIGUAL expresion {Logger::write("Condicion mayorIgual");}
-	  | expresion DISTINTO expresion {Logger::write("Condicion distinto");}
+	  | expresion EQUAL expresion {Logger::write("Condicion igual");}
+	  | expresion DIFFERENT expresion {Logger::write("Condicion distinto");}
+	  | expresion LESS_OR_EQUAL expresion {Logger::write("Condicion menorigual");}
+	  | expresion GREATER_OR_EQUAL expresion {Logger::write("Condicion mayorIgual");}
 	  | expresion '>' expresion {Logger::write("Condicion de mayor");}
           | expresion '<' expresion {Logger::write("Condicion de menor");}
 ;
@@ -115,7 +116,7 @@ tipo:
      | FLOAT
 ;
 imprimir:
-	 OUT '(' CADENA ')' ';' {Logger::write("Detecto sentencia OUT");}
+	 OUT '(' STRING ')' ';' {Logger::write("Detecto sentencia OUT");}
 ;
 
 

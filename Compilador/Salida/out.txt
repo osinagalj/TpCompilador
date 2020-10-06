@@ -2,31 +2,31 @@ linea:5  lista_de_variables
 linea:5  lista_de_variables
 linea:7  Asignacion
 linea:8  Error:Asignacion vacia
-linea:10  Asignacion
-linea:11  lista_de_parametros
-linea:14  Asignacion
-linea:14  Condicion mayorIgual
-linea:17  Asignacion
-linea:18  suma
-linea:18  Condicion igual
-linea:19  Asignacion
-linea:21  Asignacion
-linea:22  sentencia if
-linea:23  sentencia while
-linea:27  Declaracion de procedimiento
-linea:28  suma
+linea:9  Asignacion
+linea:11  suma
+linea:11  Asignacion
+linea:12  lista_de_parametros
+linea:15  Asignacion
+linea:15  Condicion mayorIgual
+linea:18  Asignacion
+linea:19  suma
+linea:19  Condicion distinto
+linea:20  Asignacion
+linea:22  Asignacion
+linea:23  sentencia if
+linea:24  sentencia while
+linea:26  Declaracion de procedimiento
+linea:27  suma
+linea:27  Condicion igual
 linea:28  Asignacion
-linea:29  suma
-linea:29  Condicion igual
-linea:30  Asignacion
-linea:32  sentencia if
-linea:41  Detecto sentencia OUT
-linea:42  invocacion procedimiento
-linea:43  resta
-linea:43  Asignacion
-linea:45  Asignacion
-linea:45  lista_de_parametros
-linea:47  Asignacion
-linea:50  Declaracion de procedimiento
-linea:51  Asignacion
-linea:53  Asignacion
+linea:33  sentencia if
+linea:37  Detecto sentencia OUT
+linea:39  invocacion procedimiento
+linea:40  resta
+linea:40  Asignacion
+linea:42  Asignacion
+linea:42  lista_de_parametros
+linea:44  Asignacion
+linea:47  Declaracion de procedimiento
+linea:48  Asignacion
+linea:50  Asignacion
