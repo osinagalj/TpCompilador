@@ -22,8 +22,8 @@ linea:38  Detecto sentencia OUT
 linea:38  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:38  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:38  Asignacion
-linea:42  Asignacion
-linea:43  Asignacion
-linea:43  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:43  Asignacion
-linea:48  Asignacion
+linea:44  Asignacion
+linea:45  Asignacion
+linea:45  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:45  Asignacion
+linea:50  Asignacion

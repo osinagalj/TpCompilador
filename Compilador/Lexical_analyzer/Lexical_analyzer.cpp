@@ -484,6 +484,7 @@ void Lexical_analyzer::initializeMatrixSA(){
     //AGREGAR
     matrizAS[0][COLUMN_DIVISION]= {13, &Semantic_actions::add_character};
     //DEVOLVER DIVISION
+
     matrizAS[13][COLUMN_COLUMN_DIFFERENT]= {FINAL_STATE, &Semantic_actions::finish_symbol};
     matrizAS[13][COLUMN_EQUAL]= {FINAL_STATE, &Semantic_actions::finish_symbol};
     matrizAS[13][COLUMN_SUM] = {FINAL_STATE, &Semantic_actions::finish_symbol};

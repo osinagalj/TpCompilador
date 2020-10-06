@@ -37,6 +37,8 @@ END_IF;
 OUT ("holis");
 
 x = 7 * 9;  /% caso valido %/
+/% x = 8/7 ; No anda %/
+
 
                                /% Variables con valores negativos %/
 x = -7.3;
