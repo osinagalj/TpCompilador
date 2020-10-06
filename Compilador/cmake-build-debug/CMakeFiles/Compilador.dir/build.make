@@ -89,18 +89,18 @@ CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\Lexical_analyzer.cpp -o CMakeFiles\Compilador.dir\Lexico\Lexical_analyzer.cpp.s
 
-CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: CMakeFiles/Compilador.dir/flags.make
-CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Lexico\AccionesSemanticas.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\AccionesSemanticas.cpp
+CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: CMakeFiles/Compilador.dir/flags.make
+CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj: ../Lexico/Semantic_actions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Lexico\Semantic_actions.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\Semantic_actions.cpp
 
-CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\AccionesSemanticas.cpp > CMakeFiles\Compilador.dir\Lexico\AccionesSemanticas.cpp.i
+CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\Semantic_actions.cpp > CMakeFiles\Compilador.dir\Lexico\Semantic_actions.cpp.i
 
-CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\AccionesSemanticas.cpp -o CMakeFiles\Compilador.dir\Lexico\AccionesSemanticas.cpp.s
+CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Lexico\Semantic_actions.cpp -o CMakeFiles\Compilador.dir\Lexico\Semantic_actions.cpp.s
 
 CMakeFiles/Compilador.dir/main.cpp.obj: CMakeFiles/Compilador.dir/flags.make
 CMakeFiles/Compilador.dir/main.cpp.obj: ../main.cpp
@@ -128,18 +128,18 @@ CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\SymbolTable\SymbolTable.cpp -o CMakeFiles\Compilador.dir\SymbolTable\SymbolTable.cpp.s
 
-CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj: CMakeFiles/Compilador.dir/flags.make
-CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj: ../Sintactico/AccionesSintactico.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Sintactico\AccionesSintactico.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Sintactico\AccionesSintactico.cpp
+CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: CMakeFiles/Compilador.dir/flags.make
+CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj: ../Sintactico/Sintactic_actions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\Sintactico\Sintactic_actions.cpp.obj -c C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Sintactico\Sintactic_actions.cpp
 
-CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Sintactico\AccionesSintactico.cpp > CMakeFiles\Compilador.dir\Sintactico\AccionesSintactico.cpp.i
+CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Sintactico\Sintactic_actions.cpp > CMakeFiles\Compilador.dir\Sintactico\Sintactic_actions.cpp.i
 
-CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Sintactico\AccionesSintactico.cpp -o CMakeFiles\Compilador.dir\Sintactico\AccionesSintactico.cpp.s
+CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Compilador\Sintactico\Sintactic_actions.cpp -o CMakeFiles\Compilador.dir\Sintactico\Sintactic_actions.cpp.s
 
 CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: CMakeFiles/Compilador.dir/flags.make
 CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Salida/Logger.cpp
@@ -157,20 +157,20 @@ CMakeFiles/Compilador.dir/Salida/Logger.cpp.s: cmake_force
 # Object files for target Compilador
 Compilador_OBJECTS = \
 "CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj" \
-"CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj" \
+"CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj" \
 "CMakeFiles/Compilador.dir/main.cpp.obj" \
 "CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj" \
-"CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj" \
+"CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj" \
 "CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj"
 
 # External object files for target Compilador
 Compilador_EXTERNAL_OBJECTS =
 
 Compilador.exe: CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj
-Compilador.exe: CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj
+Compilador.exe: CMakeFiles/Compilador.dir/Lexico/Semantic_actions.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/main.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj
-Compilador.exe: CMakeFiles/Compilador.dir/Sintactico/AccionesSintactico.cpp.obj
+Compilador.exe: CMakeFiles/Compilador.dir/Sintactico/Sintactic_actions.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj
 Compilador.exe: CMakeFiles/Compilador.dir/build.make
 Compilador.exe: CMakeFiles/Compilador.dir/linklibs.rsp

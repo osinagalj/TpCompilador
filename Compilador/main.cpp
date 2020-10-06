@@ -1,5 +1,5 @@
 //#include "Lexical_analyzer/Lexical_analyzer.h"
-#include "Sintactico/AccionesSintactico.h"
+#include "Sintactico/Sintactic_actions.h"
 #include "SymbolTable/SymbolTable.h"
 #include "Salida/Logger.h"
 #include <fstream>

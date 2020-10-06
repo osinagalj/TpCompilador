@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "AccionesSemanticas.h"
+#include "Semantic_actions.h"
 #include <map>
 #include <string>
 #include "../SymbolTable/SymbolTable.h"

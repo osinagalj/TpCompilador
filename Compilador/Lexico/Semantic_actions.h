@@ -1,5 +1,5 @@
-#ifndef COMPILADOR_ACCIONESSEMANTICAS_H
-#define COMPILADOR_ACCIONESSEMANTICAS_H
+#ifndef COMPILADOR_SEMANTIC_ACTIONS_H
+#define COMPILADOR_SEMANTIC_ACTIONS_H
 #include <iostream>
 #include "../SymbolTable/SymbolTable.h"
 using namespace std;
@@ -7,7 +7,7 @@ using namespace std;
 
 class Lexical_analyzer;
 
-class AccionesSemanticas {
+class Semantic_actions {
 
     public:
         //add character
@@ -35,4 +35,4 @@ class AccionesSemanticas {
 };
 
 
-#endif //COMPILADOR_ACCIONESSEMANTICAS_H
+#endif //COMPILADOR_SEMANTIC_ACTIONS_H

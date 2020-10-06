@@ -16,7 +16,7 @@ class Lexical_analyzer{
              void save_token(int id,string punt);
              void set_token_found();
              int getIdPalabraReservada();
-             void aumentarCaracter(); //si el caracter leido es valido aumentamos
+             void increase_character(); //si el caracter leido es valido aumentamos
              int get_number_line();
              bool end = false;
              bool token_found = false;

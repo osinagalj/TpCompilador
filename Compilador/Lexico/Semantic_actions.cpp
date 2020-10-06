@@ -1,16 +1,17 @@
-#include "AccionesSemanticas.h"
-//#include "Lexical_analyzer.h"
+#include "Semantic_actions.h"
 #include "../Salida/Logger.h"
 
-void AccionesSemanticas::initialize_token(Lexical_analyzer* lexical_analyzer, char& c){
+void Semantic_actions::initialize_token(Lexical_analyzer* lexical_analyzer, char& c){
     lexical_analyzer->word = c;
-    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->increase_character();
 }
-void AccionesSemanticas::add_character(Lexical_analyzer* lexical_analyzer, char& c){
+
+void Semantic_actions::add_character(Lexical_analyzer* lexical_analyzer, char& c){
     lexical_analyzer->word = lexical_analyzer->word + c;
-    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->increase_character();
 }
-void AccionesSemanticas::finish_identifier(Lexical_analyzer* lexical_analyzer, char& c){
+
+void Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, char& c){
 
     lexical_analyzer->set_token_found();
     //Chekear el rango
@@ -24,25 +25,28 @@ void AccionesSemanticas::finish_identifier(Lexical_analyzer* lexical_analyzer, c
         lexical_analyzer->saveInST(ID);
     }
 }
-void AccionesSemanticas::finish_reserved_word(Lexical_analyzer* lexical_analyzer, char& c)
+
+void Semantic_actions::finish_reserved_word(Lexical_analyzer* lexical_analyzer, char& c)
 {
     lexical_analyzer->set_token_found();
     int id = lexical_analyzer->getIdPalabraReservada();
     lexical_analyzer->save_token(id, lexical_analyzer->word);
 }
-void AccionesSemanticas::finish_constant(Lexical_analyzer* lexical_analyzer, char& c)
+
+void Semantic_actions::finish_constant(Lexical_analyzer* lexical_analyzer, char& c)
 {
     lexical_analyzer->set_token_found();
     lexical_analyzer->save_token(CTE, lexical_analyzer->word);
     lexical_analyzer->saveInST(CTE);
 
 }
-void AccionesSemanticas::finish_longint(Lexical_analyzer* lexical_analyzer, char& c)
+
+void Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& c)
 {
     //.5    6.3f-3
     //Valor maximo de un entero largo 2147483647
     lexical_analyzer->set_token_found();
-    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->increase_character();
     lexical_analyzer->word= lexical_analyzer->word + c;
     lexical_analyzer->word = lexical_analyzer->word.substr (0,lexical_analyzer->word.size()-2);
     long numero = stol(lexical_analyzer->word);
@@ -56,7 +60,8 @@ void AccionesSemanticas::finish_longint(Lexical_analyzer* lexical_analyzer, char
     }
     lexical_analyzer->saveInST(LONGINT);
 }
-void AccionesSemanticas::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
+
+void Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
 {
     string acumulado="";
     float numero=0;
@@ -97,26 +102,28 @@ void AccionesSemanticas::finish_float(Lexical_analyzer* lexical_analyzer, char& 
 }
 
 //Blancos,TAB, Salto de linea
-void AccionesSemanticas::discard_character(Lexical_analyzer *lexical_analyzer, char &c)
+void Semantic_actions::discard_character(Lexical_analyzer *lexical_analyzer, char &c)
 {
-    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->increase_character();
     lexical_analyzer->word="";
 }
 
 //$ en medio de un comentario o word de caracter
-void AccionesSemanticas::eof_unexpected(Lexical_analyzer* lexical_analyzer, char& c)
+void Semantic_actions::eof_unexpected(Lexical_analyzer* lexical_analyzer, char& c)
 {
     Logger::write("Se encontró fin de archivo adentro de un comentario o cadena de caracteres");
 }
 
-void AccionesSemanticas::error_mensagge(Lexical_analyzer* lexical_analyzer, char& c){
-    lexical_analyzer->aumentarCaracter();
+void Semantic_actions::error_mensagge(Lexical_analyzer* lexical_analyzer, char& c)
+{
+    lexical_analyzer->increase_character();
     Logger::write("Error lexico, no se ha podido reconocer " + lexical_analyzer->word +to_string(c));
 }
 
 // Comparators: <=,>=,==,!=
-void AccionesSemanticas::finish_composite_comparator(Lexical_analyzer* lexical_analyzer, char& c){
-    lexical_analyzer->aumentarCaracter();
+void Semantic_actions::finish_composite_comparator(Lexical_analyzer* lexical_analyzer, char& c)
+{
+    lexical_analyzer->increase_character();
     lexical_analyzer->set_token_found();
     lexical_analyzer->word = lexical_analyzer->word + c;
     switch(lexical_analyzer->word[0]){  //El primer caracter es siempre un = en un comparador compuesto
@@ -135,7 +142,7 @@ void AccionesSemanticas::finish_composite_comparator(Lexical_analyzer* lexical_a
         }
 }
 
-void AccionesSemanticas::finish_simple_comparator(Lexical_analyzer* lexical_analyzer, char& c){
+void Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyzer, char& c){
 //No aumentamos token porque estamos parados en el siguiente
     lexical_analyzer->set_token_found();
     switch(lexical_analyzer->word[0]){
@@ -152,10 +159,9 @@ void AccionesSemanticas::finish_simple_comparator(Lexical_analyzer* lexical_anal
         }
 }
 
-
-void AccionesSemanticas::finish_symbol(Lexical_analyzer* lexical_analyzer, char& c)
+void Semantic_actions::finish_symbol(Lexical_analyzer* lexical_analyzer, char& c)
 {
-    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->increase_character();
     lexical_analyzer->set_token_found();
     lexical_analyzer->word = lexical_analyzer->word + c;
     switch(c)
@@ -203,5 +209,3 @@ void AccionesSemanticas::finish_symbol(Lexical_analyzer* lexical_analyzer, char&
             break;
     }
 }
-
-

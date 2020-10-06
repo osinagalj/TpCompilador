@@ -1,11 +1,11 @@
 
-#ifndef COMPILADOR_ACCIONESSINTACTICO_H
-#define COMPILADOR_ACCIONESSINTACTICO_H
+#ifndef COMPILADOR_SINTACTIC_ACTIONS_H
+#define COMPILADOR_SINTACTIC_ACTIONS_H
 #include <map>
 #include <iostream>
 #include "../SymbolTable/SymbolTable.h"
 using namespace std;
-class AccionesSintactico {
+class Sintactic_actions {
 private:
     //static bool hereda(TablaSimbolos* tabla, string claseHijo, string clasePadre);
    // static void inicializarVariablesDeObjeto(TablaSimbolos* tabla, string objeto, string clase);
@@ -44,5 +44,5 @@ public:
 
 
 
-#endif //COMPILADOR_ACCIONESSINTACTICO_H
+#endif //COMPILADOR_SINTACTIC_ACTIONS_H
 

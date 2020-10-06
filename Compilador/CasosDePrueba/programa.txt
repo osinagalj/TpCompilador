@@ -8,8 +8,6 @@ x = 3;
 y = ;
 z = 5.0f+3;
 
-5.3f3;
-
 /% Sentencia de control.%/
 PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE
 {

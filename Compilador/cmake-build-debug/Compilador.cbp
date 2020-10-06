@@ -80,12 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp">
-			<Option target="Compilador"/>
-		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h">
-			<Option target="Compilador"/>
-		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexical_analyzer.cpp">
 			<Option target="Compilador"/>
 		</Unit>
@@ -95,16 +89,22 @@
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexical_analyzer_header.h">
 			<Option target="Compilador"/>
 		</Unit>
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Semantic_actions.cpp">
+			<Option target="Compilador"/>
+		</Unit>
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Semantic_actions.h">
+			<Option target="Compilador"/>
+		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.cpp">
 			<Option target="Compilador"/>
 		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.h">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/AccionesSintactico.cpp">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/Sintactic_actions.cpp">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/AccionesSintactico.h">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/Sintactic_actions.h">
 			<Option target="Compilador"/>
 		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.cpp">

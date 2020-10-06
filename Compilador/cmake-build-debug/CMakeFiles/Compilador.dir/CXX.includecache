@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.cpp
-AccionesSemanticas.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
-../Salida/Logger.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.h
-
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
-iostream
--
-../SymbolTable/SymbolTable.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
-
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexical_analyzer.h
 Lexical_analyzer_header.h
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexical_analyzer_header.h
@@ -27,8 +15,8 @@ iostream
 -
 fstream
 -
-AccionesSemanticas.h
-C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h
+Semantic_actions.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Semantic_actions.h
 map
 -
 string
@@ -37,6 +25,12 @@ string
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
 ../Sintactico/y.tab.h
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.h
+
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Semantic_actions.h
+iostream
+-
+../SymbolTable/SymbolTable.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
 
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.h
 string
@@ -48,6 +42,20 @@ iostream
 ../Lexico/Lexical_analyzer.h
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexical_analyzer.h
 
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/Sintactic_actions.cpp
+Sintactic_actions.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/Sintactic_actions.h
+
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/Sintactic_actions.h
+map
+-
+iostream
+-
+../SymbolTable/SymbolTable.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
+
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.cpp
+
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.h
 
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
@@ -57,4 +65,16 @@ map
 -
 ../Sintactico/y.tab.h
 C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.h
+
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/main.cpp
+Sintactico/Sintactic_actions.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/Sintactic_actions.h
+SymbolTable/SymbolTable.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/SymbolTable.h
+Salida/Logger.h
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.h
+fstream
+-
+Sintactico/y.tab.cpp
+C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactico/y.tab.cpp
 

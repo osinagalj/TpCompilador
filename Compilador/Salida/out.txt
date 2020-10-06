@@ -3,4 +3,30 @@ linea:5  lista_de_variables
 linea:7  Asignacion
 linea:8  Error:Asignacion vacia
 linea:10  Asignacion
-linea:10  Error lexico, no se ha podido reconocer 5.3f51
+linea:11  lista_de_parametros
+linea:14  Asignacion
+linea:14  Condicion mayorIgual
+linea:17  Asignacion
+linea:18  suma
+linea:18  Condicion igual
+linea:19  Asignacion
+linea:21  Asignacion
+linea:22  sentencia if
+linea:23  sentencia while
+linea:27  Declaracion de procedimiento
+linea:28  suma
+linea:28  Asignacion
+linea:29  suma
+linea:29  Condicion igual
+linea:30  Asignacion
+linea:32  sentencia if
+linea:41  Detecto sentencia OUT
+linea:42  invocacion procedimiento
+linea:43  resta
+linea:43  Asignacion
+linea:45  Asignacion
+linea:45  lista_de_parametros
+linea:47  Asignacion
+linea:50  Declaracion de procedimiento
+linea:51  Asignacion
+linea:53  Asignacion
