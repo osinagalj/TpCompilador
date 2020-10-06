@@ -452,11 +452,11 @@ case 36:
 break;
 case 43:
 #line 90 "gramatica.y"
-{yyval = -1*yyvsp[0];  AccionesSintactico::negativizarVar(Lexical_analyzer::symbolTable, yyvsp[0]);}
+{yyval = -1*yyvsp[0];  AccionesSintactico::negativizarVar(Lexico::symbolTable,yyvsp[0]);}
 break;
 case 47:
 #line 94 "gramatica.y"
-{yyval = -1*yyvsp[0]; AccionesSintactico::negativizarVar(Lexical_analyzer::symbolTable, yyvsp[0]);}
+{yyval = -1*yyvsp[0]; AccionesSintactico::negativizarVar(Lexico::symbolTable,yyvsp[0]);}
 break;
 case 51:
 #line 103 "gramatica.y"

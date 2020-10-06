@@ -3,19 +3,22 @@
 
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.cpp
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/AccionesSemanticas.h
-CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/Lexico.h
+CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/Lexical_analyzer.h
+CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Lexico/Lexical_analyzer_header.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Salida/Logger.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../Sintactico/y.tab.h
 CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.obj: ../SymbolTable/SymbolTable.h
 
-CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/AccionesSemanticas.h
-CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/Lexico.cpp
-CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Lexico/Lexico.h
-CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../Sintactico/y.tab.h
-CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj: ../SymbolTable/SymbolTable.h
+CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Lexico/AccionesSemanticas.h
+CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Lexico/Lexical_analyzer.cpp
+CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Lexico/Lexical_analyzer.h
+CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Lexico/Lexical_analyzer_header.h
+CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../Sintactico/y.tab.h
+CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj: ../SymbolTable/SymbolTable.h
 
 CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Lexico/AccionesSemanticas.h
-CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Lexico/Lexico.h
+CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Lexico/Lexical_analyzer.h
+CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Lexico/Lexical_analyzer_header.h
 CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Salida/Logger.cpp
 CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Salida/Logger.h
 CMakeFiles/Compilador.dir/Salida/Logger.cpp.obj: ../Sintactico/y.tab.h
@@ -31,7 +34,8 @@ CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: ../SymbolTable/Symbol
 CMakeFiles/Compilador.dir/SymbolTable/SymbolTable.cpp.obj: ../SymbolTable/SymbolTable.h
 
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/AccionesSemanticas.h
-CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/Lexico.h
+CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/Lexical_analyzer.h
+CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexico/Lexical_analyzer_header.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Salida/Logger.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/AccionesSintactico.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Sintactico/y.tab.cpp

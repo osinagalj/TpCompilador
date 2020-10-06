@@ -86,10 +86,13 @@
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/AccionesSemanticas.h">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.cpp">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexical_analyzer.cpp">
 			<Option target="Compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexico.h">
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexical_analyzer.h">
+			<Option target="Compilador"/>
+		</Unit>
+		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexico/Lexical_analyzer_header.h">
 			<Option target="Compilador"/>
 		</Unit>
 		<Unit filename="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Salida/Logger.cpp">

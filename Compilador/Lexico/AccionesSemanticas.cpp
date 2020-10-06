@@ -1,210 +1,206 @@
 #include "AccionesSemanticas.h"
-//#include "Lexico.h"
+//#include "Lexical_analyzer.h"
 #include "../Salida/Logger.h"
 
-void AccionesSemanticas::initialize_token(Lexico* lexico, char& c){
-    lexico->cadena = c;
-    lexico->aumentarCaracter();
+void AccionesSemanticas::initialize_token(Lexical_analyzer* lexical_analyzer, char& c){
+    lexical_analyzer->word = c;
+    lexical_analyzer->aumentarCaracter();
 }
-void AccionesSemanticas::add_character(Lexico* lexico, char& c){
-    lexico->cadena = lexico->cadena + c;
-    lexico->aumentarCaracter();
+void AccionesSemanticas::add_character(Lexical_analyzer* lexical_analyzer, char& c){
+    lexical_analyzer->word = lexical_analyzer->word + c;
+    lexical_analyzer->aumentarCaracter();
 }
-void AccionesSemanticas::finish_identifier(Lexico* lexico, char& c){
+void AccionesSemanticas::finish_identifier(Lexical_analyzer* lexical_analyzer, char& c){
 
-    lexico->set_token_found();
+    lexical_analyzer->set_token_found();
     //Chekear el rango
-    if(lexico->cadena.length() > longIdentificador){
-        lexico->cadena =  lexico->cadena.substr (0,20);
-        lexico->guardarToken(ID, lexico->cadena);
-        lexico->saveInST(ID);
+    if(lexical_analyzer->word.length() > longIdentificador){
+        lexical_analyzer->word =  lexical_analyzer->word.substr (0,20);
+        lexical_analyzer->save_token(ID, lexical_analyzer->word);
+        lexical_analyzer->saveInST(ID);
         //"Identificador supera la longitud maxima de 20 caracteres"
     }else{
-        lexico->guardarToken(ID, lexico->cadena);
-        lexico->saveInST(ID);
+        lexical_analyzer->save_token(ID, lexical_analyzer->word);
+        lexical_analyzer->saveInST(ID);
     }
 }
-void AccionesSemanticas::finish_reserved_word(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_reserved_word(Lexical_analyzer* lexical_analyzer, char& c)
 {
-    lexico->set_token_found();
-    int id = lexico->getIdPalabraReservada();
-    lexico->guardarToken(id, lexico->cadena);
+    lexical_analyzer->set_token_found();
+    int id = lexical_analyzer->getIdPalabraReservada();
+    lexical_analyzer->save_token(id, lexical_analyzer->word);
 }
-void AccionesSemanticas::finish_constant(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_constant(Lexical_analyzer* lexical_analyzer, char& c)
 {
-    lexico->set_token_found();
-    lexico->guardarToken(CTE, lexico->cadena);
-    lexico->saveInST(CTE);
+    lexical_analyzer->set_token_found();
+    lexical_analyzer->save_token(CTE, lexical_analyzer->word);
+    lexical_analyzer->saveInST(CTE);
 
 }
-void AccionesSemanticas::finish_longint(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_longint(Lexical_analyzer* lexical_analyzer, char& c)
 {
     //.5    6.3f-3
     //Valor maximo de un entero largo 2147483647
-    lexico->set_token_found();
-    lexico->aumentarCaracter();
-    lexico->cadena= lexico->cadena + c;
-    lexico->cadena = lexico->cadena.substr (0,lexico->cadena.size()-2);
-    long numero = stol(lexico->cadena);
+    lexical_analyzer->set_token_found();
+    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->word= lexical_analyzer->word + c;
+    lexical_analyzer->word = lexical_analyzer->word.substr (0,lexical_analyzer->word.size()-2);
+    long numero = stol(lexical_analyzer->word);
     if(numero <= 2147483648 ){ // preguntar
-        lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
+        lexical_analyzer->save_token(LONGINT, lexical_analyzer->word); //cambiar el 5
 
     }else{
-        lexico->cadena = to_string(2147483648); //siempre que sea positivo el numero, el sintactico lo chekea
-        lexico->guardarToken(LONGINT, lexico->cadena); //cambiar el 5
+        lexical_analyzer->word = to_string(2147483648); //siempre que sea positivo el numero, el sintactico lo chekea
+        lexical_analyzer->save_token(LONGINT, lexical_analyzer->word); //cambiar el 5
 
     }
-    lexico->saveInST(LONGINT);
+    lexical_analyzer->saveInST(LONGINT);
 }
-void AccionesSemanticas::finish_float(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
 {
     string acumulado="";
     float numero=0;
     int desplazamiento = 0;
     int i = 0;
-    if(lexico->cadena[0] == '.'){
-        string aux= "0" + lexico->cadena;
+    if(lexical_analyzer->word[0] == '.'){
+        string aux= "0" + lexical_analyzer->word;
         acumulado=aux;
     }
-    while (i < lexico->cadena.size()){
-        if(lexico->cadena[i]=='f'){ //si hay desplazamiento
-            if(lexico->cadena[i+1]=='+'){
-                desplazamiento= stoi(lexico->cadena.substr(i+2,lexico->cadena.size()));
+    while (i < lexical_analyzer->word.size()){
+        if(lexical_analyzer->word[i]=='f'){ //si hay desplazamiento
+            if(lexical_analyzer->word[i+1]=='+'){
+                desplazamiento= stoi(lexical_analyzer->word.substr(i+2,lexical_analyzer->word.size()));
                 //cout<<desplazamiento<<endl;
                 numero=stof(acumulado);
                 for(int i=0; i< desplazamiento; i++){
                     numero= numero * 10;
                 }
-                i = lexico->cadena.size();
+                i = lexical_analyzer->word.size();
             }else{
-                desplazamiento=stoi(lexico->cadena.substr(i+2,lexico->cadena.size()));
+                desplazamiento=stoi(lexical_analyzer->word.substr(i+2,lexical_analyzer->word.size()));
                 //cout<<desplazamiento<<endl;
                 numero=stof(acumulado);
                 for(int i=0; i< desplazamiento; i++){
                     numero= numero / 10;
                 }
-                i = lexico->cadena.size();
+                i = lexical_analyzer->word.size();
             }
         }else {
-            acumulado = acumulado + lexico->cadena[i];
+            acumulado = acumulado + lexical_analyzer->word[i];
             numero = stof(acumulado);
             i++;
         }
     }
-    lexico->guardarToken(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
-    lexico->saveInST(FLOAT);
-    lexico->set_token_found();
+    lexical_analyzer->save_token(FLOAT, to_string(numero)); //CAMBIAR A ID DE FLOAT DESP
+    lexical_analyzer->saveInST(FLOAT);
+    lexical_analyzer->set_token_found();
 }
 
 //Blancos,TAB, Salto de linea
-void AccionesSemanticas::discard_character(Lexico *lexico, char &c)
+void AccionesSemanticas::discard_character(Lexical_analyzer *lexical_analyzer, char &c)
 {
-    lexico->aumentarCaracter();
-    lexico->cadena="";
+    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->word="";
 }
 
-//$ en medio de un comentario o cadena de caracter
-void AccionesSemanticas::eof_unexpected(Lexico* lexico, char& c){
-    lexico->registro.warning = "Se encontró fin de archivo adentro de un comentario o cadena de caracteres"; //Puede ser en un comentario o una cadena de caracter
+//$ en medio de un comentario o word de caracter
+void AccionesSemanticas::eof_unexpected(Lexical_analyzer* lexical_analyzer, char& c)
+{
+    Logger::write("Se encontró fin de archivo adentro de un comentario o cadena de caracteres");
 }
 
-void AccionesSemanticas::error_mensagge(Lexico* lexico, char& c){
-    lexico->aumentarCaracter();
-    // EN UN FUTURO GUARDAR EN UN ARCHIVO TODOS LOS ERRORES
-    cout<< lexico->get_number_line()<<endl;
-    cout<<to_string(c)+" no fue reconocido"<<endl;
+void AccionesSemanticas::error_mensagge(Lexical_analyzer* lexical_analyzer, char& c){
+    lexical_analyzer->aumentarCaracter();
+    Logger::write("Error lexico, no se ha podido reconocer " + lexical_analyzer->word +to_string(c));
 }
 
-// Comparadores: <=,>=,==,!=
-void AccionesSemanticas::finish_composite_comparator(Lexico* lexico, char& c){
-    lexico->aumentarCaracter();
-    lexico->set_token_found();
-    lexico->cadena = lexico->cadena + c;
-    switch(lexico->cadena[0]){  //El primer caracter es siempre un = en un comparador compuesto
+// Comparators: <=,>=,==,!=
+void AccionesSemanticas::finish_composite_comparator(Lexical_analyzer* lexical_analyzer, char& c){
+    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->set_token_found();
+    lexical_analyzer->word = lexical_analyzer->word + c;
+    switch(lexical_analyzer->word[0]){  //El primer caracter es siempre un = en un comparador compuesto
         case '<':
-            lexico->guardarToken(MAYORIGUAL, lexico->cadena); //MAYORIGUAL
+            lexical_analyzer->save_token(MAYORIGUAL, lexical_analyzer->word); //MAYORIGUAL
             break;
         case '>':
-            lexico->guardarToken(MENORIGUAL, lexico->cadena); //MENORIGUAL
+            lexical_analyzer->save_token(MENORIGUAL, lexical_analyzer->word); //MENORIGUAL
             break;
         case '=': // ==
-            lexico->guardarToken(IGUAL, lexico->cadena); //IGUAL
+            lexical_analyzer->save_token(IGUAL, lexical_analyzer->word); //IGUAL
             break;
         case '!':
-            lexico->guardarToken(DISTINTO, lexico->cadena); //DISTINTO
+            lexical_analyzer->save_token(DISTINTO, lexical_analyzer->word); //DISTINTO
             break;
         }
 }
 
-void AccionesSemanticas::finish_simple_comparator(Lexico* lexico, char& c){
+void AccionesSemanticas::finish_simple_comparator(Lexical_analyzer* lexical_analyzer, char& c){
 //No aumentamos token porque estamos parados en el siguiente
-    lexico->set_token_found();
-    switch(lexico->cadena[0]){
+    lexical_analyzer->set_token_found();
+    switch(lexical_analyzer->word[0]){
         case '<':
-            lexico->guardarToken(toascii('<'), "");
+            lexical_analyzer->save_token(toascii('<'), "");
             break;
         case '>':
-            lexico->guardarToken(toascii('>'), "");
+            lexical_analyzer->save_token(toascii('>'), "");
             break;
         case '=':
 
-            lexico->guardarToken(toascii('='), "");
+            lexical_analyzer->save_token(toascii('='), "");
             break;
         }
 }
 
 
-void AccionesSemanticas::finish_symbol(Lexico* lexico, char& c)
+void AccionesSemanticas::finish_symbol(Lexical_analyzer* lexical_analyzer, char& c)
 {
-    lexico->aumentarCaracter();
-    lexico->set_token_found();
-    lexico->cadena = lexico->cadena + c;
-
+    lexical_analyzer->aumentarCaracter();
+    lexical_analyzer->set_token_found();
+    lexical_analyzer->word = lexical_analyzer->word + c;
     switch(c)
     {
         case '/':
-            lexico->guardarToken(toascii('/'), to_string(c));
+            lexical_analyzer->save_token(toascii('/'), to_string(c));
             break;
         case '-':
-            lexico->guardarToken(toascii('-'), lexico->cadena);
+            lexical_analyzer->save_token(toascii('-'), lexical_analyzer->word);
             break;
-        case '+': //Multiplicacion
-            lexico->guardarToken(toascii('+'), lexico->cadena);
+        case '+':
+            lexical_analyzer->save_token(toascii('+'), lexical_analyzer->word);
             break;
-        case '*': //Multiplicacion
-            lexico->guardarToken(toascii('*'), lexico->cadena);
+        case '*':
+            lexical_analyzer->save_token(toascii('*'), lexical_analyzer->word);
             break;
-        case '(': //Multiplicacion
-            lexico->guardarToken(toascii('('), lexico->cadena);
+        case '(':
+            lexical_analyzer->save_token(toascii('('), lexical_analyzer->word);
             break;
-        case ')': //Multiplicacion
-            lexico->guardarToken(toascii(')'), lexico->cadena);
+        case ')':
+            lexical_analyzer->save_token(toascii(')'), lexical_analyzer->word);
             break;
-        case ',': //Multiplicacion
-            lexico->guardarToken(toascii(','), lexico->cadena);
+        case ',':
+            lexical_analyzer->save_token(toascii(','), lexical_analyzer->word);
             break;
-        case '}': //Multiplicacion
-            lexico->guardarToken(toascii('}'), lexico->cadena);
+        case '}':
+            lexical_analyzer->save_token(toascii('}'), lexical_analyzer->word);
             break;
-        case ';': //Multiplicacion
-            lexico->guardarToken(toascii(';'), lexico->cadena);
+        case ';':
+            lexical_analyzer->save_token(toascii(';'), lexical_analyzer->word);
             break;
-        case '{': //Multiplicacion
-            lexico->guardarToken(toascii('{'), lexico->cadena);
+        case '{':
+            lexical_analyzer->save_token(toascii('{'), lexical_analyzer->word);
             break;
-        case '.': //Multiplicacion
-            lexico->guardarToken(toascii('.'), lexico->cadena);
+        case '.':
+            lexical_analyzer->save_token(toascii('.'), lexical_analyzer->word);
             break;
-        case '"': //Multiplicacion
-            lexico->guardarToken(CADENA, lexico->cadena);
-            lexico->saveInST(CADENA);
+        case '"':
+            lexical_analyzer->save_token(CADENA, lexical_analyzer->word);
+            lexical_analyzer->saveInST(CADENA);
             break;
-        case '$': //Multiplicacion
-            lexico->guardarToken(0, lexico->cadena); //capaz es 0 el ID
-            lexico->end = true;
+        case '$':
+            lexical_analyzer->save_token(0, lexical_analyzer->word); // yyparse() end with yylex() = 0
+            lexical_analyzer->end = true;
             break;
-
-
     }
 }
 

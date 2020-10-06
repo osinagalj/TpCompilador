@@ -1,24 +1,23 @@
 #ifndef COMPILADOR_SYMBOLTABLE_H
 #define COMPILADOR_SYMBOLTABLE_H
-
 #include <iostream>
 #include <map>
 #include "../Sintactico/y.tab.h"
 using namespace std;
+
 class SymbolTable {
 
     public:
             SymbolTable();
-            struct Registro{
+            struct Registry{
                 int id;
                 //En un futuro agregar el tipo
             };
-            void addSymbol(string key, Registro registro);
-
-            //Registro getID(string key, Registro reg);
+            void addSymbol(string key, Registry registry);
             void printTable();
 
     private:
-            map<string,Registro> tablaDeSimbolos ; // String es la clave, por ejemplo el identifcador hola
+            map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key
 };
+
 #endif //COMPILADOR_SYMBOLTABLE_H

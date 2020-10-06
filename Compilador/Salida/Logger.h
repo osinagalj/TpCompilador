@@ -2,8 +2,8 @@
 #include <fstream>
 #include <iostream>
 
-#include "../Lexico/Lexico.h"
-//class Lexico;
+#include "../Lexico/Lexical_analyzer.h"
+//class Lexical_analyzer;
 
 using namespace std;
 
@@ -13,8 +13,8 @@ public:
     static void open( const string & logFile);
     static void close();
     static void write( const string & message);
-    //static void lex(const Lexico * lexico);
-    static Lexico * lexico;
+    //static void lex(const Lexical_analyzer * lexico);
+    static Lexical_analyzer * lexico;
     Logger();
 private:
     //Lexi

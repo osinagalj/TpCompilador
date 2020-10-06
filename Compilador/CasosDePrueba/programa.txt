@@ -8,11 +8,14 @@ x = 3;
 y = ;
 z = 5.0f+3;
 
+5.3f3;
 
 /% Sentencia de control.%/
-PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE {
+PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE
+{
     aux = 2;
-    WHILE (id_4<=7) LOOP {
+    WHILE (id_4<=7) LOOP
+    {
         id_4=9;
         IF (id_3 == 2+3)
             id_2 = 4;

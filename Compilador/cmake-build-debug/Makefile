@@ -169,32 +169,32 @@ Lexico/AccionesSemanticas.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/AccionesSemanticas.cpp.s
 .PHONY : Lexico/AccionesSemanticas.cpp.s
 
-Lexico/Lexico.obj: Lexico/Lexico.cpp.obj
+Lexico/Lexical_analyzer.obj: Lexico/Lexical_analyzer.cpp.obj
 
-.PHONY : Lexico/Lexico.obj
+.PHONY : Lexico/Lexical_analyzer.obj
 
 # target to build an object file
-Lexico/Lexico.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.obj
-.PHONY : Lexico/Lexico.cpp.obj
+Lexico/Lexical_analyzer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.obj
+.PHONY : Lexico/Lexical_analyzer.cpp.obj
 
-Lexico/Lexico.i: Lexico/Lexico.cpp.i
+Lexico/Lexical_analyzer.i: Lexico/Lexical_analyzer.cpp.i
 
-.PHONY : Lexico/Lexico.i
+.PHONY : Lexico/Lexical_analyzer.i
 
 # target to preprocess a source file
-Lexico/Lexico.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.i
-.PHONY : Lexico/Lexico.cpp.i
+Lexico/Lexical_analyzer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.i
+.PHONY : Lexico/Lexical_analyzer.cpp.i
 
-Lexico/Lexico.s: Lexico/Lexico.cpp.s
+Lexico/Lexical_analyzer.s: Lexico/Lexical_analyzer.cpp.s
 
-.PHONY : Lexico/Lexico.s
+.PHONY : Lexico/Lexical_analyzer.s
 
 # target to generate assembly for a file
-Lexico/Lexico.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexico.cpp.s
-.PHONY : Lexico/Lexico.cpp.s
+Lexico/Lexical_analyzer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/Lexico/Lexical_analyzer.cpp.s
+.PHONY : Lexico/Lexical_analyzer.cpp.s
 
 Salida/Logger.obj: Salida/Logger.cpp.obj
 
@@ -316,9 +316,9 @@ help:
 	@echo ... Lexico/AccionesSemanticas.obj
 	@echo ... Lexico/AccionesSemanticas.i
 	@echo ... Lexico/AccionesSemanticas.s
-	@echo ... Lexico/Lexico.obj
-	@echo ... Lexico/Lexico.i
-	@echo ... Lexico/Lexico.s
+	@echo ... Lexico/Lexical_analyzer.obj
+	@echo ... Lexico/Lexical_analyzer.i
+	@echo ... Lexico/Lexical_analyzer.s
 	@echo ... Salida/Logger.obj
 	@echo ... Salida/Logger.i
 	@echo ... Salida/Logger.s

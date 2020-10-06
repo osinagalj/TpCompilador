@@ -1,15 +1,14 @@
 #include <iostream>
-#include "Lexico.h"
+#include "Lexical_analyzer.h"
 
 using namespace std;
 
-Lexico::Lexico() {
+Lexical_analyzer::Lexical_analyzer() {
 
     initializeMatrixSA();
     reserved_words.insert(pair<string,int>("IF",IF));
     reserved_words.insert(pair<string,int>("ELSE",ELSE));
     reserved_words.insert(pair<string,int>("END_IF",END_IF));
-
     reserved_words.insert(pair<string,int>("OUT",OUT));
     reserved_words.insert(pair<string,int>("WHILE",WHILE));
     reserved_words.insert(pair<string,int>("LOOP",LOOP));
@@ -21,19 +20,18 @@ Lexico::Lexico() {
     reserved_words.insert(pair<string,int>("FALSE",FALSE));
     reserved_words.insert(pair<string,int>("NA",NA));
     reserved_words.insert(pair<string,int>("SHADOWING",SHADOWING));
-
     //INTEGER = CTE;
 }
 
-int Lexico::getIdPalabraReservada()
+int Lexical_analyzer::getIdPalabraReservada()
 {
-    auto search = reserved_words.find(cadena);
+    auto search = reserved_words.find(word);
     if (search != reserved_words.end()) {
         return search->second;
     }
     return ERROR; //preguntar
 }
-void Lexico::loadFile(string path)
+void Lexical_analyzer::loadFile(string path)
 {
     source_file.open(path,ifstream::in);
     if(!source_file.is_open()){
@@ -49,24 +47,29 @@ void Lexico::loadFile(string path)
             }
         }
 }
-void Lexico::set_token_found(){
+void Lexical_analyzer::set_token_found()
+{
     this->token_found=true;
 }
 
-void Lexico::guardarToken(int id, string pointerST){
+void Lexical_analyzer::save_token(int id, string pointerST)
+{
     this->t.id=id;
     this->t.pointerST=pointerST;
 }
 
-void Lexico::aumentarCaracter() {
+void Lexical_analyzer::aumentarCaracter()
+{
     this->current_character++;
 }
-int Lexico::get_number_line() {
+int Lexical_analyzer::get_number_line()
+{
     return this->current_line;
 }
-Lexico::Token Lexico::getToken(string path){
+Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
+{
    this->token_found=false;
-   this->cadena="";
+   this->word="";
     actual_state=0;
         loadFile(path);
         while (!source_file.eof()) {
@@ -87,13 +90,14 @@ Lexico::Token Lexico::getToken(string path){
         }
         return t;
 }
-void Lexico::saveInST(int id){
-    SymbolTable::Registro registro;
+void Lexical_analyzer::saveInST(int id)
+{
+    SymbolTable::Registry registro;
     registro.id = id;
     symbolTable->addSymbol(t.pointerST,registro);
 }
 
-int Lexico::identify_character(char carac){
+int Lexical_analyzer::identify_character(char carac){
 //esta funcion te devuelve el numero de columna de la matriz de transicion de estado
 
     if(carac=='l')
@@ -158,7 +162,7 @@ int Lexico::identify_character(char carac){
 }
 
 //Matriz Semantic Action
-void Lexico::initializeMatrixSA(){
+void Lexical_analyzer::initializeMatrixSA(){
 //CAMINO 0
     //INICIALIZAR
     //CAMINOS DIRECTOS
@@ -474,7 +478,7 @@ void Lexico::initializeMatrixSA(){
     matrizAS[12][COLUMN_LESS]= {12, &AccionesSemanticas::add_character};
     matrizAS[12][COLUMN_GREATER]= {12, &AccionesSemanticas::add_character};
     matrizAS[12][COLUMN_BL_TAB_NL]= {12, &AccionesSemanticas::add_character};
-    //DEVOLVER CADENA
+    //DEVOLVER word
     matrizAS[12][COLUMN_QUOTE]= {FINAL_STATE, &AccionesSemanticas::finish_symbol};
 //CAMINO 13
     //AGREGAR

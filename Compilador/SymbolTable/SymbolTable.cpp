@@ -2,12 +2,12 @@
 
 SymbolTable::SymbolTable(){}
 //Este lo llamra el LEXICO
-void SymbolTable::addSymbol(string key, Registro registro) {
-
-    auto search = tablaDeSimbolos.find(key);
-    if (search == tablaDeSimbolos.end()) {
+void SymbolTable::addSymbol(string key, Registry registro)
+{
+    auto search = symbol_table.find(key);
+    if (search == symbol_table.end()) {
         //Si no existe 'key' en la tabla de símbolos:
-        tablaDeSimbolos.insert({key, registro});
+        symbol_table.insert({key, registro});
     }
 
 }
@@ -24,8 +24,9 @@ SymbolTable::Registro SymbolTable::getID(string key, Registro reg){
 */
 void SymbolTable::printTable(){
     cout<<endl;
-    cout<<"IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
-    for (map<string,Registro>::iterator it=tablaDeSimbolos.begin(); it!=tablaDeSimbolos.end(); ++it){
+    cout<<"--------------------------IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
+    for (map<string,Registry>::iterator it=symbol_table.begin(); it!=symbol_table.end(); ++it)
+    {
         cout << it->first << " => " << it->second.id << '\n';
     }
 }
