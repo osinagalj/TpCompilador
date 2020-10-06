@@ -20,7 +20,7 @@
 #define NA 276
 #define ERROR 277
 typedef union {
-    int entero;
+    int entero=0;
     char * cadena;
     } YYSTYPE;
 extern YYSTYPE yylval;

@@ -5,7 +5,7 @@
 	PROC TRUE FALSE SHADOWING NA
 	ERROR
 %union {
-    int entero;
+    int entero=0;
     char * cadena;
     }
 %start programa
@@ -28,12 +28,12 @@ sentencia:
 ;
 
 declarativa:
-	      tipo lista_de_variables
+	      tipo lista_de_variables {Logger::write("Declaracion de variables");}
 	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
 ;
 
 lista_de_variables:
-		     ID ',' lista_de_variables {Logger::write("lista_de_variables");}
+		     ID ',' lista_de_variables
 		   | ID ';'
 ;
 
@@ -55,7 +55,7 @@ parametros:
 ;
 
 procedimiento:
-	PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}'
+	PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();}
 
 ;
 
@@ -65,8 +65,8 @@ true_false:
 ;
 
 lista_de_parametros:
-	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_parametros");}
-		    | tipo ID
+	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables"); Sintactic_actions::contadorParametro++;}
+		    | tipo ID {Sintactic_actions::contadorParametro++;}
 ;
 
 sentencia_if:

@@ -1,51 +1,9 @@
-/% Programa de prueba Grupo-2. Esto es un comentario. %/
-
-/% Declaracion de variables.%/
-FLOAT x , y , z ;
-
-/% Asignaciones.%/
-x = 3;
-y = ;
-z = 5.0f+3;
-id_3 = 2 + 3;
-id_3 = 2 * 3;
-/% Sentencias de control.%/
-PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE
-{
-    aux = 2;
-    WHILE (id_4<=7) LOOP
-    {
-        id_4 = 9;
-        IF (id_3 != 2+3)
-            id_2 = 4;
-        ELSE
-            id_2 = 8;
-        END_IF;
-    };
+PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1) NA=3,SHADOWING=TRUE{
+    var1=5;
 };
 
-IF (id_3 == 2+3)
-    id_2 = 4;
-END_IF;
-
-
-
-
-OUT ("holis");
-
-
-
-var(id2,id3);
-
-x = 2 - -3;
-x= 245_l;
-
-PROC var (INT id2, INT id3) NA = 2 , SHADOWING = TRUE {
-    x= 3.1f+2;
+PROC procedimiento(FLOAT var1,FLOAT var1) NA=3,SHADOWING=TRUE{
+    var1=5;
 };
-
-
-float_negativo = -7.3;
-longint_negativo = -711;
 
 $

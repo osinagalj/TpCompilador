@@ -1,7 +1,7 @@
 #include "Sintactic_actions.h"
 #include "../Output/Logger.h"
 void Sintactic_actions::imprime(string x){
-    cout<<x<<endl;
+    cout<< x <<endl;
 }
 /*
 void Sintactic_actions::chequearRangoCtePositiva(Symbol_table tablita,string pointer){
@@ -44,6 +44,14 @@ void Sintactic_actions::check_division_zero(Symbol_table * tablita, char * key){
         Logger::write("Error: division por cero");
     }
 
+}
+
+void Sintactic_actions::check_list_parametros(){
+    cout<<"se llego al check de parametros"<<endl;
+    if(contadorParametro>3)
+        Logger::write("Error: Se supero la cantidad maxima de parametros." );
+
+    contadorParametro=0;
 }
 
 

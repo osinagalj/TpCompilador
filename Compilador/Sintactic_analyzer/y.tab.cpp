@@ -4,7 +4,7 @@ static char yysccsid[] = "@(#)yaccpar	1.8 (Berkeley) 01/20/90";
 #define YYBYACC 1
 #line 7 "Gramatica.y"
 typedef union {
-    int entero;
+    int entero=0;
     char * cadena;
     } YYSTYPE;
 #line 11 "y.tab.c"
@@ -381,13 +381,13 @@ yyreduce:
     yyval = yyvsp[1-yym];
     switch (yyn)
     {
+case 7:
+#line 31 "Gramatica.y"
+{Logger::write("Declaracion de variables");}
+break;
 case 8:
 #line 32 "Gramatica.y"
 {Logger::write("Declaracion de procedimiento");}
-break;
-case 9:
-#line 36 "Gramatica.y"
-{Logger::write("lista_de_variables");}
 break;
 case 11:
 #line 41 "Gramatica.y"
@@ -409,9 +409,17 @@ case 15:
 #line 45 "Gramatica.y"
 {Logger::write("sentencia if");}
 break;
+case 19:
+#line 58 "Gramatica.y"
+{Sintactic_actions::check_list_parametros();}
+break;
 case 22:
 #line 68 "Gramatica.y"
-{Logger::write("lista_de_parametros");}
+{Logger::write("lista_de_variables"); Sintactic_actions::contadorParametro++;}
+break;
+case 23:
+#line 69 "Gramatica.y"
+{Sintactic_actions::contadorParametro++;}
 break;
 case 29:
 #line 83 "Gramatica.y"
@@ -461,7 +469,7 @@ case 49:
 #line 118 "Gramatica.y"
 {Logger::write("Detecto sentencia OUT");}
 break;
-#line 465 "y.tab.c"
+#line 473 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

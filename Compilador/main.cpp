@@ -10,6 +10,7 @@ void yyerror(const char *s);
 string path = "Compilador\\Testing\\program.txt";
 string pathOut = "Compilador\\Output\\out.txt";
 Lexical_analyzer lexical_analyzer;
+int Sintactic_actions::contadorParametro=0; //contador para las listas de variables
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 
@@ -29,6 +30,7 @@ int main()
     Symbol_table tabla;
     lexical_analyzer.symbolTable = &tabla;
     Lexical_analyzer::symbolTable = &tabla;
+
 
     yyparse();
 
