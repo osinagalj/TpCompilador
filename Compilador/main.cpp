@@ -1,6 +1,4 @@
-//#include "Lexical_analyzer/Lexical_analyzer.h"
 #include "Sintactic_analyzer/Sintactic_actions.h"
-#include "SymbolTable/Symbol_table.h"
 #include "Output//Logger.h"
 #include <fstream>
 using namespace std;

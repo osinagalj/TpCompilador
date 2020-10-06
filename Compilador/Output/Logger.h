@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "../Lexical_analyzer/Lexical_analyzer.h"
-//class Lexical_analyzer;
+
 
 using namespace std;
 

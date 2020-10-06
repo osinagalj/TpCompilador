@@ -18,7 +18,7 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Compilador">
-				<Option output="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compiler_G-2.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="../../"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -39,7 +39,7 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Compilador/fast">
-				<Option output="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compiler_G-2.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="../../"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
