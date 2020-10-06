@@ -27,7 +27,7 @@ void Symbol_table::printTable(){
     cout<<"--------------------------IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
     for (map<string,Registry>::iterator it=symbol_table.begin(); it!=symbol_table.end(); ++it)
     {
-        cout << it->first << " => " << it->second.id << '\n';
+        cout << "Clave: " + it->first << " , Token_id: " << it->second.id << '\n';
     }
 }
 

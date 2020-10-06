@@ -9,14 +9,16 @@ class Sintactic_actions {
 private:
     //static bool hereda(TablaSimbolos* tabla, string claseHijo, string clasePadre);
    // static void inicializarVariablesDeObjeto(TablaSimbolos* tabla, string objeto, string clase);
-    
+    static string convert_to_string(char * key);
 public:
     static void imprime(string x);
 
     //static void chequearRangoCtePositiva(Symbol_table tablita,string pointer);
-    static void negativizarVar(Symbol_table * tablita, char * yylval);
-
+    static void negativizarVar(Symbol_table * tablita, char * key);
+    static void check_limit(Symbol_table * tablita, char * key);
+    static void  check_division_zero(Symbol_table * tablita, char * key);
 };
+
 
 
 

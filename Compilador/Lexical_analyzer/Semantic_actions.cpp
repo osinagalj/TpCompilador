@@ -169,7 +169,7 @@ void Semantic_actions::finish_symbol(Lexical_analyzer * lexical_analyzer, char &
     switch(c)
     {
         case '/':
-            lexical_analyzer->save_token(toascii('/'), to_string(c));
+            lexical_analyzer->save_token(toascii('/'), lexical_analyzer->word);
             break;
         case '-':
             lexical_analyzer->save_token(toascii('-'), lexical_analyzer->word);

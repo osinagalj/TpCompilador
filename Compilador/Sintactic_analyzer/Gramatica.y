@@ -97,10 +97,7 @@ expresion:
 
 termino:
 	 factor
-	|termino '/' factor /*{ if(Sintactic_actions::checkDivisionCero($3)){
-					Logger::write("division");
-				}else{
-					Logger::write("Se dividio por cero");} )}*/
+	|termino '/' factor { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);}
 	|termino '*' factor
 ;
 

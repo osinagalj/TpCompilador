@@ -18,7 +18,10 @@ linea:30  invocacion procedimiento
 linea:31  Condicion igual
 linea:32  Asignacion
 linea:35  sentencia if
-linea:40  Detecto sentencia OUT
+linea:38  Detecto sentencia OUT
+linea:38  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:38  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:38  Asignacion
 linea:42  Asignacion
 linea:43  Asignacion
 linea:43  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT

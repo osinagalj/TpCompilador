@@ -24,6 +24,10 @@ CMakeFiles/Compilador.dir/Output/Logger.cpp.obj
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Output/Logger.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.obj
+ C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
+ C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer_header.h
+ C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
+ C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Output/Logger.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.cpp
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
  C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compilador/SymbolTable/Symbol_table.h

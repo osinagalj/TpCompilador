@@ -445,19 +445,23 @@ case 36:
 #line 93 "gramatica.y"
 {Logger::write("resta");}
 break;
+case 39:
+#line 100 "gramatica.y"
+{ Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
+break;
 case 43:
-#line 110 "gramatica.y"
+#line 108 "gramatica.y"
 { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 45:
-#line 112 "gramatica.y"
+#line 110 "gramatica.y"
 { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 49:
-#line 121 "gramatica.y"
+#line 119 "gramatica.y"
 {Logger::write("Detecto sentencia OUT");}
 break;
-#line 461 "y.tab.c"
+#line 465 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

@@ -36,12 +36,12 @@ END_IF;
                                 /% Sentencias de salida %/
 OUT ("holis");
 
-
+x = 7 * 9;  /% caso valido %/
 
                                /% Variables con valores negativos %/
 x = -7.3;
 y = -711_l;
-y = 711;        /% Caso no valido, no se permiten los INTEGER %/
+y = 93;        /% Caso no valido, no se permiten los INTEGER %/
 z = -8_l;
 
 
