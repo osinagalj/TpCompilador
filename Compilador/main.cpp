@@ -47,5 +47,7 @@ int yylex()
 {
     Lexical_analyzer::Token current_token = lexical_analyzer.getToken(path);
     cout << "token " + current_token.pointerST + " " + to_string(current_token.id) << endl;
+    //yylval.integer= (int*)&current_token.id;
+    //yylval.cadena= lexical_analyzer.symbolTable->getPuntero(current_token.pointerST);
     return current_token.id;
 }

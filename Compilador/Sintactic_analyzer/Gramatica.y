@@ -4,6 +4,7 @@
 	WHILE LOOP
 	PROC TRUE FALSE SHADOWING NA
 	ERROR
+
 %start programa
 %%
 

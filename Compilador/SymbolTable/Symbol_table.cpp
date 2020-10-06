@@ -30,3 +30,9 @@ void Symbol_table::printTable(){
         cout << it->first << " => " << it->second.id << '\n';
     }
 }
+
+char * Symbol_table::getPuntero(string puntero) {
+    _Rb_tree_iterator<pair<const basic_string<char>, Registry>> reg=this->symbol_table.find(puntero);
+    char *aux= (char*)&reg->first;
+    return aux;
+}

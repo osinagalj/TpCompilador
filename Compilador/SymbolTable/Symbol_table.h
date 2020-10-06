@@ -15,7 +15,7 @@ class Symbol_table {
             };
             void addSymbol(string key, Registry registry);
             void printTable();
-
+            char * getPuntero(string puntero);
     private:
             map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key
 };

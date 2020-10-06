@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Com.dir/objects.a
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\Com.dir/objects.a @CMakeFiles\Com.dir\objects1.rsp
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  -static-libstdc++ -static-libgcc  -g  -static -Wl,--whole-archive CMakeFiles\Com.dir/objects.a -Wl,--no-whole-archive  -o C:\Users\Lautaro\Desktop\Facultad\Compiladores\TPcursada\TpCompilador\Com.exe -Wl,--out-implib,libCom.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Com.dir\linklibs.rsp

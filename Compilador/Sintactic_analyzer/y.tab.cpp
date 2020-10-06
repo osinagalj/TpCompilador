@@ -387,79 +387,79 @@ yyreduce:
     switch (yyn)
     {
 case 8:
-#line 28 "gramatica.y"
+#line 29 "Gramatica.y"
 {Logger::write("Declaracion de procedimiento");}
 break;
 case 9:
-#line 32 "gramatica.y"
+#line 33 "Gramatica.y"
 {Logger::write("lista_de_variables");}
 break;
 case 11:
-#line 37 "gramatica.y"
+#line 38 "Gramatica.y"
 {Logger::write("Asignacion");}
 break;
 case 12:
-#line 38 "gramatica.y"
+#line 39 "Gramatica.y"
 {Logger::write("Error:Asignacion vacia");}
 break;
 case 13:
-#line 39 "gramatica.y"
+#line 40 "Gramatica.y"
 {Logger::write("invocacion procedimiento");}
 break;
 case 14:
-#line 40 "gramatica.y"
+#line 41 "Gramatica.y"
 {Logger::write("sentencia while");}
 break;
 case 15:
-#line 41 "gramatica.y"
+#line 42 "Gramatica.y"
 {Logger::write("sentencia if");}
 break;
 case 22:
-#line 64 "gramatica.y"
+#line 65 "Gramatica.y"
 {Logger::write("lista_de_parametros");}
 break;
 case 29:
-#line 79 "gramatica.y"
+#line 80 "Gramatica.y"
 {Logger::write("Condicion igual");}
 break;
 case 30:
-#line 80 "gramatica.y"
+#line 81 "Gramatica.y"
 {Logger::write("Condicion distinto");}
 break;
 case 31:
-#line 81 "gramatica.y"
+#line 82 "Gramatica.y"
 {Logger::write("Condicion menorigual");}
 break;
 case 32:
-#line 82 "gramatica.y"
+#line 83 "Gramatica.y"
 {Logger::write("Condicion mayorIgual");}
 break;
 case 33:
-#line 83 "gramatica.y"
+#line 84 "Gramatica.y"
 {Logger::write("Condicion de mayor");}
 break;
 case 34:
-#line 84 "gramatica.y"
+#line 85 "Gramatica.y"
 {Logger::write("Condicion de menor");}
 break;
 case 35:
-#line 88 "gramatica.y"
+#line 89 "Gramatica.y"
 {Logger::write("suma");}
 break;
 case 36:
-#line 89 "gramatica.y"
+#line 90 "Gramatica.y"
 {Logger::write("resta");}
 break;
 case 43:
-#line 106 "gramatica.y"
+#line 107 "Gramatica.y"
 {yyval = -1*yyvsp[0];  Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0]);}
 break;
 case 47:
-#line 110 "gramatica.y"
+#line 111 "Gramatica.y"
 {yyval = -1*yyvsp[0]; Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0]);}
 break;
 case 51:
-#line 119 "gramatica.y"
+#line 120 "Gramatica.y"
 {Logger::write("Detecto sentencia OUT");}
 break;
 #line 466 "y.tab.c"
