@@ -34,8 +34,12 @@ int Semantic_actions::finish_reserved_word(Lexical_analyzer* lexical_analyzer, c
 {
     lexical_analyzer->set_token_found();
     int id = lexical_analyzer->get_reserved_word();
+    if(id == -1){
+        Logger::write("Error Lexico: Palabra reservada mal escrita.");
+        return -1;
+    }
     lexical_analyzer->save_token(id, lexical_analyzer->word);
-    return 0;
+   return 0;
 }
 
 int Semantic_actions::finish_constant(Lexical_analyzer* lexical_analyzer, char& c)
@@ -47,15 +51,15 @@ int Semantic_actions::finish_constant(Lexical_analyzer* lexical_analyzer, char& 
     return 0;
 }
 
+//.5    6.3f-3
+//Valor maximo de un entero largo 2147483647
 int Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& c)
 {
-    //.5    6.3f-3
-    //Valor maximo de un entero largo 2147483647
     lexical_analyzer->set_token_found();
     lexical_analyzer->increase_character();
     lexical_analyzer->word= lexical_analyzer->word + c;
     lexical_analyzer->word = lexical_analyzer->word.substr (0,lexical_analyzer->word.size()-2);
-    long number = stol(lexical_analyzer->word);
+    double number = stod(lexical_analyzer->word);
     if(number <= 2147483648 ){
         lexical_analyzer->save_token(LONGINT, lexical_analyzer->word);
 
@@ -65,6 +69,7 @@ int Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& c
 
     }
     lexical_analyzer->save_in_ST(LONGINT);
+
     return 0;
 }
 
@@ -125,9 +130,10 @@ int Semantic_actions::eof_unexpected(Lexical_analyzer* lexical_analyzer, char& c
 
 int Semantic_actions::error_mensagge(Lexical_analyzer* lexical_analyzer, char& c)
 {
+    lexical_analyzer->actual_state = 0;
     lexical_analyzer->increase_character();
     Logger::write("Error lexico, no se ha podido reconocer " + lexical_analyzer->word +to_string(c));
-    return 0;
+    return -1;
 }
 
 // Comparators: <=,>=,==,!=

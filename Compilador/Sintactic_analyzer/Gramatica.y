@@ -30,6 +30,7 @@ sentencia:
 declarativa:
 	      tipo lista_de_variables {Logger::write("Declaracion de variables");}
 	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
+	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
 ;
 
 lista_de_variables:
@@ -59,6 +60,7 @@ procedimiento:
 	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID");}
 	|PROC ID '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");}
 	|PROC ID '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");}
+	|PROC ID '(' lista_de_parametros ')' '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");}
 ;
 
 true_false:
@@ -67,8 +69,8 @@ true_false:
 ;
 
 lista_de_parametros:
-	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables"); Sintactic_actions::contadorParametro++;}
-		    | tipo ID {Sintactic_actions::contadorParametro++;}
+	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables"); Sintactic_actions::number_of_parameters++;}
+		    | tipo ID {Sintactic_actions::number_of_parameters++;}
 ;
 
 sentencia_if:
@@ -117,7 +119,7 @@ factor:
 	 ID
 	|FLOAT
 	|'-' FLOAT { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
-	|LONGINT
+	|LONGINT { Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);}
         |'-' LONGINT { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 ;
 

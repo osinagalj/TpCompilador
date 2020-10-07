@@ -31,14 +31,10 @@ void Symbol_table::printTable(){
     }
 }
 
-char * Symbol_table::getPuntero(string puntero) {
-    char * hola ;
-    hola = &puntero[0];
-    /*
-    _Rb_tree_iterator<pair<const basic_string<char>, Registry>> reg=this->symbol_table.find(puntero);
-    char *aux= (char*)&reg->first;
-     */
-    return hola;
+char * Symbol_table::getPointer(string pointer) {
+    char * aux  ;
+    aux = &pointer[0];
+    return aux;
 }
 Symbol_table::Registry Symbol_table::removeSymbol(string key){
     Registry reg;

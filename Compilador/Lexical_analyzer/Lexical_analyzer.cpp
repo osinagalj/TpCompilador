@@ -29,7 +29,7 @@ int Lexical_analyzer::get_reserved_word()
     if (search != reserved_words.end()) {
         return search->second;
     }
-    return ERROR; //preguntar
+    return -1;
 }
 void Lexical_analyzer::loadFile(string path)
 {
@@ -75,18 +75,23 @@ Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
         while (!source_file.eof()) {
             getline(source_file,line);
             while(current_character < line.size() && !token_found && !end){
-
+                //cout<<"estado neuvo: " + to_string(new_state) +"  ";
                 char characterterActual=line[current_character];
                 new_state = identify_character(characterterActual);
                // cout<<"estado actual: " + to_string(actual_state);
                // string s(1,characterterActual);
-                //cout <<"   caracter actual: " + s <<endl;
+                //cout <<"   caracter actual: " + s ;
+
                 int SA = (*matrix_SA[actual_state][new_state])(this, characterterActual);
-
-                //matrizAS[actual_state][new_state].Action(this,characterterActual); //ejecutar acción semántica
                 actual_state=state_matrix[actual_state][new_state]; //actualizo el nuevo estado
+                if(SA == -1){
+                    actual_state = 0;
+                    token_found = false;
+                }
+                //matrizAS[actual_state][new_state].Action(this,characterterActual); //ejecutar acción semántica
 
-               // cout<<"proximo estado: " + to_string(actual_state) <<endl;
+
+                //cout<<"  proximo estado: " + to_string(actual_state) <<endl;
 /*
                 char characterterActual=line[current_character];
                 new_state = identify_character(characterterActual);

@@ -13,10 +13,10 @@ class Symbol_table {
                 int id;
                 //En un futuro agregar el tipo
             };
+            Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);
             void printTable();
-            Registry removeSymbol(string key);
-            char * getPuntero(string puntero);
+            char * getPointer(string puntero);
     private:
             map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key
 };

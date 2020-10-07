@@ -21,7 +21,7 @@ class Lexical_analyzer{
              bool end = false;
              bool token_found = false;
              Token t;
-
+    int actual_state;
              static Symbol_table * symbolTable;
              void save_in_ST(int id);
     private:
@@ -31,7 +31,7 @@ class Lexical_analyzer{
             int current_line = 1; // para informar errores
             int current_character = 0;
             string line;
-            int actual_state;
+
             int new_state;
             //Matriz de Transicion de estados
             struct Transition{
@@ -67,7 +67,7 @@ class Lexical_analyzer{
 
     int (**matrix_SA[nro_estados][nro_simbolos]) (Lexical_analyzer * lex, char & c)= {
             //             L       M      'l'     'f'      D      '.'      +       *       -      '_'     =       <        >     !      "      /       %       $     Literales   BL,TAB,NL  Otro
-            /* 0  */  {  &SA00,  &SA00,  &SA00,  &SA00,  &SA00,  &SA00,  &SA03,  &SA03,  &SA03,  &SA00, &SA01,  &SA01,  &SA01, &SA01, &SA01, &SA01,  &SA00,  &SA03,  &SA03,      &SA02,     &SA00    },
+            /* 0  */  {  &SA00,  &SA00,  &SA00,  &SA00,  &SA00,  &SA00,  &SA03,  &SA03,  &SA03,  &SA00, &SA01,  &SA01,  &SA01, &SA01, &SA01, &SA01,  &SA12,  &SA03,  &SA03,      &SA02,     &SA12    },
             /* 1  */  {  &SA01,  &SA06,  &SA01,  &SA01,  &SA01,  &SA06,  &SA06,  &SA06,  &SA06,  &SA01, &SA06,  &SA06,  &SA06, &SA06, &SA06, &SA06,  &SA06,  &SA06,  &SA06,      &SA06,     &SA06    },
             /* 2  */  {  &SA07,  &SA01,  &SA07,  &SA07,  &SA07,  &SA07,  &SA07,  &SA07,  &SA07,  &SA01, &SA07,  &SA07,  &SA07, &SA07, &SA07, &SA07,  &SA07,  &SA07,  &SA07,      &SA07,     &SA07    },
             /* 3  */  {  &SA10,  &SA10,  &SA10,  &SA10,  &SA01,  &SA01,  &SA10,  &SA10,  &SA10,  &SA01, &SA10,  &SA10,  &SA10, &SA10, &SA10, &SA10,  &SA10,  &SA10,  &SA10,      &SA10,     &SA10    },
