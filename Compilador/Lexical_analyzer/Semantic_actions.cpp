@@ -181,7 +181,7 @@ int Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyze
     return 0;
 }
 
-int Semantic_actions::finalizar_division(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::finish_division(Lexical_analyzer* lexical_analyzer, char& c)
 {
         lexical_analyzer->set_token_found();
         lexical_analyzer->save_token(toascii('/'),lexical_analyzer->word);

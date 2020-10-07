@@ -52,7 +52,7 @@ class Lexical_analyzer{
             int (*SA10)(Lexical_analyzer*, char &) = {&Semantic_actions::finish_constant};
             int (*SA11)(Lexical_analyzer*, char &) = {&Semantic_actions::eof_unexpected};
             int (*SA12)(Lexical_analyzer*, char &) = {&Semantic_actions::error_mensagge};
-            int (*SA13)(Lexical_analyzer*, char &) = {&Semantic_actions:: finalizar_division};
+            int (*SA13)(Lexical_analyzer*, char &) = {&Semantic_actions:: finish_division};
 
             int (**matrix_SA[nro_estados][nro_simbolos]) (Lexical_analyzer * lexicalAnalyzer, char & c)= {
                 //             L       M      'l'     'f'      D      '.'      +       *       -      '_'     =       <        >     !      "      /       %       $     Literales   BL,TAB,NL  Otro
