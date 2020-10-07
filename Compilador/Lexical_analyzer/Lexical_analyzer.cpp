@@ -19,7 +19,6 @@ Lexical_analyzer::Lexical_analyzer()
     reserved_words.insert(pair<string,int>("FALSE",FALSE));
     reserved_words.insert(pair<string,int>("NA",NA));
     reserved_words.insert(pair<string,int>("SHADOWING",SHADOWING));
-    //INTEGER = CTE;
 }
 
 Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
@@ -32,19 +31,19 @@ Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
             getline(source_file,line);
             while(current_character < line.size() && !token_found && !end){
                 //cout<<"estado neuvo: " + to_string(new_state) +"  ";
-                char actual_c =line[current_character];
-                new_state = identify_character(actual_c);
+                char actual_c =line[current_character];                             //getting next character
+                new_state = identify_character(actual_c);                           //gettin column of character
                 int SA = (*matrix_SA[actual_state][new_state])(this, actual_c);
-                actual_state = states_matrix_SA[actual_state][new_state]; //actualizo el nuevo estado
-                if(SA == -1){
+                actual_state = states_matrix_SA[actual_state][new_state];           //update actual state
+                if(SA == -1){                                                       //If I have to discard an invalid token or character, I go to state 0 to continue compiling
                     actual_state = 0;
                     token_found = false;
                 }
             }
-            if ((current_character < line.size()) && token_found){ // encontré toke
+            if ((current_character < line.size()) && token_found){                  //  token found
                 source_file.close(); //cerramos archivo
                 return t;
-            }else{
+            }else{                                                                  //break line and token not founded
                 current_line++;
                 current_character = 0;
             }

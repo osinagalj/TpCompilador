@@ -12,15 +12,15 @@
     longint_negativo = -711_l;
     x = 2_l - -3_l;
 
-    PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE
+    PROC var (INT id2, INT id3) NA = 1_l , SHADOWING = TRUE
     {
-        aux = 2;
-        WHILE (id_1 <= 10_l) LOOP
+        aux = 2_l;
+        WHILE (id_1 <= 12.) LOOP
         {
-            IF (id_1 !=10)
-               OUT ("holis");
+            IF (id_1 !=12.)
+               OUT ("cadena de caracteres");
             ELSE
-                id_1 = id_1 + 1;
+                id_1 = id_1 + 1_l;
             END_IF;
         };
     };
@@ -39,6 +39,8 @@
     x = 5;
     x = 2222222222_l;
     estavariabletienemuchoscaracteres = 22_l;
+
+    % & #       /% Caracteres invalidos.%/
     
 
 /% Errores Sintacticos contemplados.%/
@@ -54,10 +56,15 @@
         var1 = 5;
     };
 
-    IF (id_1 !=10)
+    IF (id_1 !=10_l)
         id_1 = id_1 + 1;
     ELSE
         id_1 = id_1 + 1;
     ;
+
+    WHILE (id_1 <= 10_l)
+    {
+        id_1 = id_1 + 1;
+    };
 
 $

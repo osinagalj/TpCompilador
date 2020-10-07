@@ -9,14 +9,10 @@ linea:12  Asignacion
 linea:14  resta
 linea:14  Asignacion
 linea:14  lista_de_variables
-linea:14  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:16  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:17  Asignacion
 linea:17  Condicion mayorIgual
-linea:19  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:20  Condicion distinto
 linea:21  Detecto sentencia OUT
-linea:22  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:23  suma
 linea:23  Asignacion
 linea:23  Sentencia IF-ELSE
@@ -40,38 +36,46 @@ linea:39  Asignacion
 linea:39  Warning: variable LONGINT fuera de rango.
 linea:40  Asignacion
 linea:40  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
-linea:41  Asignacion
-linea:45  Warning: variable LONGINT fuera de rango.
-linea:46  Asignacion
-linea:47  Error: Asignacion vacia
-linea:47  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:47  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:47  Error: division por cero
-linea:49  Asignacion
-linea:49  lista_de_variables
-linea:49  lista_de_variables
-linea:49  lista_de_variables
-linea:49  lista_de_variables
+linea:42  Asignacion
+linea:42  Error lexico, no se ha podido reconocer 37
+linea:42  Error lexico, no se ha podido reconocer 38
+linea:42  Error lexico, no se ha podido reconocer 35
+linea:47  Warning: variable LONGINT fuera de rango.
+linea:48  Asignacion
+linea:49  Error: Asignacion vacia
 linea:49  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:50  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:49  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:49  Error: division por cero
 linea:51  Asignacion
-linea:51  Error: Se supero la cantidad maxima de parametros.
-linea:52  Declaracion de procedimiento
-linea:52  lista_de_variables
-linea:52  lista_de_variables
-linea:52  lista_de_variables
-linea:52  lista_de_variables
-linea:53  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:54  Asignacion
-linea:54  Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING
-linea:56  Declaracion de procedimiento
-linea:56  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:57  Condicion distinto
-linea:57  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:58  suma
-linea:58  Asignacion
+linea:51  lista_de_variables
+linea:51  lista_de_variables
+linea:51  lista_de_variables
+linea:51  lista_de_variables
+linea:51  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:52  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:53  Asignacion
+linea:53  Error: Se supero la cantidad maxima de parametros.
+linea:54  Declaracion de procedimiento
+linea:54  lista_de_variables
+linea:54  lista_de_variables
+linea:54  lista_de_variables
+linea:54  lista_de_variables
+linea:55  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:56  Asignacion
+linea:56  Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING
+linea:58  Declaracion de procedimiento
+linea:59  Condicion distinto
 linea:59  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:60  suma
 linea:60  Asignacion
-linea:62  Error: FALTA END_IF
-linea:62  sentencia if
+linea:61  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:62  suma
+linea:62  Asignacion
+linea:64  Error: FALTA END_IF
+linea:64  sentencia if
+linea:65  Condicion mayorIgual
+linea:66  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:67  suma
+linea:67  Asignacion
+linea:67  Error: FALTA 'LOOP' EN SENTENCIA WHILE
+linea:69  sentencia while
