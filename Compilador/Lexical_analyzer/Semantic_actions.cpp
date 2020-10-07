@@ -2,20 +2,22 @@
 #include "../Output/Logger.h"
 #include "../Sintactic_analyzer/y.tab.h"
 
-int Semantic_actions::initialize_token(Lexical_analyzer* lexical_analyzer, char& c){
+int Semantic_actions::initialize_token(Lexical_analyzer* lexical_analyzer, char& c)
+{
     lexical_analyzer->word = c;
     lexical_analyzer->increase_character();
     return 0;
 }
 
-int Semantic_actions::add_character(Lexical_analyzer* lexical_analyzer, char& c){
+int Semantic_actions::add_character(Lexical_analyzer* lexical_analyzer, char& c)
+{
     lexical_analyzer->word = lexical_analyzer->word + c;
     lexical_analyzer->increase_character();
     return 0;
 }
 
-int Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, char& c){
-
+int Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, char& c)
+{
     lexical_analyzer->set_token_found();
     //Chekear el rango
     if(lexical_analyzer->word.length() > longIdentificador){
@@ -178,7 +180,8 @@ int Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyze
     return 0;
 }
 
-int Semantic_actions::finalizarDivision(Lexical_analyzer* lexical_analyzer, char& c){
+int Semantic_actions::finalizarDivision(Lexical_analyzer* lexical_analyzer, char& c)
+{
         lexical_analyzer->set_token_found();
         lexical_analyzer->save_token(toascii('/'),lexical_analyzer->word);
     return 0;

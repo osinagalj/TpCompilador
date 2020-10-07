@@ -6,7 +6,9 @@ int yylex();
 void yyerror(const char *);
 #include "Sintactic_analyzer/y.tab.cpp"
 
-/*-----------------------           variables             ----------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------          Global variables          ------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
 string path = "Compilador\\Testing\\program.txt";
 string pathOut = "Compilador\\Output\\out.txt";
 Lexical_analyzer lexical_analyzer;
