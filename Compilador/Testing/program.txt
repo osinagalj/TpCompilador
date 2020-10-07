@@ -38,6 +38,7 @@
     FLOATH x , y , z ;
     x = 5;
     x = 2222222222_l;
+    jasdkajskdasjkdsajkdajskdajskdajsk = 22_l;
     
 
 /% Errores Sintacticos contemplados.%/
