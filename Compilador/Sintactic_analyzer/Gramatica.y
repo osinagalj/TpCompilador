@@ -8,9 +8,9 @@
     int entero=0;
     char * cadena;
     }
+
 %start programa
 %%
-
 
 programa:
          bloque_sentencia
@@ -39,7 +39,7 @@ lista_de_variables:
 
 ejecutable:
 	     ID '=' expresion ';'{Logger::write("Asignacion");}
-	   | ID '='  ';'{Logger::write("Error:Asignacion vacia");}
+	   | ID '='  ';'{Logger::write("Error: Asignacion vacia");}
 	   | invocacion_proc {Logger::write("invocacion procedimiento");}
 	   | sentencia_while ';'{Logger::write("sentencia while");}
 	   | sentencia_if ';'{Logger::write("sentencia if");}
@@ -55,8 +55,10 @@ parametros:
 ;
 
 procedimiento:
-	PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();}
-
+	 PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();}
+	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID");}
+	|PROC ID '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");}
+	|PROC ID '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");}
 ;
 
 true_false:
@@ -70,22 +72,32 @@ lista_de_parametros:
 ;
 
 sentencia_if:
-	       IF '(' condicion ')' bloque_sentencia END_IF
-	     | IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF
-	     | IF '(' condicion ')' bloque_sentencia END_IF error
+	       IF '(' condicion ')' bloque_sentencia END_IF {Logger::write("Sentencia IF");}
+	     | IF '(' condicion ')' bloque_sentencia {Logger::write("Error: FALTA END_IF");}
+	     | IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {Logger::write("Sentencia IF-ELSE");}
+	     | IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia {Logger::write("Error: FALTA END_IF");}
+	     | '(' condicion ')' bloque_sentencia END_IF {Logger::write("Error: FALTA EL IF");}
+
 ;
 
 sentencia_while:
-	 	WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}'
+	 	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Sentencia WHILE");}
+	 	|'(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
+	 	| WHILE '(' condicion ')' '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
 ;
 
 condicion:
-	  | expresion EQUAL expresion {Logger::write("Condicion igual");}
+	   expresion EQUAL expresion {Logger::write("Condicion igual");}
+	  | expresion DIFFERENT  {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 	  | expresion DIFFERENT expresion {Logger::write("Condicion distinto");}
+	  | expresion LESS_OR_EQUAL  {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 	  | expresion LESS_OR_EQUAL expresion {Logger::write("Condicion menorigual");}
+	  | expresion GREATER_OR_EQUAL {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 	  | expresion GREATER_OR_EQUAL expresion {Logger::write("Condicion mayorIgual");}
 	  | expresion '>' expresion {Logger::write("Condicion de mayor");}
+	  | expresion '>' {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
           | expresion '<' expresion {Logger::write("Condicion de menor");}
+          | expresion '<' {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 ;
 
 expresion:
@@ -114,9 +126,10 @@ tipo:
      | LONGINT
      | FLOAT
 ;
+
 imprimir:
-	 OUT '(' STRING ')' ';' {Logger::write("Detecto sentencia OUT");}
+	  OUT '(' STRING ')' ';' {Logger::write("Detecto sentencia OUT");}
+	 |'(' STRING ')' ';' {Logger::write("Error: SE ESPERABA OUT PREVIAMENTE PARA IMPRIMIR");}
+	 |OUT '(' ')' ';' {Logger::write("Error: SE ESPERABA CADENA EN LA SENTENCIA OUT");}
 ;
-
-
 %%

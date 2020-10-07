@@ -6,31 +6,47 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
-Lexical_analyzer_header.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer_header.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.cpp
+iostream
+-
+Lexical_analyzer.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
+../Sintactic_analyzer/y.tab.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer_header.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
+Lexical_analyzer_header.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer_header.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer_header.h
 iostream
 -
 fstream
 -
 Semantic_actions.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
 map
 -
 string
 -
 ../SymbolTable/Symbol_table.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.cpp
+Semantic_actions.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
+../Output/Logger.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
+../Sintactic_analyzer/y.tab.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
 iostream
 -
 ../SymbolTable/Symbol_table.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
 string
 -
 fstream
@@ -38,25 +54,33 @@ fstream
 iostream
 -
 ../Lexical_analyzer/Lexical_analyzer.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.cpp
-Sintactic_actions.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
-../Output/Logger.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
-
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
 map
 -
 iostream
 -
 ../SymbolTable/Symbol_table.h
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 
-C:/Users/Charly/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.cpp
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 iostream
 -
 map
 -
+
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/main.cpp
+Sintactic_analyzer/Sintactic_actions.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
+Output/Logger.h
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
+fstream
+-
+Sintactic_analyzer/y.tab.cpp
+C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.cpp
 
