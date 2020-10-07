@@ -21,11 +21,8 @@ linea:24  Sentencia WHILE
 linea:25  sentencia while
 linea:27  Declaracion de procedimiento
 linea:29  invocacion procedimiento
-linea:29  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:29  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:30  suma
 linea:30  Condicion igual
-linea:30  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:31  Asignacion
 linea:31  Sentencia IF
 linea:36  sentencia if

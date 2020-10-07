@@ -27,8 +27,8 @@
 
     var(id2,id3);
 
-    IF (id_3 == 2+3)
-        id_2 = 4;
+    IF (id_3 == 2_l + 3_l)
+        id_2 = 4_l;
     END_IF;
 
 
