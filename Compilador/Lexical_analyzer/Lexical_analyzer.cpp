@@ -75,10 +75,24 @@ Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
         while (!source_file.eof()) {
             getline(source_file,line);
             while(current_character < line.size() && !token_found && !end){
+
+                char characterterActual=line[current_character];
+                new_state = identify_character(characterterActual);
+               // cout<<"estado actual: " + to_string(actual_state);
+               // string s(1,characterterActual);
+                //cout <<"   caracter actual: " + s <<endl;
+                int SA = (*matrix_SA[actual_state][new_state])(this, characterterActual);
+
+                //matrizAS[actual_state][new_state].Action(this,characterterActual); //ejecutar acción semántica
+                actual_state=state_matrix[actual_state][new_state]; //actualizo el nuevo estado
+
+               // cout<<"proximo estado: " + to_string(actual_state) <<endl;
+/*
                 char characterterActual=line[current_character];
                 new_state = identify_character(characterterActual);
                 matrizAS[actual_state][new_state].Action(this,characterterActual); //ejecutar acción semántica
                 actual_state=matrizAS[actual_state][new_state].state; //actualizo el nuevo estado
+*/
             }
             if ((current_character < line.size()) && token_found){ // encontré toke
                 source_file.close(); //cerramos archivo

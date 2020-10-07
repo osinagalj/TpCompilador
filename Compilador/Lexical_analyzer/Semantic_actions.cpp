@@ -2,17 +2,19 @@
 #include "../Output/Logger.h"
 #include "../Sintactic_analyzer/y.tab.h"
 
-void Semantic_actions::initialize_token(Lexical_analyzer* lexical_analyzer, char& c){
+int Semantic_actions::initialize_token(Lexical_analyzer* lexical_analyzer, char& c){
     lexical_analyzer->word = c;
     lexical_analyzer->increase_character();
+    return 0;
 }
 
-void Semantic_actions::add_character(Lexical_analyzer* lexical_analyzer, char& c){
+int Semantic_actions::add_character(Lexical_analyzer* lexical_analyzer, char& c){
     lexical_analyzer->word = lexical_analyzer->word + c;
     lexical_analyzer->increase_character();
+    return 0;
 }
 
-void Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, char& c){
+int Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, char& c){
 
     lexical_analyzer->set_token_found();
     //Chekear el rango
@@ -25,25 +27,27 @@ void Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, cha
         lexical_analyzer->save_token(ID, lexical_analyzer->word);
         lexical_analyzer->save_in_ST(ID);
     }
+    return 0;
 }
 
-void Semantic_actions::finish_reserved_word(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::finish_reserved_word(Lexical_analyzer* lexical_analyzer, char& c)
 {
     lexical_analyzer->set_token_found();
     int id = lexical_analyzer->get_reserved_word();
     lexical_analyzer->save_token(id, lexical_analyzer->word);
+    return 0;
 }
 
-void Semantic_actions::finish_constant(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::finish_constant(Lexical_analyzer* lexical_analyzer, char& c)
 {
     Logger::write("Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT");
     lexical_analyzer->set_token_found();
     lexical_analyzer->save_token(LONGINT, lexical_analyzer->word);
     lexical_analyzer->save_in_ST(LONGINT);
-
+    return 0;
 }
 
-void Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& c)
 {
     //.5    6.3f-3
     //Valor maximo de un entero largo 2147483647
@@ -61,9 +65,10 @@ void Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& 
 
     }
     lexical_analyzer->save_in_ST(LONGINT);
+    return 0;
 }
 
-void Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
 {
     string acumulado="";
     float number=0;
@@ -100,29 +105,33 @@ void Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
     lexical_analyzer->save_token(FLOAT, to_string(number)); //CAMBIAR A ID DE FLOAT DESP
     lexical_analyzer->save_in_ST(FLOAT);
     lexical_analyzer->set_token_found();
+    return 0;
 }
 
 //Blancos,TAB, Salto de linea
-void Semantic_actions::discard_character(Lexical_analyzer *lexical_analyzer, char &c)
+int Semantic_actions::discard_character(Lexical_analyzer *lexical_analyzer, char &c)
 {
     lexical_analyzer->increase_character();
     lexical_analyzer->word="";
+    return 0;
 }
 
 //$ en medio de un comentario o word de caracter
-void Semantic_actions::eof_unexpected(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::eof_unexpected(Lexical_analyzer* lexical_analyzer, char& c)
 {
     Logger::write("Se encontró fin de archivo adentro de un comentario o cadena de caracteres");
+    return 0;
 }
 
-void Semantic_actions::error_mensagge(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::error_mensagge(Lexical_analyzer* lexical_analyzer, char& c)
 {
     lexical_analyzer->increase_character();
     Logger::write("Error lexico, no se ha podido reconocer " + lexical_analyzer->word +to_string(c));
+    return 0;
 }
 
 // Comparators: <=,>=,==,!=
-void Semantic_actions::finish_composite_comparator(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::finish_composite_comparator(Lexical_analyzer* lexical_analyzer, char& c)
 {
     lexical_analyzer->increase_character();
     lexical_analyzer->set_token_found();
@@ -141,10 +150,11 @@ void Semantic_actions::finish_composite_comparator(Lexical_analyzer* lexical_ana
             lexical_analyzer->save_token(DIFFERENT, lexical_analyzer->word); //DISTINTO
             break;
         }
+    return 0;
 }
 
 //No aumentamos token porque estamos parados en el siguiente
-void Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyzer, char& c)
+int Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyzer, char& c)
 {
     lexical_analyzer->set_token_found();
     switch(lexical_analyzer->word[0]){
@@ -159,15 +169,17 @@ void Semantic_actions::finish_simple_comparator(Lexical_analyzer* lexical_analyz
             lexical_analyzer->save_token(toascii('='), "");
             break;
         }
+    return 0;
 }
 
-void Semantic_actions::finalizarDivision(Lexical_analyzer* lexical_analyzer, char& c){
+int Semantic_actions::finalizarDivision(Lexical_analyzer* lexical_analyzer, char& c){
         lexical_analyzer->set_token_found();
         lexical_analyzer->save_token(toascii('/'),lexical_analyzer->word);
+    return 0;
 }
 
 
-void Semantic_actions::finish_symbol(Lexical_analyzer * lexical_analyzer, char & c)
+int Semantic_actions::finish_symbol(Lexical_analyzer * lexical_analyzer, char & c)
 {
     lexical_analyzer->increase_character();
     lexical_analyzer->set_token_found();
@@ -213,4 +225,5 @@ void Semantic_actions::finish_symbol(Lexical_analyzer * lexical_analyzer, char &
             lexical_analyzer->end = true;
             break;
     }
+    return 0;
 }

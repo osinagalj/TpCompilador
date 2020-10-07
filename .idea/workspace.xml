@@ -34,16 +34,14 @@
   <component name="ChangeListManager">
     <list default="true" id="15c35f4c-78f0-49cf-863d-282c83294e93" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Output/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Output/out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/Gramatica.y" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/Gramatica.y" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/y.tab.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/y.tab.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Testing/program.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Testing/program.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Lexical_analyzer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Lexical_analyzer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Lexical_analyzer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Lexical_analyzer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Lexical_analyzer_header.h" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Lexical_analyzer_header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Semantic_actions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Semantic_actions.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Semantic_actions.h" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Semantic_actions.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeCXXCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeRCCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CMakeSystem.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC/a.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/a.exe" afterDir="false" />
@@ -59,10 +57,10 @@
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
@@ -70,6 +68,7 @@
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/Compilador.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/Compilador.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compiler_G-2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler_G-2.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,11 +110,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.Compilador">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Compi" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Compilador/CMakeLists.txt" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -184,6 +178,7 @@
       <workItem from="1602003230396" duration="10146000" />
       <workItem from="1602018479113" duration="9097000" />
       <workItem from="1602029211775" duration="1542000" />
+      <workItem from="1602033001168" duration="1321000" />
     </task>
     <servers />
   </component>
@@ -228,28 +223,28 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599781497567" />
-    <state width="1877" height="291" key="GridCell.Tab.0.bottom" timestamp="1602030124117">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="41" key="GridCell.Tab.0.bottom" timestamp="1602034329620">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602013464872" />
+    <state width="1323" height="41" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602034329620" />
     <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1602027446760" />
     <state width="1877" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602030124117" />
-    <state width="1877" height="291" key="GridCell.Tab.0.center" timestamp="1602030124117">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="41" key="GridCell.Tab.0.center" timestamp="1602034329620">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602013464872" />
+    <state width="1323" height="41" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602034329620" />
     <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1602027446759" />
     <state width="1877" height="291" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602030124117" />
-    <state width="1877" height="291" key="GridCell.Tab.0.left" timestamp="1602030124116">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="41" key="GridCell.Tab.0.left" timestamp="1602034329620">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602013464872" />
+    <state width="1323" height="41" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602034329620" />
     <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1602027446759" />
     <state width="1877" height="291" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602030124116" />
-    <state width="1877" height="291" key="GridCell.Tab.0.right" timestamp="1602030124117">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="41" key="GridCell.Tab.0.right" timestamp="1602034329620">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602013464872" />
+    <state width="1323" height="41" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602034329620" />
     <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1602027446760" />
     <state width="1877" height="291" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602030124117" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1602004671609">

@@ -54,7 +54,7 @@ void yyerror(const char *s)
 int yylex()
 {
     Lexical_analyzer::Token current_token = lexical_analyzer.getToken(path);
-    cout << "token " + current_token.pointerST + " " + to_string(current_token.id) << endl;
+    cout << "---------------------------token " + current_token.pointerST + " " + to_string(current_token.id) << endl;
     //yylval.integer= (int*)&current_token.id;
     //string s = lexical_analyzer.symbolTable->getPuntero(current_token.pointerST);
     //cout<<"imprime el " + s <<endl;
