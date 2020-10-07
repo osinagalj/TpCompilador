@@ -78,7 +78,7 @@ class Lexical_analyzer{
              int states_matrix_SA[nro_estados][nro_simbolos] = {
             //           L   M  'l' 'f'  D  '.'  +   *   -  '_'  =   <    >   !   "   /   %   $   Literales   BL,TAB,NL   Otro
             /* 0  */  {  1,  2,  1,  1,  3,  5,  F,  F,  F,  F, 10,  8,   9, 11, 12, 13,  F,  F,  F,          0,          F    },
-            /* 1  */  {  1,  F,  1,  F,  1,  F,  F,  F,  F,  1,  F,  F,   F,  F,  F,  F,  F,  F,  F,          F,          F    },
+            /* 1  */  {  1,  F,  1,  1,  1,  F,  F,  F,  F,  1,  F,  F,   F,  F,  F,  F,  F,  F,  F,          F,          F    },
             /* 2  */  {  F,  2,  F,  F,  F,  F,  F,  F,  F,  2,  F,  F,   F,  F,  F,  F,  F,  F,  F,          F,          F    },
             /* 3  */  {  F,  F,  F,  F,  3,  5,  F,  F,  F,  4,  F,  F,   F,  F,  F,  F,  F,  F,  F,          F,          F    },
             /* 4  */  {  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,  F,   F,  F,  F,  F,  F,  F,  F,          F,          F    },

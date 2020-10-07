@@ -2,7 +2,7 @@
 
 /% Programa sin errores. %/
 
-    LONGINT x , y , z;
+    LONGINT x , y , z , f , l;
     FLOAT   w;
     x = 3_l;
     y = 5.0f+3;
@@ -38,7 +38,7 @@
     FLOATH x , y , z ;
     x = 5;
     x = 2222222222_l;
-    jasdkajskdasjkdsajkdajskdajskdajsk = 22_l;
+    estavariabletienemuchoscaracteres = 22_l;
     
 
 /% Errores Sintacticos contemplados.%/

@@ -39,6 +39,7 @@ linea:38  Error: No se permiten las constantes de tipo entero. Las cosntantes pu
 linea:39  Asignacion
 linea:39  Warning: variable LONGINT fuera de rango.
 linea:40  Asignacion
+linea:40  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
 linea:41  Asignacion
 linea:45  Warning: variable LONGINT fuera de rango.
 linea:46  Asignacion
