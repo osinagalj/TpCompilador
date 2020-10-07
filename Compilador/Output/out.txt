@@ -1,44 +1,44 @@
+linea:5  Declaracion de variables
 linea:6  Declaracion de variables
-linea:7  Declaracion de variables
+linea:7  Asignacion
 linea:8  Asignacion
 linea:9  Asignacion
 linea:10  Asignacion
 linea:11  Asignacion
 linea:12  Asignacion
-linea:13  Asignacion
-linea:15  resta
-linea:15  Asignacion
-linea:15  lista_de_variables
-linea:15  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:17  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:18  Asignacion
-linea:18  Condicion mayorIgual
-linea:20  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:21  Condicion distinto
-linea:22  Detecto sentencia OUT
-linea:23  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:24  suma
-linea:24  Asignacion
-linea:24  Sentencia IF-ELSE
-linea:25  sentencia if
-linea:25  Sentencia WHILE
-linea:26  sentencia while
-linea:28  Declaracion de procedimiento
-linea:30  invocacion procedimiento
+linea:14  resta
+linea:14  Asignacion
+linea:14  lista_de_variables
+linea:14  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:16  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:17  Asignacion
+linea:17  Condicion mayorIgual
+linea:19  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:20  Condicion distinto
+linea:21  Detecto sentencia OUT
+linea:22  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:23  suma
+linea:23  Asignacion
+linea:23  Sentencia IF-ELSE
+linea:24  sentencia if
+linea:24  Sentencia WHILE
+linea:25  sentencia while
+linea:27  Declaracion de procedimiento
+linea:29  invocacion procedimiento
+linea:29  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:29  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:30  suma
+linea:30  Condicion igual
 linea:30  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:30  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:31  suma
-linea:31  Condicion igual
-linea:31  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:32  Asignacion
-linea:32  Sentencia IF
-linea:37  sentencia if
-linea:38  Error Lexico: Palabra reservada mal escrita.
-linea:39  Error: Falta el tipo en la lista de variables
-linea:39  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:31  Asignacion
+linea:31  Sentencia IF
+linea:36  sentencia if
+linea:37  Error Lexico: Palabra reservada mal escrita.
+linea:38  Error: Falta el tipo en la lista de variables
+linea:38  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:39  Asignacion
+linea:39  Warning: variable LONGINT fuera de rango.
 linea:40  Asignacion
-linea:40  Warning: variable LONGINT fuera de rango.
-linea:42  Asignacion
 linea:44  Warning: variable LONGINT fuera de rango.
 linea:45  Asignacion
 linea:46  Error: Asignacion vacia
