@@ -59,8 +59,8 @@ int yylex()
     //string s = lexical_analyzer.symbolTable->getPuntero(current_token.pointerST);
     //cout<<"imprime el " + s <<endl;
     //char * c = "lautaro osinaga";
-    //yylval.cadena= lexical_analyzer.symbolTable->getPuntero(current_token.pointerST);
-    yylval.cadena= &current_token.pointerST[0];
+    yylval.cadena= lexical_analyzer.symbolTable->getPuntero(current_token.pointerST);
+    //yylval.cadena= &current_token.pointerST[0];
     //yylval.cadena = c;
     return current_token.id;
 }

@@ -14,7 +14,7 @@ linea:11  Error: Asignacion vacia
 linea:12  Asignacion
 linea:12  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:12  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:13  suma
+linea:12  Error: division por cero
 linea:13  Asignacion
 linea:13  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:13  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT

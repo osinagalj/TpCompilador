@@ -10,7 +10,7 @@ FLOAT x , y , z ;
 x = 3;
 y = ;
 z = 5.0f+3;
-id_3 = 2 + 3;
+id_3 = 2/0;
 id_3 = 2 * 3;
 /% Sentencias de control.%/
 PROC var (INT id2, INT id3) NA = 1 , SHADOWING = TRUE

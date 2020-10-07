@@ -15,6 +15,7 @@ string Sintactic_actions::convert_to_string(char * key){
         longitud++;
         aux = aux + *key;
         printf( "%c\n", *key );	/* Mostramos la letra actual */
+
         key++;			/* Vamos a la siguiente letra */
     }
     return aux;
