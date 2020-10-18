@@ -4,6 +4,4 @@ Si se compila desde la consola de comandos de windows, se imprimiran todo el con
 Si se desea probar otro programa, se debe modificar el archivo program.txt ubicado en Compilador/Testing/program.txt
 
 
-hola
-
-hola2
+adios
