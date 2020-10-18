@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compiler_G-2.exe"
-  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compiler_G-2.exe.manifest"
-  "C:/Users/Lautaro/Desktop/Facultad/Compiladores/TPcursada/TpCompilador/Compiler_G-2.pdb"
+  "C:/Users/Lautaro/Desktop/Facultad/4to/Compiladores/TPcursada/TpCompilador/Compiler_G-2.exe"
+  "C:/Users/Lautaro/Desktop/Facultad/4to/Compiladores/TPcursada/TpCompilador/Compiler_G-2.exe.manifest"
+  "C:/Users/Lautaro/Desktop/Facultad/4to/Compiladores/TPcursada/TpCompilador/Compiler_G-2.pdb"
   "CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.obj"
   "CMakeFiles/Compilador.dir/Lexical_analyzer/Semantic_actions.cpp.obj"
   "CMakeFiles/Compilador.dir/Output/Logger.cpp.obj"
