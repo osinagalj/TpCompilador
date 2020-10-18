@@ -57,7 +57,8 @@ int yylex()
     return current_token.id;
 }
 
-void createIndexFile(){
+void createIndexFile()
+{
     ofstream indexFile;
     ifstream Entrada;
     Entrada.open(path,ifstream::in);
