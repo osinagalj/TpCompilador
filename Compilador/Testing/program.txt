@@ -1,5 +1,5 @@
                                     /% Casos de prueba Grupo 2 %/
-
+/% holaaaa %/
 /% Programa sin errores. %/
 
     LONGINT x , y , z , f , l;
