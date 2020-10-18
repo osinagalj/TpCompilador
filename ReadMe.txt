@@ -5,3 +5,5 @@ Si se desea probar otro programa, se debe modificar el archivo program.txt ubica
 
 
 hola
+
+hola2
