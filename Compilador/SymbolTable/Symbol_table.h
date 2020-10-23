@@ -12,6 +12,8 @@ class Symbol_table {
             struct Registry{
                 int id;
                 //En un futuro agregar el tipo
+                //visibilidad
+                //otros
             };
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);

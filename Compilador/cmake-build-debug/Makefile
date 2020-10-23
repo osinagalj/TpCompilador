@@ -142,6 +142,33 @@ Compilador/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/build
 .PHONY : Compilador/fast
 
+GeneracionDeCodigoIntermedio/Terceto.obj: GeneracionDeCodigoIntermedio/Terceto.cpp.obj
+
+.PHONY : GeneracionDeCodigoIntermedio/Terceto.obj
+
+# target to build an object file
+GeneracionDeCodigoIntermedio/Terceto.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj
+.PHONY : GeneracionDeCodigoIntermedio/Terceto.cpp.obj
+
+GeneracionDeCodigoIntermedio/Terceto.i: GeneracionDeCodigoIntermedio/Terceto.cpp.i
+
+.PHONY : GeneracionDeCodigoIntermedio/Terceto.i
+
+# target to preprocess a source file
+GeneracionDeCodigoIntermedio/Terceto.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.i
+.PHONY : GeneracionDeCodigoIntermedio/Terceto.cpp.i
+
+GeneracionDeCodigoIntermedio/Terceto.s: GeneracionDeCodigoIntermedio/Terceto.cpp.s
+
+.PHONY : GeneracionDeCodigoIntermedio/Terceto.s
+
+# target to generate assembly for a file
+GeneracionDeCodigoIntermedio/Terceto.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.s
+.PHONY : GeneracionDeCodigoIntermedio/Terceto.cpp.s
+
 Lexical_analyzer/Lexical_analyzer.obj: Lexical_analyzer/Lexical_analyzer.cpp.obj
 
 .PHONY : Lexical_analyzer/Lexical_analyzer.obj
@@ -313,6 +340,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Compilador
+	@echo ... GeneracionDeCodigoIntermedio/Terceto.obj
+	@echo ... GeneracionDeCodigoIntermedio/Terceto.i
+	@echo ... GeneracionDeCodigoIntermedio/Terceto.s
 	@echo ... Lexical_analyzer/Lexical_analyzer.obj
 	@echo ... Lexical_analyzer/Lexical_analyzer.i
 	@echo ... Lexical_analyzer/Lexical_analyzer.s
