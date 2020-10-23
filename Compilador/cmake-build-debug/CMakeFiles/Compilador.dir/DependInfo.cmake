@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Terceto.cpp" "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj"
   "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.cpp" "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.obj"
   "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.cpp" "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Lexical_analyzer/Semantic_actions.cpp.obj"
   "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Output/Logger.cpp" "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/Output/Logger.cpp.obj"
