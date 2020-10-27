@@ -467,7 +467,7 @@ case 9:
 break;
 case 12:
 #line 42 "gramatica.y"
-{Logger::write("Asignacion");}
+{Logger::write("Asignacion");  chekeosGeneracion::insertar_terceto("=",yyvsp[-1].cadena,yyvsp[-1].cadena);}
 break;
 case 13:
 #line 43 "gramatica.y"

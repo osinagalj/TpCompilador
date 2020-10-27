@@ -39,7 +39,7 @@ lista_de_variables:
 ;
 
 ejecutable:
-	     ID '=' expresion ';'{Logger::write("Asignacion");}
+	     ID '=' expresion ';'{Logger::write("Asignacion");  chekeosGeneracion::insertar_terceto("=",$3.cadena,$3.cadena);}
 	   | ID '='  ';'{Logger::write("Error: Asignacion vacia");}
 	   | invocacion_proc {Logger::write("invocacion procedimiento");}
 	   | sentencia_while ';'{Logger::write("sentencia while");}

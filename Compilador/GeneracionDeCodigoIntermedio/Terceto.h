@@ -23,6 +23,8 @@ class Terceto {
         void setOp1(string & op1);
         void setOp2(string & op2);
 
+
+
     private:
         //int id;
         string   op;

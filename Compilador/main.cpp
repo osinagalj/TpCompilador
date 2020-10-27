@@ -1,10 +1,12 @@
 #include "Sintactic_analyzer/Sintactic_actions.h"
-#include "Output//Logger.h"
+#include "Output/Logger.h"
 #include <fstream>
+#include "GeneracionDeCodigoIntermedio/chekeosGeneracion.h" //cambiar
 using namespace std;
 int yylex();
 void yyerror(const char *);
 #include "Sintactic_analyzer/y.tab.cpp"
+
 void createIndexFile();
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------          Global variables          ------------------------------------*/
@@ -14,6 +16,7 @@ string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
 Lexical_analyzer lexical_analyzer;
 int Sintactic_actions::number_of_parameters = 0; //contador para las listas de variables
+int chekeosGeneracion::number = 0;
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 
@@ -21,6 +24,29 @@ Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 /*-----------------------                Main                ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
 
+
+/* Name Mangling
+ *  //Ambito A
+ *  int x;
+ *  void fun(){
+ *      //Ambito B
+ *      if(){
+ *          //Ambito D
+ *          int z;
+ *          x:= 25 + z;
+ *      }
+ *  }
+ *
+    Buscar x:A:B:D
+        No está  Buscar x:A:B
+                No está  Buscar x:A 
+
+    Buscar z:A:B:D
+ *
+ * --Tenemos que tener una variable ambito, y concatenarla cada vez que se entre en un nuevo ambito.
+ * -- metodo de concatenar el ambito
+ * -- metodo de eliminar el ultimo ambito, para cuando se sale del ambito
+ */
 #include "GeneracionDeCodigoIntermedio/Terceto.h"
 #include <list>
 int main()

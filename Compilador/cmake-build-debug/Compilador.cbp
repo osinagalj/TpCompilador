@@ -89,6 +89,12 @@
 		<Unit filename="C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/TercetoAbs.h">
 			<Option target="Compilador"/>
 		</Unit>
+		<Unit filename="C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp">
+			<Option target="Compilador"/>
+		</Unit>
+		<Unit filename="C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h">
+			<Option target="Compilador"/>
+		</Unit>
 		<Unit filename="C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.cpp">
 			<Option target="Compilador"/>
 		</Unit>
