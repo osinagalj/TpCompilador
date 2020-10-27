@@ -5,8 +5,11 @@ CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj: ../Gener
 CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj: ../GeneracionDeCodigoIntermedio/Terceto.h
 CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj: ../GeneracionDeCodigoIntermedio/TercetoAbs.h
 
-CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/TercetoAbs.cpp.obj: ../GeneracionDeCodigoIntermedio/TercetoAbs.cpp
-CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/TercetoAbs.cpp.obj: ../GeneracionDeCodigoIntermedio/TercetoAbs.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../GeneracionDeCodigoIntermedio/Terceto.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../GeneracionDeCodigoIntermedio/TercetoAbs.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../GeneracionDeCodigoIntermedio/chekeosGeneracion.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../SymbolTable/Symbol_table.h
 
 CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.obj: ../Lexical_analyzer/Lexical_analyzer.cpp
 CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.obj: ../Lexical_analyzer/Lexical_analyzer.h
@@ -43,6 +46,7 @@ CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: ../SymbolTable/Symbo
 
 CMakeFiles/Compilador.dir/main.cpp.obj: ../GeneracionDeCodigoIntermedio/Terceto.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../GeneracionDeCodigoIntermedio/TercetoAbs.h
+CMakeFiles/Compilador.dir/main.cpp.obj: ../GeneracionDeCodigoIntermedio/chekeosGeneracion.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexical_analyzer/Lexical_analyzer.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexical_analyzer/Lexical_analyzer_header.h
 CMakeFiles/Compilador.dir/main.cpp.obj: ../Lexical_analyzer/Semantic_actions.h

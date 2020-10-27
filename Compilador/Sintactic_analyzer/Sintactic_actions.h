@@ -12,9 +12,9 @@ class Sintactic_actions {
             static int number_of_parameters;
             //Actions
             static void check_list_parametros();
-            static void negativizarVar(Symbol_table * tablita, char * key);
-            static void check_limit(Symbol_table * tablita, char * key);
-            static void  check_division_zero(Symbol_table * tablita, char * key);
+            static void negativizarVar(Symbol_table * table, char * key);
+            static void check_limit(Symbol_table * table, char * key);
+            static void  check_division_zero(Symbol_table * table, char * key);
 
     private:
             static string convert_to_string(char * key);
