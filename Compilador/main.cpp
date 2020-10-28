@@ -47,18 +47,9 @@ Symbol_table * Lexical_analyzer::symbolTable= nullptr;
  * -- metodo de concatenar el ambito
  * -- metodo de eliminar el ultimo ambito, para cuando se sale del ambito
  */
-#include "GeneracionDeCodigoIntermedio/Terceto.h"
-#include <list>
+
 int main()
 {
-
-    cout<<"entro 1"<<endl;
-    Terceto ter; //= new Terceto<string,string>();
-
-    list<Terceto> lista_de_tercetos;
-    cout<<"entro 2"<<endl;
-
-
     Logger::open(pathOut);
     Logger log;
     Logger::lexico = &lexical_analyzer;

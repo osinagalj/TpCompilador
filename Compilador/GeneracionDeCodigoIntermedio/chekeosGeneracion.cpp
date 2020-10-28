@@ -15,9 +15,37 @@ Terceto chekeosGeneracion::getTerceto(int pos){
     return t;
 }
 
-void  chekeosGeneracion::crear_asignacion(Symbol_table * table, char * op,char * ,char * key){
+string chekeosGeneracion::convertS(char * variable){
 
+    string string_key ="";
+    int length = 0;
+    while (*variable != '\0') {
+        length++;
+        string_key = string_key + * variable;
+        variable++;			                /* go to next letter */
+    }
+    return string_key;
+}
+void chekeosGeneracion::convertS2(char * variable){
+
+    string string_key ="";
+    int length = 0;
+    while (*variable != '\0') {
+        length++;
+        string_key = string_key + * variable;
+        variable++;			                /* go to next letter */
+    }
+    cout<< "Que me esta imprimiendo = " + string_key << endl;
+    cout<<endl;
+}
+
+void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo,char * variable){
     //checkexiste(table,op);
+    cout<<"ASIGNACIONNNNNNNNNNNNNNNNNNN" <<endl;
+
+    cout<<"tipo = " + convertS(tipo) <<endl;
+    cout<<"Variableeeeeee = " + convertS(variable) <<endl;
+
 }
 
 /*
