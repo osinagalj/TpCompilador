@@ -50,7 +50,7 @@ int Semantic_actions::finish_constant(Lexical_analyzer* lexical_analyzer, char& 
     Logger::write("Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT");
     lexical_analyzer->set_token_found();
     lexical_analyzer->save_token(LONGINT, lexical_analyzer->word);
-    lexical_analyzer->save_in_ST(LONGINT);
+    lexical_analyzer->save_in_ST(LONGINT,Longint);
     return 0;
 }
 
@@ -71,7 +71,7 @@ int Semantic_actions::finish_longint(Lexical_analyzer* lexical_analyzer, char& c
         lexical_analyzer->save_token(LONGINT, lexical_analyzer->word);
 
     }
-    lexical_analyzer->save_in_ST(LONGINT);
+    lexical_analyzer->save_in_ST(LONGINT,Longint);
 
     return 0;
 }
@@ -111,7 +111,7 @@ int Semantic_actions::finish_float(Lexical_analyzer* lexical_analyzer, char& c)
         }
     }
     lexical_analyzer->save_token(FLOAT, to_string(number)); //CAMBIAR A ID DE FLOAT DESP
-    lexical_analyzer->save_in_ST(FLOAT);
+    lexical_analyzer->save_in_ST(FLOAT,Float);
     lexical_analyzer->set_token_found();
     return 0;
 }
@@ -228,7 +228,7 @@ int Semantic_actions::finish_symbol(Lexical_analyzer * lexical_analyzer, char & 
             break;
         case '"':
             lexical_analyzer->save_token(STRING, lexical_analyzer->word);
-            lexical_analyzer->save_in_ST(STRING);
+            lexical_analyzer->save_in_ST(STRING,String);
             break;
         case '$':
             lexical_analyzer->save_token(0, lexical_analyzer->word); // yyparse() end with yylex() = 0

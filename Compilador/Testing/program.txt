@@ -1,9 +1,10 @@
-                                    /% Casos de prueba Grupo 2 %/
-/% holaaaa %/
+                               /% Casos de prueba Grupo 2 %/
+
 /% Programa sin errores. %/
 
     LONGINT x , y , z , f , l;
-    FLOAT   w;
+
+    FLOAT w;
     x = 3_l;
     y = 5.0f+3;
     w =  3_l / 5.0f+3;

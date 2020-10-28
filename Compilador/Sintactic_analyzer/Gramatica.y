@@ -5,7 +5,7 @@
 	PROC TRUE FALSE SHADOWING NA
 	ERROR
 %union {
-    int entero=0;
+    int entero = 0;
     char * cadena;
     }
 
@@ -28,18 +28,20 @@ sentencia:
 ;
 
 declarativa:
-	      tipo lista_de_variables {Logger::write("Declaracion de variables");}
+	      tipo lista_de_variables {Logger::write("Declaracion de variables");
+
+	      				} //chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena,$2.cadena);
 	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
 	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
 ;
 
 lista_de_variables:
-		     ID ',' lista_de_variables
-		   | ID ';'
+		     ID ',' lista_de_variables // {chekeosGeneracion::convertS2($0.cadena);}
+		   | ID ';' //{chekeosGeneracion::convertS2($0.cadena);}
 ;
 
 ejecutable:
-	     ID '=' expresion ';'{Logger::write("Asignacion");}
+	     ID '=' expresion ';'{Logger::write("Asignacion");  chekeosGeneracion::insertar_terceto("=",$3.cadena,$3.cadena);}
 	   | ID '='  ';'{Logger::write("Error: Asignacion vacia");}
 	   | invocacion_proc {Logger::write("invocacion procedimiento");}
 	   | sentencia_while ';'{Logger::write("sentencia while");}
@@ -69,18 +71,39 @@ true_false:
 ;
 
 lista_de_parametros:
-	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables"); Sintactic_actions::number_of_parameters++;}
-		    | tipo ID {Sintactic_actions::number_of_parameters++;}
+	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables");
+	 	       				       Sintactic_actions::number_of_parameters++;
+	 	       				       }
+		    | tipo ID {Sintactic_actions::number_of_parameters++;
+		    		}
 ;
 
 sentencia_if:
-	       IF '(' condicion ')' bloque_sentencia END_IF {Logger::write("Sentencia IF");}
-	     | IF '(' condicion ')' bloque_sentencia {Logger::write("Error: FALTA END_IF");}
-	     | IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia END_IF {Logger::write("Sentencia IF-ELSE");}
-	     | IF '(' condicion ')' bloque_sentencia ELSE bloque_sentencia {Logger::write("Error: FALTA END_IF");}
+	       IF '(' condicion ')' cuerpo_if {Logger::write("Sentencia IF");}
 	     | '(' condicion ')' bloque_sentencia END_IF {Logger::write("Error: FALTA EL IF");}
-
+	     //averiguar el tema del error, por ejemplo si falta la condicion
 ;
+
+cuerpo_if :    cuerpo_then END_IF
+             | cuerpo_then  {Logger::write("Error: FALTA END_IF");}
+             | cuerpo_then ELSE cuerpo_else END_IF {Logger::write("Error: FALTA END_IF");}
+             | cuerpo_then ELSE cuerpo_else
+             | ELSE cuerpo_else END_IF
+  	    //errores
+;
+
+cuerpo_then : bloque_sentencia
+;
+
+cuerpo_else: bloque_sentencia
+;
+
+
+
+
+
+
+
 
 sentencia_while:
 	 	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Sentencia WHILE");}
@@ -124,9 +147,9 @@ factor:
 ;
 
 tipo:
-       INT
-     | LONGINT
-     | FLOAT
+       INT { string s = "Int"; $$.cadena = &s[0];}
+     | LONGINT { string s = "Longint"; $$.cadena = &s[0];}
+     | FLOAT { string s = "Float"; $$.cadena = &s[0];}
 ;
 
 imprimir:

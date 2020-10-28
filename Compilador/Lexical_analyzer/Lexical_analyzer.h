@@ -2,7 +2,7 @@
 #define COMPILADOR_YYLEX_H4
 
 #include "Lexical_analyzer_header.h"
-
+#include "../SymbolTable/Symbol_table.h"
 class Lexical_analyzer{
     public:
             Lexical_analyzer();
@@ -25,7 +25,10 @@ class Lexical_analyzer{
              int get_reserved_word();
              void increase_character();     //if the character read is valid we increase
              void save_in_ST(int id);
+             void save_in_ST(int id,Tipo punt);
              void save_token(int id,string punt);
+
+
     private:
             ifstream source_file;
             string line;
