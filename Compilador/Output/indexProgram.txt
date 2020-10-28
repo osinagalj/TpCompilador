@@ -3,68 +3,69 @@
 3:      /% Programa sin errores. %/
 4:      
 5:          LONGINT x , y , z , f , l;
-6:          FLOAT   w;
-7:          x = 3_l;
-8:          y = 5.0f+3;
-9:          w =  3_l / 5.0f+3;
-10:          id_1 = 2_l * 3_l;
-11:          float_negativo = -7.3;
-12:          longint_negativo = -711_l;
-13:          x = 2_l - -3_l;
-14:      
-15:          PROC var (INT id2, INT id3) NA = 1_l , SHADOWING = TRUE
-16:          {
-17:              aux = 2_l;
-18:              WHILE (id_1 <= 12.) LOOP
-19:              {
-20:                  IF (id_1 !=12.)
-21:                     OUT ("cadena de caracteres");
-22:                  ELSE
-23:                      id_1 = id_1 + 1_l;
-24:                  END_IF;
-25:              };
-26:          };
-27:      
-28:          var(id2,id3);
-29:      
-30:          IF (id_3 == 2_l + 3_l)
-31:              id_2 = 4_l;
-32:          END_IF;
-33:      
+6:      
+7:          FLOAT w;
+8:          x = 3_l;
+9:          y = 5.0f+3;
+10:          w =  3_l / 5.0f+3;
+11:          id_1 = 2_l * 3_l;
+12:          float_negativo = -7.3;
+13:          longint_negativo = -711_l;
+14:          x = 2_l - -3_l;
+15:      
+16:          PROC var (INT id2, INT id3) NA = 1_l , SHADOWING = TRUE
+17:          {
+18:              aux = 2_l;
+19:              WHILE (id_1 <= 12.) LOOP
+20:              {
+21:                  IF (id_1 !=12.)
+22:                     OUT ("cadena de caracteres");
+23:                  ELSE
+24:                      id_1 = id_1 + 1_l;
+25:                  END_IF;
+26:              };
+27:          };
+28:      
+29:          var(id2,id3);
+30:      
+31:          IF (id_3 == 2_l + 3_l)
+32:              id_2 = 4_l;
+33:          END_IF;
 34:      
 35:      
 36:      
-37:      /% Errores Lexicos contemplados.%/
-38:          FLOATH x , y , z ;
-39:          x = 5;
-40:          x = 2222222222_l;
-41:          estavariabletienemuchoscaracteres = 22_l;
-42:      
-43:          % & #       /% Caracteres invalidos.%/
-44:          
-45:      
-46:      /% Errores Sintacticos contemplados.%/
-47:      
-48:          x = 2147483648_l;
-49:          y = ;
-50:          id_3 = 2 / 0;
-51:      
-52:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1) NA = 3,SHADOWING = TRUE{
-53:              var1 = 5;
-54:          };
-55:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1){
-56:              var1 = 5;
-57:          };
-58:      
-59:          IF (id_1 !=10_l)
-60:              id_1 = id_1 + 1;
-61:          ELSE
-62:              id_1 = id_1 + 1;
-63:          ;
-64:      
-65:          WHILE (id_1 <= 10_l)
-66:          {
-67:              id_1 = id_1 + 1;
-68:          };
-69:      
-70:      $
+37:      
+38:      /% Errores Lexicos contemplados.%/
+39:          FLOATH x , y , z ;
+40:          x = 5;
+41:          x = 2222222222_l;
+42:          estavariabletienemuchoscaracteres = 22_l;
+43:      
+44:          % & #       /% Caracteres invalidos.%/
+45:          
+46:      
+47:      /% Errores Sintacticos contemplados.%/
+48:      
+49:          x = 2147483648_l;
+50:          y = ;
+51:          id_3 = 2 / 0;
+52:      
+53:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1) NA = 3,SHADOWING = TRUE{
+54:              var1 = 5;
+55:          };
+56:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1){
+57:              var1 = 5;
+58:          };
+59:      
+60:          IF (id_1 !=10_l)
+61:              id_1 = id_1 + 1;
+62:          ELSE
+63:              id_1 = id_1 + 1;
+64:          ;
+65:      
+66:          WHILE (id_1 <= 10_l)
+67:          {
+68:              id_1 = id_1 + 1;
+69:          };
+70:      
+71:      $

@@ -56,6 +56,13 @@ void Lexical_analyzer::save_in_ST(int id)
     registry.id = id;
     symbolTable->addSymbol(t.pointerST,registry);
 }
+void Lexical_analyzer::save_in_ST(int id,Tipo tipo)
+{
+    Symbol_table::Registry registry;
+    registry.id = id;
+    registry.Tipo = tipo;
+    symbolTable->addSymbol(t.pointerST,registry);
+}
 
 
 int Lexical_analyzer::get_reserved_word()

@@ -18,8 +18,10 @@ class chekeosGeneracion {
         static void insertar_terceto(string op, string op1, string op2);
         static void crear_asignacion(Symbol_table * table, char * op,char * ,char * key);
         static void crear_asignacion2(Symbol_table * tablita, char * op,char * ,char * key);
+        static void asignar_tipo(Symbol_table * tablita,char * tipo,char * variable);
         //que acciones tnemos que tener y en donde las llamamos en la gramatica
-
+        static string convertS(char * tipo);
+        static void convertS2(char * tipo);
         // double juan;
         //int pepe = 2 + juan;
         //get lista de tercetos
