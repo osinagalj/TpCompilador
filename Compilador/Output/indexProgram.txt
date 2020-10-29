@@ -2,9 +2,9 @@
 2:      
 3:      /% Programa sin errores. %/
 4:      
-5:          LONGINT x , y , z , f , l;
+5:          LONGINT x , y , z , f , l ;
 6:      
-7:          FLOAT w;
+7:          FLOAT w ;
 8:          x = 3_l;
 9:          y = 5.0f+3;
 10:          w =  3_l / 5.0f+3;
