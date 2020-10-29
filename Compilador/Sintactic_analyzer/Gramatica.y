@@ -29,15 +29,16 @@ sentencia:
 
 declarativa:
 	      tipo lista_de_variables {Logger::write("Declaracion de variables");
-
-	      				} //chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena,$2.cadena);
+					chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena,$2.cadena);
+					//chekeosGeneracion::imprimirLista();
+	      				}
 	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
 	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
 ;
 
 lista_de_variables:
-		     ID ',' lista_de_variables // {chekeosGeneracion::convertS2($0.cadena);}
-		   | ID ';' //{chekeosGeneracion::convertS2($0.cadena);}
+		     ID ',' lista_de_variables {$$=$3;} //string s = $1.cadena; chekeosGeneracion::agregarVariable(s);}
+		   | ID ';' {$$=$1; string s=$1.cadena; cout<< "imprimo $1" + s<<endl;}  //string s=$1.cadena; chekeosGeneracion::agregarVariable(s);} //el contenido del ID contiene basura en vez de la variable que nos pasa el yylex
 ;
 
 ejecutable:
