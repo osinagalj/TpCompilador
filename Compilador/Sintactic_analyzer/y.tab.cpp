@@ -475,170 +475,194 @@ case 9:
 #line 35 "gramatica.y"
 {Logger::write("Error: Falta el tipo en la lista de variables");}
 break;
+case 10:
+#line 39 "gramatica.y"
+{ char * ambito = "Lista de variables";
+                                                 chekeosGeneracion::convertS2(yyvsp[-2].cadena,ambito); }
+break;
+case 11:
+#line 41 "gramatica.y"
+{ char * ambito = "Ultimo ID en lista de variables";
+                            	 chekeosGeneracion::convertS2(yyvsp[-1].cadena,ambito); }
+break;
 case 12:
-#line 44 "gramatica.y"
+#line 46 "gramatica.y"
 {Logger::write("Asignacion");  chekeosGeneracion::insertar_terceto("=",yyvsp[-1].cadena,yyvsp[-1].cadena);}
 break;
 case 13:
-#line 45 "gramatica.y"
+#line 47 "gramatica.y"
 {Logger::write("Error: Asignacion vacia");}
 break;
 case 14:
-#line 46 "gramatica.y"
+#line 48 "gramatica.y"
 {Logger::write("invocacion procedimiento");}
 break;
 case 15:
-#line 47 "gramatica.y"
+#line 49 "gramatica.y"
 {Logger::write("sentencia while");}
 break;
 case 16:
-#line 48 "gramatica.y"
+#line 50 "gramatica.y"
 {Logger::write("sentencia if");}
 break;
 case 20:
-#line 61 "gramatica.y"
-{Sintactic_actions::check_list_parametros();}
+#line 63 "gramatica.y"
+{Sintactic_actions::check_list_parametros();   }
 break;
 case 21:
-#line 62 "gramatica.y"
+#line 64 "gramatica.y"
 {Logger::write("Error: FALTA ID");}
 break;
 case 22:
-#line 63 "gramatica.y"
+#line 65 "gramatica.y"
 {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");}
 break;
 case 23:
-#line 64 "gramatica.y"
+#line 66 "gramatica.y"
 {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");}
 break;
 case 24:
-#line 65 "gramatica.y"
+#line 67 "gramatica.y"
 {Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");}
 break;
 case 27:
-#line 74 "gramatica.y"
+#line 76 "gramatica.y"
 {Logger::write("lista_de_variables");
 	 	       				       Sintactic_actions::number_of_parameters++;
 	 	       				       }
 break;
 case 28:
-#line 77 "gramatica.y"
+#line 79 "gramatica.y"
 {Sintactic_actions::number_of_parameters++;
-		    		}
+				 char * ambito = "id de lista de parametros";
+                                  chekeosGeneracion::convertS2(yyvsp[-1].cadena,ambito); }
 break;
 case 29:
-#line 82 "gramatica.y"
+#line 86 "gramatica.y"
 {Logger::write("Sentencia IF");}
 break;
 case 30:
-#line 83 "gramatica.y"
+#line 87 "gramatica.y"
 {Logger::write("Error: FALTA EL IF");}
 break;
 case 32:
-#line 88 "gramatica.y"
+#line 92 "gramatica.y"
 {Logger::write("Error: FALTA END_IF");}
 break;
 case 33:
-#line 89 "gramatica.y"
+#line 93 "gramatica.y"
 {Logger::write("Error: FALTA END_IF");}
 break;
 case 38:
-#line 109 "gramatica.y"
+#line 107 "gramatica.y"
 {Logger::write("Sentencia WHILE");}
 break;
 case 39:
-#line 110 "gramatica.y"
+#line 108 "gramatica.y"
 {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
 break;
 case 40:
-#line 111 "gramatica.y"
+#line 109 "gramatica.y"
 {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
 break;
 case 41:
-#line 115 "gramatica.y"
+#line 113 "gramatica.y"
 {Logger::write("Condicion igual");}
 break;
 case 42:
-#line 116 "gramatica.y"
+#line 114 "gramatica.y"
 {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 43:
-#line 117 "gramatica.y"
+#line 115 "gramatica.y"
 {Logger::write("Condicion distinto");}
 break;
 case 44:
-#line 118 "gramatica.y"
+#line 116 "gramatica.y"
 {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 45:
-#line 119 "gramatica.y"
+#line 117 "gramatica.y"
 {Logger::write("Condicion menorigual");}
 break;
 case 46:
-#line 120 "gramatica.y"
+#line 118 "gramatica.y"
 {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 47:
-#line 121 "gramatica.y"
+#line 119 "gramatica.y"
 {Logger::write("Condicion mayorIgual");}
 break;
 case 48:
-#line 122 "gramatica.y"
+#line 120 "gramatica.y"
 {Logger::write("Condicion de mayor");}
 break;
 case 49:
-#line 123 "gramatica.y"
+#line 121 "gramatica.y"
 {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 50:
-#line 124 "gramatica.y"
+#line 122 "gramatica.y"
 {Logger::write("Condicion de menor");}
 break;
 case 51:
-#line 125 "gramatica.y"
+#line 123 "gramatica.y"
 {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 52:
-#line 129 "gramatica.y"
+#line 127 "gramatica.y"
 {Logger::write("suma");}
 break;
 case 53:
-#line 130 "gramatica.y"
+#line 128 "gramatica.y"
 {Logger::write("resta");}
 break;
 case 56:
-#line 137 "gramatica.y"
+#line 135 "gramatica.y"
 { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
+case 58:
+#line 140 "gramatica.y"
+{ char * ambito = "ambito id";
+	 chekeosGeneracion::convertS2(yyvsp[0].cadena,ambito); }
+break;
 case 60:
-#line 144 "gramatica.y"
+#line 143 "gramatica.y"
 { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 61:
-#line 145 "gramatica.y"
+#line 144 "gramatica.y"
 { Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 62:
-#line 146 "gramatica.y"
+#line 145 "gramatica.y"
 { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 63:
-#line 150 "gramatica.y"
+#line 149 "gramatica.y"
 { string s = "Int"; yyval.cadena = &s[0];}
 break;
+case 64:
+#line 150 "gramatica.y"
+{ string s = "Longint"; yyval.cadena = &s[0];}
+break;
+case 65:
+#line 151 "gramatica.y"
+{ string s = "Float"; yyval.cadena = &s[0];}
+break;
 case 66:
-#line 156 "gramatica.y"
+#line 155 "gramatica.y"
 {Logger::write("Detecto sentencia OUT");}
 break;
 case 67:
-#line 157 "gramatica.y"
+#line 156 "gramatica.y"
 {Logger::write("Error: SE ESPERABA OUT PREVIAMENTE PARA IMPRIMIR");}
 break;
 case 68:
-#line 158 "gramatica.y"
+#line 157 "gramatica.y"
 {Logger::write("Error: SE ESPERABA CADENA EN LA SENTENCIA OUT");}
 break;
-#line 642 "y.tab.c"
+#line 666 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

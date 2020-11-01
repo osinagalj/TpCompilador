@@ -26,8 +26,9 @@ string chekeosGeneracion::convertS(char * variable){
     }
     return string_key;
 }
-void chekeosGeneracion::convertS2(char * variable){
+void chekeosGeneracion::convertS2(char * variable,char * texto){
 
+    cout<<"ambito: "+ convertS(texto) << endl;
     string string_key ="";
     int length = 0;
     while (*variable != '\0') {
@@ -35,7 +36,7 @@ void chekeosGeneracion::convertS2(char * variable){
         string_key = string_key + * variable;
         variable++;			                /* go to next letter */
     }
-    cout<< "Que me esta imprimiendo = " + string_key << endl;
+    cout<< "Char *  = " + string_key << endl;
     cout<<endl;
 }
 

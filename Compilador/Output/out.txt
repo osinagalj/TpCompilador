@@ -1,4 +1,4 @@
-linea:6  Declaracion de variables
+linea:5  Declaracion de variables
 linea:7  Declaracion de variables
 linea:8  Asignacion
 linea:9  Asignacion

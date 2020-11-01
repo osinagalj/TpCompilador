@@ -3,8 +3,8 @@
 3:      /% Programa sin errores. %/
 4:      
 5:          LONGINT x , y , z , f , l;
-6:      
-7:          FLOAT w;
+6:          FLOAT w;
+7:      
 8:          x = 3_l;
 9:          y = 5.0f+3;
 10:          w =  3_l / 5.0f+3;
@@ -21,7 +21,7 @@
 21:                  IF (id_1 !=12.)
 22:                     OUT ("cadena de caracteres");
 23:                  ELSE
-24:                      id_1 = id_1 + 1_l;
+24:                      id_1 = id_12 + 1_l;
 25:                  END_IF;
 26:              };
 27:          };
@@ -48,7 +48,7 @@
 48:      
 49:          x = 2147483648_l;
 50:          y = ;
-51:          id_3 = 2 / 0;
+51:          id_4 = 2 / 0;
 52:      
 53:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1) NA = 3,SHADOWING = TRUE{
 54:              var1 = 5;
@@ -58,14 +58,14 @@
 58:          };
 59:      
 60:          IF (id_1 !=10_l)
-61:              id_1 = id_1 + 1;
+61:              id_1 = id_5 + 1;
 62:          ELSE
-63:              id_1 = id_1 + 1;
+63:              id_1 = id_6 + 1;
 64:          ;
 65:      
-66:          WHILE (id_1 <= 10_l)
+66:          WHILE (id_7 <= 10_l)
 67:          {
-68:              id_1 = id_1 + 1;
+68:              id_8 = id_9 + 1;
 69:          };
 70:      
 71:      $

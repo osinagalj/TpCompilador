@@ -18,6 +18,12 @@ char * Symbol_table::getPointer(string pointer)
     aux = &pointer[0];
     return aux;
 }
+char * Symbol_table::getPointer2(string pointer)
+{
+    char * aux  ;
+    aux = &pointer[0];
+    return aux;
+}
 
 Symbol_table::Registry Symbol_table::removeSymbol(string key)
 {

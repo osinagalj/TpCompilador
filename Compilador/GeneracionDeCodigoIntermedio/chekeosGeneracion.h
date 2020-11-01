@@ -21,7 +21,7 @@ class chekeosGeneracion {
         static void asignar_tipo(Symbol_table * tablita,char * tipo,char * variable);
         //que acciones tnemos que tener y en donde las llamamos en la gramatica
         static string convertS(char * tipo);
-        static void convertS2(char * tipo);
+        static void convertS2(char * tipo,char * texto);
         // double juan;
         //int pepe = 2 + juan;
         //get lista de tercetos
