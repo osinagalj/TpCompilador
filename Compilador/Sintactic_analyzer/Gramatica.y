@@ -28,17 +28,16 @@ sentencia:
 ;
 
 declarativa:
-	      tipo lista_de_variables {Logger::write("Declaracion de variables");
-					chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena,$2.cadena);
-					//chekeosGeneracion::imprimirLista();
-	      				}
+	      tipo lista_de_variables {Logger::write("Declaracion de variables");	      				}
 	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
 	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
 ;
 
 lista_de_variables:
-		     ID ',' lista_de_variables {$$=$3;} //string s = $1.cadena; chekeosGeneracion::agregarVariable(s);}
-		   | ID ';' {$$=$1; string s=$1.cadena; cout<< "imprimo $1" + s<<endl;}  //string s=$1.cadena; chekeosGeneracion::agregarVariable(s);} //el contenido del ID contiene basura en vez de la variable que nos pasa el yylex
+		     ID ',' lista_de_variables{ char * ambito = "Lista de variables";
+                                                 chekeosGeneracion::convertS2($1.cadena,ambito); }
+		   | ID ';' { char * ambito = "Ultimo ID en lista de variables";
+                            	 chekeosGeneracion::convertS2($1.cadena,ambito); }
 ;
 
 ejecutable:
@@ -59,7 +58,7 @@ parametros:
 ;
 
 procedimiento:
-	 PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();}
+	 PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();   }
 	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID");}
 	|PROC ID '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");}
 	|PROC ID '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");}
@@ -76,7 +75,9 @@ lista_de_parametros:
 	 	       				       Sintactic_actions::number_of_parameters++;
 	 	       				       }
 		    | tipo ID {Sintactic_actions::number_of_parameters++;
-		    		}
+				 char * ambito = "id de lista de parametros";
+                                  chekeosGeneracion::convertS2($1.cadena,ambito); }
+
 ;
 
 sentencia_if:
@@ -98,12 +99,6 @@ cuerpo_then : bloque_sentencia
 
 cuerpo_else: bloque_sentencia
 ;
-
-
-
-
-
-
 
 
 sentencia_while:
@@ -140,7 +135,8 @@ termino:
 ;
 
 factor:
-	 ID
+	 ID	{ char * ambito = "ambito id";
+	 chekeosGeneracion::convertS2($1.cadena,ambito); }
 	|FLOAT
 	|'-' FLOAT { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 	|LONGINT { Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);}
