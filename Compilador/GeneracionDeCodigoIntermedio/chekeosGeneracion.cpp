@@ -49,6 +49,19 @@ void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo,char * v
 
 }
 
+void chekeosGeneracion::agregarVariable(string aux) {
+    list_variables.push_front(aux);
+}
+void chekeosGeneracion::imprimirLista() {
+    list<string>::iterator pos;
+    pos = list_variables.begin();
+    while (pos != list_variables.end()){
+        cout << *pos << endl;
+        pos++;
+    }
+}
+
+
 /*
  9. ...
 10. ( - , a , b )
