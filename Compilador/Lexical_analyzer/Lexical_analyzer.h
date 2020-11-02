@@ -25,7 +25,7 @@ class Lexical_analyzer{
              int get_reserved_word();
              void increase_character();     //if the character read is valid we increase
              void save_in_ST(int id);
-             void save_in_ST(int id,Tipo punt);
+             void save_in_ST(int id,string punt);
              void save_token(int id,string punt);
 
 

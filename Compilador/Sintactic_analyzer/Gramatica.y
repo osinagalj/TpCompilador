@@ -28,15 +28,22 @@ sentencia:
 ;
 
 declarativa:
-	      tipo lista_de_variables {Logger::write("Declaracion de variables");	      				}
+	      tipo lista_de_variables {Logger::write("Declaracion de variables");
+						chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena);
+	      		      		}
 	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
 	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
+	    // | tipo lista_de_variables asignacion   vemos si se puede mejorar, preguntar al profe si tenemos que permitir esto
+	    // int id_3 = 5
 ;
+
 
 lista_de_variables:
 		     ID ',' lista_de_variables{ char * ambito = "Lista de variables";
+		     				chekeosGeneracion::addVariable($1.cadena);
                                                  chekeosGeneracion::convertS2($1.cadena,ambito); }
-		   | ID ';' { char * ambito = "Ultimo ID en lista de variables";
+		   | ID ';' {	chekeosGeneracion::addVariable($1.cadena);
+		   		char * ambito = "Ultimo ID en lista de variables";
                             	 chekeosGeneracion::convertS2($1.cadena,ambito); }
 ;
 
@@ -108,6 +115,7 @@ sentencia_while:
 ;
 
 condicion:
+
 	   expresion EQUAL expresion {Logger::write("Condicion igual");}
 	  | expresion DIFFERENT  {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 	  | expresion DIFFERENT expresion {Logger::write("Condicion distinto");}

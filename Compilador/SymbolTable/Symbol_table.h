@@ -5,7 +5,7 @@
 
 using namespace std;
 
-enum Tipo {String, Int, Longint, Float,a};
+
 enum Pasaje {copia_valor,referencia};
 enum Uso  {variable, nombre_de_procedimiento, nombre_de_parametro};//nombre de una clase?
 //Incorporar un atributo Uso en la Tabla de Símbolos, indicando el uso del identificador en el programa (variable,
@@ -19,12 +19,16 @@ class Symbol_table {
             struct Registry{
                 int id;
                 //En un futuro agregar el tipo
-                Tipo Tipo = a;
+                string Tipo = "no-type";
                 Uso Uso;
                 //otros:
                 Pasaje forma_de_pasaje;
 
             };
+
+            string getType(string op,string op2);
+
+            void addType(string type,string key);
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);
             void printTable();
