@@ -1,0 +1,52 @@
+                                           /% Group 2 %/
+
+                          /% ------------- Program with errors.  ------------------- %/
+
+
+    LONGINT a , b , c , d ;
+    FLOAT   x,y,z,w;
+    LONGINT longint_negative;
+    FLOAT   float_negative;
+
+
+/% Errores Lexicos contemplados.%/
+    FLOATH variable_1 ;
+    x = 5;                                          /% Uso de variables int. Solo se permiten constantes LONGINT y Float .%/
+    x = 2222222222_l;                               /% Variable fuera de rango .%/
+    estavariabletienemuchoscaracteres = 22_l;       /% Identificador > 20 caracteres .%/
+    % & #                                           /% Caracteres invalidos.%/
+
+
+/% Errores Sintacticos contemplados.%/
+
+    x = 2147483648_l;                               /% Variable fuera de rango que deja pasar el lexico. %/
+    y = ;                                           /% Asignacion Vacia 0. %/
+    id_4 = 2 / 0;                                   /% Division por 0. %/
+
+    PROC procedimiento1(FLOAT x,FLOAT y,FLOAT z,FLOAT w) NA = 3,SHADOWING = TRUE{          /% Cantidad de parametros > 3. %/
+        var1 = 5;
+    };
+    PROC procedimiento2(FLOAT var1){                 /% Falta NA y SHADOWING %/
+        var1 = 5;
+    };
+
+    PROC procedimiento3(){                           /% Falta NA y SHADOWING %/
+        var1 = 5;
+    };
+
+
+    IF (id_1 !=10_l)
+        id_1 = id_5 + 1;
+    ELSE
+        id_1 = id_6 + 1;
+    ;                                               /% Falta END_IF %/
+
+    WHILE (id_7 <= 10_l)                            /% Falta LOOP %/
+    {
+        id_8 = id_9 + 1;
+    };
+
+
+
+
+$
