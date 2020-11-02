@@ -50,13 +50,17 @@ Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
         }
         return t;
 }
+
+//Identeificadores, parametros y nombres de proc
 void Lexical_analyzer::save_in_ST(int id)
 {
     Symbol_table::Registry registry;
     registry.id = id;
     symbolTable->addSymbol(t.pointerST,registry);
 }
-void Lexical_analyzer::save_in_ST(int id,Tipo tipo)
+
+//Para las constantes
+void Lexical_analyzer::save_in_ST(int id,string tipo)
 {
     Symbol_table::Registry registry;
     registry.id = id;

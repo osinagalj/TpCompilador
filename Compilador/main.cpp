@@ -17,6 +17,7 @@ string pathIndex = "Compilador\\Output\\indexProgram.txt";
 Lexical_analyzer lexical_analyzer;
 int Sintactic_actions::number_of_parameters = 0; //contador para las listas de variables
 int chekeosGeneracion::number = 0;
+bool chekeosGeneracion::falloEnCompilacion = false;
 list<string> chekeosGeneracion::list_variables;
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;

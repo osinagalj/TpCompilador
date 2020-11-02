@@ -14,9 +14,13 @@ string Sintactic_actions::convert_to_string(char * key){
 
 void Sintactic_actions::negativizarVar(Symbol_table * tablita, char * key )
 {
+    cout<<"Negativiando la var" <<endl;
     string aux =convert_to_string(key);
+
     Symbol_table::Registry a = tablita->removeSymbol(aux);
+    cout<<"id = " << a.id <<" tipo: " << a.Tipo <<endl;
     aux = "-" + aux;
+
     tablita->addSymbol(aux,a);
 }
 

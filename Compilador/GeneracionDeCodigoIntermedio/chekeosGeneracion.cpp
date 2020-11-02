@@ -39,28 +39,62 @@ void chekeosGeneracion::convertS2(char * variable,char * texto){
     cout<< "Char *  = " + string_key << endl;
     cout<<endl;
 }
+string chekeosGeneracion::convertToString(char * variable){
 
-void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo,char * variable){
-    //checkexiste(table,op);
-    cout<<"ASIGNACIONNNNNNNNNNNNNNNNNNN" <<endl;
+    string string_key ="";
+    int length = 0;
+    while (*variable != '\0') {
+        length++;
+        string_key = string_key + * variable;
+        variable++;			                /* go to next letter */
+    }
+    cout<< "Char *  = " + string_key << endl;
+    return string_key;
+}
 
-    cout<<"tipo = " + convertS(tipo) <<endl;
-    cout<<"Variableeeeeee = " + convertS(variable) <<endl;
+void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
+    list<string>::iterator pos = list_variables.begin();
+    while (pos != list_variables.end()){
+        tablita->addType(tipo,*pos);
+        cout << *pos + ", ";
+        pos++;
+    }
+    //Reiniciamos la lista
+    list<string> list_variable_aux;
+    list_variables = list_variable_aux;
+
+
+}
+void chekeosGeneracion::addVariable(char * variable){
+
+    list_variables.push_back(convertToString(variable));
+    cout<<"lista: ";
+    imprimirLista();
+    cout<<endl;
 
 }
 /*
 void chekeosGeneracion::agregarVariable(string aux) {
     list_variables.push_front(aux);
 }
+ */
 void chekeosGeneracion::imprimirLista() {
-    list<string>::iterator pos;
-    pos = list_variables.begin();
+    list<string>::iterator pos = list_variables.begin();
     while (pos != list_variables.end()){
-        cout << *pos << endl;
+        cout << *pos + ", ";
         pos++;
     }
 }
-*/
+
+
+
+void chekeosGeneracion::checkearTipo(Symbol_table * tablita,char * op,char * op2){
+
+
+    //Si falla el checkeo
+    falloEnCompilacion = true;
+}
+
 
 /*
  9. ...
