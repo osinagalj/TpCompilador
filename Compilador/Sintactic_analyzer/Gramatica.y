@@ -119,42 +119,51 @@ sentencia_while:
 
 condicion:
 
-	   expresion EQUAL expresion {Logger::write("Condicion igual");}
+	   expresion EQUAL expresion {Logger::write("Condicion igual");
+	   			     $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
 	  | expresion DIFFERENT  {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
-	  | expresion DIFFERENT expresion {Logger::write("Condicion distinto");}
+	  | expresion DIFFERENT expresion {Logger::write("Condicion distinto");
+	  				  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
 	  | expresion LESS_OR_EQUAL  {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
-	  | expresion LESS_OR_EQUAL expresion {Logger::write("Condicion menorigual");}
+	  | expresion LESS_OR_EQUAL expresion {Logger::write("Condicion menorigual");
+	  				      $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
 	  | expresion GREATER_OR_EQUAL {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
-	  | expresion GREATER_OR_EQUAL expresion {Logger::write("Condicion mayorIgual");}
-	  | expresion '>' expresion {Logger::write("Condicion de mayor");}
+	  | expresion GREATER_OR_EQUAL expresion {Logger::write("Condicion mayorIgual");
+	  					$$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
+	  | expresion '>' expresion {Logger::write("Condicion de mayor");
+	  			    $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
 	  | expresion '>' {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
-          | expresion '<' expresion {Logger::write("Condicion de menor");}
+          | expresion '<' expresion {Logger::write("Condicion de menor");
+                                    $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
           | expresion '<' {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 ;
 
 expresion:
 	   expresion '+' termino {Logger::write("suma");
-	   			  //chekeosGeneracion::sumarOperandos(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
 				  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
 	   			}
-	  |expresion '-' termino {Logger::write("resta");}
-	  |termino
+	  |expresion '-' termino {Logger::write("resta");
+	  		 	  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
+	  |termino {$$.cadena = $1.cadena;}
 
 ;
 
 termino:
-	 factor
-	|termino '/' factor { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);}
-	|termino '*' factor
+	 factor {$$.cadena = $1.cadena; }
+	|termino '/' factor { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
+			      $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
+	|termino '*' factor { $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
 ;
 
 factor:
 	 ID	{ char * ambito = "ambito id";
-	 chekeosGeneracion::convertS2($1.cadena,ambito); }
-	|FLOAT
-	|'-' FLOAT { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
-	|LONGINT { Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);}
-        |'-' LONGINT { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
+	 	  chekeosGeneracion::convertS2($1.cadena,ambito);
+	 	  $$.cadena= $1.cadena;}
+	|FLOAT {$$.cadena= $1.cadena;}
+	|'-' FLOAT {$$.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
+	|LONGINT { Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);
+		   $$.cadena= $1.cadena;}
+        |'-' LONGINT { $$.cadena=Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 ;
 
 tipo:

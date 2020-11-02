@@ -11,8 +11,8 @@ string Sintactic_actions::convert_to_string(char * key){
     }
     return string_key;
 }
-
-void Sintactic_actions::negativizarVar(Symbol_table * tablita, char * key )
+#include <string.h>
+char* Sintactic_actions::negativizarVar(Symbol_table * tablita, char * key )
 {
     cout<<"Negativiando la var" <<endl;
     string aux =convert_to_string(key);
@@ -22,6 +22,10 @@ void Sintactic_actions::negativizarVar(Symbol_table * tablita, char * key )
     aux = "-" + aux;
 
     tablita->addSymbol(aux,a);
+
+    char *cstr = new char[aux.length() + 1];
+    strcpy(cstr, aux.c_str());
+    return cstr;
 }
 
 void Sintactic_actions::check_limit(Symbol_table * tablita, char * key)
