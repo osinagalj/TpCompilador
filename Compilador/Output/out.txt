@@ -10,8 +10,12 @@ linea:13  suma
 linea:13  Coinciden los tipos
 linea:13  Asignacion
 linea:13  Coinciden los tipos
+linea:13  Coinciden los tipos
+linea:14  Asignacion
+linea:14  Coinciden los tipos
+linea:14  Coinciden los tipos
 linea:15  Asignacion
-linea:15  Error: No coinciden los tipos
+linea:15  Coinciden los tipos
 linea:15  suma
 linea:15  Coinciden los tipos
 linea:16  suma
@@ -25,17 +29,20 @@ linea:19  Error: No coinciden los tipos
 linea:19  Asignacion
 linea:19  Error: No coinciden los tipos
 linea:20  Asignacion
-linea:20  Error: No coinciden los tipos
+linea:20  Coinciden los tipos
 linea:21  Asignacion
-linea:21  Error: No coinciden los tipos
+linea:21  Coinciden los tipos
 linea:23  resta
+linea:23  Coinciden los tipos
 linea:23  Asignacion
 linea:23  Error: No coinciden los tipos
 linea:23  lista_de_variables
 linea:26  Asignacion
 linea:26  Error: No coinciden los tipos
 linea:26  Condicion mayorIgual
+linea:26  Error: No coinciden los tipos
 linea:29  Condicion distinto
+linea:29  Error: No coinciden los tipos
 linea:30  Detecto sentencia OUT
 linea:32  suma
 linea:32  Error: No coinciden los tipos
@@ -51,6 +58,7 @@ linea:38  invocacion procedimiento
 linea:39  suma
 linea:39  Coinciden los tipos
 linea:39  Condicion igual
+linea:39  Error: No coinciden los tipos
 linea:40  Asignacion
 linea:40  Error: No coinciden los tipos
 linea:40  Sentencia IF
@@ -76,6 +84,7 @@ linea:58  Error: Asignacion vacia
 linea:58  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:58  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:58  Error: division por cero
+linea:58  Coinciden los tipos
 linea:60  Asignacion
 linea:60  Error: No coinciden los tipos
 linea:60  lista_de_variables
@@ -98,6 +107,7 @@ linea:65  Error: No coinciden los tipos
 linea:65  Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING
 linea:67  Declaracion de procedimiento
 linea:68  Condicion distinto
+linea:68  Error: No coinciden los tipos
 linea:68  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:69  suma
 linea:69  Error: No coinciden los tipos
@@ -111,6 +121,7 @@ linea:71  Coinciden los tipos
 linea:73  Sentencia IF
 linea:73  sentencia if
 linea:74  Condicion mayorIgual
+linea:74  Error: No coinciden los tipos
 linea:75  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:76  suma
 linea:76  Error: No coinciden los tipos
