@@ -1,79 +1,51 @@
-                               /% Casos de prueba Grupo 2 %/
+                                                /% Group 2 %/
 
-/% Programa sin errores. %/
+                           /% ------------- Program without errors.  ------------------- %/
 
     LONGINT a , b , c , d ;
     FLOAT   x,y,z,w;
-    LONGINT longint_negativo;
-    FLOAT   float_negativo;
+    LONGINT longint_negative;
+    FLOAT   float_negative;
 
     a = 3_l;
     x = 5.0f+3;
     w =  3.3 +  5.0f+3;
-
     a = 2_l * 3_l;
-    a = 2_l * 3_l;
+    c = 5_l;
+    /% b = 2_l - a / c ; %/             /%ARREGLAR %/
     w = 4.5 + 3.3 + 4.2;
-    id_1 = 5.7;
 
-    id_2 = 3_l + 5.0;
-    float_negativo = -7.3;
-    longint_negativo = -715_l;
-    x = 2_l - -3_l;
+    float_negative = -7.3;
+    longint_negative = -715_l;
+    d = 2_l - -3_l;
 
-    PROC var (INT id_2, INT id_3) NA = 1_l , SHADOWING = TRUE
+    FLOAT p1,p2;
+    PROC procedure_1 () NA = 1_l , SHADOWING = TRUE
     {
-        aux = 2_l;
-        WHILE (id_1 <= 12.) LOOP
+        IF (a == b + 3_l)
+            c = c * 5_l;
+        END_IF;
+    }
+
+    PROC procedure_2 (FLOAT p1, FLOAT p2) NA = 1_l , SHADOWING = TRUE
+    {
+        FLOAT e;
+        e = 2.;
+        WHILE (p1 <= 12.) LOOP
         {
-            IF (id_1 !=12.)
+            e = e + 1.;
+            IF (e != p2)
                OUT ("cadena de caracteres");
             ELSE
-                id_1 = id_12 + 1_l;
+                float_negative = float_negative - 1.;
             END_IF;
         };
     };
 
-    var(id_2,id_3);
-
-    IF (id_3 == 2_l + 3_l)
-        id_2 = 4_l;
-    END_IF;
+    procedure_2(x,y);
 
 
 
 
-/% Errores Lexicos contemplados.%/
-    FLOATH x , y , z ;
-    x = 5;
-    x = 2222222222_l;
-    estavariabletienemuchoscaracteres = 22_l;
-
-    % & #       /% Caracteres invalidos.%/
-    
-
-/% Errores Sintacticos contemplados.%/
-
-    x = 2147483648_l;
-    y = ;
-    id_4 = 2 / 0;
-
-    PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1) NA = 3,SHADOWING = TRUE{
-        var1 = 5;
-    };
-    PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1){
-        var1 = 5;
-    };
-
-    IF (id_1 !=10_l)
-        id_1 = id_5 + 1;
-    ELSE
-        id_1 = id_6 + 1;
-    ;
-
-    WHILE (id_7 <= 10_l)
-    {
-        id_8 = id_9 + 1;
-    };
 
 $

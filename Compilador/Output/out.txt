@@ -1,131 +1,26 @@
-linea:5  Declaracion de variables
-linea:6  Declaracion de variables
 linea:7  Declaracion de variables
+linea:8  Declaracion de variables
 linea:9  Declaracion de variables
-linea:10  Asignacion
-linea:10  Coinciden los tipos
-linea:11  Asignacion
-linea:11  Coinciden los tipos
-linea:13  suma
-linea:13  Coinciden los tipos
+linea:11  Declaracion de variables
 linea:13  Asignacion
-linea:13  Coinciden los tipos
-linea:13  Coinciden los tipos
+linea:13  Error: No coinciden los tipos
 linea:14  Asignacion
-linea:14  Coinciden los tipos
-linea:14  Coinciden los tipos
-linea:15  Asignacion
-linea:15  Coinciden los tipos
+linea:14  Error: No coinciden los tipos
 linea:15  suma
-linea:15  Coinciden los tipos
-linea:16  suma
-linea:16  Coinciden los tipos
+linea:15  Error: No coinciden los tipos
+linea:15  Asignacion
+linea:15  Error: No coinciden los tipos
+linea:16  Error: No coinciden los tipos
 linea:16  Asignacion
-linea:16  Coinciden los tipos
-linea:18  Asignacion
-linea:18  Error: No coinciden los tipos
-linea:19  suma
-linea:19  Error: No coinciden los tipos
-linea:19  Asignacion
-linea:19  Error: No coinciden los tipos
+linea:16  Error: No coinciden los tipos
+linea:17  Asignacion
+linea:17  Error: No coinciden los tipos
+linea:18  Declaracion de variables
+linea:20  suma
+linea:20  Coinciden los tipos
+linea:20  Error: No coinciden los tipos
+linea:20  suma
+linea:20  Coinciden los tipos
 linea:20  Asignacion
 linea:20  Coinciden los tipos
-linea:21  Asignacion
-linea:21  Coinciden los tipos
-linea:23  resta
-linea:23  Coinciden los tipos
-linea:23  Asignacion
-linea:23  Error: No coinciden los tipos
-linea:23  lista_de_variables
-linea:26  Asignacion
-linea:26  Error: No coinciden los tipos
-linea:26  Condicion mayorIgual
-linea:26  Error: No coinciden los tipos
-linea:29  Condicion distinto
-linea:29  Error: No coinciden los tipos
-linea:30  Detecto sentencia OUT
-linea:32  suma
-linea:32  Error: No coinciden los tipos
-linea:32  Asignacion
-linea:32  Coinciden los tipos
-linea:32  Error: FALTA END_IF
-linea:32  Sentencia IF
-linea:33  sentencia if
-linea:33  Sentencia WHILE
-linea:34  sentencia while
-linea:36  Declaracion de procedimiento
-linea:38  invocacion procedimiento
-linea:39  suma
-linea:39  Coinciden los tipos
-linea:39  Condicion igual
-linea:39  Error: No coinciden los tipos
-linea:40  Asignacion
-linea:40  Error: No coinciden los tipos
-linea:40  Sentencia IF
-linea:45  sentencia if
-linea:46  Error Lexico: Palabra reservada mal escrita.
-linea:47  Error: Falta el tipo en la lista de variables
-linea:47  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:48  Asignacion
-linea:48  Error: No coinciden los tipos
-linea:48  Warning: variable LONGINT fuera de rango.
-linea:49  Asignacion
-linea:49  Error: No coinciden los tipos
-linea:49  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
-linea:51  Asignacion
-linea:51  Error: No coinciden los tipos
-linea:51  Error lexico, no se ha podido reconocer 37
-linea:51  Error lexico, no se ha podido reconocer 38
-linea:51  Error lexico, no se ha podido reconocer 35
-linea:56  Warning: variable LONGINT fuera de rango.
-linea:57  Asignacion
-linea:57  Error: No coinciden los tipos
-linea:58  Error: Asignacion vacia
-linea:58  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:58  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:58  Error: division por cero
-linea:58  Coinciden los tipos
-linea:60  Asignacion
-linea:60  Error: No coinciden los tipos
-linea:60  lista_de_variables
-linea:60  lista_de_variables
-linea:60  lista_de_variables
-linea:60  lista_de_variables
-linea:60  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:61  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:62  Asignacion
-linea:62  Error: No coinciden los tipos
-linea:62  Error: Se supero la cantidad maxima de parametros.
-linea:63  Declaracion de procedimiento
-linea:63  lista_de_variables
-linea:63  lista_de_variables
-linea:63  lista_de_variables
-linea:63  lista_de_variables
-linea:64  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:65  Asignacion
-linea:65  Error: No coinciden los tipos
-linea:65  Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING
-linea:67  Declaracion de procedimiento
-linea:68  Condicion distinto
-linea:68  Error: No coinciden los tipos
-linea:68  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:69  suma
-linea:69  Error: No coinciden los tipos
-linea:69  Asignacion
-linea:69  Coinciden los tipos
-linea:70  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:71  suma
-linea:71  Error: No coinciden los tipos
-linea:71  Asignacion
-linea:71  Coinciden los tipos
-linea:73  Sentencia IF
-linea:73  sentencia if
-linea:74  Condicion mayorIgual
-linea:74  Error: No coinciden los tipos
-linea:75  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:76  suma
-linea:76  Error: No coinciden los tipos
-linea:76  Asignacion
-linea:76  Coinciden los tipos
-linea:76  Error: FALTA 'LOOP' EN SENTENCIA WHILE
-linea:78  sentencia while
+linea:22  invocacion procedimiento

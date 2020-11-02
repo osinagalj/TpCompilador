@@ -12,6 +12,8 @@ void createIndexFile();
 /*-----------------------          Global variables          ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
 string path = "Compilador\\Testing\\program.txt";
+//string path = "Compilador\\Testing\\bug_test";
+//string path = "Compilador\\Testing\\bug_test_intermediate_code_generation";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
 Lexical_analyzer lexical_analyzer;
