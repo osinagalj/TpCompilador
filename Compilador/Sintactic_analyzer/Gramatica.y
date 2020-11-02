@@ -29,20 +29,29 @@ sentencia:
 
 declarativa:
 	      tipo lista_de_variables {Logger::write("Declaracion de variables");
-					chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena,$2.cadena);
-					//chekeosGeneracion::imprimirLista();
-	      				}
+						chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena);
+	      		      		}
 	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
 	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
+	    // | tipo lista_de_variables asignacion   vemos si se puede mejorar, preguntar al profe si tenemos que permitir esto
+	    // int id_3 = 5
 ;
 
+
 lista_de_variables:
-		     ID ',' lista_de_variables {$$=$3;} //string s = $1.cadena; chekeosGeneracion::agregarVariable(s);}
-		   | ID ';' {$$=$1; string s=$1.cadena; cout<< "imprimo $1" + s<<endl;}  //string s=$1.cadena; chekeosGeneracion::agregarVariable(s);} //el contenido del ID contiene basura en vez de la variable que nos pasa el yylex
+		     ID ',' lista_de_variables{ char * ambito = "Lista de variables";
+		     				chekeosGeneracion::addVariable($1.cadena);
+                                                 chekeosGeneracion::convertS2($1.cadena,ambito); }
+		   | ID ';' {	chekeosGeneracion::addVariable($1.cadena);
+		   		char * ambito = "Ultimo ID en lista de variables";
+                            	 chekeosGeneracion::convertS2($1.cadena,ambito); }
 ;
 
 ejecutable:
-	     ID '=' expresion ';'{Logger::write("Asignacion");  chekeosGeneracion::insertar_terceto("=",$3.cadena,$3.cadena);}
+	     ID '=' expresion ';'{Logger::write("Asignacion");
+	      			  chekeosGeneracion::insertar_terceto("=",$3.cadena,$3.cadena);
+				  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+	      			  }
 	   | ID '='  ';'{Logger::write("Error: Asignacion vacia");}
 	   | invocacion_proc {Logger::write("invocacion procedimiento");}
 	   | sentencia_while ';'{Logger::write("sentencia while");}
@@ -59,7 +68,7 @@ parametros:
 ;
 
 procedimiento:
-	 PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();}
+	 PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();   }
 	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID");}
 	|PROC ID '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");}
 	|PROC ID '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");}
@@ -76,7 +85,9 @@ lista_de_parametros:
 	 	       				       Sintactic_actions::number_of_parameters++;
 	 	       				       }
 		    | tipo ID {Sintactic_actions::number_of_parameters++;
-		    		}
+				 char * ambito = "id de lista de parametros";
+                                  chekeosGeneracion::convertS2($1.cadena,ambito); }
+
 ;
 
 sentencia_if:
@@ -100,12 +111,6 @@ cuerpo_else: bloque_sentencia
 ;
 
 
-
-
-
-
-
-
 sentencia_while:
 	 	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Sentencia WHILE");}
 	 	|'(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
@@ -113,6 +118,7 @@ sentencia_while:
 ;
 
 condicion:
+
 	   expresion EQUAL expresion {Logger::write("Condicion igual");}
 	  | expresion DIFFERENT  {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 	  | expresion DIFFERENT expresion {Logger::write("Condicion distinto");}
@@ -127,7 +133,10 @@ condicion:
 ;
 
 expresion:
-	   expresion '+' termino {Logger::write("suma");}
+	   expresion '+' termino {Logger::write("suma");
+	   			  //chekeosGeneracion::sumarOperandos(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+				  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+	   			}
 	  |expresion '-' termino {Logger::write("resta");}
 	  |termino
 
@@ -140,7 +149,8 @@ termino:
 ;
 
 factor:
-	 ID
+	 ID	{ char * ambito = "ambito id";
+	 chekeosGeneracion::convertS2($1.cadena,ambito); }
 	|FLOAT
 	|'-' FLOAT { Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 	|LONGINT { Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);}

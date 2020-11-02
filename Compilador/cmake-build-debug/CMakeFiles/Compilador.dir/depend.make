@@ -9,6 +9,10 @@ CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj
 CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../GeneracionDeCodigoIntermedio/TercetoAbs.h
 CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp
 CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../GeneracionDeCodigoIntermedio/chekeosGeneracion.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../Lexical_analyzer/Lexical_analyzer.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../Lexical_analyzer/Lexical_analyzer_header.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../Lexical_analyzer/Semantic_actions.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../Output/Logger.h
 CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../SymbolTable/Symbol_table.h
 
 CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.obj: ../Lexical_analyzer/Lexical_analyzer.cpp
