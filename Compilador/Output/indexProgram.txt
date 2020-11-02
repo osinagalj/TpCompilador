@@ -2,72 +2,78 @@
 2:      
 3:      /% Programa sin errores. %/
 4:      
-5:          LONGINT x , y , z , f , l;
-6:          FLOAT w;
-7:          LONGINT id_1,id_2,id_3,id_4,id_5,id_6,id_7,id_8,id_8,id_9,id_10,id_11,id_12;
-8:          LONGINT longint_negativo;
+5:          LONGINT a , b , c , d ;
+6:          FLOAT   x,y,z,w;
+7:          LONGINT longint_negativo;
+8:          FLOAT   float_negativo;
 9:      
-10:          x = 3_l;
-11:          y = 5.0f+3;
-12:          w =  3_l / 5.0f+3;
-13:          id_1 = 2_l * 3_l;
-14:          float_negativo = -7.3;
-15:          longint_negativo = -715_l;
-16:          x = 2_l - -3_l;
-17:      
-18:          PROC var (INT id_2, INT id_3) NA = 1_l , SHADOWING = TRUE
-19:          {
-20:              aux = 2_l;
-21:              WHILE (id_1 <= 12.) LOOP
-22:              {
-23:                  IF (id_1 !=12.)
-24:                     OUT ("cadena de caracteres");
-25:                  ELSE
-26:                      id_1 = id_12 + 1_l;
-27:                  END_IF;
-28:              };
-29:          };
-30:      
-31:          var(id_2,id_3);
-32:      
-33:          IF (id_3 == 2_l + 3_l)
-34:              id_2 = 4_l;
-35:          END_IF;
+10:          a = 3_l;
+11:          x = 5.0f+3;
+12:          w =  3.3 +  5.0f+3;
+13:      
+14:          id_1 = 2_l * 3_l;
+15:      
+16:          w = 4.5 + 3.3 + 4.2;
+17:          id_1 = 5.7;
+18:      
+19:          id_2 = 3_l + 5.0;
+20:          float_negativo = -7.3;
+21:          longint_negativo = -715_l;
+22:          x = 2_l - -3_l;
+23:      
+24:          PROC var (INT id_2, INT id_3) NA = 1_l , SHADOWING = TRUE
+25:          {
+26:              aux = 2_l;
+27:              WHILE (id_1 <= 12.) LOOP
+28:              {
+29:                  IF (id_1 !=12.)
+30:                     OUT ("cadena de caracteres");
+31:                  ELSE
+32:                      id_1 = id_12 + 1_l;
+33:                  END_IF;
+34:              };
+35:          };
 36:      
-37:      
+37:          var(id_2,id_3);
 38:      
-39:      
-40:      /% Errores Lexicos contemplados.%/
-41:          FLOATH x , y , z ;
-42:          x = 5;
-43:          x = 2222222222_l;
-44:          estavariabletienemuchoscaracteres = 22_l;
+39:          IF (id_3 == 2_l + 3_l)
+40:              id_2 = 4_l;
+41:          END_IF;
+42:      
+43:      
+44:      
 45:      
-46:          % & #       /% Caracteres invalidos.%/
-47:          
-48:      
-49:      /% Errores Sintacticos contemplados.%/
-50:      
-51:          x = 2147483648_l;
-52:          y = ;
-53:          id_4 = 2 / 0;
+46:      /% Errores Lexicos contemplados.%/
+47:          FLOATH x , y , z ;
+48:          x = 5;
+49:          x = 2222222222_l;
+50:          estavariabletienemuchoscaracteres = 22_l;
+51:      
+52:          % & #       /% Caracteres invalidos.%/
+53:          
 54:      
-55:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1) NA = 3,SHADOWING = TRUE{
-56:              var1 = 5;
-57:          };
-58:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1){
-59:              var1 = 5;
-60:          };
-61:      
-62:          IF (id_1 !=10_l)
-63:              id_1 = id_5 + 1;
-64:          ELSE
-65:              id_1 = id_6 + 1;
-66:          ;
+55:      /% Errores Sintacticos contemplados.%/
+56:      
+57:          x = 2147483648_l;
+58:          y = ;
+59:          id_4 = 2 / 0;
+60:      
+61:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1) NA = 3,SHADOWING = TRUE{
+62:              var1 = 5;
+63:          };
+64:          PROC procedimiento(FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1,FLOAT var1){
+65:              var1 = 5;
+66:          };
 67:      
-68:          WHILE (id_7 <= 10_l)
-69:          {
-70:              id_8 = id_9 + 1;
-71:          };
-72:      
-73:      $
+68:          IF (id_1 !=10_l)
+69:              id_1 = id_5 + 1;
+70:          ELSE
+71:              id_1 = id_6 + 1;
+72:          ;
+73:      
+74:          WHILE (id_7 <= 10_l)
+75:          {
+76:              id_8 = id_9 + 1;
+77:          };
+78:      
+79:      $

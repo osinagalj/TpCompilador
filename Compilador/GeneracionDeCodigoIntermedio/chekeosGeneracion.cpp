@@ -87,13 +87,40 @@ void chekeosGeneracion::imprimirLista() {
 }
 
 
+#include "../Output/Logger.h"
 
-void chekeosGeneracion::checkearTipo(Symbol_table * tablita,char * op,char * op2){
+bool chekeosGeneracion::checkearTipo(Symbol_table * tablita,char * key,char * key2){
 
-
+    if(tablita->getRegistry(convertToString(key)).Tipo == tablita->getRegistry(convertToString(key2)).Tipo){
+        Logger::write("Coinciden los tipos");
+        return true;
+    }
     //Si falla el checkeo
+    Logger::write("Error: No coinciden los tipos");
     falloEnCompilacion = true;
+    return false;
+
 }
+#include <stdio.h>
+#include <string.h>
+//Aca quiero sumar las variables para guardar en $$.cadena el resultado, asi vamos llegvando los resultados
+char* chekeosGeneracion::asignarTipo(Symbol_table * symbolTable,char* op, char* op2){
+//tipo
+    cout<<"Sumando operandos"<<endl;
+    if(checkearTipo(symbolTable,op,op2)){
+        cout<<"Suma del mismo tipo"<<endl;
+        return op;
+        /*
+        string tipo = symbolTable->getRegistry(convertToString(op)).Tipo;
+        char *cstr = new char[tipo.length() + 1];
+        strcpy(cstr, tipo.c_str());
+         */
+        //return cstr;
+
+    }
+    return op;
+}
+
 
 
 /*

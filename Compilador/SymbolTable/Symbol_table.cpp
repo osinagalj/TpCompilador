@@ -33,7 +33,6 @@ Symbol_table::Registry Symbol_table::removeSymbol(string key)
     reg.Tipo = symbol_table.find(key)->second.Tipo;
     this->symbol_table.erase(key); //elimino el viejo
 
-
     return reg;
 }
 
@@ -54,4 +53,7 @@ void Symbol_table::addType(string type, string key){
     r.Tipo = type;
     symbol_table.insert({key, r});
 
+}
+Symbol_table::Registry Symbol_table::getRegistry(string key){
+    return symbol_table.find(key)->second;
 }
