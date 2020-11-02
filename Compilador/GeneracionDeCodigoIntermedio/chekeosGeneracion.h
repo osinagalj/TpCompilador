@@ -9,6 +9,7 @@
 #include "../SymbolTable/Symbol_table.h"
 #include "Terceto.h"
 #include <list>
+
 using namespace std;
 
 class chekeosGeneracion {
@@ -19,7 +20,7 @@ class chekeosGeneracion {
         static void crear_asignacion(Symbol_table * table, char * op,char * ,char * key);
         static void crear_asignacion2(Symbol_table * tablita, char * op,char * ,char * key);
         static void asignar_tipo(Symbol_table * tablita,char * tipo);
-        static void checkearTipo(Symbol_table * tablita,char * op,char * op2);
+        static bool checkearTipo(Symbol_table * tablita,char * op,char * op2);
         //que acciones tnemos que tener y en donde las llamamos en la gramatica
         static string convertS(char * tipo);
         static void convertS2(char * tipo,char * texto);
@@ -28,6 +29,8 @@ class chekeosGeneracion {
         //get lista de tercetos
         static void addVariable(char * variable);
         static string convertToString(char * tipo);
+        static char* asignarTipo(Symbol_table * symbolTable,char* op, char* op2);
+
 
         static void imprimirLista();
         static list<string> list_variables;

@@ -86,7 +86,7 @@ int yylex()
 {
     Lexical_analyzer::Token current_token = lexical_analyzer.getToken(path);                //cout << "----------------Token encontrado: " + current_token.pointerST + "    ID: " + to_string(current_token.id) << endl;
     string str = current_token.pointerST;       //yylval.cadena= &current_token.pointerST[0];
-
+    cout<<"token = " <<str<<endl;
     char *cstr = new char[str.length() + 1];
     strcpy(cstr, str.c_str());
     yylval.cadena = cstr;

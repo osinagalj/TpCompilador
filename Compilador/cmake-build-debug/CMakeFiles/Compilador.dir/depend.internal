@@ -10,6 +10,10 @@ CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/TercetoAbs.h
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h
+ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
+ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer_header.h
+ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
+ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.obj
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.cpp

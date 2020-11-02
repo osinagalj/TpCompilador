@@ -26,8 +26,8 @@ class Symbol_table {
 
             };
 
-            string getType(string op,string op2);
 
+            Registry getRegistry(string key);
             void addType(string type,string key);
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);

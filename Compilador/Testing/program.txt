@@ -2,15 +2,21 @@
 
 /% Programa sin errores. %/
 
-    LONGINT x , y , z , f , l;
-    FLOAT w;
-    LONGINT id_1,id_2,id_3,id_4,id_5,id_6,id_7,id_8,id_8,id_9,id_10,id_11,id_12;
+    LONGINT a , b , c , d ;
+    FLOAT   x,y,z,w;
     LONGINT longint_negativo;
+    FLOAT   float_negativo;
 
-    x = 3_l;
-    y = 5.0f+3;
-    w =  3_l / 5.0f+3;
-    id_1 = 2_l * 3_l;
+    a = 3_l;
+    x = 5.0f+3;
+    w =  3.3 +  5.0f+3;
+
+    a = 2_l * 3_l;
+    a = 2_l * 3_l;
+    w = 4.5 + 3.3 + 4.2;
+    id_1 = 5.7;
+
+    id_2 = 3_l + 5.0;
     float_negativo = -7.3;
     longint_negativo = -715_l;
     x = 2_l - -3_l;
