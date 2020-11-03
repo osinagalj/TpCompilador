@@ -1,44 +1,53 @@
-1:      
-2:                                                      /% Group 2 %/
-3:      
-4:                                 /% ------------- Program with errors.  ------------------- %/
-5:                               /% ------------- Intermediate Code Generation  ------------------- %/
-6:      
-7:          LONGINT a , b , c , d ;
-8:          FLOAT   x,y,z,w;
-9:          LONGINT longint_negative;
-10:          FLOAT   float_negative;
-11:      
-12:      /% ------------- Incompatibilidad de tipos  ------------------- %/
-13:      
-14:          a = 3.;                                                     /% Se asigna un Float a una variable LONGINT %/
-15:          x = 5_l;                                                    /% Se asigna un LONGINT a una variable Float %/
-16:          w =  3_l +  5.0f+3;                                         /% Suma de distintos tipos %/
-17:          c = 3. * 3_l;                                               /% Multiplicacion de distintos tipos %/
-18:          b = variable_no_definida;                                   /% Asignacion a una variable indefinida %/
-19:          LONGINT d;                                                  /% Redeclaracion de variable d %/
-20:      
-21:          w = 4.5 + 3.3 + 4. / 3_l;                                   /% Multiples operaciones dentro de una expresion  %/
-22:      
-23:          procedure_0(x);                                             /% Procedimiento no declarado %/
-24:      
-25:          PROC procedure_1 () NA = 3_l , SHADOWING = TRUE
-26:          {
-27:              FLOAT f, k;
-28:              LONGINT d;                                              /% No es error, se permiten redeclaraciones en distinto ambito %/
-29:              PROC procedure_1_1 () NA = 3_l , SHADOWING = TRUE{
-30:                  f = a + 5.;
-31:                  FLOAT k;                                            /% SHADOWING = TRUE no admite declarar una variable con el mismo nombre en los ámbitos anidados%/
-32:              }
-33:              procedure_1_1();
-34:          }
-35:      
-36:          z = f;                                                      /% Variable 'f' no esta al alcance %/
-37:          procedure_1_1();                                            /% Procedimiento no se encuentra al alcance %/
-38:      
-39:          PROC procedure_1 () NA = 3_l , SHADOWING = FALSE             /% Redeclaracion de procedimiento  %/
-40:          {
-41:              c = 3. * 3_l;
-42:          }
-43:      
-44:      $
+1:                                                      /% Group 2 %/
+2:      
+3:                                 /% ------------- Program without errors.  ------------------- %/
+4:      
+5:          LONGINT a , b , c , d ;
+6:          FLOAT   x,y,z,w;
+7:          LONGINT longint_negative;
+8:          FLOAT   float_negative;
+9:      
+10:          a = 3_l;
+11:          x = 5.0f+3;
+12:          w =  3.3 +  5.0f+3;
+13:          a = 2_l * 3_l;
+14:          c = 5_l;
+15:          /% b = 2_l - a / c ; %/             /%ARREGLAR %/
+16:          w = 4.5 + 3.3 + 4.2;
+17:      
+18:          float_negative = -7.3;
+19:          longint_negative = -715_l;
+20:          d = 2_l - -3_l;
+21:      
+22:          FLOAT p1,p2;
+23:          PROC procedure_1 (FLOAT p1) NA = 1_l , SHADOWING = TRUE
+24:          {
+25:                  IF (e != p2)
+26:                     OUT ("cadena de caracteres");
+27:                  ELSE
+28:                      float_negative = float_negative - 1.;
+29:                  END_IF;
+30:          };
+31:      
+32:          PROC procedure_2 (FLOAT p1, FLOAT p2) NA = 1_l , SHADOWING = TRUE
+33:          {
+34:              FLOAT e;
+35:              e = 2.;
+36:              WHILE (p1 <= 12.) LOOP
+37:              {
+38:                  e = e + 1.;
+39:                  IF (e != p2)
+40:                     OUT ("cadena de caracteres");
+41:                  ELSE
+42:                      float_negative = float_negative - 1.;
+43:                  END_IF;
+44:              };
+45:          };
+46:      
+47:          procedure_2(x,y);
+48:      
+49:      
+50:      
+51:      
+52:      
+53:      $
