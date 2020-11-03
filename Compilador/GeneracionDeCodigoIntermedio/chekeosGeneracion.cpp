@@ -55,7 +55,7 @@ string chekeosGeneracion::convertToString(char * variable){
 void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
     list<string>::iterator pos = list_variables.begin();
     while (pos != list_variables.end()){
-        tablita->addType(tipo,*pos);
+        tablita->addType(tipo,*pos,ambito_actual);
         cout << *pos + ", ";
         pos++;
     }
@@ -120,6 +120,37 @@ char* chekeosGeneracion::asignarTipo(Symbol_table * symbolTable,char* op, char* 
     }
     return op;
 }
+
+
+/*
+ Lauta
+ **/
+void chekeosGeneracion::concatenarAmbito(char * ambito){
+    ambito_actual = ambito_actual + "." + convertToString(ambito);
+    string a = "main.a.b.c";
+    a = a + "." + ambito;
+    cout<<"ambito =" << a <<endl;
+}
+void chekeosGeneracion::eliminarUltimoAmbito(){
+    string a = "main.a.b.c.kaka";
+    unsigned pos = a.size();
+    bool find = false;
+    while(pos != 0 && !find){
+        if(a[pos] == '.'){
+            find = true;
+        }else{
+            pos--;
+        }
+
+    }
+    string str3 = a.substr (0,pos);
+    cout<<"ambito quitar =" << str3 <<endl;
+}
+
+
+
+
+
 
 
 

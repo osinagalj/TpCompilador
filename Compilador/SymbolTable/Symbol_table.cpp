@@ -42,18 +42,19 @@ void Symbol_table::printTable()
     cout<<"--------------------------IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
     for (map<string,Registry>::iterator it=symbol_table.begin(); it!=symbol_table.end(); ++it)
     {
-        cout << "Clave: " + it->first << " , Token_id: " << it->second.id << " Tipo: " << it->second.Tipo <<'\n';
+        cout << "Clave: " + it->first << " | ambito = " + it->second.ambito << " |Token_id: " << it->second.id << " |Tipo: " << it->second.Tipo <<'\n';
     }
 }
 
-void Symbol_table::addType(string type, string key){
+void Symbol_table::addType(string type, string key,string ambit){
 
     Symbol_table::Registry  r = removeSymbol(key);
 
+    r.ambito = ambit;
     r.Tipo = type;
     symbol_table.insert({key, r});
-
 }
+
 Symbol_table::Registry Symbol_table::getRegistry(string key){
     return symbol_table.find(key)->second;
 }

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compiler_G-2.exe"
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compiler_G-2.exe.manifest"
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compiler_G-2.pdb"
+  "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe"
+  "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe.manifest"
+  "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.pdb"
   "CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj"
   "CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj"
   "CMakeFiles/Compilador.dir/Lexical_analyzer/Lexical_analyzer.cpp.obj"

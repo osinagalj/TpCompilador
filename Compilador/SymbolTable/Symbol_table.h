@@ -20,15 +20,19 @@ class Symbol_table {
                 int id;
                 //En un futuro agregar el tipo
                 string Tipo = "no-type";
+                string ambito = "";
                 Uso Uso;
                 //otros:
                 Pasaje forma_de_pasaje;
 
             };
 
+            //Lauta ambito//
+
+            //end lauta ambito
 
             Registry getRegistry(string key);
-            void addType(string type,string key);
+            void addType(string type,string key,string ambit);
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);
             void printTable();

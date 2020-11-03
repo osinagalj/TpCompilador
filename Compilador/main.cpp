@@ -12,6 +12,8 @@ void createIndexFile();
 /*-----------------------          Global variables          ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
 string path = "Compilador\\Testing\\program.txt";
+//string path = "Compilador\\Testing\\bug_test";
+//string path = "Compilador\\Testing\\bug_test_intermediate_code_generation";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
 Lexical_analyzer lexical_analyzer;
@@ -21,6 +23,10 @@ bool chekeosGeneracion::falloEnCompilacion = false;
 list<string> chekeosGeneracion::list_variables;
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;
+
+//lauta
+string chekeosGeneracion::ambito_actual = "main";
+int chekeosGeneracion::ambitoAnonimo = 1;
 
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
