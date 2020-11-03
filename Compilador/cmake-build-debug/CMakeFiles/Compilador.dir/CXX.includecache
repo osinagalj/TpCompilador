@@ -14,6 +14,18 @@ iostream
 
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/TercetoAbs.h
 
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp
+chekeosGeneracion.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h
+../SymbolTable/Symbol_table.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
+../Output/Logger.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
+stdio.h
+-
+string.h
+-
+
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h
 map
 -

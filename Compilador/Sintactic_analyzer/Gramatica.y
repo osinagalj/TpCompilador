@@ -68,7 +68,7 @@ parametros:
 ;
 
 procedimiento:
-	 PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();   }
+	 PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();  chekeosGeneracion::concatenarAmbito($2.cadena);  }
 	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID");}
 	|PROC ID '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");}
 	|PROC ID '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");}
@@ -83,6 +83,7 @@ true_false:
 lista_de_parametros:
 	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables");
 	 	       				       Sintactic_actions::number_of_parameters++;
+
 	 	       				       }
 		    | tipo ID {Sintactic_actions::number_of_parameters++;
 				 char * ambito = "id de lista de parametros";

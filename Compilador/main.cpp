@@ -24,6 +24,10 @@ list<string> chekeosGeneracion::list_variables;
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 
+//lauta
+string chekeosGeneracion::ambito_actual = "main";
+int chekeosGeneracion::ambitoAnonimo = 1;
+
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/

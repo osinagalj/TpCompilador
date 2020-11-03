@@ -29,7 +29,7 @@
         PROC procedure_1_1 () NA = 3_l , SHADOWING = TRUE{
             f = a + 5.;
             FLOAT k;                                            /% SHADOWING = TRUE no admite declarar una variable con el mismo nombre en los ámbitos anidados%/
-        }
+        };
         procedure_1_1();
     }
 
@@ -39,6 +39,6 @@
     PROC procedure_1 () NA = 3_l , SHADOWING = FALSE             /% Redeclaracion de procedimiento  %/
     {
         c = 3. * 3_l;
-    }
+    };
 
 $
