@@ -1,67 +1,75 @@
-linea:5  Declaracion de variables
 linea:6  Declaracion de variables
 linea:7  Declaracion de variables
-linea:9  Declaracion de variables
-linea:10  Asignacion
-linea:10  Coinciden los tipos
+linea:8  Declaracion de variables
+linea:10  Declaracion de variables
 linea:11  Asignacion
 linea:11  Coinciden los tipos
-linea:12  suma
-linea:12  Coinciden los tipos
 linea:12  Asignacion
 linea:12  Coinciden los tipos
-linea:12  Coinciden los tipos
+linea:13  suma
+linea:13  Coinciden los tipos
 linea:13  Asignacion
+linea:13  Coinciden los tipos
 linea:13  Coinciden los tipos
 linea:14  Asignacion
 linea:14  Coinciden los tipos
-linea:15  suma
+linea:15  Asignacion
 linea:15  Coinciden los tipos
-linea:17  suma
-linea:17  Coinciden los tipos
-linea:17  Asignacion
-linea:17  Coinciden los tipos
+linea:16  suma
+linea:16  Coinciden los tipos
+linea:18  suma
+linea:18  Coinciden los tipos
 linea:18  Asignacion
 linea:18  Coinciden los tipos
 linea:19  Asignacion
 linea:19  Coinciden los tipos
-linea:21  resta
-linea:21  Coinciden los tipos
-linea:21  Asignacion
-linea:21  Coinciden los tipos
-linea:22  Declaracion de variables
-linea:25  Condicion distinto
-linea:25  Error: No coinciden los tipos
-linea:26  Detecto sentencia OUT
-linea:28  resta
-linea:28  Coinciden los tipos
-linea:28  Asignacion
-linea:28  Coinciden los tipos
-linea:28  Error: FALTA END_IF
-linea:28  Sentencia IF
-linea:29  sentencia if
-linea:31  Declaracion de procedimiento
-linea:31  lista_de_variables
-linea:34  Declaracion de variables
-linea:35  Asignacion
-linea:35  Coinciden los tipos
-linea:35  Condicion mayorIgual
-linea:35  Coinciden los tipos
-linea:38  suma
-linea:38  Coinciden los tipos
-linea:38  Asignacion
-linea:38  Coinciden los tipos
-linea:39  Condicion distinto
-linea:39  Coinciden los tipos
-linea:40  Detecto sentencia OUT
-linea:42  resta
-linea:42  Coinciden los tipos
-linea:42  Asignacion
-linea:42  Coinciden los tipos
-linea:42  Error: FALTA END_IF
-linea:42  Sentencia IF
-linea:43  sentencia if
-linea:43  Sentencia WHILE
-linea:44  sentencia while
-linea:46  Declaracion de procedimiento
-linea:52  invocacion procedimiento
+linea:20  Asignacion
+linea:20  Coinciden los tipos
+linea:22  resta
+linea:22  Coinciden los tipos
+linea:22  Asignacion
+linea:22  Coinciden los tipos
+linea:23  Declaracion de variables
+linea:25  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
+linea:26  Declaracion de variables
+linea:27  Condicion distinto
+linea:27  Error: No coinciden los tipos
+linea:29  Declaracion de variables
+linea:30  Detecto sentencia OUT
+linea:32  resta
+linea:32  Coinciden los tipos
+linea:32  Asignacion
+linea:32  Coinciden los tipos
+linea:32  Error: FALTA END_IF
+linea:32  Sentencia IF
+linea:34  sentencia if
+linea:38  Declaracion de variables
+linea:41  Declaracion de variables
+linea:42  Declaracion de procedimiento
+linea:43  Declaracion de procedimiento
+linea:45  Declaracion de procedimiento
+linea:45  lista_de_variables
+linea:48  Declaracion de variables
+linea:49  Asignacion
+linea:49  Coinciden los tipos
+linea:49  Condicion mayorIgual
+linea:49  Coinciden los tipos
+linea:52  suma
+linea:52  Coinciden los tipos
+linea:52  Asignacion
+linea:52  Coinciden los tipos
+linea:53  Condicion distinto
+linea:53  Coinciden los tipos
+linea:54  Declaracion de variables
+linea:55  Detecto sentencia OUT
+linea:57  resta
+linea:57  Coinciden los tipos
+linea:57  Asignacion
+linea:57  Coinciden los tipos
+linea:57  Error: FALTA END_IF
+linea:57  Sentencia IF
+linea:58  sentencia if
+linea:58  Sentencia WHILE
+linea:59  sentencia while
+linea:61  Declaracion de procedimiento
+linea:67  invocacion procedimiento
