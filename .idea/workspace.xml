@@ -33,6 +33,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="934474d4-89c3-413a-9030-442176c7b2ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Compilador/Testing/test_program" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h" afterDir="false" />
@@ -52,6 +53,8 @@
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compiler_G-2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler_G-2.exe" afterDir="false" />
     </list>
@@ -94,11 +97,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.Compilador">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Compi" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Compilador/CMakeLists.txt" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -181,7 +179,8 @@
       <workItem from="1604239834143" duration="4772000" />
       <workItem from="1604250539550" duration="322000" />
       <workItem from="1604329597791" duration="12960000" />
-      <workItem from="1604352169016" duration="9540000" />
+      <workItem from="1604352169016" duration="19052000" />
+      <workItem from="1604450720968" duration="6629000" />
     </task>
     <servers />
   </component>
@@ -209,10 +208,10 @@
     </state>
     <state x="295" y="123" width="777" height="574" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1600542311211" />
     <state x="414" y="175" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599781350208" />
-    <state x="451" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604353499783">
+    <state x="451" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604456395950">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="451" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604353499783" />
+    <state x="451" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604456395950" />
     <state x="634" y="237" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1600815565940" />
     <state x="463" y="115" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1600542304327">
       <screen x="0" y="0" width="1366" height="728" />
@@ -227,28 +226,28 @@
     </state>
     <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604163760531" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599781497567" />
-    <state width="1323" height="164" key="GridCell.Tab.0.bottom" timestamp="1604362971810">
+    <state width="1323" height="539" key="GridCell.Tab.0.bottom" timestamp="1604460267589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604362971810" />
+    <state width="1323" height="539" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604460267589" />
     <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1602027446760" />
     <state width="1877" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602030124117" />
-    <state width="1323" height="164" key="GridCell.Tab.0.center" timestamp="1604362971810">
+    <state width="1323" height="539" key="GridCell.Tab.0.center" timestamp="1604460267589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604362971810" />
+    <state width="1323" height="539" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604460267589" />
     <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1602027446759" />
     <state width="1877" height="291" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602030124117" />
-    <state width="1323" height="164" key="GridCell.Tab.0.left" timestamp="1604362971809">
+    <state width="1323" height="539" key="GridCell.Tab.0.left" timestamp="1604460267589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604362971809" />
+    <state width="1323" height="539" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604460267589" />
     <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1602027446759" />
     <state width="1877" height="291" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602030124116" />
-    <state width="1323" height="164" key="GridCell.Tab.0.right" timestamp="1604362971810">
+    <state width="1323" height="539" key="GridCell.Tab.0.right" timestamp="1604460267589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604362971810" />
+    <state width="1323" height="539" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604460267589" />
     <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1602027446760" />
     <state width="1877" height="291" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602030124117" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1604249153981">
@@ -290,10 +289,10 @@
     </state>
     <state x="438" y="168" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1604333038371" />
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600967679534" />
-    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1604010695518">
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1604455843507">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604010695518" />
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604455843507" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601835496257" />
   </component>
 </project>

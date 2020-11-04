@@ -31,7 +31,7 @@ declarativa:
 	      tipo lista_de_variables {Logger::write("Declaracion de variables");
 						chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena);
 	      		      		}
-	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
+	    | procedimiento ';'{Logger::write("Declaracion de procedimiento"); }
 	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
 	    // | tipo lista_de_variables asignacion   vemos si se puede mejorar, preguntar al profe si tenemos que permitir esto
 	    // int id_3 = 5
@@ -41,10 +41,12 @@ declarativa:
 lista_de_variables:
 		     ID ',' lista_de_variables{ char * ambito = "Lista de variables";
 		     				chekeosGeneracion::addVariable($1.cadena);
-                                                 chekeosGeneracion::convertS2($1.cadena,ambito); }
+                                                 chekeosGeneracion::convertS2($1.cadena,ambito);
+                                                  }
 		   | ID ';' {	chekeosGeneracion::addVariable($1.cadena);
 		   		char * ambito = "Ultimo ID en lista de variables";
-                            	 chekeosGeneracion::convertS2($1.cadena,ambito); }
+                            	 chekeosGeneracion::convertS2($1.cadena,ambito);
+                            }
 ;
 
 ejecutable:
@@ -54,8 +56,8 @@ ejecutable:
 	      			  }
 	   | ID '='  ';'{Logger::write("Error: Asignacion vacia");}
 	   | invocacion_proc {Logger::write("invocacion procedimiento");}
-	   | sentencia_while ';'{Logger::write("sentencia while");}
-	   | sentencia_if ';'{Logger::write("sentencia if");}
+	   | sentencia_while ';'{Logger::write("sentencia while"); chekeosGeneracion::desconcatenarAmbitoAnonimo();}
+	   | sentencia_if ';'{Logger::write("sentencia if");  chekeosGeneracion::desconcatenarAmbitoAnonimo();}
 ;
 
 invocacion_proc:
@@ -66,13 +68,18 @@ parametros:
 	 parametros ',' ID
 	|ID
 ;
+nombre_proc: PROC ID {chekeosGeneracion::concatenarAmbito($2.cadena);}
+
+;
 
 procedimiento:
-	 PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();  chekeosGeneracion::concatenarAmbito($2.cadena);  }
-	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID");}
-	|PROC ID '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");}
-	|PROC ID '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");}
-	|PROC ID '(' lista_de_parametros ')' '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");}
+	 nombre_proc '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();
+	 											chekeosGeneracion::eliminarUltimoAmbito();
+	 											  }
+	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID"); chekeosGeneracion::eliminarUltimoAmbito();}
+	|nombre_proc '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA"); chekeosGeneracion::eliminarUltimoAmbito();}
+	|nombre_proc '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING"); chekeosGeneracion::eliminarUltimoAmbito();}
+	|nombre_proc '(' lista_de_parametros ')' '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING"); chekeosGeneracion::eliminarUltimoAmbito();}
 ;
 
 true_false:
@@ -87,18 +94,22 @@ lista_de_parametros:
 	 	       				       }
 		    | tipo ID {Sintactic_actions::number_of_parameters++;
 				 char * ambito = "id de lista de parametros";
-                                  chekeosGeneracion::convertS2($1.cadena,ambito); }
+                                  chekeosGeneracion::convertS2($1.cadena,ambito);
+
+                                  }
 
 ;
-
+encabezado_if: IF '(' condicion ')' {chekeosGeneracion::concatenarAmbitoAnonimo("IF");}
+;
 sentencia_if:
-	       IF '(' condicion ')' cuerpo_if {Logger::write("Sentencia IF");}
-	     | '(' condicion ')' bloque_sentencia END_IF {Logger::write("Error: FALTA EL IF");}
+	       encabezado_if cuerpo_if {Logger::write("Sentencia IF");
+	       				}
+	     | '(' condicion ')' cuerpo_if  {Logger::write("Error: FALTA EL IF");}
 	     //averiguar el tema del error, por ejemplo si falta la condicion
 ;
 
 cuerpo_if :    cuerpo_then END_IF
-             | cuerpo_then  {Logger::write("Error: FALTA END_IF");}
+             | cuerpo_then  {Logger::write("Error: FALTA END_IF");  }
              | cuerpo_then ELSE cuerpo_else END_IF {Logger::write("Error: FALTA END_IF");}
              | cuerpo_then ELSE cuerpo_else
              | ELSE cuerpo_else END_IF
@@ -112,10 +123,13 @@ cuerpo_else: bloque_sentencia
 ;
 
 
+encabezado_while: WHILE {chekeosGeneracion::concatenarAmbitoAnonimo("WHILE");}
+;
+
 sentencia_while:
-	 	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Sentencia WHILE");}
+	 	 encabezado_while '(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Sentencia WHILE");}
 	 	|'(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
-	 	| WHILE '(' condicion ')' '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
+	 	| encabezado_while '(' condicion ')' '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
 ;
 
 condicion:

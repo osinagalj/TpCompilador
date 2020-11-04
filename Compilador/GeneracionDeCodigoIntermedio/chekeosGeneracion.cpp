@@ -52,6 +52,7 @@ string chekeosGeneracion::convertToString(char * variable){
     return string_key;
 }
 
+//Asiga el tipo a toda la lista de variables
 void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
     list<string>::iterator pos = list_variables.begin();
     while (pos != list_variables.end()){
@@ -62,9 +63,8 @@ void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
     //Reiniciamos la lista
     list<string> list_variable_aux;
     list_variables = list_variable_aux;
-
-
 }
+
 void chekeosGeneracion::addVariable(char * variable){
 
     list_variables.push_back(convertToString(variable));
@@ -73,11 +73,7 @@ void chekeosGeneracion::addVariable(char * variable){
     cout<<endl;
 
 }
-/*
-void chekeosGeneracion::agregarVariable(string aux) {
-    list_variables.push_front(aux);
-}
- */
+
 void chekeosGeneracion::imprimirLista() {
     list<string>::iterator pos = list_variables.begin();
     while (pos != list_variables.end()){
@@ -110,12 +106,6 @@ char* chekeosGeneracion::asignarTipo(Symbol_table * symbolTable,char* op, char* 
     if(checkearTipo(symbolTable,op,op2)){
         cout<<"Suma del mismo tipo"<<endl;
         return op;
-        /*
-        string tipo = symbolTable->getRegistry(convertToString(op)).Tipo;
-        char *cstr = new char[tipo.length() + 1];
-        strcpy(cstr, tipo.c_str());
-         */
-        //return cstr;
 
     }
     return op;
@@ -125,26 +115,34 @@ char* chekeosGeneracion::asignarTipo(Symbol_table * symbolTable,char* op, char* 
 /*
  Lauta
  **/
-void chekeosGeneracion::concatenarAmbito(char * ambito){
-    ambito_actual = ambito_actual + "." + convertToString(ambito);
-    string a = "main.a.b.c";
-    a = a + "." + ambito;
-    cout<<"ambito =" << a <<endl;
+
+void chekeosGeneracion::concatenarAmbito(char * ambito)
+{
+    ambito_actual = ambito_actual + ":" + convertToString(ambito);
 }
-void chekeosGeneracion::eliminarUltimoAmbito(){
-    string a = "main.a.b.c.kaka";
-    unsigned pos = a.size();
+
+
+void chekeosGeneracion::eliminarUltimoAmbito()
+{
+    unsigned pos = ambito_actual.size();
     bool find = false;
     while(pos != 0 && !find){
-        if(a[pos] == '.'){
+        if(ambito_actual[pos] == ':'){
             find = true;
         }else{
             pos--;
         }
-
     }
-    string str3 = a.substr (0,pos);
-    cout<<"ambito quitar =" << str3 <<endl;
+    ambito_actual = ambito_actual.substr (0,pos);
+}
+
+void chekeosGeneracion::concatenarAmbitoAnonimo(string ambit) {
+    ambito_actual = ambito_actual + ":" + ambit + "_" + to_string(ambitoAnonimo);
+    ambitoAnonimo++;
+}
+void chekeosGeneracion::desconcatenarAmbitoAnonimo() {
+    eliminarUltimoAmbito();
+    ambitoAnonimo--;
 }
 
 
@@ -152,7 +150,32 @@ void chekeosGeneracion::eliminarUltimoAmbito(){
 
 
 
+/*
+    FLOAT variable1;                                // variable1.main
 
+    PROC aa ()
+    {
+        FLOAT variable2;                            //variable2.main.aa
+        PROC bb (){
+            FLOAT variable3;                        //variable3.main.aa.bb
+
+        };
+        PROC ee (){
+            FLOAT variable3;
+        };
+    }
+
+    PROC dd (){
+        FLOAT variable5;                            //variable2.main.dd
+
+    }
+//Osea como diferencio si un proc es hermano de otro, o es padre?
+
+ Pasos-
+    - Detecto variable4;
+    - Concateno variable:main:1
+    -
+ * */
 
 /*
  9. ...

@@ -49,7 +49,6 @@ void Symbol_table::printTable()
 void Symbol_table::addType(string type, string key,string ambit){
 
     Symbol_table::Registry  r = removeSymbol(key);
-
     r.ambito = ambit;
     r.Tipo = type;
     symbol_table.insert({key, r});

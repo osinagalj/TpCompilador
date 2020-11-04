@@ -27,6 +27,7 @@ Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 //lauta
 string chekeosGeneracion::ambito_actual = "main";
 int chekeosGeneracion::ambitoAnonimo = 1;
+list<string> chekeosGeneracion::list_variables_ambito;
 
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
