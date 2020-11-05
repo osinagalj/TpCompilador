@@ -63,7 +63,27 @@ void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
     //Reiniciamos la lista
     list<string> list_variable_aux;
     list_variables = list_variable_aux;
+
 }
+
+
+void chekeosGeneracion::imprimirLista() {
+    list<string>::iterator pos = list_variables.begin();
+    while (pos != list_variables.end()){
+        cout << *pos + ", ";
+        pos++;
+    }
+}
+
+/*
+void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
+    list<string>::iterator pos = list_variables.begin();
+while (pos != list_variables.end()){
+tablita->addType(tipo,*pos,ambito_actual);
+cout << *pos + ", ";
+pos++;
+}*/
+
 
 void chekeosGeneracion::addVariable(char * variable){
 
@@ -74,13 +94,7 @@ void chekeosGeneracion::addVariable(char * variable){
 
 }
 
-void chekeosGeneracion::imprimirLista() {
-    list<string>::iterator pos = list_variables.begin();
-    while (pos != list_variables.end()){
-        cout << *pos + ", ";
-        pos++;
-    }
-}
+
 
 
 #include "../Output/Logger.h"
