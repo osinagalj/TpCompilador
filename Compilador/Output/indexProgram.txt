@@ -13,7 +13,7 @@
 13:          w =  3.3 +  5.0f+3;
 14:          a = 2_l * 3_l;
 15:          c = 5_l;
-16:          /% b = 2_l - a / c ; %/             /%ARREGLAR %/
+16:          /% b = 2_l - a / c ; %/             /%ARREGLAR preguntar %/
 17:          w = 4.5 + 3.3 + 4.2;
 18:      
 19:          float_negative = -7.3;

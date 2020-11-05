@@ -4,6 +4,11 @@ Symbol_table::Symbol_table(){}
 
 void Symbol_table::addSymbol(string key, Registry registro)
 {
+    /*
+    string prueba = "esteessech:elpepe";
+    size_t  k = prueba.find(':');
+    string prueba2 = prueba.substr(0,k);
+    */
     auto search = symbol_table.find(key);
     if (search == symbol_table.end()) {
         //Si no existe 'key' en la tabla de símbolos:
@@ -12,18 +17,6 @@ void Symbol_table::addSymbol(string key, Registry registro)
 
 }
 
-char * Symbol_table::getPointer(string pointer)
-{
-    char * aux  ;
-    aux = &pointer[0];
-    return aux;
-}
-char * Symbol_table::getPointer2(string pointer)
-{
-    char * aux  ;
-    aux = &pointer[0];
-    return aux;
-}
 
 Symbol_table::Registry Symbol_table::removeSymbol(string key)
 {
@@ -36,6 +29,7 @@ Symbol_table::Registry Symbol_table::removeSymbol(string key)
     return reg;
 }
 
+//cambiar el orden de la lista
 void Symbol_table::printTable()
 {
     cout<<endl;
@@ -49,9 +43,12 @@ void Symbol_table::printTable()
 void Symbol_table::addType(string type, string key,string ambit){
 
     Symbol_table::Registry  r = removeSymbol(key);
-    r.ambito = ambit;
+    //r.ambito = ambit;
+    key = key + ":" + ambit;
+
     r.Tipo = type;
     symbol_table.insert({key, r});
+
 }
 
 Symbol_table::Registry Symbol_table::getRegistry(string key){
