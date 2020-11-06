@@ -42,10 +42,12 @@ lista_de_variables:
 		     ID ',' lista_de_variables{ char * ambito = "Lista de variables";
 		     				chekeosGeneracion::addVariable($1.cadena);
                                                  chekeosGeneracion::convertS2($1.cadena,ambito);
+                                                 Lexical_analyzer::symbolTable->setUse($1.cadena,"variable");
                                                   }
 		   | ID ';' {	chekeosGeneracion::addVariable($1.cadena);
 		   		char * ambito = "Ultimo ID en lista de variables";
                             	 chekeosGeneracion::convertS2($1.cadena,ambito);
+                            	 Lexical_analyzer::symbolTable->setUse($1.cadena,"variable");
                             }
 ;
 
@@ -68,7 +70,9 @@ parametros:
 	 parametros ',' ID
 	|ID
 ;
-nombre_proc: PROC ID {chekeosGeneracion::concatenarAmbito($2.cadena);}
+nombre_proc: PROC ID {	Lexical_analyzer::symbolTable->setUse($2.cadena,"nombre_procedimiento");
+			chekeosGeneracion::asignarAmbito(Lexical_analyzer::symbolTable,$2.cadena);
+			chekeosGeneracion::concatenarAmbito($2.cadena);}
 
 ;
 
@@ -87,15 +91,16 @@ true_false:
 	   | FALSE
 ;
 
+
 lista_de_parametros:
 	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables");
 	 	       				       Sintactic_actions::number_of_parameters++;
-
+			Lexical_analyzer::symbolTable->setUse($4.cadena,"parametro");
+			Lexical_analyzer::symbolTable->addType($3.cadena,$4.cadena,chekeosGeneracion::ambito_actual);
 	 	       				       }
 		    | tipo ID {Sintactic_actions::number_of_parameters++;
-				 char * ambito = "id de lista de parametros";
-                                  chekeosGeneracion::convertS2($1.cadena,ambito);
-
+				Lexical_analyzer::symbolTable->setUse($2.cadena,"parametro");
+				Lexical_analyzer::symbolTable->addType($1.cadena,$2.cadena,chekeosGeneracion::ambito_actual);
                                   }
 
 ;

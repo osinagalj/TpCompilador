@@ -59,6 +59,9 @@ list<string> chekeosGeneracion::list_variables_ambito;
 
 int main()
 {
+    char * c = "ola";
+    string kk= c;
+    cout<<"kaka = " <<kk<<endl;
     Logger::open(pathOut);
     Logger log;
     Logger::lexico = &lexical_analyzer;

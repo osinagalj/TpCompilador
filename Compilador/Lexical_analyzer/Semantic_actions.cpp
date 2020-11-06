@@ -24,11 +24,11 @@ int Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, char
         Logger::write("Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES");
         lexical_analyzer->word =  lexical_analyzer->word.substr (0,20);
         lexical_analyzer->save_token(ID, lexical_analyzer->word);
-       // lexical_analyzer->save_in_ST2(ID);//comentar
+        //lexical_analyzer->save_in_ST(ID);//comentar
         //"Identificador supera la longitud maxima de 20 caracteres"
     }else{
         lexical_analyzer->save_token(ID, lexical_analyzer->word);
-       // lexical_analyzer->save_in_ST2(ID); //comentar
+        //lexical_analyzer->save_in_ST(ID); //comentar
     }
     return 0;
 }
