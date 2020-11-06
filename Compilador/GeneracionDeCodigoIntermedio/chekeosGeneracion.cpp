@@ -1,18 +1,37 @@
 
 #include "chekeosGeneracion.h"
 #include "../SymbolTable/Symbol_table.h"
+#include <string.h>
 
 void chekeosGeneracion::insertar_terceto(string op, string op1, string op2){
     //insertar en la cola?
     //depende el op, hace alguna otra accion
     Terceto t(op,op1,op2);
-    //list_tercetos.insert({number, t});
+    list_tercetos.insert({number, t});
+    number++;
 }
-
+int chekeosGeneracion::getNumber(){
+    return number;
+}
 Terceto chekeosGeneracion::getTerceto(int pos){
-    //return list_tercetos.find(pos)->second;
-    Terceto t("op","","");
+    return list_tercetos.find(pos)->second;
+    //Terceto t("op","","");
+    //return t;
+}
+Terceto chekeosGeneracion::removeTerceto(int pos){
+    Terceto t;
+    t.setOp(list_tercetos.find(pos)->second.getOp());
+    t.setOp1(list_tercetos.find(pos)->second.getOp1());
+    t.setOp2(list_tercetos.find(pos)->second.getOp2());
+    list_tercetos.erase(pos); //elimino el viejo
     return t;
+}
+void chekeosGeneracion::modificar_terceto(int numeroTerceto,int numeroCompletar){
+    Terceto t=removeTerceto(numeroTerceto);
+    int num = number + numeroCompletar;
+    string s= to_string(num);
+    t.setOp2(s);
+    list_tercetos.insert({numeroTerceto, t});;
 }
 
 string chekeosGeneracion::convertS(char * variable){
@@ -52,17 +71,17 @@ string chekeosGeneracion::convertToString(char * variable){
     return string_key;
 }
 
+//Asiga el tipo a toda la lista de variables
 void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
     list<string>::iterator pos = list_variables.begin();
     while (pos != list_variables.end()){
-        tablita->addType(tipo,*pos);
+        tablita->addType(tipo,*pos,ambito_actual);
         cout << *pos + ", ";
         pos++;
     }
     //Reiniciamos la lista
     list<string> list_variable_aux;
     list_variables = list_variable_aux;
-
 
 }
 void chekeosGeneracion::addVariable(char * variable){
@@ -73,6 +92,11 @@ void chekeosGeneracion::addVariable(char * variable){
     cout<<endl;
 
 }
+void chekeosGeneracion::setUse(){
+    //tablita->addType(tipo,*pos,ambito_actual);
+}
+
+
 /*
 void chekeosGeneracion::agregarVariable(string aux) {
     list_variables.push_front(aux);
@@ -121,6 +145,63 @@ char* chekeosGeneracion::asignarTipo(Symbol_table * symbolTable,char* op, char* 
     return op;
 }
 
+void chekeosGeneracion::apilar() {
+    cout<<"apilando pa"<<endl;
+    cout<<number<<endl;
+    pila.push_front(number);
+}
+int chekeosGeneracion::desapilar() {
+    cout<<"desapilando pa"<<endl;
+    list<int>::iterator pos = pila.begin();
+    int numerito= *pos;
+    cout<<numerito<<endl;
+    pila.pop_front();
+    return numerito;
+}
+
+void chekeosGeneracion::imprimirTercetos(){
+    for (map<int,Terceto>::iterator it=list_tercetos.begin(); it!=list_tercetos.end(); ++it)
+    {
+        cout << "numTerceto: " + to_string(it->first) << " , TercetoOP " << it->second.getOp() << " TercetoOP1: " << it->second.getOp1() << " TercetoOP2: " << it->second.getOp2() <<'\n';
+    }
+}
+
+/*
+ Lauta
+ **/
+
+void chekeosGeneracion::concatenarAmbito(char * ambito)
+{
+    ambito_actual = ambito_actual + ":" + convertToString(ambito);
+}
+
+
+void chekeosGeneracion::eliminarUltimoAmbito()
+{
+    unsigned pos = ambito_actual.size();
+    bool find = false;
+    while(pos != 0 && !find){
+        if(ambito_actual[pos] == ':'){
+            find = true;
+        }else{
+            pos--;
+        }
+    }
+    ambito_actual = ambito_actual.substr (0,pos);
+}
+
+void chekeosGeneracion::concatenarAmbitoAnonimo(string ambit) {
+    ambito_actual = ambito_actual + ":" + ambit + "_" + to_string(ambitoAnonimo);
+    ambitoAnonimo++;
+}
+void chekeosGeneracion::desconcatenarAmbitoAnonimo() {
+    eliminarUltimoAmbito();
+    ambitoAnonimo--;
+}
+
+void chekeosGeneracion::asignarAmbito(Symbol_table * symbolTable,char * key){
+    symbolTable->addAmbit(key,ambito_actual); //hacer algun chekeo seguramente
+}
 
 
 /*

@@ -2,7 +2,7 @@
 static char yysccsid[] = "@(#)yaccpar	1.8 (Berkeley) 01/20/90";
 #endif
 #define YYBYACC 1
-#line 7 "Gramatica.y"
+#line 7 "gramatica.y"
 typedef union {
     int entero = 0;
     char * cadena;
@@ -33,179 +33,171 @@ typedef union {
 short yylhs[] = {                                        -1,
     0,    1,    1,    2,    2,    2,    3,    3,    3,    7,
     7,    4,    4,    4,    4,    4,   10,   13,   13,    8,
-    8,    8,    8,    8,   15,   15,   14,   14,   12,   12,
-   17,   17,   17,   17,   17,   18,   19,   11,   11,   11,
-   16,   16,   16,   16,   16,   16,   16,   16,   16,   16,
-   16,    9,    9,    9,   20,   20,   20,   21,   21,   21,
-   21,   21,    6,    6,    6,    5,    5,    5,
+    8,    8,    8,    8,   14,   16,   16,   15,   15,   12,
+   12,   17,   18,   18,   18,   20,   21,   11,   11,   11,
+   22,   19,   19,   19,   19,   19,   19,   19,   19,   19,
+   19,   19,    9,    9,    9,   23,   23,   23,   24,   24,
+   24,   24,   24,    6,    6,    6,    5,    5,    5,
 };
 short yylen[] = {                                         2,
     1,    1,    2,    1,    1,    1,    2,    2,    1,    3,
-    2,    4,    3,    1,    2,    2,    5,    3,    1,   15,
-   14,   11,   11,    8,    1,    1,    4,    2,    5,    5,
-    2,    1,    4,    3,    3,    1,    1,    8,    7,    7,
-    3,    2,    3,    2,    3,    2,    3,    3,    2,    3,
-    2,    3,    3,    1,    1,    3,    3,    1,    1,    2,
-    1,    2,    1,    1,    1,    5,    4,    4,
+    2,    4,    3,    1,    2,    2,    5,    3,    1,   14,
+   14,   10,   10,    7,    2,    1,    1,    4,    2,    2,
+    4,    4,    4,    2,    3,    3,    3,    8,    7,    7,
+    1,    3,    2,    3,    2,    3,    2,    3,    3,    2,
+    3,    2,    3,    3,    1,    1,    3,    3,    1,    1,
+    2,    1,    2,    1,    1,    1,    5,    4,    4,
 };
 short yydefred[] = {                                      0,
-    0,   65,   64,   63,    0,    0,    0,    0,    0,    0,
+    0,   66,   65,   64,    0,    0,   41,    0,    0,    0,
     0,    2,    4,    5,    6,    0,    9,    0,   14,    0,
-    0,   11,    0,    0,    0,    0,    0,    0,    0,    0,
-   58,   59,   61,    0,    0,    0,    0,    0,   55,    3,
-    0,    7,    8,   15,   16,   10,   13,    0,   19,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,   60,   62,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,   12,    0,    0,    0,    0,   68,    0,    0,   28,
-    0,    0,   67,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,   56,   57,   18,   17,    0,    0,   29,
-    0,   66,    0,    0,    0,    0,    0,    0,   30,    0,
-    0,    0,   31,    0,    0,    0,    0,    0,   27,    0,
-    0,   35,    0,    0,   40,    0,    0,    0,    0,   39,
-   33,   38,   25,   26,    0,    0,   24,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,   22,    0,   23,    0,
-    0,    0,    0,    0,    0,   21,   20,
+    0,    0,    0,    0,   11,    0,    0,    0,    0,    0,
+   25,    0,   59,   60,   62,    0,    0,    0,    0,    0,
+   56,    3,    0,    7,    8,   15,   16,    0,    0,   30,
+    0,    0,   10,   13,    0,   19,    0,    0,    0,    0,
+    0,    0,    0,   61,   63,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,   34,
+    0,   12,    0,    0,   32,    0,   69,   29,    0,    0,
+   68,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+   31,   57,   58,    0,   36,    0,    0,    0,   18,   17,
+   67,    0,    0,    0,    0,    0,    0,    0,   33,    0,
+    0,   28,    0,    0,    0,    0,    0,   37,    0,    0,
+    0,   39,   26,   27,    0,    0,   24,    0,   40,    0,
+    0,    0,    0,   38,    0,    0,    0,    0,    0,   22,
+    0,   23,    0,    0,    0,    0,    0,    0,   21,   20,
 };
 short yydgoto[] = {                                      10,
-  110,   12,   13,   14,   15,   16,   17,   18,   36,   19,
-   20,   21,   50,   57,  135,   37,  100,  101,  111,   38,
-   39,
+   11,   12,   13,   14,   15,   16,   17,   18,   38,   19,
+   20,   21,   57,   22,   62,  135,   23,   50,   39,   51,
+  107,   24,   40,   41,
 };
-short yysindex[] = {                                     66,
-  -23,    0,    0,    0,  -18,    1,   18,  -36,   76,    0,
-   66,    0,    0,    0,    0, -248,    0,    6,    0,    7,
-   10,    0, -248,  -44, -238,  -31,  -38,  -31,   20, -214,
-    0,    0,    0,   37, -229,   91,   40,  -10,    0,    0,
-  -32,    0,    0,    0,    0,    0,    0,  -19,    0,  -21,
-   41,   42,   26,   43, -214, -195,  -13,   28,    0,    0,
-  -31,  -31,  -31,  -31,  -31,  -31,  -31,  -31,  -40,  -31,
-  -31,    0, -186,   31,  -24,   32,    0, -117,   -2,    0,
- -214, -196,    0,    4,    4,    4,    4,    4,    4,  -10,
-  -10,  -34,  -15,    0,    0,    0,    0,   66,   66,    0,
- -209,    0,  -30,   66, -113, -165,   33,   66,    0,   66,
- -168,   66,    0,   66,   -6,   38,   44,   66,    0, -161,
-    3,    0, -164,   12,    0, -217, -157,   21,   59,    0,
-    0,    0,    0,    0,  -16,  -37,    0, -171,   66, -167,
-   66,   49,   30,   50,   39, -217,    0, -217,    0,  -14,
-   -8,   66,   66,   48,   57,    0,    0,
+short yysindex[] = {                                     50,
+  -24,    0,    0,    0,   13,   15,    0,  -36,   60,    0,
+   50,    0,    0,    0,    0, -199,    0,    2,    0,    3,
+    6,   19,  -59,   26,    0, -199,  -44, -190,   88,  -38,
+    0, -236,    0,    0,    0,   27, -245,   75,   29,  -16,
+    0,    0,  -34,    0,    0,    0,    0, -236,   50,    0,
+ -216,   88,    0,    0,  -26,    0,   -3,   30,   38,   21,
+ -175,   -2,   24,    0,    0,   88,   88,   88,   88,   88,
+   88,   88,   88, -118,   88,   88,   -1,  -40,  -39,    0,
+   46,    0, -169,   33,    0,   34,    0,    0, -236, -187,
+    0,    1,    1,    1,    1,    1,    1,  -16,  -16,  -32,
+    0,    0,    0, -121,    0,   50, -168, -115,    0,    0,
+    0, -162,   36,   50,   40,   48,   50,  -31,    0,  -12,
+   50,    0, -160,  -22, -224, -152,  -13,    0,   50,   -4,
+   66,    0,    0,    0,  -10,  -37,    0,    5,    0, -161,
+   50, -146,   50,    0,   54,   14,   70,   23, -224,    0,
+ -224,    0,    9,   11,   50,   50,   32,   41,    0,    0,
 };
 short yyrindex[] = {                                      0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-  113,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+  136,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,   73,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-   84,   86,    0,   88,   90,  102,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,  107,  108,  109,  111,  119,  124,   79,
-   99,    0,    0,    0,    0,    0,    0,    0,  -57,    0,
-  110,    0,    0,    0,    0,    0,    0,    0,    0,  -54,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,  112,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,   57,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,   97,   99,    0,  100,  103,
+  105,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,  106,  108,  109,  110,  111,  117,   63,   83,    0,
+    0,    0,    0,    0,    0,    0,  101,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
 };
 short yygindex[] = {                                      0,
-  294,    2,    0,    0,    0,  -22,   -5,    0,   11,    0,
-    0,    0,    0,  115,  -98,   25,    0,    0,   54,   -4,
-   -3,
+  247,   49,    0,    0,    0,  -20,   -5,    0,    7,    0,
+    0,    0,    0,    0,  113, -119,    0,   85,  -23,    0,
+    0,    0,  -21,  -19,
 };
-#define YYTABLESIZE 447
+#define YYTABLESIZE 403
 short yytable[] = {                                       9,
-   35,   36,   53,   30,   37,  104,  140,   56,   41,  118,
-   42,   23,   40,   35,   47,    9,   25,   46,   49,   74,
-   23,   26,   73,   67,    9,   68,   22,   82,   59,   60,
-   81,   71,   56,    9,   48,   22,   70,   24,  105,   72,
-   27,   81,    9,    2,    3,    4,   67,  150,   68,  151,
-   51,    9,   54,  112,  113,  133,  134,   28,  106,   55,
-    9,   80,   90,   91,   43,   44,   94,   95,   45,    9,
-   96,   84,   85,   86,   87,   88,   89,   58,    9,  107,
-   69,   75,   76,   78,   77,  141,   83,    9,  108,   97,
-  102,  119,  114,  120,   40,  122,    9,  129,  126,  131,
-   40,  136,  138,  142,  127,    9,  139,  144,  152,  146,
-  148,   40,    1,   54,  153,   54,   40,   54,  125,   52,
-   35,   52,   40,   52,   46,   40,   44,  130,   42,   40,
-   49,   54,   54,   67,   54,   68,  132,   52,   52,   53,
-   52,   53,   51,   53,   40,  137,   40,   47,   45,   41,
-   66,   43,   65,  103,  147,   40,   40,   53,   53,   48,
-   53,  116,  117,  149,   50,  123,    0,    0,   32,   79,
-   34,    0,  156,    0,    0,    0,    0,    0,    0,    0,
-    0,  157,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,   36,   36,    0,    0,   37,
-    0,    0,   31,   32,   33,    0,    1,    2,    3,    4,
-   29,    5,   52,    0,    6,   31,   32,   33,    0,    7,
-   92,    8,    1,    2,    3,    4,    0,    5,   98,    0,
-    6,    1,    2,    3,    4,    7,    5,    8,  109,    6,
-    1,    2,    3,    4,    7,    5,    8,    0,    6,    1,
-    2,    3,    4,    7,    5,    8,    0,    6,    1,    2,
-    3,    4,    7,    5,    8,    0,    6,    1,    2,    3,
-    4,    7,    5,    8,    0,    6,    1,    2,    3,    4,
-    7,    5,    8,   11,    6,    1,    2,    3,    4,    7,
+   37,  117,   60,   32,   49,   58,  142,  121,    9,   26,
+   44,   61,   64,   65,   54,   28,   72,    9,   73,   26,
+   53,    2,    3,    4,   25,   76,    9,   61,   81,  153,
+   75,  154,   82,   55,   25,    9,   27,   84,   90,  104,
+   83,   89,   89,   72,    9,   73,   79,   80,  133,  134,
+   98,   99,   29,    9,   30,  102,  103,   43,   48,   42,
+   45,   46,    9,   49,   47,   52,   56,   63,  112,   74,
+   85,    9,   92,   93,   94,   95,   96,   97,   86,   87,
+    9,   88,   91,  106,  105,  143,  108,  109,  113,    9,
+  114,  110,  111,  128,  122,  119,  123,   55,  131,   55,
+  125,   55,  132,   53,   37,   53,  136,   53,  126,  140,
+  129,  137,  141,  145,  149,   55,   55,   72,   55,   73,
+  139,   53,   53,   54,   53,   54,   42,   54,  147,  144,
+  151,  155,   37,  156,   71,    1,   70,   47,  150,   45,
+   43,   54,   54,   50,   54,   52,   48,  152,   46,   42,
+   44,   49,  100,  115,  116,  120,  159,   51,  101,   35,
+   77,    0,    0,    0,    0,  160,   42,    0,    0,    0,
+    0,    0,   42,    0,    0,   42,    0,    0,   42,    0,
+    0,    0,    0,    0,    0,    0,   42,    0,    0,    0,
+    0,    0,    0,    0,   42,    0,   42,    0,    0,    0,
+    0,    0,    0,    0,    0,   42,   42,    0,    0,    0,
+    0,    0,   33,   34,   35,    0,    1,    2,    3,    4,
+   31,    5,   59,    0,    6,    1,    2,    3,    4,    7,
     5,    8,    0,    6,    1,    2,    3,    4,    7,    5,
     8,    0,    6,    1,    2,    3,    4,    7,    5,    8,
     0,    6,    1,    2,    3,    4,    7,    5,    8,    0,
-    6,    0,   31,   32,   33,    7,   34,    8,   54,   54,
-   54,   54,    0,    0,   52,   52,   52,   52,    0,    0,
-    0,    0,    0,    0,    0,    0,   61,   62,   63,   64,
-    0,    0,   93,    0,   53,   53,   53,   53,   99,    0,
+    6,    1,    2,    3,    4,    7,    5,    8,    0,    6,
+    1,    2,    3,    4,    7,    5,    8,    0,    6,    1,
+    2,    3,    4,    7,    5,    8,    0,    6,    1,    2,
+    3,    4,    7,    5,    8,   78,    6,    1,    2,    3,
+    4,    7,    5,    8,    0,    6,    1,    2,    3,    4,
+    7,    5,    8,    0,    6,    0,   33,   34,   35,    7,
+   36,    8,   55,   55,   55,   55,    0,    0,   53,   53,
+   53,   53,    0,    0,    0,    0,    0,    0,    0,    0,
+   66,   67,   68,   69,   33,   34,   35,    0,   54,   54,
+   54,   54,  118,    0,    0,    0,    0,    0,    0,    0,
+  124,    0,    0,  127,    0,    0,    0,  130,    0,    0,
+    0,    0,    0,    0,    0,  138,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,  146,    0,  148,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,  115,    0,    0,
-    0,  121,    0,    0,    0,    0,    0,  124,    0,    0,
-    0,  128,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,  143,    0,  145,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,  154,  155,
+    0,  157,  158,
 };
 short yycheck[] = {                                      40,
-   45,   59,   41,   40,   59,  123,   44,   30,  257,  123,
-   16,   44,   11,   45,   59,   40,   40,   23,  257,   41,
-   44,   40,   44,   43,   40,   45,   59,   41,  258,  259,
-   44,   42,   55,   40,   24,   59,   47,   61,   41,   59,
-   40,   44,   40,  258,  259,  260,   43,  146,   45,  148,
-   26,   40,   28,  263,  264,  273,  274,   40,   81,   40,
-   40,  257,   67,   68,   59,   59,   70,   71,   59,   40,
-  257,   61,   62,   63,   64,   65,   66,   41,   40,  276,
-   41,   41,   41,   41,   59,  123,   59,   40,  123,   59,
-   59,  257,  123,   61,   93,  264,   40,  259,   61,  264,
-   99,  259,   44,  275,   61,   40,  123,  275,  123,   61,
-   61,  110,    0,   41,  123,   43,  115,   45,  125,   41,
-   45,   43,  121,   45,   41,  124,   41,  125,   41,  128,
-   41,   59,   60,   43,   62,   45,  125,   59,   60,   41,
-   62,   43,   41,   45,  143,  125,  145,   41,   41,   41,
-   60,   41,   62,  271,  125,  154,  155,   59,   60,   41,
-   62,  275,  276,  125,   41,  112,   -1,   -1,   59,   55,
-   59,   -1,  125,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,  125,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,  263,  264,   -1,   -1,  264,
+   45,  123,   41,   40,  123,   29,   44,  123,   40,   44,
+   16,   32,  258,  259,   59,   40,   43,   40,   45,   44,
+   26,  258,  259,  260,   59,   42,   40,   48,   52,  149,
+   47,  151,   59,   27,   59,   40,   61,   41,   41,   41,
+   44,   44,   44,   43,   40,   45,  263,  264,  273,  274,
+   72,   73,   40,   40,   40,   75,   76,  257,   40,   11,
+   59,   59,   40,  123,   59,   40,  257,   41,   89,   41,
+   41,   40,   66,   67,   68,   69,   70,   71,   41,   59,
+   40,  257,   59,  123,  125,  123,   41,  257,  276,   40,
+  123,   59,   59,  125,  257,  264,   61,   41,  259,   43,
+   61,   45,  125,   41,   45,   43,  259,   45,   61,   44,
+  123,  125,  123,  275,   61,   59,   60,   43,   62,   45,
+  125,   59,   60,   41,   62,   43,   78,   45,  275,  125,
+   61,  123,   45,  123,   60,    0,   62,   41,  125,   41,
+   41,   59,   60,   41,   62,   41,   41,  125,   41,   41,
+   41,   41,  271,  275,  276,  271,  125,   41,   74,   59,
+   48,   -1,   -1,   -1,   -1,  125,  118,   -1,   -1,   -1,
+   -1,   -1,  124,   -1,   -1,  127,   -1,   -1,  130,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,  138,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,  146,   -1,  148,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,  157,  158,   -1,   -1,   -1,
    -1,   -1,  257,  258,  259,   -1,  257,  258,  259,  260,
-  257,  262,  261,   -1,  265,  257,  258,  259,   -1,  270,
-  271,  272,  257,  258,  259,  260,   -1,  262,  263,   -1,
-  265,  257,  258,  259,  260,  270,  262,  272,  264,  265,
-  257,  258,  259,  260,  270,  262,  272,   -1,  265,  257,
-  258,  259,  260,  270,  262,  272,   -1,  265,  257,  258,
-  259,  260,  270,  262,  272,   -1,  265,  257,  258,  259,
-  260,  270,  262,  272,   -1,  265,  257,  258,  259,  260,
-  270,  262,  272,    0,  265,  257,  258,  259,  260,  270,
+  257,  262,  261,   -1,  265,  257,  258,  259,  260,  270,
   262,  272,   -1,  265,  257,  258,  259,  260,  270,  262,
   272,   -1,  265,  257,  258,  259,  260,  270,  262,  272,
    -1,  265,  257,  258,  259,  260,  270,  262,  272,   -1,
-  265,   -1,  257,  258,  259,  270,  261,  272,  266,  267,
-  268,  269,   -1,   -1,  266,  267,  268,  269,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,  266,  267,  268,  269,
-   -1,   -1,   69,   -1,  266,  267,  268,  269,   75,   -1,
+  265,  257,  258,  259,  260,  270,  262,  272,   -1,  265,
+  257,  258,  259,  260,  270,  262,  272,   -1,  265,  257,
+  258,  259,  260,  270,  262,  272,   -1,  265,  257,  258,
+  259,  260,  270,  262,  272,   49,  265,  257,  258,  259,
+  260,  270,  262,  272,   -1,  265,  257,  258,  259,  260,
+  270,  262,  272,   -1,  265,   -1,  257,  258,  259,  270,
+  261,  272,  266,  267,  268,  269,   -1,   -1,  266,  267,
+  268,  269,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+  266,  267,  268,  269,  257,  258,  259,   -1,  266,  267,
+  268,  269,  106,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+  114,   -1,   -1,  117,   -1,   -1,   -1,  121,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,  129,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,  141,   -1,  143,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,  104,   -1,   -1,
-   -1,  108,   -1,   -1,   -1,   -1,   -1,  114,   -1,   -1,
-   -1,  118,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,  139,   -1,  141,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,  152,  153,
+   -1,  155,  156,
 };
 #define YYFINAL 10
 #ifndef YYDEBUG
@@ -246,27 +238,28 @@ char *yyrule[] = {
 "invocacion_proc : ID '(' parametros ')' ';'",
 "parametros : parametros ',' ID",
 "parametros : ID",
-"procedimiento : PROC ID '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false '{' bloque_sentencia '}'",
+"procedimiento : nombre_proc '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false '{' bloque_sentencia '}'",
 "procedimiento : PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false '{' bloque_sentencia '}'",
-"procedimiento : PROC ID '(' lista_de_parametros ')' SHADOWING '=' true_false '{' bloque_sentencia '}'",
-"procedimiento : PROC ID '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'",
-"procedimiento : PROC ID '(' lista_de_parametros ')' '{' bloque_sentencia '}'",
+"procedimiento : nombre_proc '(' lista_de_parametros ')' SHADOWING '=' true_false '{' bloque_sentencia '}'",
+"procedimiento : nombre_proc '(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'",
+"procedimiento : nombre_proc '(' lista_de_parametros ')' '{' bloque_sentencia '}'",
+"nombre_proc : PROC ID",
 "true_false : TRUE",
 "true_false : FALSE",
 "lista_de_parametros : lista_de_parametros ',' tipo ID",
 "lista_de_parametros : tipo ID",
-"sentencia_if : IF '(' condicion ')' cuerpo_if",
-"sentencia_if : '(' condicion ')' bloque_sentencia END_IF",
-"cuerpo_if : cuerpo_then END_IF",
-"cuerpo_if : cuerpo_then",
-"cuerpo_if : cuerpo_then ELSE cuerpo_else END_IF",
-"cuerpo_if : cuerpo_then ELSE cuerpo_else",
-"cuerpo_if : ELSE cuerpo_else END_IF",
-"cuerpo_then : bloque_sentencia",
-"cuerpo_else : bloque_sentencia",
-"sentencia_while : WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}'",
+"sentencia_if : encabezado_if cuerpo",
+"sentencia_if : '(' condicion ')' cuerpo",
+"encabezado_if : IF '(' condicion ')'",
+"cuerpo : cuerpo_if ELSE cuerpo_else END_IF",
+"cuerpo : cuerpo_if END_IF",
+"cuerpo : cuerpo_if ELSE cuerpo_else",
+"cuerpo_if : '{' bloque_sentencia '}'",
+"cuerpo_else : '{' bloque_sentencia '}'",
+"sentencia_while : inicio_while '(' condicion ')' LOOP '{' bloque_sentencia '}'",
 "sentencia_while : '(' condicion ')' LOOP '{' bloque_sentencia '}'",
-"sentencia_while : WHILE '(' condicion ')' '{' bloque_sentencia '}'",
+"sentencia_while : inicio_while '(' condicion ')' '{' bloque_sentencia '}'",
+"inicio_while : WHILE",
 "condicion : expresion EQUAL expresion",
 "condicion : expresion DIFFERENT",
 "condicion : expresion DIFFERENT expresion",
@@ -462,240 +455,307 @@ yyreduce:
     switch (yyn)
     {
 case 7:
-#line 31 "Gramatica.y"
+#line 31 "gramatica.y"
 {Logger::write("Declaracion de variables");
 						chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,yyvsp[-1].cadena);
 	      		      		}
 break;
 case 8:
-#line 34 "Gramatica.y"
+#line 34 "gramatica.y"
 {Logger::write("Declaracion de procedimiento");}
 break;
 case 9:
-#line 35 "Gramatica.y"
+#line 35 "gramatica.y"
 {Logger::write("Error: Falta el tipo en la lista de variables");}
 break;
 case 10:
-#line 42 "Gramatica.y"
+#line 42 "gramatica.y"
 { char * ambito = "Lista de variables";
 		     				chekeosGeneracion::addVariable(yyvsp[-2].cadena);
-                                                 chekeosGeneracion::convertS2(yyvsp[-2].cadena,ambito); }
+                                                 chekeosGeneracion::convertS2(yyvsp[-2].cadena,ambito);
+                                                  Lexical_analyzer::symbolTable->setUse(yyvsp[-2].cadena,"variable");}
 break;
 case 11:
-#line 45 "Gramatica.y"
+#line 46 "gramatica.y"
 {	chekeosGeneracion::addVariable(yyvsp[-1].cadena);
 		   		char * ambito = "Ultimo ID en lista de variables";
-                            	 chekeosGeneracion::convertS2(yyvsp[-1].cadena,ambito); }
+                            	 chekeosGeneracion::convertS2(yyvsp[-1].cadena,ambito);
+                             Lexical_analyzer::symbolTable->setUse(yyvsp[-1].cadena,"variable");}
 break;
 case 12:
-#line 51 "Gramatica.y"
+#line 53 "gramatica.y"
 {Logger::write("Asignacion");
-	      			  chekeosGeneracion::insertar_terceto("=",yyvsp[-1].cadena,yyvsp[-1].cadena);
+	      			  chekeosGeneracion::insertar_terceto("=",yyvsp[-3].cadena,yyvsp[-1].cadena);
 				  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-3].cadena,yyvsp[-1].cadena);
 	      			  }
 break;
 case 13:
-#line 55 "Gramatica.y"
+#line 57 "gramatica.y"
 {Logger::write("Error: Asignacion vacia");}
 break;
 case 14:
-#line 56 "Gramatica.y"
+#line 58 "gramatica.y"
 {Logger::write("invocacion procedimiento");}
 break;
 case 15:
-#line 57 "Gramatica.y"
-{Logger::write("sentencia while");}
+#line 59 "gramatica.y"
+{Logger::write("sentencia while"); chekeosGeneracion::desconcatenarAmbitoAnonimo();}
 break;
 case 16:
-#line 58 "Gramatica.y"
-{Logger::write("sentencia if");}
+#line 60 "gramatica.y"
+{Logger::write("sentencia if");chekeosGeneracion::desconcatenarAmbitoAnonimo();}
 break;
 case 20:
-#line 71 "Gramatica.y"
-{Sintactic_actions::check_list_parametros();   }
+#line 73 "gramatica.y"
+{Sintactic_actions::check_list_parametros();
+	    											chekeosGeneracion::eliminarUltimoAmbito();}
 break;
 case 21:
-#line 72 "Gramatica.y"
-{Logger::write("Error: FALTA ID");}
+#line 75 "gramatica.y"
+{Logger::write("Error: FALTA ID");chekeosGeneracion::eliminarUltimoAmbito();}
 break;
 case 22:
-#line 73 "Gramatica.y"
-{Logger::write("Error: FALTA ESPECIFICAR VALOR NA");}
+#line 76 "gramatica.y"
+{Logger::write("Error: FALTA ESPECIFICAR VALOR NA");chekeosGeneracion::eliminarUltimoAmbito();}
 break;
 case 23:
-#line 74 "Gramatica.y"
-{Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");}
+#line 77 "gramatica.y"
+{Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();}
 break;
 case 24:
-#line 75 "Gramatica.y"
-{Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");}
+#line 78 "gramatica.y"
+{Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();}
 break;
-case 27:
-#line 84 "Gramatica.y"
-{Logger::write("lista_de_variables");
-	 	       				       Sintactic_actions::number_of_parameters++;
-	 	       				       }
+case 25:
+#line 81 "gramatica.y"
+{	Lexical_analyzer::symbolTable->setUse(yyvsp[0].cadena,"nombre_procedimiento");
+			chekeosGeneracion::asignarAmbito(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
+			chekeosGeneracion::concatenarAmbito(yyvsp[0].cadena);}
 break;
 case 28:
-#line 87 "Gramatica.y"
-{Sintactic_actions::number_of_parameters++;
-				 char * ambito = "id de lista de parametros";
-                                  chekeosGeneracion::convertS2(yyvsp[-1].cadena,ambito); }
+#line 92 "gramatica.y"
+{Logger::write("lista_de_variables");
+	 	       				       Sintactic_actions::number_of_parameters++;
+	 	       				       Lexical_analyzer::symbolTable->setUse(yyvsp[0].cadena,"parametro");
+						Lexical_analyzer::symbolTable->addType(yyvsp[-1].cadena,yyvsp[0].cadena,chekeosGeneracion::ambito_actual);}
 break;
 case 29:
-#line 94 "Gramatica.y"
-{Logger::write("Sentencia IF");}
+#line 96 "gramatica.y"
+{Sintactic_actions::number_of_parameters++;
+				Lexical_analyzer::symbolTable->setUse(yyvsp[0].cadena,"parametro");
+				Lexical_analyzer::symbolTable->addType(yyvsp[-1].cadena,yyvsp[0].cadena,chekeosGeneracion::ambito_actual);  }
 break;
 case 30:
-#line 95 "Gramatica.y"
+#line 119 "gramatica.y"
+{Logger::write("Sentencia IF");
+	       				    }
+break;
+case 31:
+#line 121 "gramatica.y"
 {Logger::write("Error: FALTA EL IF");}
 break;
 case 32:
-#line 100 "Gramatica.y"
-{Logger::write("Error: FALTA END_IF");}
+#line 124 "gramatica.y"
+{chekeosGeneracion::concatenarAmbitoAnonimo("IF");}
 break;
 case 33:
-#line 101 "Gramatica.y"
-{Logger::write("Error: FALTA END_IF");}
+#line 127 "gramatica.y"
+{/*Desapilar*/
+					    /*Completar terceto incompleto con el destino de la BI*/
+					    chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),0);
+					    }
+break;
+case 34:
+#line 131 "gramatica.y"
+{/*Desapilar*/
+			    /*Completar terceto incompleto con el destino de la BI*/
+			    /*chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),1);*/
+			    }
+break;
+case 35:
+#line 135 "gramatica.y"
+{Logger::write("Error: FALTA EL END_IF");}
+break;
+case 36:
+#line 138 "gramatica.y"
+{/*desapilar*/
+			/*completar terceto incompleto con el destino de la bf*/
+			chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),1);
+			/*apilar el numero del terceto incompleto (apilo antes porque sino me paso de rango y no lo encuentra)*/
+			chekeosGeneracion::apilar();
+			/* crear terceto incompleto para la BI*/
+			chekeosGeneracion::insertar_terceto("BI","","");
+			}
 break;
 case 38:
-#line 115 "Gramatica.y"
-{Logger::write("Sentencia WHILE");}
+#line 159 "gramatica.y"
+{Logger::write("Sentencia WHILE");
+         								/*(1)desapilar,*/
+         								/*(2)completar terceto incompleto.*/
+         								chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),1);
+         								/*(3)Desapilo direccion de inicio y creo el terceto BI al inicio*/
+         								chekeosGeneracion::insertar_terceto("BI",to_string(chekeosGeneracion::desapilar()),"");
+         								}
 break;
 case 39:
-#line 116 "Gramatica.y"
+#line 166 "gramatica.y"
 {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
 break;
 case 40:
-#line 117 "Gramatica.y"
+#line 167 "gramatica.y"
 {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
 break;
 case 41:
-#line 122 "Gramatica.y"
-{Logger::write("Condicion igual");
-	   			     yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
+#line 171 "gramatica.y"
+{chekeosGeneracion::concatenarAmbitoAnonimo("WHILE");
+        	/*apilar terceto de inicio para saber la BI*/
+        	chekeosGeneracion::apilar();
+        }
 break;
 case 42:
-#line 124 "Gramatica.y"
-{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
+#line 180 "gramatica.y"
+{Logger::write("Condicion igual");
+	   			     yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+				     chekeosGeneracion::insertar_terceto("==",yyvsp[-2].cadena,yyvsp[0].cadena);
+	   			     chekeosGeneracion::apilar();
+	   			     chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
 break;
 case 43:
-#line 125 "Gramatica.y"
-{Logger::write("Condicion distinto");
-	  				  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
+#line 185 "gramatica.y"
+{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 44:
-#line 127 "Gramatica.y"
-{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
+#line 186 "gramatica.y"
+{Logger::write("Condicion distinto");
+	  				  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+	  				  chekeosGeneracion::insertar_terceto("!=",yyvsp[-2].cadena,yyvsp[0].cadena);
+	  				  chekeosGeneracion::apilar();
+				          chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
 break;
 case 45:
-#line 128 "Gramatica.y"
-{Logger::write("Condicion menorigual");
-	  				      yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
+#line 191 "gramatica.y"
+{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 46:
-#line 130 "Gramatica.y"
-{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
+#line 192 "gramatica.y"
+{Logger::write("Condicion menorigual");
+	  				      yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+	  				      chekeosGeneracion::insertar_terceto("<=",yyvsp[-2].cadena,yyvsp[0].cadena);
+	  				      chekeosGeneracion::apilar();
+					      chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
 break;
 case 47:
-#line 131 "Gramatica.y"
-{Logger::write("Condicion mayorIgual");
-	  					yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
+#line 197 "gramatica.y"
+{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 48:
-#line 133 "Gramatica.y"
-{Logger::write("Condicion de mayor");
-	  			    yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
+#line 198 "gramatica.y"
+{Logger::write("Condicion mayorIgual");
+	  					yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+	  					chekeosGeneracion::insertar_terceto(">=",yyvsp[-2].cadena,yyvsp[0].cadena);
+	  					chekeosGeneracion::apilar();
+					        chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
 break;
 case 49:
-#line 135 "Gramatica.y"
-{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
+#line 203 "gramatica.y"
+{Logger::write("Condicion de mayor");
+	  			    yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+	  			    chekeosGeneracion::insertar_terceto(">",yyvsp[-2].cadena,yyvsp[0].cadena);
+	  			    chekeosGeneracion::apilar();
+				    chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
 break;
 case 50:
-#line 136 "Gramatica.y"
-{Logger::write("Condicion de menor");
-                                    yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
-break;
-case 51:
-#line 138 "Gramatica.y"
+#line 208 "gramatica.y"
 {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
+case 51:
+#line 209 "gramatica.y"
+{Logger::write("Condicion de menor");
+                                    yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+                                    chekeosGeneracion::insertar_terceto("<",yyvsp[-2].cadena,yyvsp[0].cadena);
+                                    chekeosGeneracion::apilar();
+				    chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
+break;
 case 52:
-#line 142 "Gramatica.y"
+#line 214 "gramatica.y"
+{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
+break;
+case 53:
+#line 218 "gramatica.y"
 {Logger::write("suma");
 				  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
 	   			}
 break;
-case 53:
-#line 145 "Gramatica.y"
+case 54:
+#line 221 "gramatica.y"
 {Logger::write("resta");
 	  		 	  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
 break;
-case 54:
-#line 147 "Gramatica.y"
+case 55:
+#line 223 "gramatica.y"
 {yyval.cadena = yyvsp[0].cadena;}
 break;
-case 55:
-#line 152 "Gramatica.y"
+case 56:
+#line 228 "gramatica.y"
 {yyval.cadena = yyvsp[0].cadena; }
 break;
-case 56:
-#line 153 "Gramatica.y"
+case 57:
+#line 229 "gramatica.y"
 { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 			      yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
 break;
-case 57:
-#line 155 "Gramatica.y"
+case 58:
+#line 231 "gramatica.y"
 { yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
 break;
-case 58:
-#line 159 "Gramatica.y"
+case 59:
+#line 235 "gramatica.y"
 { char * ambito = "ambito id";
 	 	  chekeosGeneracion::convertS2(yyvsp[0].cadena,ambito);
 	 	  yyval.cadena= yyvsp[0].cadena;}
 break;
-case 59:
-#line 162 "Gramatica.y"
+case 60:
+#line 238 "gramatica.y"
 {yyval.cadena= yyvsp[0].cadena;}
 break;
-case 60:
-#line 163 "Gramatica.y"
+case 61:
+#line 239 "gramatica.y"
 {yyval.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
-case 61:
-#line 164 "Gramatica.y"
+case 62:
+#line 240 "gramatica.y"
 { Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 		   yyval.cadena= yyvsp[0].cadena;}
 break;
-case 62:
-#line 166 "Gramatica.y"
+case 63:
+#line 242 "gramatica.y"
 { yyval.cadena=Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
-case 63:
-#line 170 "Gramatica.y"
+case 64:
+#line 246 "gramatica.y"
 { string s = "Int"; yyval.cadena = &s[0];}
 break;
-case 64:
-#line 171 "Gramatica.y"
+case 65:
+#line 247 "gramatica.y"
 { string s = "Longint"; yyval.cadena = &s[0];}
 break;
-case 65:
-#line 172 "Gramatica.y"
+case 66:
+#line 248 "gramatica.y"
 { string s = "Float"; yyval.cadena = &s[0];}
 break;
-case 66:
-#line 176 "Gramatica.y"
+case 67:
+#line 252 "gramatica.y"
 {Logger::write("Detecto sentencia OUT");}
 break;
-case 67:
-#line 177 "Gramatica.y"
+case 68:
+#line 253 "gramatica.y"
 {Logger::write("Error: SE ESPERABA OUT PREVIAMENTE PARA IMPRIMIR");}
 break;
-case 68:
-#line 178 "Gramatica.y"
+case 69:
+#line 254 "gramatica.y"
 {Logger::write("Error: SE ESPERABA CADENA EN LA SENTENCIA OUT");}
 break;
-#line 699 "y.tab.c"
+#line 759 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

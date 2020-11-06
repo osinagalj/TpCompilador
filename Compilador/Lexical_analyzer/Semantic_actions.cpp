@@ -147,10 +147,10 @@ int Semantic_actions::finish_composite_comparator(Lexical_analyzer* lexical_anal
     lexical_analyzer->word = lexical_analyzer->word + c;
     switch(lexical_analyzer->word[0]){  //El primer caracter es siempre un = en un comparador compuesto
         case '<':
-            lexical_analyzer->save_token(GREATER_OR_EQUAL, lexical_analyzer->word); //MAYORIGUAL
+            lexical_analyzer->save_token(LESS_OR_EQUAL, lexical_analyzer->word); //MAYORIGUAL
             break;
         case '>':
-            lexical_analyzer->save_token(LESS_OR_EQUAL, lexical_analyzer->word); //MENORIGUAL
+            lexical_analyzer->save_token(GREATER_OR_EQUAL, lexical_analyzer->word); //MENORIGUAL
             break;
         case '=': // ==
             lexical_analyzer->save_token(EQUAL, lexical_analyzer->word); //IGUAL

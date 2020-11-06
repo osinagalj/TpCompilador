@@ -21,16 +21,16 @@ string Terceto:: getOp2(){
     return this->op2;
 }
 
-void Terceto::setOp(string & op){
+void Terceto::setOp(string  op){
     this->op = op;
 }
-void Terceto::setOp1(string & op1){
+void Terceto::setOp1(string  op1){
     this->op1 = op1;
 }
-void Terceto::setOp2(string & op2){
+void Terceto::setOp2(string op2){
     this->op2 = op2;
 }
-
+void Terceto::completarTerceto(int numeroTerceto) {}
 
 
 //template class Terceto<string,string>;

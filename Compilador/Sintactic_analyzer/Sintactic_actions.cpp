@@ -41,10 +41,16 @@ void Sintactic_actions::check_limit(Symbol_table * tablita, char * key)
 void Sintactic_actions::check_division_zero(Symbol_table * tablita, char * key)
 {
     string aux = convert_to_string(key);
-    int y = stoi(aux);
-    if(y == 0){
-        Logger::write("Error: division por cero");
+    try {
+        int y = stoi(aux);
+        if(y == 0){
+            Logger::write("Error: division por cero");
+        }
     }
+    catch(std::invalid_argument& e){
+        // if no conversion could be performed
+    }
+
 }
 
 void Sintactic_actions::check_list_parametros()

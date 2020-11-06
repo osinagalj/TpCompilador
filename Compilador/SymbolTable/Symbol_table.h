@@ -20,17 +20,19 @@ class Symbol_table {
                 int id;
                 //En un futuro agregar el tipo
                 string Tipo = "no-type";
-                Uso Uso;
+                string ambito = "no-defined";
+                string uso = "no-defined";
                 //otros:
-                Pasaje forma_de_pasaje;
+                //Pasaje forma_de_pasaje; // no va
 
             };
-
-
+            void setUse(char * key,char * use);
+            void addAmbit(string key,string ambit);
             Registry getRegistry(string key);
-            void addType(string type,string key);
+            void addType(string type,string key,string ambit); //Modifique esto para los ambitos
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);
+            void addSymbol2(string key, Registry registry);
             void printTable();
             char * getPointer(string puntero);
             char * getPointer2(string puntero);
