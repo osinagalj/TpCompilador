@@ -65,7 +65,9 @@ void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
     list_variables = list_variable_aux;
 
 }
-
+void chekeosGeneracion::setUse(){
+    //tablita->addType(tipo,*pos,ambito_actual);
+}
 
 void chekeosGeneracion::imprimirLista() {
     list<string>::iterator pos = list_variables.begin();
@@ -159,7 +161,9 @@ void chekeosGeneracion::desconcatenarAmbitoAnonimo() {
     ambitoAnonimo--;
 }
 
-
+void chekeosGeneracion::asignarAmbito(Symbol_table * symbolTable,char * key){
+    symbolTable->addAmbit(key,ambito_actual); //hacer algun chekeo seguramente
+}
 
 
 

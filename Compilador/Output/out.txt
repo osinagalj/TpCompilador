@@ -15,6 +15,11 @@ linea:14  Asignacion
 linea:14  Error: No coinciden los tipos
 linea:15  Asignacion
 linea:15  Error: No coinciden los tipos
+linea:15  Coinciden los tipos
+linea:15  resta
+linea:15  Error: No coinciden los tipos
+linea:15  Asignacion
+linea:15  Error: No coinciden los tipos
 linea:16  suma
 linea:16  Coinciden los tipos
 linea:18  suma
@@ -25,11 +30,10 @@ linea:19  Asignacion
 linea:19  Error: No coinciden los tipos
 linea:20  Asignacion
 linea:20  Error: No coinciden los tipos
-linea:22  resta
-linea:22  Coinciden los tipos
-linea:22  Asignacion
-linea:22  Error: No coinciden los tipos
-linea:23  Declaracion de variables
+linea:23  resta
+linea:23  Coinciden los tipos
+linea:23  Asignacion
+linea:23  Error: No coinciden los tipos
 linea:25  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
 linea:26  Declaracion de variables
 linea:27  Condicion distinto

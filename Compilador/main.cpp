@@ -59,6 +59,7 @@ list<string> chekeosGeneracion::list_variables_ambito;
 
 int main()
 {
+
     Logger::open(pathOut);
     Logger log;
     Logger::lexico = &lexical_analyzer;

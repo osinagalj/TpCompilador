@@ -39,8 +39,9 @@ class chekeosGeneracion {
         static void concatenarAmbitoAnonimo(string ambit);
         static void desconcatenarAmbitoAnonimo();
         static list<string> list_variables_ambito;
-
-    static void imprimirLista2();
+        static void asignarAmbito(Symbol_table * symbolTable,char * key);
+        static void setUse();
+         static void imprimirLista2();
         //END ambitos Lauta
 
 

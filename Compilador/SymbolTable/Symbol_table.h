@@ -21,13 +21,14 @@ class Symbol_table {
                 //En un futuro agregar el tipo
                 string Tipo = "no-type";
                 string ambito = "no-defined";
-                Uso Uso;
+                string uso = "no-defined";
                 //otros:
-                Pasaje forma_de_pasaje;
+                //Pasaje forma_de_pasaje; // no va
 
             };
-
+            void setUse(char * key,char * use);
             Registry getRegistry(string key);
+            void addAmbit(string key,string ambit);
             void addType(string type,string key,string ambit); //Modifique esto para los ambitos
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);
