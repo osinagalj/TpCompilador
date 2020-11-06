@@ -24,11 +24,11 @@ int Semantic_actions::finish_identifier(Lexical_analyzer* lexical_analyzer, char
         Logger::write("Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES");
         lexical_analyzer->word =  lexical_analyzer->word.substr (0,20);
         lexical_analyzer->save_token(ID, lexical_analyzer->word);
-        //lexical_analyzer->save_in_ST(ID);//comentar
+        lexical_analyzer->save_in_ST(ID);
         //"Identificador supera la longitud maxima de 20 caracteres"
     }else{
         lexical_analyzer->save_token(ID, lexical_analyzer->word);
-        //lexical_analyzer->save_in_ST(ID); //comentar
+        lexical_analyzer->save_in_ST(ID);
     }
     return 0;
 }
@@ -147,10 +147,10 @@ int Semantic_actions::finish_composite_comparator(Lexical_analyzer* lexical_anal
     lexical_analyzer->word = lexical_analyzer->word + c;
     switch(lexical_analyzer->word[0]){  //El primer caracter es siempre un = en un comparador compuesto
         case '<':
-            lexical_analyzer->save_token(GREATER_OR_EQUAL, lexical_analyzer->word); //MAYORIGUAL
+            lexical_analyzer->save_token(LESS_OR_EQUAL, lexical_analyzer->word); //MAYORIGUAL
             break;
         case '>':
-            lexical_analyzer->save_token(LESS_OR_EQUAL, lexical_analyzer->word); //MENORIGUAL
+            lexical_analyzer->save_token(GREATER_OR_EQUAL, lexical_analyzer->word); //MENORIGUAL
             break;
         case '=': // ==
             lexical_analyzer->save_token(EQUAL, lexical_analyzer->word); //IGUAL

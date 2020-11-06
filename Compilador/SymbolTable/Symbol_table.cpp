@@ -16,7 +16,27 @@ void Symbol_table::addSymbol(string key, Registry registro)
     }
 
 }
-
+void Symbol_table::printTable()
+{
+    cout<<endl;
+    cout<<"--------------------------IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
+    for (map<string,Registry>::iterator it=symbol_table.begin(); it!=symbol_table.end(); ++it)
+    {
+        cout << "Clave: " + it->first << " | ambito = " + it->second.ambito << " |Token_id: " << it->second.id << " |Tipo: " << it->second.Tipo << " |Token_uso: " << it->second.uso<<'\n';
+    }
+}
+char * Symbol_table::getPointer(string pointer)
+{
+    char * aux  ;
+    aux = &pointer[0];
+    return aux;
+}
+char * Symbol_table::getPointer2(string pointer)
+{
+    char * aux  ;
+    aux = &pointer[0];
+    return aux;
+}
 
 Symbol_table::Registry Symbol_table::removeSymbol(string key)
 {
@@ -28,17 +48,6 @@ Symbol_table::Registry Symbol_table::removeSymbol(string key)
     this->symbol_table.erase(key); //elimino el viejo
 
     return reg;
-}
-
-//cambiar el orden de la lista
-void Symbol_table::printTable()
-{
-    cout<<endl;
-    cout<<"--------------------------IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
-    for (map<string,Registry>::iterator it=symbol_table.begin(); it!=symbol_table.end(); ++it)
-    {
-        cout << "Clave: " + it->first << " | ambito = " + it->second.ambito << " |Token_id: " << it->second.id << " |Tipo: " << it->second.Tipo << " |Token_uso: " << it->second.uso<<'\n';
-    }
 }
 
 void Symbol_table::addType(string type, string key,string ambit){

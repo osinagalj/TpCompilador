@@ -1,18 +1,37 @@
 
 #include "chekeosGeneracion.h"
 #include "../SymbolTable/Symbol_table.h"
+#include <string.h>
 
 void chekeosGeneracion::insertar_terceto(string op, string op1, string op2){
     //insertar en la cola?
     //depende el op, hace alguna otra accion
     Terceto t(op,op1,op2);
-    //list_tercetos.insert({number, t});
+    list_tercetos.insert({number, t});
+    number++;
 }
-
+int chekeosGeneracion::getNumber(){
+    return number;
+}
 Terceto chekeosGeneracion::getTerceto(int pos){
-    //return list_tercetos.find(pos)->second;
-    Terceto t("op","","");
+    return list_tercetos.find(pos)->second;
+    //Terceto t("op","","");
+    //return t;
+}
+Terceto chekeosGeneracion::removeTerceto(int pos){
+    Terceto t;
+    t.setOp(list_tercetos.find(pos)->second.getOp());
+    t.setOp1(list_tercetos.find(pos)->second.getOp1());
+    t.setOp2(list_tercetos.find(pos)->second.getOp2());
+    list_tercetos.erase(pos); //elimino el viejo
     return t;
+}
+void chekeosGeneracion::modificar_terceto(int numeroTerceto,int numeroCompletar){
+    Terceto t=removeTerceto(numeroTerceto);
+    int num = number + numeroCompletar;
+    string s= to_string(num);
+    t.setOp2(s);
+    list_tercetos.insert({numeroTerceto, t});;
 }
 
 string chekeosGeneracion::convertS(char * variable){
@@ -65,28 +84,6 @@ void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
     list_variables = list_variable_aux;
 
 }
-void chekeosGeneracion::setUse(){
-    //tablita->addType(tipo,*pos,ambito_actual);
-}
-
-void chekeosGeneracion::imprimirLista() {
-    list<string>::iterator pos = list_variables.begin();
-    while (pos != list_variables.end()){
-        cout << *pos + ", ";
-        pos++;
-    }
-}
-
-/*
-void chekeosGeneracion::asignar_tipo(Symbol_table * tablita,char * tipo){
-    list<string>::iterator pos = list_variables.begin();
-while (pos != list_variables.end()){
-tablita->addType(tipo,*pos,ambito_actual);
-cout << *pos + ", ";
-pos++;
-}*/
-
-
 void chekeosGeneracion::addVariable(char * variable){
 
     list_variables.push_back(convertToString(variable));
@@ -95,8 +92,23 @@ void chekeosGeneracion::addVariable(char * variable){
     cout<<endl;
 
 }
+void chekeosGeneracion::setUse(){
+    //tablita->addType(tipo,*pos,ambito_actual);
+}
 
 
+/*
+void chekeosGeneracion::agregarVariable(string aux) {
+    list_variables.push_front(aux);
+}
+ */
+void chekeosGeneracion::imprimirLista() {
+    list<string>::iterator pos = list_variables.begin();
+    while (pos != list_variables.end()){
+        cout << *pos + ", ";
+        pos++;
+    }
+}
 
 
 #include "../Output/Logger.h"
@@ -122,11 +134,37 @@ char* chekeosGeneracion::asignarTipo(Symbol_table * symbolTable,char* op, char* 
     if(checkearTipo(symbolTable,op,op2)){
         cout<<"Suma del mismo tipo"<<endl;
         return op;
+        /*
+        string tipo = symbolTable->getRegistry(convertToString(op)).Tipo;
+        char *cstr = new char[tipo.length() + 1];
+        strcpy(cstr, tipo.c_str());
+         */
+        //return cstr;
 
     }
     return op;
 }
 
+void chekeosGeneracion::apilar() {
+    cout<<"apilando pa"<<endl;
+    cout<<number<<endl;
+    pila.push_front(number);
+}
+int chekeosGeneracion::desapilar() {
+    cout<<"desapilando pa"<<endl;
+    list<int>::iterator pos = pila.begin();
+    int numerito= *pos;
+    cout<<numerito<<endl;
+    pila.pop_front();
+    return numerito;
+}
+
+void chekeosGeneracion::imprimirTercetos(){
+    for (map<int,Terceto>::iterator it=list_tercetos.begin(); it!=list_tercetos.end(); ++it)
+    {
+        cout << to_string(it->first)<<".  " << "(" << it->second.getOp() << " , " << it->second.getOp1() << "," << it->second.getOp2() <<" ) "<<'\n';
+    }
+}
 
 /*
  Lauta
@@ -165,35 +203,6 @@ void chekeosGeneracion::asignarAmbito(Symbol_table * symbolTable,char * key){
     symbolTable->addAmbit(key,ambito_actual); //hacer algun chekeo seguramente
 }
 
-
-
-
-/*
-    FLOAT variable1;                                // variable1.main
-
-    PROC aa ()
-    {
-        FLOAT variable2;                            //variable2.main.aa
-        PROC bb (){
-            FLOAT variable3;                        //variable3.main.aa.bb
-
-        };
-        PROC ee (){
-            FLOAT variable3;
-        };
-    }
-
-    PROC dd (){
-        FLOAT variable5;                            //variable2.main.dd
-
-    }
-//Osea como diferencio si un proc es hermano de otro, o es padre?
-
- Pasos-
-    - Detecto variable4;
-    - Concateno variable:main:1
-    -
- * */
 
 /*
  9. ...
