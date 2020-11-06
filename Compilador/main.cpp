@@ -6,29 +6,26 @@ using namespace std;
 int yylex();
 void yyerror(const char *);
 #include "Sintactic_analyzer/y.tab.cpp"
-
 void createIndexFile();
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------          Global variables          ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
 string path = "Compilador\\Testing\\program.txt";
-//string path = "Compilador\\Testing\\bug_test";
-//string path = "Compilador\\Testing\\bug_test_intermediate_code_generation";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
 Lexical_analyzer lexical_analyzer;
 int Sintactic_actions::number_of_parameters = 0; //contador para las listas de variables
-int chekeosGeneracion::number = 0;
+int chekeosGeneracion::number = 1;
 bool chekeosGeneracion::falloEnCompilacion = false;
 list<string> chekeosGeneracion::list_variables;
+list<int> chekeosGeneracion::pila;
+map<int,Terceto> chekeosGeneracion::list_tercetos;
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;
-
 //lauta
 string chekeosGeneracion::ambito_actual = "main";
 int chekeosGeneracion::ambitoAnonimo = 1;
 list<string> chekeosGeneracion::list_variables_ambito;
-
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
@@ -57,9 +54,13 @@ list<string> chekeosGeneracion::list_variables_ambito;
  * -- metodo de eliminar el ultimo ambito, para cuando se sale del ambito
  */
 
-int main()
+int main(int argc,char** argv)
 {
-
+    if (argc > 1){
+        path = argv[1];
+    }else{
+        cout << "No se ingreso ninguna direccion de archivo, se utilizara la direccion del archivo de texto por defecto en la ruta: " + path  << endl << endl;
+    }
     Logger::open(pathOut);
     Logger log;
     Logger::lexico = &lexical_analyzer;
@@ -72,7 +73,7 @@ int main()
     //Finish
     Logger::close();
     tabla.printTable();
-
+    chekeosGeneracion::imprimirTercetos();
     createIndexFile();
 
     return 0;

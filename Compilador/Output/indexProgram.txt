@@ -1,4 +1,4 @@
-1:                                                      /% Group 2 %/
+1:                                                  /% Group 2 %/
 2:      
 3:                                 /% ------------- Program without errors.  ------------------- %/
 4:                                  /% ------------- Este lo estuve cambiando para probar lo de los ambitos  ------------------- %/
@@ -24,13 +24,13 @@
 24:          PROC aa (FLOAT p1) NA = 1_l , SHADOWING = TRUE
 25:          {
 26:                  FLOAT variable_adentro_proc1;
-27:                  IF (e != p2)
+27:                  IF (e != p2){
 28:                      FLOAT variable_adentro_if;
 29:      
 30:                     OUT ("cadena de caracteres 1");
-31:                  ELSE
+31:                  }ELSE{
 32:                      float_negative = float_negative - 1.;
-33:                  END_IF;
+33:                  }END_IF;
 34:      
 35:                  PROC bb (FLOAT p2) NA = 1_l , SHADOWING = TRUE
 36:                  {
@@ -50,12 +50,12 @@
 50:              WHILE (p4 <= 12.) LOOP
 51:              {
 52:                  e = e + 1.;
-53:                  IF (e != p2)
+53:                  IF (e != p2){
 54:                      LONGINT variable_kaka;
 55:                     OUT ("cadena de caracteres 2");
-56:                  ELSE
+56:                  }ELSE{
 57:                      float_negative = float_negative - 1.;
-58:                  END_IF;
+58:                  }END_IF;
 59:              };
 60:          };
 61:      

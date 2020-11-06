@@ -27,8 +27,8 @@ class Symbol_table {
 
             };
             void setUse(char * key,char * use);
-            Registry getRegistry(string key);
             void addAmbit(string key,string ambit);
+            Registry getRegistry(string key);
             void addType(string type,string key,string ambit); //Modifique esto para los ambitos
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);

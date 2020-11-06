@@ -36,15 +36,14 @@ linea:23  Asignacion
 linea:23  Error: No coinciden los tipos
 linea:25  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
 linea:26  Declaracion de variables
-linea:27  Condicion distinto
-linea:27  Coinciden los tipos
+linea:26  Condicion distinto
+linea:26  Coinciden los tipos
 linea:29  Declaracion de variables
 linea:30  Detecto sentencia OUT
 linea:32  resta
 linea:32  Error: No coinciden los tipos
 linea:32  Asignacion
 linea:32  Coinciden los tipos
-linea:32  Error: FALTA END_IF
 linea:32  Sentencia IF
 linea:34  sentencia if
 linea:38  Declaracion de variables
@@ -56,21 +55,20 @@ linea:45  lista_de_variables
 linea:48  Declaracion de variables
 linea:49  Asignacion
 linea:49  Error: No coinciden los tipos
-linea:49  Condicion mayorIgual
+linea:49  Condicion menorigual
 linea:49  Error: No coinciden los tipos
 linea:52  suma
 linea:52  Error: No coinciden los tipos
 linea:52  Asignacion
 linea:52  Coinciden los tipos
-linea:53  Condicion distinto
-linea:53  Coinciden los tipos
+linea:52  Condicion distinto
+linea:52  Coinciden los tipos
 linea:54  Declaracion de variables
 linea:55  Detecto sentencia OUT
 linea:57  resta
 linea:57  Error: No coinciden los tipos
 linea:57  Asignacion
 linea:57  Coinciden los tipos
-linea:57  Error: FALTA END_IF
 linea:57  Sentencia IF
 linea:58  sentencia if
 linea:58  Sentencia WHILE
