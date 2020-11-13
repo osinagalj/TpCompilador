@@ -17,6 +17,7 @@ class chekeosGeneracion {
     public:
         //Actions
         static void insertar_terceto(string op, string op1, string op2);
+        static void insertar_terceto(Terceto t);
         static Terceto removeTerceto(int pos);
         static void crear_asignacion(Symbol_table * table, char * op,char * ,char * key);
         static void crear_asignacion2(Symbol_table * tablita, char * op,char * ,char * key);
@@ -59,11 +60,24 @@ class chekeosGeneracion {
         static void imprimirLista2();
         //END ambitos Lauta
 
+        static void setFlagPre(bool valor);
+        static bool getFlagPre();
+        static void setFlagPost(bool valor);
+        static bool getFlagPost();
+        static Terceto removeTercetoResta(int pos);
+        static void insertarTercetoIncompleto(Terceto t);
+        static Terceto getTercetoIncompleto();
+        static void completar_terceto(int numeroTerceto, string operando1,string operando3);
+        static void completar_operando1(int numeroTerceto, string operando1);
+        static void completar_operando3(int numeroTerceto,string operando3);
+        static void completar_operando3(Terceto t,string operando3);
+        static bool listaVacia();
 
 private:
-
+        static bool flagPre;
+        static bool flagPost;
         static int number;
-
+        static list<Terceto> list_tercetos_sin_completar;
         static void checkexiste(Symbol_table * table,char * op);
         static Terceto getTerceto(int pos);
         static map<int,Terceto> list_tercetos;

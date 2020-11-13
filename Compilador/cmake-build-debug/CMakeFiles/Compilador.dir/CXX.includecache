@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Terceto.cpp
-string
--
-Terceto.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Terceto.h
-
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Terceto.h
 TercetoAbs.h
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/TercetoAbs.h
@@ -19,20 +13,6 @@ iostream
 -
 
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/TercetoAbs.h
-
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp
-chekeosGeneracion.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h
-../SymbolTable/Symbol_table.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
-string.h
--
-../Output/Logger.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
-stdio.h
--
-string.h
--
 
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h
 map
@@ -88,10 +68,6 @@ iostream
 ../SymbolTable/Symbol_table.h
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Output/Logger.cpp
-Logger.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
-
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
 string
 -
@@ -101,14 +77,6 @@ iostream
 -
 ../Lexical_analyzer/Lexical_analyzer.h
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
-
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.cpp
-Sintactic_actions.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
-../Output/Logger.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
-string.h
--
 
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
 map
@@ -121,10 +89,6 @@ C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.cpp
 
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
-
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.cpp
-Symbol_table.h
-C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 
 C:/Users/nicol/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 iostream

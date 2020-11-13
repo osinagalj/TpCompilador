@@ -10,6 +10,7 @@ void chekeosGeneracion::insertar_terceto(string op, string op1, string op2){
     list_tercetos.insert({number, t});
     number++;
 }
+
 int chekeosGeneracion::getNumber(){
     return number;
 }
@@ -26,12 +27,33 @@ Terceto chekeosGeneracion::removeTerceto(int pos){
     list_tercetos.erase(pos); //elimino el viejo
     return t;
 }
+
 void chekeosGeneracion::modificar_terceto(int numeroTerceto,int numeroCompletar){
     Terceto t=removeTerceto(numeroTerceto);
     int num = number + numeroCompletar;
     string s= to_string(num);
     t.setOp2(s);
     list_tercetos.insert({numeroTerceto, t});;
+}
+
+void chekeosGeneracion::completar_terceto(int numeroTerceto, string operando1,string operando3) {
+    list_tercetos.find(numeroTerceto)->second.setOp(operando1);
+    list_tercetos.find(numeroTerceto)->second.setOp2(operando3);
+}
+void chekeosGeneracion::insertar_terceto(Terceto t){
+    list_tercetos.insert({number, t});
+    number++;
+}
+void chekeosGeneracion::completar_operando1(int numeroTerceto, string operando1) {
+    list_tercetos.find(numeroTerceto)->second.setOp(operando1);
+}
+void chekeosGeneracion::completar_operando3(Terceto t,string operando3){
+    t.setOp2(operando3);
+    insertar_terceto(t);
+}
+
+void chekeosGeneracion::completar_operando3(int numeroTerceto, string operando3){
+list_tercetos.find(numeroTerceto)->second.setOp(operando3);
 }
 
 string chekeosGeneracion::convertS(char * variable){
@@ -123,7 +145,6 @@ bool chekeosGeneracion::checkearTipo(Symbol_table * tablita,char * key,char * ke
     Logger::write("Error: No coinciden los tipos");
     falloEnCompilacion = true;
     return false;
-
 }
 #include <stdio.h>
 #include <string.h>
@@ -158,23 +179,19 @@ int chekeosGeneracion::desapilar() {
     pila.pop_front();
     return numerito;
 }
-
 void chekeosGeneracion::imprimirTercetos(){
     for (map<int,Terceto>::iterator it=list_tercetos.begin(); it!=list_tercetos.end(); ++it)
     {//nico
         cout << to_string(it->first)<<".  " << "(" << it->second.getOp() << " , " << it->second.getOp1() << "," << it->second.getOp2() <<" ) "<<'\n';
     }
 }
-
 /*
  Lauta
  **/
-
 void chekeosGeneracion::concatenarAmbito(char * ambito)
 {
     ambito_actual = ambito_actual + ":" + convertToString(ambito);
 }
-
 
 void chekeosGeneracion::eliminarUltimoAmbito()
 {
@@ -202,6 +219,54 @@ void chekeosGeneracion::desconcatenarAmbitoAnonimo() {
 void chekeosGeneracion::asignarAmbito(Symbol_table * symbolTable,char * key){
     symbolTable->addAmbit(key,ambito_actual); //hacer algun chekeo seguramente
 }
+
+void chekeosGeneracion::setFlagPost(bool valor) {
+    flagPost=valor;
+}
+bool chekeosGeneracion::getFlagPost() {
+    return flagPost;
+}
+void chekeosGeneracion::setFlagPre(bool valor) {
+    flagPre=valor;
+}
+bool chekeosGeneracion::getFlagPre() {
+    return flagPre;
+}
+
+
+
+Terceto chekeosGeneracion::removeTercetoResta(int pos){
+    Terceto t;
+    t.setOp(list_tercetos.find(pos)->second.getOp());
+    t.setOp1(list_tercetos.find(pos)->second.getOp1());
+    t.setOp2(list_tercetos.find(pos)->second.getOp2());
+    list_tercetos.erase(pos); //elimino el viejo
+    number--;
+    return t;
+}
+
+void chekeosGeneracion::insertarTercetoIncompleto(Terceto t){
+    list_tercetos_sin_completar.push_front(t);
+}
+
+bool chekeosGeneracion::listaVacia(){
+    if(list_tercetos_sin_completar.empty()){
+        return true;
+    }
+    else return false;
+}
+
+Terceto chekeosGeneracion::getTercetoIncompleto(){
+    cout<<"entro a get terceto incompleto"<<endl;
+    list<Terceto>::iterator pos = list_tercetos_sin_completar.begin();
+    if(pos != list_tercetos_sin_completar.end()) {
+        Terceto t = *pos;
+        cout << "contenido del terceto incompleto: " << t.getOp() << endl;
+        list_tercetos_sin_completar.pop_front();
+        return t;
+    }
+}
+
 
 
 /*

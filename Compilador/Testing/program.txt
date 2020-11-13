@@ -1,68 +1,13 @@
-                                            /% Group 2 %/
-
-                           /% ------------- Program without errors.  ------------------- %/
-                            /% ------------- Este lo estuve cambiando para probar lo de los ambitos  ------------------- %/
-
-    LONGINT a , b , c , d ;
-    FLOAT   x,y,z,w;
-    LONGINT longint_negative;
-    FLOAT   float_negative;
-
-    a = 3_l;
-    x = 5.0f+3;
-    w =  3.3 +  5.0f+3;
-    a = 2_l * 3_l;
-    c = 5_l;
-     b = 2_l - a / c;              /%ARREGLAR preguntar %/
-    w = 4.5 + 3.3 + 4.2;
-
-    float_negative = -7.3;
-    longint_negative = -715_l;
-    d = 2_l - -3_l;
-
-
-    PROC aa (FLOAT p1) NA = 1_l , SHADOWING = TRUE
-    {
-            FLOAT variable_adentro_proc1;
-            IF (e != p2){
-                FLOAT variable_adentro_if;
-
-               OUT ("cadena de caracteres 1");
-            }ELSE{
-                float_negative = float_negative - 1.;
-            }END_IF;
-
-            PROC bb (FLOAT p2) NA = 1_l , SHADOWING = TRUE
-            {
-                FLOAT variable_1_1;
-
-                PROC cc (FLOAT p3) NA = 1_l , SHADOWING = TRUE
-                {
-                    FLOAT variable_cc;
-                };
-            };
-    };
-
-    PROC dd (FLOAT p4, FLOAT p5) NA = 1_l , SHADOWING = TRUE
-    {
-        FLOAT e;
-        e = 2.;
-        WHILE (p4 <= 12.) LOOP
-        {
-            e = e + 1.;
-            IF (e != p2){
-                LONGINT variable_kaka;
-               OUT ("cadena de caracteres 2");
-            }ELSE{
-                float_negative = float_negative - 1.;
-            }END_IF;
-        };
-    };
-
-    procedure_2(x,y);
-
-
-
-
-
+INT id_7;
+   FLOAT float_negative;
+   IF (id_7 + id_8 != 10+8){
+      OUT ("cadena de caracteres");
+      }
+   ELSE{
+       OUT ("cadena de caracteres");
+       }
+   END_IF;
+   WHILE(id_7>10)LOOP{
+       OUT ("cadena de caracteres");
+   }
 $

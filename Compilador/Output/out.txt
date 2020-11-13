@@ -1,77 +1,19 @@
-linea:6  Declaracion de variables
-linea:7  Declaracion de variables
-linea:8  Declaracion de variables
-linea:10  Declaracion de variables
-linea:11  Asignacion
-linea:11  Error: No coinciden los tipos
-linea:12  Asignacion
-linea:12  Error: No coinciden los tipos
-linea:13  suma
-linea:13  Coinciden los tipos
-linea:13  Asignacion
-linea:13  Error: No coinciden los tipos
-linea:13  Coinciden los tipos
-linea:14  Asignacion
-linea:14  Error: No coinciden los tipos
-linea:15  Asignacion
-linea:15  Error: No coinciden los tipos
-linea:15  Coinciden los tipos
-linea:15  resta
-linea:15  Error: No coinciden los tipos
-linea:15  Asignacion
-linea:15  Error: No coinciden los tipos
-linea:16  suma
-linea:16  Coinciden los tipos
-linea:18  suma
-linea:18  Coinciden los tipos
-linea:18  Asignacion
-linea:18  Error: No coinciden los tipos
-linea:19  Asignacion
-linea:19  Error: No coinciden los tipos
-linea:20  Asignacion
-linea:20  Error: No coinciden los tipos
-linea:23  resta
-linea:23  Coinciden los tipos
-linea:23  Asignacion
-linea:23  Error: No coinciden los tipos
-linea:25  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
-linea:26  Declaracion de variables
-linea:26  Condicion distinto
-linea:26  Coinciden los tipos
-linea:29  Declaracion de variables
-linea:30  Detecto sentencia OUT
-linea:32  resta
-linea:32  Error: No coinciden los tipos
-linea:32  Asignacion
-linea:32  Coinciden los tipos
-linea:32  Sentencia IF
-linea:34  sentencia if
-linea:38  Declaracion de variables
-linea:41  Declaracion de variables
-linea:42  Declaracion de procedimiento
-linea:43  Declaracion de procedimiento
-linea:45  Declaracion de procedimiento
-linea:45  lista_de_variables
-linea:48  Declaracion de variables
-linea:49  Asignacion
-linea:49  Error: No coinciden los tipos
-linea:49  Condicion menorigual
-linea:49  Error: No coinciden los tipos
-linea:52  suma
-linea:52  Error: No coinciden los tipos
-linea:52  Asignacion
-linea:52  Coinciden los tipos
-linea:52  Condicion distinto
-linea:52  Coinciden los tipos
-linea:54  Declaracion de variables
-linea:55  Detecto sentencia OUT
-linea:57  resta
-linea:57  Error: No coinciden los tipos
-linea:57  Asignacion
-linea:57  Coinciden los tipos
-linea:57  Sentencia IF
-linea:58  sentencia if
-linea:58  Sentencia WHILE
-linea:59  sentencia while
-linea:61  Declaracion de procedimiento
-linea:67  invocacion procedimiento
+linea:1  Declaracion de variables
+linea:2  Declaracion de variables
+linea:2  suma
+linea:2  Coinciden los tipos
+linea:2  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:2  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:2  suma
+linea:2  Coinciden los tipos
+linea:2  Condicion igual
+linea:2  Error: No coinciden los tipos
+linea:4  Detecto sentencia OUT
+linea:7  Detecto sentencia OUT
+linea:8  Sentencia IF
+linea:9  sentencia if
+linea:9  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:9  Condicion igual
+linea:9  Error: No coinciden los tipos
+linea:11  Detecto sentencia OUT
+linea:12  Sentencia WHILE

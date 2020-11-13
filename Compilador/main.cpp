@@ -20,8 +20,11 @@ bool chekeosGeneracion::falloEnCompilacion = false;
 list<string> chekeosGeneracion::list_variables;
 list<int> chekeosGeneracion::pila;
 map<int,Terceto> chekeosGeneracion::list_tercetos;
+list<Terceto> chekeosGeneracion::list_tercetos_sin_completar;
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;
+bool chekeosGeneracion::flagPre=false;
+bool chekeosGeneracion::flagPost=false;
 //lauta
 string chekeosGeneracion::ambito_actual = "main";
 int chekeosGeneracion::ambitoAnonimo = 1;
