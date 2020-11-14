@@ -1,13 +1,33 @@
 INT id_7;
    FLOAT float_negative;
-   IF (id_7 + id_8 != 10+8){
+   id_7=1+2;
+   IF (id_7*id_8 != 10/8){
       OUT ("cadena de caracteres");
       }
    ELSE{
        OUT ("cadena de caracteres");
        }
    END_IF;
+   id_7=8;
    WHILE(id_7>10)LOOP{
        OUT ("cadena de caracteres");
-   }
+   };
+   id_7=8*2;
+   PROC procedure_2 (FLOAT p1, FLOAT p2) NA = 1_l , SHADOWING = TRUE
+       {
+           FLOAT e;
+           e = 2.;
+           WHILE (p1 <= 12.) LOOP
+           {
+               e = e + 1.;
+               IF (e != p2){
+                  OUT ("cadena de caracteres");
+              }
+               ELSE{
+                   float_negative = float_negative - 1.;
+                   }
+               END_IF;
+           };
+       };
+       procedure_2(x,y);
 $

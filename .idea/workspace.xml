@@ -33,22 +33,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="934474d4-89c3-413a-9030-442176c7b2ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/yacc.oa08688" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Output/indexProgram.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Output/indexProgram.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Output/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Output/out.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/Gramatica.y" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/Gramatica.y" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/y.tab.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/y.tab.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/Testing/program.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Testing/program.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compiler_G-2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler_G-2.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,11 +82,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.Compilador">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Compi" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Compilador/CMakeLists.txt" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -188,7 +175,8 @@
       <workItem from="1604857545791" duration="7024000" />
       <workItem from="1604873578498" duration="3879000" />
       <workItem from="1604956265388" duration="10308000" />
-      <workItem from="1605288911835" duration="14693000" />
+      <workItem from="1605288911835" duration="15939000" />
+      <workItem from="1605363257332" duration="2077000" />
     </task>
     <servers />
   </component>
@@ -234,30 +222,30 @@
     </state>
     <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604163760531" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599781497567" />
-    <state width="1877" height="253" key="GridCell.Tab.0.bottom" timestamp="1605309086345">
+    <state width="1877" height="389" key="GridCell.Tab.0.bottom" timestamp="1605365317218">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="97" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604345347083" />
     <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1602027446760" />
-    <state width="1877" height="253" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605309086345" />
-    <state width="1877" height="253" key="GridCell.Tab.0.center" timestamp="1605309086344">
+    <state width="1877" height="389" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605365317218" />
+    <state width="1877" height="389" key="GridCell.Tab.0.center" timestamp="1605365317217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="97" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604345347082" />
     <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1602027446759" />
-    <state width="1877" height="253" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605309086344" />
-    <state width="1877" height="253" key="GridCell.Tab.0.left" timestamp="1605309086343">
+    <state width="1877" height="389" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605365317217" />
+    <state width="1877" height="389" key="GridCell.Tab.0.left" timestamp="1605365317217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="97" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604345347082" />
     <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1602027446759" />
-    <state width="1877" height="253" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605309086343" />
-    <state width="1877" height="253" key="GridCell.Tab.0.right" timestamp="1605309086344">
+    <state width="1877" height="389" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605365317217" />
+    <state width="1877" height="389" key="GridCell.Tab.0.right" timestamp="1605365317217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="97" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604345347082" />
     <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1602027446760" />
-    <state width="1877" height="253" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605309086344" />
+    <state width="1877" height="389" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605365317217" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1604535909426">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

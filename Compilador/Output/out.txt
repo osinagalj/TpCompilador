@@ -1,19 +1,55 @@
 linea:1  Declaracion de variables
 linea:2  Declaracion de variables
-linea:2  suma
-linea:2  Coinciden los tipos
 linea:2  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
 linea:2  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:2  suma
-linea:2  Coinciden los tipos
-linea:2  Condicion igual
-linea:2  Error: No coinciden los tipos
-linea:4  Detecto sentencia OUT
-linea:7  Detecto sentencia OUT
-linea:8  Sentencia IF
-linea:9  sentencia if
-linea:9  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
-linea:9  Condicion igual
-linea:9  Error: No coinciden los tipos
-linea:11  Detecto sentencia OUT
-linea:12  Sentencia WHILE
+linea:3  suma
+linea:3  Coinciden los tipos
+linea:3  Asignacion
+linea:3  Error: No coinciden los tipos
+linea:3  Coinciden los tipos
+linea:3  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:3  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:3  Coinciden los tipos
+linea:3  Condicion igual
+linea:3  Error: No coinciden los tipos
+linea:5  Detecto sentencia OUT
+linea:8  Detecto sentencia OUT
+linea:9  Sentencia IF
+linea:10  sentencia if
+linea:10  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:11  Asignacion
+linea:11  Error: No coinciden los tipos
+linea:11  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:11  Condicion igual
+linea:11  Error: No coinciden los tipos
+linea:13  Detecto sentencia OUT
+linea:13  Sentencia WHILE
+linea:14  sentencia while
+linea:14  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:14  Error: No se permiten las constantes de tipo entero. Las cosntantes pueden ser solo del tipo LOINGT y FLOAT
+linea:14  Coinciden los tipos
+linea:15  Asignacion
+linea:15  Error: No coinciden los tipos
+linea:15  lista_de_variables
+linea:18  Declaracion de variables
+linea:19  Asignacion
+linea:19  Error: No coinciden los tipos
+linea:19  Condicion igual
+linea:19  Error: No coinciden los tipos
+linea:22  suma
+linea:22  Error: No coinciden los tipos
+linea:22  Asignacion
+linea:22  Coinciden los tipos
+linea:22  Condicion igual
+linea:22  Coinciden los tipos
+linea:24  Detecto sentencia OUT
+linea:27  resta
+linea:27  Error: No coinciden los tipos
+linea:27  Asignacion
+linea:27  Coinciden los tipos
+linea:28  Sentencia IF
+linea:29  sentencia if
+linea:29  Sentencia WHILE
+linea:30  sentencia while
+linea:32  Declaracion de procedimiento
+linea:33  invocacion procedimiento
