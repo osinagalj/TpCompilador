@@ -168,7 +168,7 @@ int chekeosGeneracion::desapilar() {
 
 void chekeosGeneracion::imprimirTercetos(){
     for (map<int,Terceto>::iterator it=list_tercetos.begin(); it!=list_tercetos.end(); ++it)
-    {
+    {//nico
         cout << to_string(it->first)<<".  " << "(" << it->second.getOp() << " , " << it->second.getOp1() << "," << it->second.getOp2() <<" ) "<<'\n';
     }
 }
