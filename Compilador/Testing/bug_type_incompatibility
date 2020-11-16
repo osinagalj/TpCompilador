@@ -1,33 +1,59 @@
+                                            /% Group 2 %/
 
-/% ------------- Incompatibilidad de tipos  ------------------- %/
+                           /% ------------- Program without errors.  ------------------- %/
 
-    a = 3.;                                                     /% Se asigna un Float a una variable LONGINT %/
-    x = 5_l;                                                    /% Se asigna un LONGINT a una variable Float %/
-    w =  3_l +  5.0f+3;                                         /% Suma de distintos tipos %/
-    c = 3. * 3_l;                                               /% Multiplicacion de distintos tipos %/
-    b = variable_no_definida;                                   /% Asignacion a una variable indefinida %/
-    LONGINT d;                                                  /% Redeclaracion de variable d %/
+    LONGINT a , b , c , d ;
+    FLOAT   x,y,z,w;
+    LONGINT longint_negative;
+    FLOAT   float_negative;
 
-    w = 4.5 + 3.3 + 4. / 3_l;                                   /% Multiples operaciones dentro de una expresion  %/
+    a = 3_l;
+    x = 5.0f+3;
+    w =  3.3 +  5.0f+3;
+    a = 2_l * 3_l;
+    c = 5_l;
+    b = 2_l - a / c;
+    w = 4.5 + 3.3 + 4.2;
+    float_negative = -7.3;
+    longint_negative = -715_l;
+    d = 2_l - -3_l;
 
-    procedure_0(x);                                             /% Procedimiento no declarado %/
 
-    PROC aa (FLOAT parametro1) NA = 3_l , SHADOWING = FALSE      /% Redeclaracion de procedimiento %/
+    PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
     {
-        FLOAT f, k;
-        LONGINT d;                                              /% No es error, se permiten redeclaraciones en distinto ambito %/
-        PROC procedure_1_1 (FLOAT parametro2) NA = 3_l , SHADOWING = TRUE
+        FLOAT e;
+        IF (e != p1){
+            OUT ("cadena de caracteres 1");
+        }ELSE{
+            float_negative = float_negative - 1.;
+        }
+        END_IF;
+
+        PROC bb (FLOAT p2) NA = 1_l , SHADOWING = FALSE
         {
-            f = a + 5.;
-            FLOAT k;                                            /% SHADOWING = TRUE no admite declarar una variable con el mismo nombre en los ámbitos anidados%/
+            FLOAT float_negative;
         };
-        procedure_1_1(k);
     };
 
-    z = f;                                                               /% Variable 'f' no esta al alcance %/
-    procedure_1_1(z);                                                   /% Procedimiento no se encuentra al alcance %/
-
-    PROC procedure_2 (FLOAT p) NA = 3_l , SHADOWING = FALSE              /% Redeclaracion de procedimiento  %/
+    PROC dd (FLOAT p4, FLOAT p5) NA = 1_l , SHADOWING = TRUE
     {
-        c = 3. * 3_l;
+        FLOAT e;
+        e = 2.;
+        WHILE (p4 <= 12.) LOOP
+        {
+            e = e + 1.;
+            IF (e != p2){
+                LONGINT variable_kaka;
+               OUT ("cadena de caracteres 2");
+            }ELSE{
+                float_negative = float_negative - 1.;
+            }END_IF;
+        };
     };
+
+    dd(x,y);
+
+
+
+
+$

@@ -2,6 +2,7 @@
 #include "Output/Logger.h"
 #include <fstream>
 #include "GeneracionDeCodigoIntermedio/chekeosGeneracion.h" //cambiar
+#include <string.h>
 using namespace std;
 int yylex();
 void yyerror(const char *);
@@ -27,36 +28,17 @@ string chekeosGeneracion::ambito_actual = "main";
 int chekeosGeneracion::ambitoAnonimo = 1;
 list<string> chekeosGeneracion::list_variables_ambito;
 bool chekeosGeneracion::shadowing = false;
+
+bool chekeosGeneracion::flagPre=false;
+bool chekeosGeneracion::flagPost=false;
+list<Terceto> chekeosGeneracion::list_tercetos_sin_completar;
+
+
+/*charly*/
+int chekeosGeneracion::cantProc = 0;
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
-
-
-/* Name Mangling
- *  //Ambito A
- *  int x;
- *  void fun(){
- *      //Ambito B
- *      if(){
- *          //Ambito D
- *          int z;
- *          x:= 25 + z;
- *      }
- *  }
- *
-    Buscar x:A:B:D
-        No está  Buscar x:A:B
-                No está  Buscar x:A 
-
-    Buscar z:A:B:D
- *
- * --Tenemos que tener una variable ambito, y concatenarla cada vez que se entre en un nuevo ambito.
- * -- metodo de concatenar el ambito
- * -- metodo de eliminar el ultimo ambito, para cuando se sale del ambito
- */
-
-#include <string.h>
-
 int main(int argc,char** argv)
 {
     if (argc > 1){
@@ -71,7 +53,6 @@ int main(int argc,char** argv)
     Symbol_table tabla;
     lexical_analyzer.symbolTable = &tabla;
     Lexical_analyzer::symbolTable = &tabla;
-
 
     //Execute parser
     yyparse();
@@ -135,3 +116,28 @@ void createIndexFile()
 
     }
 }
+
+
+
+/* Name Mangling
+ *  //Ambito A
+ *  int x;
+ *  void fun(){
+ *      //Ambito B
+ *      if(){
+ *          //Ambito D
+ *          int z;
+ *          x:= 25 + z;
+ *      }
+ *  }
+ *
+    Buscar x:A:B:D
+        No está  Buscar x:A:B
+                No está  Buscar x:A 
+
+    Buscar z:A:B:D
+ *
+ * --Tenemos que tener una variable ambito, y concatenarla cada vez que se entre en un nuevo ambito.
+ * -- metodo de concatenar el ambito
+ * -- metodo de eliminar el ultimo ambito, para cuando se sale del ambito
+ */
