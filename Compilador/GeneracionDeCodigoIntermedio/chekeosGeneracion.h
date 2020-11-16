@@ -39,6 +39,37 @@ class chekeosGeneracion {
 
         static void imprimirTercetos();
 
+
+
+
+        /**/
+
+        static void insertar_terceto(Terceto t);
+        static void crear_asignacion(Symbol_table * table, char * op,char * ,char * key);
+        static void crear_asignacion2(Symbol_table * tablita, char * op,char * ,char * key);
+        static void asignar_tipo(Symbol_table * tablita,char * tipo);
+        //que acciones tnemos que tener y en donde las llamamos en la gramatica
+        static string convertS(char * tipo);
+        static void convertS2(char * tipo,char * texto);
+        // double juan;
+        //int pepe = 2 + juan;
+        //get lista de tercetos
+
+        /**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //Ambitos Lauta
         static int ambitoAnonimo;
         static string ambito_actual;
@@ -63,9 +94,34 @@ class chekeosGeneracion {
         static bool getShadowing();
         static void check_shadowing(Symbol_table * tablita,string key);
 
-private:
 
+        /*nico*/
+        static void setFlagPre(bool valor);
+        static bool getFlagPre();
+        static void setFlagPost(bool valor);
+        static bool getFlagPost();
+        static Terceto removeTercetoResta(int pos);
+        static void insertarTercetoIncompleto(Terceto t);
+        static Terceto getTercetoIncompleto();
+        static void completar_terceto(int numeroTerceto, string operando1,string operando3);
+        static void completar_operando1(int numeroTerceto, string operando1);
+        static void completar_operando3(int numeroTerceto,string operando3);
+        static void completar_operando3(Terceto t,string operando3);
+        static bool listaVacia();
+
+
+    static int cantProc;
+    /*nico*/
+        static int convertToI(char * str);
+private:
+        /*nico*/
+        static bool flagPre;
+        static bool flagPost;
         static int number;
+        static list<Terceto> list_tercetos_sin_completar;
+
+
+        /**/
 
         static void checkexiste(Symbol_table * table,char * op);
         static Terceto getTerceto(int pos);
