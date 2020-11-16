@@ -32,9 +32,6 @@ int chekeosGeneracion::ambitoAnonimo = 1;
 list<string> chekeosGeneracion::list_variables_ambito;
 bool chekeosGeneracion::shadowing = false;
 
-bool chekeosGeneracion::flagPre=false;
-bool chekeosGeneracion::flagPost=false;
-list<Terceto> chekeosGeneracion::list_tercetos_sin_completar;
 
 
 /*charly*/
