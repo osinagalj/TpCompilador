@@ -45,6 +45,7 @@ CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.obj: ../Sinta
 CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.obj: ../Sintactic_analyzer/Sintactic_actions.h
 CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.obj: ../SymbolTable/Symbol_table.h
 
+CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: ../Sintactic_analyzer/y.tab.h
 CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: ../SymbolTable/Symbol_table.cpp
 CMakeFiles/Compilador.dir/SymbolTable/Symbol_table.cpp.obj: ../SymbolTable/Symbol_table.h
 
