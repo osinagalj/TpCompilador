@@ -18,16 +18,10 @@ class chekeosGeneracion {
         //Actions
         static void insertar_terceto(string op, string op1, string op2);
         static Terceto removeTerceto(int pos);
-        static void crear_asignacion(Symbol_table * table, char * op,char * ,char * key);
-        static void crear_asignacion2(Symbol_table * tablita, char * op,char * ,char * key);
-        static void asignar_tipo(Symbol_table * tablita,char * tipo);
+
+        static void declare_variable_list(Symbol_table * tablita,char * tipo); //declare_variable_list
         static bool checkearTipo(Symbol_table * tablita,char * op,char * op2);
-        //que acciones tnemos que tener y en donde las llamamos en la gramatica
-        static string convertS(char * tipo);
-        static void convertS2(char * tipo,char * texto);
-        // double juan;
-        //int pepe = 2 + juan;
-        //get lista de tercetos
+
         static void addVariable(char * variable);
         static string convertToString(char * tipo);
         static char* asignarTipo(Symbol_table * symbolTable,char* op, char* op2);
@@ -55,10 +49,19 @@ class chekeosGeneracion {
         static void desconcatenarAmbitoAnonimo();
         static list<string> list_variables_ambito;
         static void asignarAmbito(Symbol_table * symbolTable,char * key);
-        static void setUse();
+        static void setUse(Symbol_table * tablita,char * key,char * key2);
         static void imprimirLista2();
+
+        static void estaAlAlcance(Symbol_table * symbolTable,char * key);
+    static bool estaAlAlcance2(Symbol_table * symbolTable,char * key, string & tuka);
+        static string recortarAmbito(string key);
+
         //END ambitos Lauta
 
+        static bool shadowing;
+        static bool setShadowingFalse();
+        static bool getShadowing();
+        static void check_shadowing(Symbol_table * tablita,string key);
 
 private:
 
@@ -70,3 +73,20 @@ private:
 };
 
 #endif //COMPILADOR_CHEKEOSGENERACION_H
+
+
+/*
+ 9. ...
+10. ( - , a , b )
+11. ( + , c , 1 )
+12. ( > , [10] , [11] )
+13. ( BF , [12] , ?7 )
+14. ( + , b , c )
+15. ( := , a , [14] )
+16. ( BI , ?9, - )
+17. ( - , b , c )
+18. ( := , a , [17] )
+19. FUERA_DEL_IF
+
+
+ **/

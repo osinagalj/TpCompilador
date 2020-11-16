@@ -22,10 +22,20 @@ class Symbol_table {
                 string Tipo = "no-type";
                 string ambito = "no-defined";
                 string uso = "no-defined";
+                string tipoToken = "no-defined";
                 //otros:
                 //Pasaje forma_de_pasaje; // no va
 
             };
+
+            /*lauta*/
+            bool existVariable(string key);
+            void clearTable();
+            bool estaAlAlcance(string key);
+
+            void addType2(string type,string key,string ambit); //Modifique esto para los ambitos
+            /* */
+
             void setUse(char * key,char * use);
             void addAmbit(string key,string ambit);
             Registry getRegistry(string key);

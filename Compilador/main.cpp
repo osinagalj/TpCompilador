@@ -26,6 +26,7 @@ Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 string chekeosGeneracion::ambito_actual = "main";
 int chekeosGeneracion::ambitoAnonimo = 1;
 list<string> chekeosGeneracion::list_variables_ambito;
+bool chekeosGeneracion::shadowing = false;
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
@@ -54,6 +55,8 @@ list<string> chekeosGeneracion::list_variables_ambito;
  * -- metodo de eliminar el ultimo ambito, para cuando se sale del ambito
  */
 
+#include <string.h>
+
 int main(int argc,char** argv)
 {
     if (argc > 1){
@@ -68,12 +71,16 @@ int main(int argc,char** argv)
     Symbol_table tabla;
     lexical_analyzer.symbolTable = &tabla;
     Lexical_analyzer::symbolTable = &tabla;
+
+
     //Execute parser
     yyparse();
     //Finish
     Logger::close();
+    tabla.clearTable();
     tabla.printTable();
     chekeosGeneracion::imprimirTercetos();
+
     createIndexFile();
 
     return 0;
@@ -95,7 +102,7 @@ int yylex()
 {
     Lexical_analyzer::Token current_token = lexical_analyzer.getToken(path);                //cout << "----------------Token encontrado: " + current_token.pointerST + "    ID: " + to_string(current_token.id) << endl;
     string str = current_token.pointerST;       //yylval.cadena= &current_token.pointerST[0];
-    cout<<"token = " <<str<<endl;
+    cout<<"str = " + str<<endl;
     char *cstr = new char[str.length() + 1];
     strcpy(cstr, str.c_str());
     yylval.cadena = cstr;
@@ -109,6 +116,7 @@ int yylex()
 
 void createIndexFile()
 {
+
     ofstream indexFile;
     ifstream Entrada;
     Entrada.open(path,ifstream::in);
