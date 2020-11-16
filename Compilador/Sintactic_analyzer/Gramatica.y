@@ -29,24 +29,22 @@ sentencia:
 
 declarativa:
 	      tipo lista_de_variables {Logger::write("Declaracion de variables");
-						chekeosGeneracion::asignar_tipo(Lexical_analyzer::symbolTable,$1.cadena);
+						chekeosGeneracion::declare_variable_list(Lexical_analyzer::symbolTable,$1.cadena);
 	      		      		}
-	    | procedimiento ';'{Logger::write("Declaracion de procedimiento");}
+	    | procedimiento ';'{Logger::write("Declaracion de procedimiento"); chekeosGeneracion::shadowing = false;}
 	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
 	    // | tipo lista_de_variables asignacion   vemos si se puede mejorar, preguntar al profe si tenemos que permitir esto
-	    // int id_3 = 5
+
 ;
 
 
 lista_de_variables:
-		     ID ',' lista_de_variables{ char * ambito = "Lista de variables";
+		     ID ',' lista_de_variables{
 		     				chekeosGeneracion::addVariable($1.cadena);
-                                                 chekeosGeneracion::convertS2($1.cadena,ambito);
-                                                  Lexical_analyzer::symbolTable->setUse($1.cadena,"variable");}
+
+                                                 chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$1.cadena,"variable");}
 		   | ID ';' {	chekeosGeneracion::addVariable($1.cadena);
-		   		char * ambito = "Ultimo ID en lista de variables";
-                            	 chekeosGeneracion::convertS2($1.cadena,ambito);
-                             Lexical_analyzer::symbolTable->setUse($1.cadena,"variable");}
+                             	chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$1.cadena,"variable");}
 ;
 
 ejecutable:
@@ -61,58 +59,46 @@ ejecutable:
 ;
 
 invocacion_proc:
-	 ID '(' parametros ')' ';'
+	 ID '(' parametros ')' ';' {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);}
 ;
 
 parametros:
-	 parametros ',' ID
-	|ID
+	 parametros ',' ID {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$3.cadena);}
+	|ID {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);}
 ;
 
 procedimiento:
-	 nombre_proc  '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();
+	 nombre_proc  '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false '{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();
 	    											chekeosGeneracion::eliminarUltimoAmbito();}
+
 	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID");chekeosGeneracion::eliminarUltimoAmbito();}
 	|nombre_proc '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");chekeosGeneracion::eliminarUltimoAmbito();}
 	|nombre_proc'(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();}
 	|nombre_proc '(' lista_de_parametros ')' '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();}
 ;
 
-nombre_proc: PROC ID {	Lexical_analyzer::symbolTable->setUse($2.cadena,"nombre_procedimiento");
+nombre_proc: PROC ID {	chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$2.cadena,"nombre_proc");
+			chekeosGeneracion::concatenarAmbito($2.cadena);
 			chekeosGeneracion::asignarAmbito(Lexical_analyzer::symbolTable,$2.cadena);
-			chekeosGeneracion::concatenarAmbito($2.cadena);}
+			}
 ;
 
 true_false:
-	     TRUE
-	   | FALSE
+	     TRUE { chekeosGeneracion::shadowing = true;}
+	   | FALSE { chekeosGeneracion::shadowing = false;}
 ;
 
 lista_de_parametros:
 	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables");
 	 	       				       Sintactic_actions::number_of_parameters++;
-	 	       				       Lexical_analyzer::symbolTable->setUse($4.cadena,"parametro");
-						Lexical_analyzer::symbolTable->addType($3.cadena,$4.cadena,chekeosGeneracion::ambito_actual);}
+	 	       				       chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$4.cadena,"parametro");
+						Lexical_analyzer::symbolTable->addType2($3.cadena,$4.cadena,chekeosGeneracion::ambito_actual);}
 		    | tipo ID {Sintactic_actions::number_of_parameters++;
-				Lexical_analyzer::symbolTable->setUse($2.cadena,"parametro");
-				Lexical_analyzer::symbolTable->addType($1.cadena,$2.cadena,chekeosGeneracion::ambito_actual);  }
+				chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$2.cadena,"parametro");
+				Lexical_analyzer::symbolTable->addType2($1.cadena,$2.cadena,chekeosGeneracion::ambito_actual);  }
 
 ;
-/*
-sentencia_if:
-	       IF '(' condicion ')' THEN cuerpo_then ELSE cuerpo_else END_IF{Logger::write("Sentencia IF");}
-	     | IF '(' condicion ')' THEN cuerpo_then ELSE cuerpo_else {Logger::write("Error: FALTA EL END_IF");}
-             | IF '(' condicion ')' THEN cuerpo_then END_IF //CREO QUE ESTO ESTA BIEN (IF SIN ELSE)
-	     | '(' condicion ')' THEN cuerpo_then ELSE cuerpo_else END_IF {Logger::write("Error: FALTA EL IF");}
-	     //averiguar el tema del error, por ejemplo si falta la condicion
-;
 
-cuerpo_then : bloque_sentencia
-;
-
-cuerpo_else: bloque_sentencia
-;
-*/
 
 
 sentencia_if:
@@ -148,12 +134,7 @@ cuerpo_if: '{' bloque_sentencia '}' {//desapilar
 cuerpo_else: '{' bloque_sentencia '}'
 ;
 
-/*
-sentencia_while:
-	 	 WHILE '(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Sentencia WHILE");}
-	 	|'(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
-	 	| WHILE '(' condicion ')' '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
-;*/
+
 
 sentencia_while:
          inicio_while '(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Sentencia WHILE");
@@ -214,6 +195,8 @@ condicion:
           | expresion '<' {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 ;
 
+
+
 expresion:
 	   expresion '+' termino {Logger::write("suma");
 				  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
@@ -226,20 +209,33 @@ expresion:
 
 termino:
 	 factor {$$.cadena = $1.cadena; }
-	|termino '/' factor { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
+	|termino '/' factor { 	//chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$3.cadena);
+
+				Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
 			      $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
-	|termino '*' factor { $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);}
+	|termino '*' factor { $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+				//chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$3.cadena);
+				}
 ;
 
 factor:
-	 ID	{ char * ambito = "ambito id";
-	 	  chekeosGeneracion::convertS2($1.cadena,ambito);
-	 	  $$.cadena= $1.cadena;}
-	|FLOAT {$$.cadena= $1.cadena;}
-	|'-' FLOAT {$$.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
-	|LONGINT { Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);
+	 ID	{
+	 	  $$.cadena= $1.cadena;
+	 	  chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
+
+	 	  }
+	|FLOAT {$$.cadena= $1.cadena;
+		chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
+		}
+	|'-' FLOAT {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$2.cadena);
+	$$.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);
+
+		}
+	|LONGINT { chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
+	Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);
 		   $$.cadena= $1.cadena;}
-        |'-' LONGINT { $$.cadena=Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
+        |'-' LONGINT { chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$2.cadena);
+        	$$.cadena=Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 ;
 
 tipo:
