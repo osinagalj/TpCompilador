@@ -35,106 +35,106 @@ short yylhs[] = {                                        -1,
     7,    4,    4,    4,    4,    4,   10,   13,   13,    8,
     8,    8,    8,    8,   14,   16,   16,   15,   15,   12,
    12,   17,   18,   18,   18,   20,   21,   11,   11,   11,
-   22,   19,   19,   19,   19,   19,   19,   19,   19,   19,
-   19,   19,    9,    9,    9,   23,   23,   23,   24,   24,
-   24,   24,   24,    6,    6,    6,    5,    5,    5,
+   22,   19,   19,   23,   23,   23,   23,   23,   23,    9,
+    9,    9,   24,   24,   24,   25,   25,   25,   25,   25,
+    6,    6,    6,    5,    5,    5,
 };
 short yylen[] = {                                         2,
     1,    1,    2,    1,    1,    1,    2,    2,    1,    3,
     2,    4,    3,    1,    2,    2,    5,    3,    1,   14,
    14,   10,   10,    7,    2,    1,    1,    4,    2,    2,
     4,    4,    4,    2,    3,    3,    3,    8,    7,    7,
-    1,    3,    2,    3,    2,    3,    2,    3,    3,    2,
-    3,    2,    3,    3,    1,    1,    3,    3,    1,    1,
-    2,    1,    2,    1,    1,    1,    5,    4,    4,
+    1,    3,    2,    1,    1,    1,    1,    1,    1,    3,
+    3,    1,    1,    3,    3,    1,    1,    2,    1,    2,
+    1,    1,    1,    5,    4,    4,
 };
 short yydefred[] = {                                      0,
-    0,   66,   65,   64,    0,    0,   41,    0,    0,    0,
+    0,   63,   62,   61,    0,    0,   41,    0,    0,    0,
     0,    2,    4,    5,    6,    0,    9,    0,   14,    0,
     0,    0,    0,    0,   11,    0,    0,    0,    0,    0,
-   25,    0,   59,   60,   62,    0,    0,    0,    0,    0,
-   56,    3,    0,    7,    8,   15,   16,    0,    0,   30,
+   25,    0,   56,   57,   59,    0,    0,    0,    0,    0,
+   53,    3,    0,    7,    8,   15,   16,    0,    0,   30,
     0,    0,   10,   13,    0,   19,    0,    0,    0,    0,
-    0,    0,    0,   61,   63,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,   34,
-    0,   12,    0,    0,   32,    0,   69,   29,    0,    0,
-   68,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-   31,   57,   58,    0,   36,    0,    0,    0,   18,   17,
-   67,    0,    0,    0,    0,    0,    0,    0,   33,    0,
-    0,   28,    0,    0,    0,    0,    0,   37,    0,    0,
-    0,   39,   26,   27,    0,    0,   24,    0,   40,    0,
-    0,    0,    0,   38,    0,    0,    0,    0,    0,   22,
-    0,   23,    0,    0,    0,    0,    0,    0,   21,   20,
+    0,    0,    0,   58,   60,   47,   46,   44,   45,   48,
+   49,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+   34,    0,   12,    0,    0,   32,    0,   66,   29,    0,
+    0,   65,    0,    0,    0,    0,   31,   54,   55,    0,
+   36,    0,    0,    0,   18,   17,   64,    0,    0,    0,
+    0,    0,    0,    0,   33,    0,    0,   28,    0,    0,
+    0,    0,    0,   37,    0,    0,    0,   39,   26,   27,
+    0,    0,   24,    0,   40,    0,    0,    0,    0,   38,
+    0,    0,    0,    0,    0,   22,    0,   23,    0,    0,
+    0,    0,    0,    0,   21,   20,
 };
 short yydgoto[] = {                                      10,
    11,   12,   13,   14,   15,   16,   17,   18,   38,   19,
-   20,   21,   57,   22,   62,  135,   23,   50,   39,   51,
-  107,   24,   40,   41,
+   20,   21,   57,   22,   62,  131,   23,   50,   39,   51,
+  103,   24,   74,   40,   41,
 };
 short yysindex[] = {                                     50,
-  -24,    0,    0,    0,   13,   15,    0,  -36,   60,    0,
-   50,    0,    0,    0,    0, -199,    0,    2,    0,    3,
-    6,   19,  -59,   26,    0, -199,  -44, -190,   88,  -38,
-    0, -236,    0,    0,    0,   27, -245,   75,   29,  -16,
-    0,    0,  -34,    0,    0,    0,    0, -236,   50,    0,
- -216,   88,    0,    0,  -26,    0,   -3,   30,   38,   21,
- -175,   -2,   24,    0,    0,   88,   88,   88,   88,   88,
-   88,   88,   88, -118,   88,   88,   -1,  -40,  -39,    0,
-   46,    0, -169,   33,    0,   34,    0,    0, -236, -187,
-    0,    1,    1,    1,    1,    1,    1,  -16,  -16,  -32,
-    0,    0,    0, -121,    0,   50, -168, -115,    0,    0,
-    0, -162,   36,   50,   40,   48,   50,  -31,    0,  -12,
-   50,    0, -160,  -22, -224, -152,  -13,    0,   50,   -4,
-   66,    0,    0,    0,  -10,  -37,    0,    5,    0, -161,
-   50, -146,   50,    0,   54,   14,   70,   23, -224,    0,
- -224,    0,    9,   11,   50,   50,   32,   41,    0,    0,
+  -28,    0,    0,    0,  -20,  -10,    0,  -36,   60,    0,
+   50,    0,    0,    0,    0, -243,    0,  -21,    0,   -6,
+    8,    6,  -61,   28,    0, -243,  -44, -188,   88,  -38,
+    0, -210,    0,    0,    0,   29, -207,   75,   30,   -5,
+    0,    0,  -27,    0,    0,    0,    0, -210,   50,    0,
+ -208,   88,    0,    0,  -24,    0,  -16,   33,   34,   17,
+ -184,   -1,   19,    0,    0,    0,    0,    0,    0,    0,
+    0,   88,   88,   88, -118,   88,   88,    3,  -40,  -46,
+    0,   38,    0, -177,   24,    0,   25,    0,    0, -210,
+ -194,    0,   -5,   -5,  -19,  -35,    0,    0,    0, -121,
+    0,   50, -175, -115,    0,    0,    0, -170,   31,   50,
+   35,   40,   50,  -31,    0,  -32,   50,    0, -166,  -22,
+ -215, -164,  -13,    0,   50,   -4,   55,    0,    0,    0,
+  -14,  -37,    0,    5,    0, -168,   50, -165,   50,    0,
+   52,   14,   53,   23, -215,    0, -215,    0,   -8,    4,
+   50,   50,   32,   41,    0,    0,
 };
 short yyrindex[] = {                                      0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-  136,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+  111,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,   57,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,   97,   99,    0,  100,  103,
-  105,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,  106,  108,  109,  110,  111,  117,   63,   83,    0,
-    0,    0,    0,    0,    0,    0,  101,    0,    0,    0,
+    0,    0,    0,   90,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,   63,   83,   93,    0,    0,    0,    0,    0,
+    0,    0,   70,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,
 };
 short yygindex[] = {                                      0,
-  247,   49,    0,    0,    0,  -20,   -5,    0,    7,    0,
-    0,    0,    0,    0,  113, -119,    0,   85,  -23,    0,
-    0,    0,  -21,  -19,
+  256,   18,    0,    0,    0,  -26,   -3,    0,  -17,    0,
+    0,    0,    0,    0,   92, -106,    0,   61,  -18,    0,
+    0,    0,    0,  -12,  -11,
 };
-#define YYTABLESIZE 403
+#define YYTABLESIZE 408
 short yytable[] = {                                       9,
-   37,  117,   60,   32,   49,   58,  142,  121,    9,   26,
-   44,   61,   64,   65,   54,   28,   72,    9,   73,   26,
-   53,    2,    3,    4,   25,   76,    9,   61,   81,  153,
-   75,  154,   82,   55,   25,    9,   27,   84,   90,  104,
-   83,   89,   89,   72,    9,   73,   79,   80,  133,  134,
-   98,   99,   29,    9,   30,  102,  103,   43,   48,   42,
-   45,   46,    9,   49,   47,   52,   56,   63,  112,   74,
-   85,    9,   92,   93,   94,   95,   96,   97,   86,   87,
-    9,   88,   91,  106,  105,  143,  108,  109,  113,    9,
-  114,  110,  111,  128,  122,  119,  123,   55,  131,   55,
-  125,   55,  132,   53,   37,   53,  136,   53,  126,  140,
-  129,  137,  141,  145,  149,   55,   55,   72,   55,   73,
-  139,   53,   53,   54,   53,   54,   42,   54,  147,  144,
-  151,  155,   37,  156,   71,    1,   70,   47,  150,   45,
-   43,   54,   54,   50,   54,   52,   48,  152,   46,   42,
-   44,   49,  100,  115,  116,  120,  159,   51,  101,   35,
-   77,    0,    0,    0,    0,  160,   42,    0,    0,    0,
-    0,    0,   42,    0,    0,   42,    0,    0,   42,    0,
-    0,    0,    0,    0,    0,    0,   42,    0,    0,    0,
-    0,    0,    0,    0,   42,    0,   42,    0,    0,    0,
-    0,    0,    0,    0,    0,   42,   42,    0,    0,    0,
+   37,  113,   60,   32,   49,   61,  138,  117,    9,   55,
+   58,   28,   44,   43,   54,   26,   26,    9,   72,   29,
+   73,   61,   53,   72,   85,   73,    9,   84,   42,   30,
+   25,   25,   27,   82,   83,    9,   77,   45,  149,   91,
+  150,   76,   90,  100,    9,   48,   90,    2,    3,    4,
+   64,   65,   46,    9,   80,   81,   95,  129,  130,   93,
+   94,   49,    9,  108,   98,   99,   47,   52,   56,   63,
+   75,    9,   89,   86,   87,   88,  102,   92,  104,  105,
+    9,  109,  106,  107,  101,  139,  118,  110,  115,    9,
+  125,  119,  127,  124,  132,  121,   42,   52,  136,   52,
+  122,   52,  128,   50,   37,   50,  141,   50,  137,  143,
+    1,  133,  145,  147,  151,   52,   52,   72,   52,   73,
+  135,   50,   50,   51,   50,   51,  152,   51,   35,  140,
+   43,   42,   37,   42,   71,   97,   70,   42,  146,   78,
+   42,   51,   51,   42,   51,    0,    0,  148,    0,    0,
+    0,   42,   96,  111,  112,  116,  155,    0,    0,   42,
+    0,   42,    0,    0,    0,  156,    0,    0,    0,    0,
+   42,   42,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,   33,   34,   35,    0,    1,    2,    3,    4,
    31,    5,   59,    0,    6,    1,    2,    3,    4,    7,
     5,    8,    0,    6,    1,    2,    3,    4,    7,    5,
@@ -143,41 +143,41 @@ short yytable[] = {                                       9,
     6,    1,    2,    3,    4,    7,    5,    8,    0,    6,
     1,    2,    3,    4,    7,    5,    8,    0,    6,    1,
     2,    3,    4,    7,    5,    8,    0,    6,    1,    2,
-    3,    4,    7,    5,    8,   78,    6,    1,    2,    3,
-    4,    7,    5,    8,    0,    6,    1,    2,    3,    4,
+    3,    4,    7,    5,    8,    0,    6,    1,    2,    3,
+    4,    7,    5,    8,   79,    6,    1,    2,    3,    4,
     7,    5,    8,    0,    6,    0,   33,   34,   35,    7,
-   36,    8,   55,   55,   55,   55,    0,    0,   53,   53,
-   53,   53,    0,    0,    0,    0,    0,    0,    0,    0,
-   66,   67,   68,   69,   33,   34,   35,    0,   54,   54,
-   54,   54,  118,    0,    0,    0,    0,    0,    0,    0,
-  124,    0,    0,  127,    0,    0,    0,  130,    0,    0,
-    0,    0,    0,    0,    0,  138,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,  146,    0,  148,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,  157,  158,
+   36,    8,   52,   52,   52,   52,    0,    0,   50,   50,
+   50,   50,    0,    0,    0,    0,    0,    0,    0,    0,
+   66,   67,   68,   69,   33,   34,   35,    0,   51,   51,
+   51,   51,    0,    0,    0,    0,    0,  114,    0,    0,
+    0,    0,    0,    0,    0,  120,    0,    0,  123,    0,
+    0,    0,  126,    0,    0,    0,    0,    0,    0,    0,
+  134,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,  142,    0,  144,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,  153,  154,
 };
 short yycheck[] = {                                      40,
-   45,  123,   41,   40,  123,   29,   44,  123,   40,   44,
-   16,   32,  258,  259,   59,   40,   43,   40,   45,   44,
-   26,  258,  259,  260,   59,   42,   40,   48,   52,  149,
-   47,  151,   59,   27,   59,   40,   61,   41,   41,   41,
-   44,   44,   44,   43,   40,   45,  263,  264,  273,  274,
-   72,   73,   40,   40,   40,   75,   76,  257,   40,   11,
-   59,   59,   40,  123,   59,   40,  257,   41,   89,   41,
-   41,   40,   66,   67,   68,   69,   70,   71,   41,   59,
-   40,  257,   59,  123,  125,  123,   41,  257,  276,   40,
-  123,   59,   59,  125,  257,  264,   61,   41,  259,   43,
-   61,   45,  125,   41,   45,   43,  259,   45,   61,   44,
-  123,  125,  123,  275,   61,   59,   60,   43,   62,   45,
-  125,   59,   60,   41,   62,   43,   78,   45,  275,  125,
-   61,  123,   45,  123,   60,    0,   62,   41,  125,   41,
-   41,   59,   60,   41,   62,   41,   41,  125,   41,   41,
-   41,   41,  271,  275,  276,  271,  125,   41,   74,   59,
-   48,   -1,   -1,   -1,   -1,  125,  118,   -1,   -1,   -1,
-   -1,   -1,  124,   -1,   -1,  127,   -1,   -1,  130,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,  138,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,  146,   -1,  148,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,  157,  158,   -1,   -1,   -1,
+   45,  123,   41,   40,  123,   32,   44,  123,   40,   27,
+   29,   40,   16,  257,   59,   44,   44,   40,   43,   40,
+   45,   48,   26,   43,   41,   45,   40,   44,   11,   40,
+   59,   59,   61,   52,   59,   40,   42,   59,  145,   41,
+  147,   47,   44,   41,   40,   40,   44,  258,  259,  260,
+  258,  259,   59,   40,  263,  264,   74,  273,  274,   72,
+   73,  123,   40,   90,   76,   77,   59,   40,  257,   41,
+   41,   40,  257,   41,   41,   59,  123,   59,   41,  257,
+   40,  276,   59,   59,  125,  123,  257,  123,  264,   40,
+  123,   61,  259,  125,  259,   61,   79,   41,   44,   43,
+   61,   45,  125,   41,   45,   43,  275,   45,  123,  275,
+    0,  125,   61,   61,  123,   59,   60,   43,   62,   45,
+  125,   59,   60,   41,   62,   43,  123,   45,   59,  125,
+   41,  114,   45,   41,   60,   75,   62,  120,  125,   48,
+  123,   59,   60,  126,   62,   -1,   -1,  125,   -1,   -1,
+   -1,  134,  271,  275,  276,  271,  125,   -1,   -1,  142,
+   -1,  144,   -1,   -1,   -1,  125,   -1,   -1,   -1,   -1,
+  153,  154,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,  257,  258,  259,   -1,  257,  258,  259,  260,
   257,  262,  261,   -1,  265,  257,  258,  259,  260,  270,
   262,  272,   -1,  265,  257,  258,  259,  260,  270,  262,
@@ -186,18 +186,18 @@ short yycheck[] = {                                      40,
   265,  257,  258,  259,  260,  270,  262,  272,   -1,  265,
   257,  258,  259,  260,  270,  262,  272,   -1,  265,  257,
   258,  259,  260,  270,  262,  272,   -1,  265,  257,  258,
-  259,  260,  270,  262,  272,   49,  265,  257,  258,  259,
-  260,  270,  262,  272,   -1,  265,  257,  258,  259,  260,
+  259,  260,  270,  262,  272,   -1,  265,  257,  258,  259,
+  260,  270,  262,  272,   49,  265,  257,  258,  259,  260,
   270,  262,  272,   -1,  265,   -1,  257,  258,  259,  270,
   261,  272,  266,  267,  268,  269,   -1,   -1,  266,  267,
   268,  269,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
   266,  267,  268,  269,  257,  258,  259,   -1,  266,  267,
-  268,  269,  106,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-  114,   -1,   -1,  117,   -1,   -1,   -1,  121,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,  129,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,  141,   -1,  143,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,  155,  156,
+  268,  269,   -1,   -1,   -1,   -1,   -1,  102,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,  110,   -1,   -1,  113,   -1,
+   -1,   -1,  117,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+  125,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,  137,   -1,  139,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,  151,  152,
 };
 #define YYFINAL 10
 #ifndef YYDEBUG
@@ -260,17 +260,14 @@ char *yyrule[] = {
 "sentencia_while : '(' condicion ')' LOOP '{' bloque_sentencia '}'",
 "sentencia_while : inicio_while '(' condicion ')' '{' bloque_sentencia '}'",
 "inicio_while : WHILE",
-"condicion : expresion EQUAL expresion",
-"condicion : expresion DIFFERENT",
-"condicion : expresion DIFFERENT expresion",
-"condicion : expresion LESS_OR_EQUAL",
-"condicion : expresion LESS_OR_EQUAL expresion",
-"condicion : expresion GREATER_OR_EQUAL",
-"condicion : expresion GREATER_OR_EQUAL expresion",
-"condicion : expresion '>' expresion",
-"condicion : expresion '>'",
-"condicion : expresion '<' expresion",
-"condicion : expresion '<'",
+"condicion : expresion comparador expresion",
+"condicion : expresion comparador",
+"comparador : EQUAL",
+"comparador : DIFFERENT",
+"comparador : LESS_OR_EQUAL",
+"comparador : GREATER_OR_EQUAL",
+"comparador : '>'",
+"comparador : '<'",
 "expresion : expresion '+' termino",
 "expresion : expresion '-' termino",
 "expresion : termino",
@@ -483,120 +480,174 @@ break;
 case 12:
 #line 51 "gramatica.y"
 {Logger::write("Asignacion");
-	      			  chekeosGeneracion::insertar_terceto("=",yyvsp[-3].cadena,yyvsp[-1].cadena);
+
 				  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-3].cadena,yyvsp[-1].cadena);
+	     			  if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+				   /*modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)*/
+				   /*chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"=");*/
+				   Terceto t = chekeosGeneracion::getTercetoIncompleto();
+				   chekeosGeneracion::setFlagPost(false);
+				   t.setOp("=");
+				   t.setOp2(t.getOp1());
+				   t.setOp1(yyvsp[-3].cadena);
+				   chekeosGeneracion::insertar_terceto(t);
+				   }
+			       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+				   /*crear el terceto incompleto con el number de la expresion*/
+				   /*chekeosGeneracion::insertar_terceto("=","["+to_string(chekeosGeneracion::getNumber())+"]","");*/
+				   Terceto t("=",yyvsp[-3].cadena,"["+to_string(chekeosGeneracion::getNumber()-1)+"]");
+				   chekeosGeneracion::insertar_terceto(t);
+				   }
+				   chekeosGeneracion::setFlagPre(false);
+				   chekeosGeneracion::setFlagPost(false);
+
+
+
 	      			  }
 break;
 case 13:
-#line 55 "gramatica.y"
+#line 76 "gramatica.y"
 {Logger::write("Error: Asignacion vacia");}
 break;
 case 14:
-#line 56 "gramatica.y"
+#line 77 "gramatica.y"
 {Logger::write("invocacion procedimiento");}
 break;
 case 15:
-#line 57 "gramatica.y"
+#line 78 "gramatica.y"
 {Logger::write("sentencia while"); chekeosGeneracion::desconcatenarAmbitoAnonimo();}
 break;
 case 16:
-#line 58 "gramatica.y"
+#line 79 "gramatica.y"
 {Logger::write("sentencia if");chekeosGeneracion::desconcatenarAmbitoAnonimo();}
 break;
 case 17:
-#line 62 "gramatica.y"
+#line 83 "gramatica.y"
 {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,yyvsp[-4].cadena);}
 break;
 case 18:
-#line 66 "gramatica.y"
+#line 87 "gramatica.y"
 {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 19:
-#line 67 "gramatica.y"
+#line 88 "gramatica.y"
 {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 20:
-#line 71 "gramatica.y"
+#line 93 "gramatica.y"
 {Sintactic_actions::check_list_parametros();
-	    											chekeosGeneracion::eliminarUltimoAmbito();}
+	    											chekeosGeneracion::eliminarUltimoAmbito();
+												chekeosGeneracion::insertar_terceto("Call",yyvsp[-13].cadena,"");
+												if(chekeosGeneracion::cantProc > chekeosGeneracion::convertToI(yyvsp[-7].cadena)){
+													cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
+													cout<< "$7cadena: " + chekeosGeneracion::convertToString(yyvsp[-7].cadena)<< endl;
+													Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
+												};
+												chekeosGeneracion::cantProc++;
+	    											}
 break;
 case 21:
-#line 74 "gramatica.y"
-{Logger::write("Error: FALTA ID");chekeosGeneracion::eliminarUltimoAmbito();}
+#line 103 "gramatica.y"
+{Logger::write("Error: FALTA ID");chekeosGeneracion::eliminarUltimoAmbito();
+
+														cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
+														cout<< "$7cadena: " + chekeosGeneracion::convertToString(yyvsp[-7].cadena)<< endl;
+
+														if(chekeosGeneracion::cantProc > chekeosGeneracion::convertToI(yyvsp[-7].cadena)){
+															Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
+															cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
+															cout<< "$5cadena: " + chekeosGeneracion::convertToString(yyvsp[-7].cadena)<< endl;
+														};
+														chekeosGeneracion::cantProc++;
+														}
 break;
 case 22:
-#line 75 "gramatica.y"
+#line 115 "gramatica.y"
 {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");chekeosGeneracion::eliminarUltimoAmbito();}
 break;
 case 23:
-#line 76 "gramatica.y"
-{Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();}
+#line 116 "gramatica.y"
+{Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();
+
+											cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
+											cout<< "$7cadena: " + chekeosGeneracion::convertToString(yyvsp[-3].cadena)<< endl;
+											if(chekeosGeneracion::cantProc > chekeosGeneracion::convertToI(yyvsp[-3].cadena)){
+												Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
+												cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
+												cout<< "$7cadena: " + chekeosGeneracion::convertToString(yyvsp[-3].cadena)<< endl;
+											};
+											chekeosGeneracion::cantProc++;
+											}
 break;
 case 24:
-#line 77 "gramatica.y"
-{Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();}
+#line 127 "gramatica.y"
+{Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();
+
+										}
 break;
 case 25:
-#line 80 "gramatica.y"
-{	chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,yyvsp[0].cadena,"nombre_proc");
+#line 134 "gramatica.y"
+{	yyval.cadena=yyvsp[0].cadena;
+			chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,yyvsp[0].cadena,"nombre_proc");
 			chekeosGeneracion::concatenarAmbito(yyvsp[0].cadena);
 			chekeosGeneracion::asignarAmbito(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
+
 			}
 break;
 case 26:
-#line 87 "gramatica.y"
+#line 143 "gramatica.y"
 { chekeosGeneracion::shadowing = true;}
 break;
 case 27:
-#line 88 "gramatica.y"
+#line 144 "gramatica.y"
 { chekeosGeneracion::shadowing = false;}
 break;
 case 28:
-#line 92 "gramatica.y"
+#line 148 "gramatica.y"
 {Logger::write("lista_de_variables");
 	 	       				       Sintactic_actions::number_of_parameters++;
 	 	       				       chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,yyvsp[0].cadena,"parametro");
 						Lexical_analyzer::symbolTable->addType2(yyvsp[-1].cadena,yyvsp[0].cadena,chekeosGeneracion::ambito_actual);}
 break;
 case 29:
-#line 96 "gramatica.y"
+#line 152 "gramatica.y"
 {Sintactic_actions::number_of_parameters++;
 				chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,yyvsp[0].cadena,"parametro");
 				Lexical_analyzer::symbolTable->addType2(yyvsp[-1].cadena,yyvsp[0].cadena,chekeosGeneracion::ambito_actual);  }
 break;
 case 30:
-#line 105 "gramatica.y"
+#line 161 "gramatica.y"
 {Logger::write("Sentencia IF");
 	       				    }
 break;
 case 31:
-#line 107 "gramatica.y"
+#line 163 "gramatica.y"
 {Logger::write("Error: FALTA EL IF");}
 break;
 case 32:
-#line 110 "gramatica.y"
+#line 166 "gramatica.y"
 {chekeosGeneracion::concatenarAmbitoAnonimo("IF");}
 break;
 case 33:
-#line 113 "gramatica.y"
+#line 169 "gramatica.y"
 {/*Desapilar*/
 					    /*Completar terceto incompleto con el destino de la BI*/
 					    chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),0);
 					    }
 break;
 case 34:
-#line 117 "gramatica.y"
+#line 173 "gramatica.y"
 {/*Desapilar*/
 			    /*Completar terceto incompleto con el destino de la BI*/
 			    /*chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),1);*/
 			    }
 break;
 case 35:
-#line 121 "gramatica.y"
+#line 177 "gramatica.y"
 {Logger::write("Error: FALTA EL END_IF");}
 break;
 case 36:
-#line 124 "gramatica.y"
+#line 180 "gramatica.y"
 {/*desapilar*/
 			/*completar terceto incompleto con el destino de la bf*/
 			chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),1);
@@ -607,7 +658,7 @@ case 36:
 			}
 break;
 case 38:
-#line 140 "gramatica.y"
+#line 196 "gramatica.y"
 {Logger::write("Sentencia WHILE");
          								/*(1)desapilar,*/
          								/*(2)completar terceto incompleto.*/
@@ -617,177 +668,409 @@ case 38:
          								}
 break;
 case 39:
-#line 147 "gramatica.y"
+#line 203 "gramatica.y"
 {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
 break;
 case 40:
-#line 148 "gramatica.y"
+#line 204 "gramatica.y"
 {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
 break;
 case 41:
-#line 152 "gramatica.y"
+#line 208 "gramatica.y"
 {chekeosGeneracion::concatenarAmbitoAnonimo("WHILE");
         	/*apilar terceto de inicio para saber la BI*/
         	chekeosGeneracion::apilar();
         }
 break;
 case 42:
-#line 161 "gramatica.y"
+#line 218 "gramatica.y"
 {Logger::write("Condicion igual");
 	   			     yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-				     chekeosGeneracion::insertar_terceto("==",yyvsp[-2].cadena,yyvsp[0].cadena);
+	   			     if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
+	   			     	Terceto t = chekeosGeneracion::getTercetoIncompleto(); /*descarto*/
+	   			     	t = chekeosGeneracion::getTercetoIncompleto();
+	   			     	cout<<t.getOp()<<endl;
+	   			     	chekeosGeneracion::completar_operando3(t,yyvsp[0].cadena);
+	   			     }
+	   			     else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
+	   			        /*hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto*/
+	   			     	Terceto t = chekeosGeneracion::getTercetoIncompleto();
+	   			     	t = chekeosGeneracion::getTercetoIncompleto();
+					cout<<t.getOp()<<endl;
+					chekeosGeneracion::completar_operando3(t,yyvsp[0].cadena);
+	   			     }else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+					/*hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto*/
+					Terceto t = chekeosGeneracion::getTercetoIncompleto(); /*descarto*/
+					t = chekeosGeneracion::getTercetoIncompleto();
+					cout<<t.getOp()<<endl;
+					chekeosGeneracion::completar_operando3(t,"["+to_string(chekeosGeneracion::getNumber()-1)+"]");
+				     }
+	   			     else{
+	   			     	Terceto t = chekeosGeneracion::getTercetoIncompleto();
+	   			     	cout<<t.getOp()<<endl;
+					chekeosGeneracion::completar_operando3(t,"["+to_string(chekeosGeneracion::getNumber()-1)+"]");
+	   			     }
+	   			     chekeosGeneracion::setFlagPre(false);
+	   			     chekeosGeneracion::setFlagPost(false);
 	   			     chekeosGeneracion::apilar();
-	   			     chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
+	   			     chekeosGeneracion::insertar_terceto("BF","["+to_string(chekeosGeneracion::getNumber()-1)+"]","");}
 break;
 case 43:
-#line 166 "gramatica.y"
+#line 248 "gramatica.y"
 {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 44:
-#line 167 "gramatica.y"
-{Logger::write("Condicion distinto");
-	  				  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-	  				  chekeosGeneracion::insertar_terceto("!=",yyvsp[-2].cadena,yyvsp[0].cadena);
-	  				  chekeosGeneracion::apilar();
-				          chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
+#line 251 "gramatica.y"
+{if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+		   /*modificar terceto incompleto ("==",factor,-) //agrego == al (-,factor,-)*/
+		   /*chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"==");*/
+		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
+		   chekeosGeneracion::setFlagPost(true);
+                   t.setOp("==");
+		   chekeosGeneracion::insertarTercetoIncompleto(t);
+		   }
+	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+		   /*crear el terceto incompleto con el number de la expresion*/
+		   /*chekeosGeneracion::insertar_terceto("==","["+to_string(chekeosGeneracion::getNumber())+"]","");*/
+		   Terceto t("==","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
+		   chekeosGeneracion::setFlagPost(true);
+		   chekeosGeneracion::insertarTercetoIncompleto(t);
+		   }
+		}
 break;
 case 45:
-#line 172 "gramatica.y"
-{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
+#line 267 "gramatica.y"
+{if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+                  		   /*modificar terceto incompleto ("!=",factor,-) //agrego != al (-,factor,-)*/
+                  		   /*chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"!=");*/
+                  		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
+                  		   chekeosGeneracion::setFlagPost(true);
+                                     t.setOp("!=");
+                  		   chekeosGeneracion::insertarTercetoIncompleto(t);
+                  		   }
+                  	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+                  		   /*crear el terceto incompleto con el number de la expresion*/
+                  		   /*chekeosGeneracion::insertar_terceto("!=","["+to_string(chekeosGeneracion::getNumber())+"]","");*/
+                  		   Terceto t("!=","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
+                  		   chekeosGeneracion::setFlagPost(true);
+                  		   chekeosGeneracion::insertarTercetoIncompleto(t);
+                  		   }
+                  		}
 break;
 case 46:
-#line 173 "gramatica.y"
-{Logger::write("Condicion menorigual");
-	  				      yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-	  				      chekeosGeneracion::insertar_terceto("<=",yyvsp[-2].cadena,yyvsp[0].cadena);
-	  				      chekeosGeneracion::apilar();
-					      chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
+#line 283 "gramatica.y"
+{if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+                       		   /*modificar terceto incompleto ("<=",factor,-) //agrego <= al (-,factor,-)*/
+                       		   /*chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"<=");*/
+                       		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
+                       		   chekeosGeneracion::setFlagPost(true);
+                                          t.setOp("<=");
+                       		   chekeosGeneracion::insertarTercetoIncompleto(t);
+                       		   }
+                       	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+                       		   /*crear el terceto incompleto con el number de la expresion*/
+                       		   /*chekeosGeneracion::insertar_terceto("<=","["+to_string(chekeosGeneracion::getNumber())+"]","");*/
+                       		   Terceto t("<=","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
+                       		   chekeosGeneracion::setFlagPost(true);
+                       		   chekeosGeneracion::insertarTercetoIncompleto(t);
+                       		   }
+                       		}
 break;
 case 47:
-#line 178 "gramatica.y"
-{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
+#line 299 "gramatica.y"
+{if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+                          		   /*modificar terceto incompleto (">=",factor,-) //agrego >= al (-,factor,-)*/
+                          		   /*chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,">=");*/
+                          		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
+                          		   chekeosGeneracion::setFlagPost(true);
+                                             t.setOp(">=");
+                          		   chekeosGeneracion::insertarTercetoIncompleto(t);
+                          		   }
+                          	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+                          		   /*crear el terceto incompleto con el number de la expresion*/
+                          		   /*chekeosGeneracion::insertar_terceto(">=","["+to_string(chekeosGeneracion::getNumber())+"]","");*/
+                          		   Terceto t(">=","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
+                          		   chekeosGeneracion::setFlagPost(true);
+                          		   chekeosGeneracion::insertarTercetoIncompleto(t);
+                          		   }
+                          		}
 break;
 case 48:
-#line 179 "gramatica.y"
-{Logger::write("Condicion mayorIgual");
-	  					yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-	  					chekeosGeneracion::insertar_terceto(">=",yyvsp[-2].cadena,yyvsp[0].cadena);
-	  					chekeosGeneracion::apilar();
-					        chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
+#line 315 "gramatica.y"
+{if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+             		   /*modificar terceto incompleto (">",factor,-) //agrego > al (-,factor,-)*/
+             		   /*chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,">");*/
+             		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
+             		   chekeosGeneracion::setFlagPost(true);
+                                t.setOp(">");
+             		   chekeosGeneracion::insertarTercetoIncompleto(t);
+             		   }
+             	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+             		   /*crear el terceto incompleto con el number de la expresion*/
+             		   /*chekeosGeneracion::insertar_terceto(">","["+to_string(chekeosGeneracion::getNumber())+"]","");*/
+             		   Terceto t(">","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
+             		   chekeosGeneracion::setFlagPost(true);
+             		   chekeosGeneracion::insertarTercetoIncompleto(t);
+             		   }
+             		}
 break;
 case 49:
-#line 184 "gramatica.y"
-{Logger::write("Condicion de mayor");
-	  			    yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-	  			    chekeosGeneracion::insertar_terceto(">",yyvsp[-2].cadena,yyvsp[0].cadena);
-	  			    chekeosGeneracion::apilar();
-				    chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
+#line 331 "gramatica.y"
+{if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+             		   /*modificar terceto incompleto ("<",factor,-) //agrego < al (-,factor,-)*/
+             		   /*chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"<");*/
+             		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
+             		   chekeosGeneracion::setFlagPost(true);
+                                t.setOp("<");
+             		   chekeosGeneracion::insertarTercetoIncompleto(t);
+             		   }
+             	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+             		   /*crear el terceto incompleto con el number de la expresion*/
+             		   /*chekeosGeneracion::insertar_terceto("<","["+to_string(chekeosGeneracion::getNumber())+"]","");*/
+             		   Terceto t("<","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
+             		   chekeosGeneracion::setFlagPost(true);
+             		   chekeosGeneracion::insertarTercetoIncompleto(t);
+             		   }
+             		}
 break;
 case 50:
-#line 189 "gramatica.y"
-{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
-break;
-case 51:
-#line 190 "gramatica.y"
-{Logger::write("Condicion de menor");
-                                    yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-                                    chekeosGeneracion::insertar_terceto("<",yyvsp[-2].cadena,yyvsp[0].cadena);
-                                    chekeosGeneracion::apilar();
-				    chekeosGeneracion::insertar_terceto("BF",to_string(chekeosGeneracion::getNumber()-1),"");}
-break;
-case 52:
-#line 195 "gramatica.y"
-{Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
-break;
-case 53:
-#line 201 "gramatica.y"
+#line 352 "gramatica.y"
 {Logger::write("suma");
 				  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+
+                                  if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
+                                  					/*completar tercerto de la pila*/
+                                  					Terceto t = chekeosGeneracion::getTercetoIncompleto();
+                                  					t = chekeosGeneracion::getTercetoIncompleto();
+                                  					t.setOp("+");
+                                  					t.setOp2(yyvsp[0].cadena);
+                                  					chekeosGeneracion::setFlagPost(false);
+                                  					chekeosGeneracion::insertar_terceto(t);
+                                  					/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"+",$3.cadena);*/
+                                  					}
+                                  			  	else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+                                  					/*completar tercerto de la pila*/
+                                  					Terceto t = chekeosGeneracion::getTercetoIncompleto();
+                                  					t.setOp("+");
+                                  					t.setOp2(yyvsp[0].cadena);
+                                  					chekeosGeneracion::setFlagPre(false);
+                                  					chekeosGeneracion::insertar_terceto(t);
+                                  					/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"+",$3.cadena);*/
+                                  					}
+                                  				      else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()) {
+                                  						/*completar tercerto de la pila*/
+                                  						Terceto t = chekeosGeneracion::getTercetoIncompleto();
+                                  						t.setOp("+");
+                                  						t.setOp2(yyvsp[0].cadena);
+                                  						chekeosGeneracion::setFlagPost(false);
+                                  						chekeosGeneracion::insertar_terceto(t);
+                                  						/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"+",$3.cadena);*/
+                                  						}
+                                  						 else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+                                  							/*insertar el terceto con el number del anterior*/
+                                  							chekeosGeneracion::insertar_terceto("+","["+to_string(chekeosGeneracion::getNumber()-1)+"]",yyvsp[0].cadena);}
+
+
 	   			}
 break;
-case 54:
-#line 204 "gramatica.y"
+case 51:
+#line 389 "gramatica.y"
 {Logger::write("resta");
-	  		 	  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
-break;
-case 55:
-#line 206 "gramatica.y"
-{yyval.cadena = yyvsp[0].cadena;}
-break;
-case 56:
-#line 211 "gramatica.y"
-{yyval.cadena = yyvsp[0].cadena; }
-break;
-case 57:
-#line 212 "gramatica.y"
-{ 	/*chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$3.cadena);*/
-
-				Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
-			      yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);}
-break;
-case 58:
-#line 216 "gramatica.y"
-{ yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-				/*chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$3.cadena);*/
+	  		 	  yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+			          if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
+				  	/*completar tercerto de la pila*/
+				  	Terceto t = chekeosGeneracion::getTercetoIncompleto();
+				  	t = chekeosGeneracion::getTercetoIncompleto();
+					t.setOp("-");
+					t.setOp2(yyvsp[0].cadena);
+					chekeosGeneracion::setFlagPost(false);
+					chekeosGeneracion::insertar_terceto(t);
+					/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);*/
+					}
+			      	  else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()) {
+			      	  		/*completar tercerto de la pila*/
+						Terceto t = chekeosGeneracion::getTercetoIncompleto();
+						t.setOp("-");
+						t.setOp2(yyvsp[0].cadena);
+						chekeosGeneracion::setFlagPre(false);
+						chekeosGeneracion::insertar_terceto(t);
+						/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);*/
+					}
+					else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()) {
+						/*completar tercerto de la pila*/
+						Terceto t = chekeosGeneracion::getTercetoIncompleto();
+						t.setOp("-");
+						t.setOp2(yyvsp[0].cadena);
+						chekeosGeneracion::setFlagPost(false);
+						chekeosGeneracion::insertar_terceto(t);
+						/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);*/
+						}
+						 else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+							/*insertar el terceto con el number del anterior*/
+							chekeosGeneracion::insertar_terceto("-","["+to_string(chekeosGeneracion::getNumber()-1)+"]",yyvsp[0].cadena);}
 				}
 break;
-case 59:
-#line 222 "gramatica.y"
+case 52:
+#line 423 "gramatica.y"
+{yyval.cadena = yyvsp[0].cadena;}
+break;
+case 53:
+#line 428 "gramatica.y"
+{ yyval.cadena= yyvsp[0].cadena;
+	         if(!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+			 /*SETEAR VARIABLE PRECOMPARADOR*/
+			 chekeosGeneracion::setFlagPre(true);
+			 /*insertar tercerto incompleto (-,factor,-)*/
+			 Terceto t("-",yyvsp[0].cadena,"-");
+			 chekeosGeneracion::insertarTercetoIncompleto(t);
+			 /*chekeosGeneracion::insertar_terceto("",$1.cadena,"");*/
+		 }else if(!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
+			/*SETEAR VARIABLE PRECOMPARADOR*/
+			 /*insertar tercerto incompleto (-,factor,-)*/
+			 Terceto t("-",yyvsp[0].cadena,"-");
+			 chekeosGeneracion::insertarTercetoIncompleto(t);
+			 /*chekeosGeneracion::insertar_terceto("",$1.cadena,"");*/
+			}
+			else if(chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
+                        			/*SETEAR VARIABLE PRECOMPARADOR*/
+                        			 /*insertar tercerto incompleto (-,factor,-)*/
+                        			 Terceto t("-",yyvsp[0].cadena,"-");
+						chekeosGeneracion::setFlagPre(false);
+                        			 chekeosGeneracion::insertarTercetoIncompleto(t);
+                        			 /*chekeosGeneracion::insertar_terceto("",$1.cadena,"");*/
+                        			}
+	 }
+break;
+case 54:
+#line 452 "gramatica.y"
+{ Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
+			      yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+			  if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
+				/*completar tercerto de la pila*/
+				Terceto t = chekeosGeneracion::getTercetoIncompleto();
+				t.setOp("/");
+				t.setOp2(yyvsp[0].cadena);
+				chekeosGeneracion::setFlagPost(false);
+				chekeosGeneracion::insertar_terceto(t);
+				/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"/",$3.cadena);*/
+				}
+			  else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()) {
+					/*completar tercerto de la pila*/
+					Terceto t = chekeosGeneracion::getTercetoIncompleto();
+					t.setOp("/");
+					t.setOp2(yyvsp[0].cadena);
+					chekeosGeneracion::setFlagPre(false);
+					chekeosGeneracion::insertar_terceto(t);
+					/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"/",$3.cadena);*/
+				}
+				else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()) {
+					/*completar tercerto de la pila*/
+					Terceto t = chekeosGeneracion::getTercetoIncompleto();
+					t.setOp("/");
+					t.setOp2(yyvsp[0].cadena);
+					chekeosGeneracion::setFlagPost(false);
+					chekeosGeneracion::insertar_terceto(t);
+					/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"/",$3.cadena);*/
+					}
+					 else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+						/*insertar el terceto con el number del anterior*/
+						chekeosGeneracion::insertar_terceto("/","["+to_string(chekeosGeneracion::getNumber()-1)+"]",yyvsp[0].cadena);}
+			      }
+break;
+case 55:
+#line 486 "gramatica.y"
+{ Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
+			      yyval.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
+			      if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
+				/*completar tercerto de la pila*/
+				Terceto t = chekeosGeneracion::getTercetoIncompleto();
+				t.setOp("*");
+				t.setOp2(yyvsp[0].cadena);
+				chekeosGeneracion::setFlagPost(false);
+				chekeosGeneracion::insertar_terceto(t);
+				/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"*",$3.cadena);*/
+				}
+			  else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()) {
+					/*completar tercerto de la pila*/
+					Terceto t = chekeosGeneracion::getTercetoIncompleto();
+					t.setOp("*");
+					t.setOp2(yyvsp[0].cadena);
+					chekeosGeneracion::setFlagPre(false);
+					chekeosGeneracion::insertar_terceto(t);
+					/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"*",$3.cadena);*/
+				}
+				else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()) {
+					/*completar tercerto de la pila*/
+					Terceto t = chekeosGeneracion::getTercetoIncompleto();
+					t.setOp("*");
+					t.setOp2(yyvsp[0].cadena);
+					chekeosGeneracion::setFlagPost(false);
+					chekeosGeneracion::insertar_terceto(t);
+					/*chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"*",$3.cadena);*/
+					}
+					 else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+						/*insertar el terceto con el number del anterior*/
+						chekeosGeneracion::insertar_terceto("*","["+to_string(chekeosGeneracion::getNumber()-1)+"]",yyvsp[0].cadena);}
+			      }
+break;
+case 56:
+#line 522 "gramatica.y"
 {
 	 	  yyval.cadena= yyvsp[0].cadena;
 	 	  chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 
 	 	  }
 break;
-case 60:
-#line 227 "gramatica.y"
+case 57:
+#line 527 "gramatica.y"
 {yyval.cadena= yyvsp[0].cadena;
 		chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 		}
 break;
-case 61:
-#line 230 "gramatica.y"
+case 58:
+#line 530 "gramatica.y"
 {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 	yyval.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 
 		}
 break;
-case 62:
-#line 234 "gramatica.y"
+case 59:
+#line 534 "gramatica.y"
 { chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 	Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 		   yyval.cadena= yyvsp[0].cadena;}
 break;
-case 63:
-#line 237 "gramatica.y"
+case 60:
+#line 537 "gramatica.y"
 { chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
         	yyval.cadena=Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
-case 64:
-#line 242 "gramatica.y"
+case 61:
+#line 542 "gramatica.y"
 { string s = "Int"; yyval.cadena = &s[0];}
 break;
-case 65:
-#line 243 "gramatica.y"
+case 62:
+#line 543 "gramatica.y"
 { string s = "Longint"; yyval.cadena = &s[0];}
 break;
-case 66:
-#line 244 "gramatica.y"
+case 63:
+#line 544 "gramatica.y"
 { string s = "Float"; yyval.cadena = &s[0];}
 break;
-case 67:
-#line 248 "gramatica.y"
-{Logger::write("Detecto sentencia OUT");}
+case 64:
+#line 548 "gramatica.y"
+{Logger::write("Detecto sentencia OUT");
+	  			chekeosGeneracion::insertar_terceto("OUT",yyvsp[-2].cadena,"");	}
 break;
-case 68:
-#line 249 "gramatica.y"
+case 65:
+#line 550 "gramatica.y"
 {Logger::write("Error: SE ESPERABA OUT PREVIAMENTE PARA IMPRIMIR");}
 break;
-case 69:
-#line 250 "gramatica.y"
+case 66:
+#line 551 "gramatica.y"
 {Logger::write("Error: SE ESPERABA CADENA EN LA SENTENCIA OUT");}
 break;
-#line 791 "y.tab.c"
+#line 1074 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

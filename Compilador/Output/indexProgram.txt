@@ -42,7 +42,7 @@
 42:              WHILE (p4 <= 12.) LOOP
 43:              {
 44:                  e = e + 1.;
-45:                  IF (e != p2){
+45:                  IF (e != p4){
 46:                      LONGINT variable_kaka;
 47:                     OUT ("cadena de caracteres 2");
 48:                  }ELSE{
@@ -54,45 +54,12 @@
 54:          dd(x,y);
 55:      
 56:      
-57:      /% ------------- Incompatibilidad de tipos  ------------------- %/
+57:      
 58:      
-59:          a = 3.;                                                     /% Se asigna un Float a una variable LONGINT %/
-60:          x = 5_l;                                                    /% Se asigna un LONGINT a una variable Float %/
-61:          w =  3_l +  5.0f+3;                                         /% Suma de distintos tipos %/
-62:          c = 3. * 3_l;                                               /% Multiplicacion de distintos tipos %/
-63:          b = variable_no_definida;                                   /% Asignacion a una variable indefinida %/
-64:          LONGINT d;                                                  /% Redeclaracion de variable d %/
+59:      $
+60:      
+61:      
+62:      
+63:      
+64:      
 65:      
-66:          w = 4.5 + 3.3 + 4. / 3_l;                                   /% Multiples operaciones dentro de una expresion  %/
-67:      
-68:          procedure_0(x);                                             /% Procedimiento no declarado %/
-69:      
-70:          PROC aa (FLOAT parametro1) NA = 3_l , SHADOWING = FALSE      /% Redeclaracion de procedimiento %/
-71:          {
-72:              FLOAT f, k;
-73:              LONGINT d;                                              /% No es error, se permiten redeclaraciones en distinto ambito %/
-74:              PROC procedure_1_1 (FLOAT parametro2) NA = 3_l , SHADOWING = TRUE
-75:              {
-76:                  f = a + 5.;
-77:                  FLOAT k;                                            /% SHADOWING = TRUE no admite declarar una variable con el mismo nombre en los ámbitos anidados%/
-78:              };
-79:              procedure_1_1(k);
-80:          };
-81:      
-82:          z = f;                                                               /% Variable 'f' no esta al alcance %/
-83:          procedure_1_1(z);                                                   /% Procedimiento no se encuentra al alcance %/
-84:      
-85:          PROC procedure_2 (FLOAT p) NA = 3_l , SHADOWING = FALSE              /% Redeclaracion de procedimiento  %/
-86:          {
-87:              c = 3. * 3_l;
-88:          };
-89:      
-90:      
-91:      $
-92:      
-93:      
-94:      
-95:      
-96:      
-97:      
-98:      

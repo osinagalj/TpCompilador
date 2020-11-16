@@ -3,45 +3,25 @@ linea:7  Declaracion de variables
 linea:8  Declaracion de variables
 linea:10  Declaracion de variables
 linea:11  Asignacion
-linea:11  Coinciden los tipos
 linea:12  Asignacion
-linea:12  Coinciden los tipos
 linea:13  suma
-linea:13  Coinciden los tipos
 linea:13  Asignacion
-linea:13  Coinciden los tipos
-linea:13  Coinciden los tipos
 linea:14  Asignacion
-linea:14  Coinciden los tipos
 linea:15  Asignacion
-linea:15  Coinciden los tipos
-linea:15  Coinciden los tipos
 linea:16  resta
-linea:16  Coinciden los tipos
 linea:16  Asignacion
-linea:16  Coinciden los tipos
 linea:16  suma
-linea:16  Coinciden los tipos
 linea:17  suma
-linea:17  Coinciden los tipos
 linea:17  Asignacion
-linea:17  Coinciden los tipos
 linea:18  Asignacion
-linea:18  Coinciden los tipos
 linea:19  Asignacion
-linea:19  Coinciden los tipos
 linea:22  resta
-linea:22  Coinciden los tipos
 linea:22  Asignacion
-linea:22  Coinciden los tipos
 linea:25  Declaracion de variables
-linea:25  Condicion distinto
-linea:25  Coinciden los tipos
+linea:25  Condicion igual
 linea:27  Detecto sentencia OUT
 linea:29  resta
-linea:29  Coinciden los tipos
 linea:29  Asignacion
-linea:29  Coinciden los tipos
 linea:30  Sentencia IF
 linea:32  sentencia if
 linea:35  Declaracion de variables
@@ -50,70 +30,18 @@ linea:38  Declaracion de procedimiento
 linea:38  lista_de_variables
 linea:41  Declaracion de variables
 linea:42  Asignacion
-linea:42  Coinciden los tipos
-linea:42  Condicion menorigual
-linea:42  Coinciden los tipos
+linea:42  Condicion igual
 linea:45  suma
-linea:45  Coinciden los tipos
 linea:45  Asignacion
-linea:45  Coinciden los tipos
-linea:45  Error: variable no declarada.
-linea:45  Condicion distinto
-linea:45  Coinciden los tipos
+linea:45  Condicion igual
 linea:47  Declaracion de variables
 linea:48  Detecto sentencia OUT
 linea:50  resta
-linea:50  Coinciden los tipos
 linea:50  Asignacion
-linea:50  Coinciden los tipos
 linea:50  Sentencia IF
 linea:51  sentencia if
 linea:51  Sentencia WHILE
 linea:52  sentencia while
+linea:52  Error: Tenes mas procedimientos de los que permite el NA
 linea:54  Declaracion de procedimiento
-linea:57  invocacion procedimiento
-linea:59  Asignacion
-linea:59  Error: No coinciden los tipos
-linea:60  Asignacion
-linea:60  Error: No coinciden los tipos
-linea:61  suma
-linea:61  Error: No coinciden los tipos
-linea:61  Asignacion
-linea:61  Coinciden los tipos
-linea:62  Error: No coinciden los tipos
-linea:62  Asignacion
-linea:62  Coinciden los tipos
-linea:63  Error: variable no declarada.
-linea:63  Asignacion
-linea:63  Coinciden los tipos
-linea:64  Declaracion de variables
-linea:64  Error: Redeclaracion de variable
-linea:66  suma
-linea:66  Coinciden los tipos
-linea:66  Error: No coinciden los tipos
-linea:66  suma
-linea:66  Error: No coinciden los tipos
-linea:66  Asignacion
-linea:66  Coinciden los tipos
-linea:68  Error: variable no declarada.
-linea:68  invocacion procedimiento
-linea:70  Error: Redeclaracion de procedimiento
-linea:73  Declaracion de variables
-linea:73  Declaracion de variables
-linea:77  suma
-linea:77  Error: No coinciden los tipos
-linea:77  Asignacion
-linea:77  Coinciden los tipos
-linea:77  Declaracion de variables
-linea:79  Declaracion de procedimiento
-linea:80  invocacion procedimiento
-linea:82  Declaracion de procedimiento
-linea:82  Error: variable no declarada.
-linea:82  Asignacion
-linea:82  Coinciden los tipos
-linea:83  Error: variable no declarada.
-linea:83  invocacion procedimiento
-linea:87  Error: No coinciden los tipos
-linea:88  Asignacion
-linea:88  Coinciden los tipos
-linea:91  Declaracion de procedimiento
+linea:59  invocacion procedimiento

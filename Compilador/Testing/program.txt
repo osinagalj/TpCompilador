@@ -42,7 +42,7 @@
         WHILE (p4 <= 12.) LOOP
         {
             e = e + 1.;
-            IF (e != p2){
+            IF (e != p4){
                 LONGINT variable_kaka;
                OUT ("cadena de caracteres 2");
             }ELSE{
@@ -57,7 +57,6 @@
 
 
 $
-
 
 
 
