@@ -90,7 +90,7 @@ Symbol_table::Registry Symbol_table::getRegistry(string key){
     return symbol_table.find(key)->second;
 }
 
-void Symbol_table::setUse(char * key,char * use){
+void Symbol_table::setUse(string key,string use){
     Symbol_table::Registry  r = removeSymbol(key);
     r.uso = use;
     symbol_table.insert({key, r});

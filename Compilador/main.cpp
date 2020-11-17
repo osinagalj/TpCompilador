@@ -1,7 +1,7 @@
 #include "Sintactic_analyzer/Sintactic_actions.h"
 #include "Output/Logger.h"
 #include <fstream>
-#include "GeneracionDeCodigoIntermedio/chekeosGeneracion.h" //cambiar
+#include "GeneracionDeCodigoIntermedio/Intermediate_code.h" //cambiar
 #include <string.h>
 using namespace std;
 int yylex();
@@ -16,26 +16,26 @@ string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
 Lexical_analyzer lexical_analyzer;
 int Sintactic_actions::number_of_parameters = 0; //contador para las listas de variables
-int chekeosGeneracion::number = 1;
-bool chekeosGeneracion::falloEnCompilacion = false;
-list<string> chekeosGeneracion::list_variables;
-list<int> chekeosGeneracion::pila;
-map<int,Terceto> chekeosGeneracion::list_tercetos;
+int Intermediate_code::number = 1;
+bool Intermediate_code::falloEnCompilacion = false;
+list<string> Intermediate_code::list_variables;
+list<int> Intermediate_code::pila;
+map<int,Terceto> Intermediate_code::list_tercetos;
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;
 //lauta
-string chekeosGeneracion::ambito_actual = "main";
-int chekeosGeneracion::ambitoAnonimo = 1;
+string Intermediate_code::ambito_actual = "main";
+int Intermediate_code::ambitoAnonimo = 1;
 
-bool chekeosGeneracion::shadowing = false;
+bool Intermediate_code::shadowing = false;
 
-bool chekeosGeneracion::flagPre=false;
-bool chekeosGeneracion::flagPost=false;
-list<Terceto> chekeosGeneracion::list_tercetos_sin_completar;
+bool Intermediate_code::flagPre=false;
+bool Intermediate_code::flagPost=false;
+list<Terceto> Intermediate_code::list_tercetos_sin_completar;
 
 
 /*charly*/
-int chekeosGeneracion::cantProc = 0;
+int Intermediate_code::cantProc = 0;
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
@@ -60,7 +60,7 @@ int main(int argc,char** argv)
     Logger::close();
     tabla.clearTable();
     tabla.printTable();
-    chekeosGeneracion::imprimirTercetos();
+    Intermediate_code::imprimirTercetos();
 
     createIndexFile();
 

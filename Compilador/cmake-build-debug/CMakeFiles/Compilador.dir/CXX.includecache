@@ -6,17 +6,9 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Terceto.h
-TercetoAbs.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/TercetoAbs.h
-iostream
--
-
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/TercetoAbs.h
-
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp
-chekeosGeneracion.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.cpp
+Intermediate_code.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.h
 ../SymbolTable/Symbol_table.h
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 string.h
@@ -28,7 +20,7 @@ stdio.h
 string.h
 -
 
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.h
 map
 -
 iostream
@@ -40,13 +32,9 @@ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoInte
 list
 -
 
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.cpp
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Terceto.h
 iostream
 -
-Lexical_analyzer.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
-../Sintactic_analyzer/y.tab.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
 
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
 Lexical_analyzer_header.h
@@ -67,14 +55,6 @@ string
 -
 ../SymbolTable/Symbol_table.h
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
-
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.cpp
-Semantic_actions.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
-../Output/Logger.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
-../Sintactic_analyzer/y.tab.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
 
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
 iostream
@@ -102,16 +82,6 @@ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_tab
 
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.cpp
 
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
-
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.cpp
-Symbol_table.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
-../Sintactic_analyzer/y.tab.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
-list
--
-
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 iostream
 -
@@ -125,8 +95,8 @@ Output/Logger.h
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
 fstream
 -
-GeneracionDeCodigoIntermedio/chekeosGeneracion.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/chekeosGeneracion.h
+GeneracionDeCodigoIntermedio/Intermediate_code.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.h
 string.h
 -
 Sintactic_analyzer/y.tab.cpp
