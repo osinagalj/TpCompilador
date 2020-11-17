@@ -4,23 +4,17 @@ linea:8  Declaracion de variables
 linea:10  Declaracion de variables
 linea:11  Asignacion
 linea:12  Asignacion
-linea:13  suma
 linea:13  Asignacion
 linea:14  Asignacion
 linea:15  Asignacion
-linea:16  resta
 linea:16  Asignacion
-linea:16  suma
-linea:17  suma
 linea:17  Asignacion
 linea:18  Asignacion
 linea:19  Asignacion
-linea:22  resta
 linea:22  Asignacion
 linea:25  Declaracion de variables
 linea:25  Condicion igual
 linea:27  Detecto sentencia OUT
-linea:29  resta
 linea:29  Asignacion
 linea:30  Sentencia IF
 linea:32  sentencia if
@@ -31,12 +25,10 @@ linea:38  lista_de_variables
 linea:41  Declaracion de variables
 linea:42  Asignacion
 linea:42  Condicion igual
-linea:45  suma
 linea:45  Asignacion
 linea:45  Condicion igual
 linea:47  Declaracion de variables
 linea:48  Detecto sentencia OUT
-linea:50  resta
 linea:50  Asignacion
 linea:50  Sentencia IF
 linea:51  sentencia if
