@@ -167,18 +167,18 @@ CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.s: cmake_forc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\GeneracionDeCodigoIntermedio\Terceto.cpp -o CMakeFiles\Compilador.dir\GeneracionDeCodigoIntermedio\Terceto.cpp.s
 
-CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: CMakeFiles/Compilador.dir/flags.make
-CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj: ../GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\GeneracionDeCodigoIntermedio\chekeosGeneracion.cpp.obj -c C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\GeneracionDeCodigoIntermedio\chekeosGeneracion.cpp
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj: CMakeFiles/Compilador.dir/flags.make
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj: ../GeneracionDeCodigoIntermedio/Intermediate_code.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Compilador.dir\GeneracionDeCodigoIntermedio\Intermediate_code.cpp.obj -c C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\GeneracionDeCodigoIntermedio\Intermediate_code.cpp
 
-CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\GeneracionDeCodigoIntermedio\chekeosGeneracion.cpp > CMakeFiles\Compilador.dir\GeneracionDeCodigoIntermedio\chekeosGeneracion.cpp.i
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\GeneracionDeCodigoIntermedio\Intermediate_code.cpp > CMakeFiles\Compilador.dir\GeneracionDeCodigoIntermedio\Intermediate_code.cpp.i
 
-CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\GeneracionDeCodigoIntermedio\chekeosGeneracion.cpp -o CMakeFiles\Compilador.dir\GeneracionDeCodigoIntermedio\chekeosGeneracion.cpp.s
+CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Lautaro\Documents\GitHub\TpCompilador\Compilador\GeneracionDeCodigoIntermedio\Intermediate_code.cpp -o CMakeFiles\Compilador.dir\GeneracionDeCodigoIntermedio\Intermediate_code.cpp.s
 
 # Object files for target Compilador
 Compilador_OBJECTS = \
@@ -189,7 +189,7 @@ Compilador_OBJECTS = \
 "CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.obj" \
 "CMakeFiles/Compilador.dir/Output/Logger.cpp.obj" \
 "CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj" \
-"CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj"
+"CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj"
 
 # External object files for target Compilador
 Compilador_EXTERNAL_OBJECTS =
@@ -201,7 +201,7 @@ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Comp
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Compilador.dir/Sintactic_analyzer/Sintactic_actions.cpp.obj
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Compilador.dir/Output/Logger.cpp.obj
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Compilador.dir/build.make
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Compilador.dir/linklibs.rsp
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe: CMakeFiles/Compilador.dir/objects1.rsp

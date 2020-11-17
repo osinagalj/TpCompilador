@@ -2,8 +2,8 @@
 // Created by Lautaro on 27/10/2020.
 //
 
-#ifndef COMPILADOR_CHEKEOSGENERACION_H
-#define COMPILADOR_CHEKEOSGENERACION_H
+#ifndef COMPILADOR_INTERMEDIATE_CODE_H
+#define COMPILADOR_INTERMEDIATE_CODE_H
 #include <map>
 #include <iostream>
 #include "../SymbolTable/Symbol_table.h"
@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class chekeosGeneracion {
+class Intermediate_code {
 
     public:
 
@@ -65,7 +65,6 @@ class chekeosGeneracion {
     /*nico*/
         static int convertToI(char * str);
         static void generarAsignacionTercetos(char* pesos1);
-        static void expresionMasTermino(char * pesos3);
         static void expresionMenosTermino(char * op,char * pesos3);
         static void terminoFactor(char * pesos3);
         static void generar_comparador(string op);
@@ -94,7 +93,7 @@ private:
 
 };
 
-#endif //COMPILADOR_CHEKEOSGENERACION_H
+#endif //COMPILADOR_INTERMEDIATE_CODE_H
 
 
 /*

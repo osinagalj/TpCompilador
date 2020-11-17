@@ -1,27 +1,27 @@
 
-#include "chekeosGeneracion.h"
+#include "Intermediate_code.h"
 #include "../SymbolTable/Symbol_table.h"
 #include <string.h>
 #include "../Output/Logger.h"
 #include <stdio.h>
 #include <string.h>
-void chekeosGeneracion::insertar_terceto(string op, string op1, string op2){
+void Intermediate_code::insertar_terceto(string op, string op1, string op2){
     //insertar en la cola?
     //depende el op, hace alguna otra accion
     Terceto t(op,op1,op2);
     list_tercetos.insert({number, t});
     number++;
 }
-int chekeosGeneracion::getNumber(){
+int Intermediate_code::getNumber(){
     return number;
 }
 
-Terceto chekeosGeneracion::getTerceto(int pos){
+Terceto Intermediate_code::getTerceto(int pos){
     return list_tercetos.find(pos)->second;
     //Terceto t("op","","");
     //return t;
 }
-Terceto chekeosGeneracion::removeTerceto(int pos){
+Terceto Intermediate_code::removeTerceto(int pos){
     Terceto t;
     t.setOp(list_tercetos.find(pos)->second.getOp());
     t.setOp1(list_tercetos.find(pos)->second.getOp1());
@@ -30,7 +30,7 @@ Terceto chekeosGeneracion::removeTerceto(int pos){
     return t;
 }
 
-void chekeosGeneracion::modificar_terceto(int numeroTerceto,int numeroCompletar){
+void Intermediate_code::modificar_terceto(int numeroTerceto, int numeroCompletar){
     Terceto t=removeTerceto(numeroTerceto);
     int num = number + numeroCompletar;
     string s= to_string(num);
@@ -38,30 +38,30 @@ void chekeosGeneracion::modificar_terceto(int numeroTerceto,int numeroCompletar)
     list_tercetos.insert({numeroTerceto, t});;
 }
 
-void chekeosGeneracion::completar_terceto(int numeroTerceto, string operando1,string operando3) {
+void Intermediate_code::completar_terceto(int numeroTerceto, string operando1, string operando3) {
     list_tercetos.find(numeroTerceto)->second.setOp(operando1);
     list_tercetos.find(numeroTerceto)->second.setOp2(operando3);
 }
-void chekeosGeneracion::insertar_terceto(Terceto t){
+void Intermediate_code::insertar_terceto(Terceto t){
     list_tercetos.insert({number, t});
     number++;
 }
-void chekeosGeneracion::completar_operando1(int numeroTerceto, string operando1) {
+void Intermediate_code::completar_operando1(int numeroTerceto, string operando1) {
     list_tercetos.find(numeroTerceto)->second.setOp(operando1);
 }
-void chekeosGeneracion::completar_operando3(Terceto t,string operando3){
+void Intermediate_code::completar_operando3(Terceto t, string operando3){
     t.setOp2(operando3);
     insertar_terceto(t);
 }
 
-void chekeosGeneracion::completar_operando3(int numeroTerceto, string operando3){
+void Intermediate_code::completar_operando3(int numeroTerceto, string operando3){
     list_tercetos.find(numeroTerceto)->second.setOp(operando3);
 }
 
 
 
 
-string chekeosGeneracion::convertToString(char * variable){
+string Intermediate_code::convertToString(char * variable){
 
     string string_key ="";
     int length = 0;
@@ -76,7 +76,7 @@ string chekeosGeneracion::convertToString(char * variable){
 
 
 
-void chekeosGeneracion::addVariable(char * variable){
+void Intermediate_code::addVariable(char * variable){
 
     list_variables.push_back(convertToString(variable));
     cout<<"lista: ";
@@ -85,7 +85,7 @@ void chekeosGeneracion::addVariable(char * variable){
 
 }
 
-void chekeosGeneracion::setUse(Symbol_table * tablita,char * key,char * use){
+void Intermediate_code::setUse(Symbol_table * tablita, char * key, char * use){
     string aux = key;
     aux = aux + ":" + ambito_actual;
     char *cstr = new char[aux.length() + 1];
@@ -95,11 +95,11 @@ void chekeosGeneracion::setUse(Symbol_table * tablita,char * key,char * use){
 
 
 /*
-void chekeosGeneracion::agregarVariable(string aux) {
+void Intermediate_code::agregarVariable(string aux) {
     list_variables.push_front(aux);
 }
  */
-void chekeosGeneracion::imprimirLista() {
+void Intermediate_code::imprimirLista() {
     list<string>::iterator pos = list_variables.begin();
     while (pos != list_variables.end()){
         cout << *pos + ", ";
@@ -108,7 +108,7 @@ void chekeosGeneracion::imprimirLista() {
 }
 
 
-string chekeosGeneracion::recortarAmbito(string s){
+string Intermediate_code::recortarAmbito(string s){
     unsigned pos = s.size();
     bool find = false;
     while(pos != 0 && !find) {
@@ -126,7 +126,7 @@ string chekeosGeneracion::recortarAmbito(string s){
 
 
 
-bool chekeosGeneracion::checkearTipo(Symbol_table * tablita,char * key,char * key2){
+bool Intermediate_code::checkearTipo(Symbol_table * tablita, char * key, char * key2){
 
     string a = key;
     string b = key2;
@@ -158,7 +158,7 @@ bool chekeosGeneracion::checkearTipo(Symbol_table * tablita,char * key,char * ke
 
 
 //Aca quiero sumar las variables para guardar en $$.cadena el resultado, asi vamos llegvando los resultados
-char* chekeosGeneracion::asignarTipo(Symbol_table * symbolTable,char* op, char* op2){
+char* Intermediate_code::asignarTipo(Symbol_table * symbolTable, char* op, char* op2){
 //tipo
     if(op != "error" && op2 != "error"){
         if(checkearTipo(symbolTable,op,op2)){
@@ -175,12 +175,12 @@ char* chekeosGeneracion::asignarTipo(Symbol_table * symbolTable,char* op, char* 
     return cstr;
 }
 
-void chekeosGeneracion::apilar() {
+void Intermediate_code::apilar() {
     cout<<"apilando pa"<<endl;
     cout<<number<<endl;
     pila.push_front(number);
 }
-int chekeosGeneracion::desapilar() {
+int Intermediate_code::desapilar() {
     cout<<"desapilando pa"<<endl;
     list<int>::iterator pos = pila.begin();
     int numerito= *pos;
@@ -195,7 +195,7 @@ int chekeosGeneracion::desapilar() {
 
 
 
-void chekeosGeneracion::imprimirTercetos(){
+void Intermediate_code::imprimirTercetos(){
     for (map<int,Terceto>::iterator it=list_tercetos.begin(); it!=list_tercetos.end(); ++it){
         cout << to_string(it->first)<<".  " << "(" << it->second.getOp() << " , " << it->second.getOp1() << " , " << it->second.getOp2() <<" ) "<<'\n';
     }
@@ -203,13 +203,13 @@ void chekeosGeneracion::imprimirTercetos(){
 
 
 
-void chekeosGeneracion::concatenarAmbito(char * ambito)
+void Intermediate_code::concatenarAmbito(char * ambito)
 {
     ambito_actual = ambito_actual + ":" + convertToString(ambito);
 }
 
 
-void chekeosGeneracion::eliminarUltimoAmbito()
+void Intermediate_code::eliminarUltimoAmbito()
 {
     unsigned pos = ambito_actual.size();
     bool find = false;
@@ -223,16 +223,16 @@ void chekeosGeneracion::eliminarUltimoAmbito()
     ambito_actual = ambito_actual.substr (0,pos);
 }
 
-void chekeosGeneracion::concatenarAmbitoAnonimo(string ambit) {
+void Intermediate_code::concatenarAmbitoAnonimo(string ambit) {
     ambito_actual = ambito_actual + ":" + ambit + "_" + to_string(ambitoAnonimo);
     ambitoAnonimo++;
 }
-void chekeosGeneracion::desconcatenarAmbitoAnonimo() {
+void Intermediate_code::desconcatenarAmbitoAnonimo() {
     eliminarUltimoAmbito();
     ambitoAnonimo--;
 }
 
-void chekeosGeneracion::check_shadowing(Symbol_table * tablita,string key){
+void Intermediate_code::check_shadowing(Symbol_table * tablita, string key){
     if(shadowing){
         bool serompio=false;
         string aux3 = key;
@@ -254,7 +254,7 @@ void chekeosGeneracion::check_shadowing(Symbol_table * tablita,string key){
 }
 /*Modificada por lauta*/
 //Asiga el tipo a toda la lista de variables
-void chekeosGeneracion::declare_variable_list(Symbol_table * tablita,char * type){
+void Intermediate_code::declare_variable_list(Symbol_table * tablita, char * type){
     tablita->clearTable();
     list<string>::iterator pos = list_variables.begin();
     while (pos != list_variables.end()){
@@ -279,7 +279,7 @@ void chekeosGeneracion::declare_variable_list(Symbol_table * tablita,char * type
 }
 
 
-void chekeosGeneracion::asignarAmbito(Symbol_table * symbolTable,char * key){
+void Intermediate_code::asignarAmbito(Symbol_table * symbolTable, char * key){
 
     string a = key;
     string aux = a + ":" + ambito_actual;
@@ -290,7 +290,7 @@ void chekeosGeneracion::asignarAmbito(Symbol_table * symbolTable,char * key){
     }
 }
 
-void chekeosGeneracion::estaAlAlcance(Symbol_table * symbolTable,char * key){
+void Intermediate_code::estaAlAlcance(Symbol_table * symbolTable, char * key){
     symbolTable->clearTable();
 
     string clave = key ; // para que busque si o si las que tienen ambito
@@ -327,22 +327,22 @@ void chekeosGeneracion::estaAlAlcance(Symbol_table * symbolTable,char * key){
 
 
 
-void chekeosGeneracion::setFlagPost(bool valor) {
+void Intermediate_code::setFlagPost(bool valor) {
     flagPost=valor;
 }
-bool chekeosGeneracion::getFlagPost() {
+bool Intermediate_code::getFlagPost() {
     return flagPost;
 }
-void chekeosGeneracion::setFlagPre(bool valor) {
+void Intermediate_code::setFlagPre(bool valor) {
     flagPre=valor;
 }
-bool chekeosGeneracion::getFlagPre() {
+bool Intermediate_code::getFlagPre() {
     return flagPre;
 }
 
 
 
-Terceto chekeosGeneracion::removeTercetoResta(int pos){
+Terceto Intermediate_code::removeTercetoResta(int pos){
     Terceto t;
     t.setOp(list_tercetos.find(pos)->second.getOp());
     t.setOp1(list_tercetos.find(pos)->second.getOp1());
@@ -352,29 +352,31 @@ Terceto chekeosGeneracion::removeTercetoResta(int pos){
     return t;
 }
 
-void chekeosGeneracion::insertarTercetoIncompleto(Terceto t){
+void Intermediate_code::insertarTercetoIncompleto(Terceto t){
     list_tercetos_sin_completar.push_front(t);
 }
 
-bool chekeosGeneracion::listaVacia(){
+bool Intermediate_code::listaVacia(){
     if(list_tercetos_sin_completar.empty()){
         return true;
     }
     else return false;
 }
 
-Terceto chekeosGeneracion::getTercetoIncompleto(){
+Terceto Intermediate_code::getTercetoIncompleto(){
     cout<<"entro a get terceto incompleto"<<endl;
     list<Terceto>::iterator pos = list_tercetos_sin_completar.begin();
+    Terceto t;
     if(pos != list_tercetos_sin_completar.end()) {
-        Terceto t = *pos;
+         t = *pos;
         cout << "contenido del terceto incompleto: " << t.getOp() << endl;
         list_tercetos_sin_completar.pop_front();
         return t;
     }
+    return t;
 }
 
-int chekeosGeneracion::convertToI(char * str){
+int Intermediate_code::convertToI(char * str){
     int i=stoi(convertToString(str));
     return i;
 }
@@ -383,12 +385,12 @@ int chekeosGeneracion::convertToI(char * str){
 
 
 /*-----------------------------------   Codigo que estaba en la gramatica   -------------------------------------------*/
-void chekeosGeneracion::generarAsignacionTercetos(char* pesos1){
-    if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+void Intermediate_code::generarAsignacionTercetos(char* pesos1){
+    if (Intermediate_code::getFlagPre() && !Intermediate_code::getFlagPost()){
         //modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)
-        //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"=");
+        //Intermediate_code::completar_operando1(Intermediate_code::getNumber()-1,"=");
         Terceto t = getTercetoIncompleto();
-        chekeosGeneracion::setFlagPost(false);
+        Intermediate_code::setFlagPost(false);
         t.setOp("=");
         t.setOp2(t.getOp1());
         t.setOp1(pesos1);
@@ -396,7 +398,7 @@ void chekeosGeneracion::generarAsignacionTercetos(char* pesos1){
     }
     else if (!getFlagPre() && !getFlagPost()){
         //crear el terceto incompleto con el number de la expresion
-        //chekeosGeneracion::insertar_terceto("=","["+to_string(chekeosGeneracion::getNumber())+"]","");
+        //Intermediate_code::insertar_terceto("=","["+to_string(Intermediate_code::getNumber())+"]","");
         Terceto t("=",pesos1,"["+to_string(getNumber()-1)+"]");
         insertar_terceto(t);
     }
@@ -406,7 +408,7 @@ void chekeosGeneracion::generarAsignacionTercetos(char* pesos1){
 
 
 
-void chekeosGeneracion::expresionMenosTermino(char * op,char * pesos3)
+void Intermediate_code::expresionMenosTermino(char * op, char * pesos3)
 {
 
     if (!getFlagPre() && getFlagPost()){
@@ -417,7 +419,7 @@ void chekeosGeneracion::expresionMenosTermino(char * op,char * pesos3)
         t.setOp2(pesos3);
         setFlagPost(false);
         insertar_terceto(t);
-        //chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
+        //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
     }
     else if (getFlagPre() && !getFlagPost()) {
         //completar tercerto de la pila
@@ -426,7 +428,7 @@ void chekeosGeneracion::expresionMenosTermino(char * op,char * pesos3)
         t.setOp2(pesos3);
         setFlagPre(false);
         insertar_terceto(t);
-        //chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
+        //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
     }
     else if (getFlagPre() && getFlagPost()) {
         //completar tercerto de la pila
@@ -435,7 +437,7 @@ void chekeosGeneracion::expresionMenosTermino(char * op,char * pesos3)
         t.setOp2(pesos3);
         setFlagPost(false);
         insertar_terceto(t);
-        //chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
+        //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
     }
     else if (!getFlagPre() && !getFlagPost()){
         //insertar el terceto con el number del anterior
@@ -445,7 +447,7 @@ void chekeosGeneracion::expresionMenosTermino(char * op,char * pesos3)
 
 
 
-void chekeosGeneracion::terminoFactor(char * pesos1) {
+void Intermediate_code::terminoFactor(char * pesos1) {
 
     if(!getFlagPre() && !getFlagPost()){
         setFlagPre(true);
@@ -462,7 +464,7 @@ void chekeosGeneracion::terminoFactor(char * pesos1) {
     }
 }
 
-void chekeosGeneracion::terminoDivididoFactor(char * op ,char * pesos3){
+void Intermediate_code::terminoDivididoFactor(char * op , char * pesos3){
 
     if (!getFlagPre() && getFlagPost()){
     //completar tercerto de la pila
@@ -495,7 +497,7 @@ void chekeosGeneracion::terminoDivididoFactor(char * op ,char * pesos3){
 
 
 
-void chekeosGeneracion::generar_comparador(string op){
+void Intermediate_code::generar_comparador(string op){
     if (getFlagPre() && !getFlagPost()){
         //modificar terceto incompleto ("==",factor,-) //agrego == al (-,factor,-)
         Terceto t = getTercetoIncompleto();
@@ -514,7 +516,7 @@ void chekeosGeneracion::generar_comparador(string op){
 // CREAR TERCETO INCOMPLETO PARA LA BF
 // APILAR EL NUMERO DEL TERCETO INCOMPLETO
 //AGREGAR CONSULTAR EL FLAG ACTUAL (POST COMPARADOR), si está en true completar el terceto incompleto.
-void chekeosGeneracion::expresionComparadorExpresion(char * pesos3){
+void Intermediate_code::expresionComparadorExpresion(char * pesos3){
     Logger::write("Condicion igual");
 
         if (!getFlagPre() && getFlagPost()){
@@ -549,12 +551,12 @@ void chekeosGeneracion::expresionComparadorExpresion(char * pesos3){
 
 
 
-void chekeosGeneracion::check_NA(char * pesos7){
+void Intermediate_code::check_NA(char * pesos7){
 
-    if(chekeosGeneracion::cantProc > chekeosGeneracion::convertToI(pesos7)){
+    if(Intermediate_code::cantProc > Intermediate_code::convertToI(pesos7)){
         cout<< "cantPorc: " + cantProc<< endl;
         cout<< "$7cadena: " + convertToString(pesos7)<< endl;
         Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
     };
-    chekeosGeneracion::cantProc++;
+    Intermediate_code::cantProc++;
 };
