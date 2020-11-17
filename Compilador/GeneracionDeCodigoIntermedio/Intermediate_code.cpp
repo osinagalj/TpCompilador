@@ -6,13 +6,9 @@
 #include <stdio.h>
 #include <string.h>
 
-int Intermediate_code::getNumber(){
-    return number;
-}
 //------------------------------------------------------------------------------------//
 //------------------------------ Check of Type ---------------------------------------//
 //------------------------------------------------------------------------------------//
-
 
 void Intermediate_code::addVariable(char * variable){
 
@@ -22,6 +18,7 @@ void Intermediate_code::addVariable(char * variable){
     cout<<endl;
 
 }
+
 bool Intermediate_code::check_type(Symbol_table * tablita, char * key, char * key2){
 
     string a = key;
@@ -92,6 +89,8 @@ char* Intermediate_code::asignarTipo(Symbol_table * symbolTable, char* op, char*
     strcpy(cstr, s.c_str());
     return cstr;
 }
+
+
 //------------------------------------------------------------------------------------//
 //----------------------------------- Ambit ------------------------------------------//
 //------------------------------------------------------------------------------------//
@@ -156,6 +155,9 @@ void Intermediate_code::desconcatenarAmbitoAnonimo() {
     eliminarUltimoAmbito();
     ambitoAnonimo--;
 }
+
+
+
 
 
 //------------------------------------------------------------------------------------//
@@ -225,9 +227,14 @@ void Intermediate_code::check_NA(char * pesos7){
 };
 
 
+
+
+
 //------------------------------------------------------------------------------------//
 //------------------------------ Tercetos Operations   -------------------------------//
 //------------------------------------------------------------------------------------//
+
+
 void Intermediate_code::insertar_terceto(string op, string op1, string op2){
     //insertar en la cola?
     //depende el op, hace alguna otra accion
@@ -276,6 +283,10 @@ Terceto Intermediate_code::removeTerceto(int pos){
     list_tercetos.erase(pos); //elimino el viejo
     return t;
 }
+
+
+
+
 //------------------------------------------------------------------------------------//
 //------------------------------ Tercetos Generation   -------------------------------//
 //------------------------------------------------------------------------------------//
@@ -324,7 +335,7 @@ void Intermediate_code::expresionMenosTermino(string op, char * pesos3)
     }
     else if (!flagPre && !flagPost){
         //insertar el terceto con el number del anterior
-        insertar_terceto(op,"["+to_string(getNumber()-1)+"]",pesos3);}
+        insertar_terceto(op,"["+to_string(number-1)+"]",pesos3);}
 }
 
 
@@ -374,7 +385,7 @@ void Intermediate_code::terminoDivididoFactor(string op , char * pesos3){
     }
     else if (!flagPre && !flagPost){
         //insertar el terceto con el number del anterior
-        insertar_terceto(op,"["+to_string(getNumber()-1)+"]",pesos3);}
+        insertar_terceto(op,"["+to_string(number-1)+"]",pesos3);}
 
 }
 
@@ -395,7 +406,7 @@ void Intermediate_code::generarAsignacionTercetos(char* pesos1){
     else if (!flagPre && !flagPost){
         //crear el terceto incompleto con el number de la expresion
         //Intermediate_code::insertar_terceto("=","["+to_string(Intermediate_code::getNumber())+"]","");
-        Terceto t("=",pesos1,"["+to_string(getNumber()-1)+"]");
+        Terceto t("=",pesos1,"["+to_string(number-1)+"]");
         insertar_terceto(t);
     }
     flagPre=false;
@@ -412,7 +423,7 @@ void Intermediate_code::generar_comparador(string op){
     }
     else if (!flagPre && !flagPost){
         //crear el terceto incompleto con el number de la expresion
-        Terceto t(op,"["+to_string(getNumber()-1)+"]","-");
+        Terceto t(op,"["+to_string(number-1)+"]","-");
         flagPost = true;
         insertarTercetoIncompleto(t);
     }
@@ -441,17 +452,17 @@ void Intermediate_code::expresionComparadorExpresion(char * pesos3){
         Terceto t = getTercetoIncompleto(); //descarto
         t = getTercetoIncompleto();
         cout<<t.getOp()<<endl;
-        completar_operando3(t,"["+to_string(getNumber()-1)+"]");
+        completar_operando3(t,"["+to_string(number-1)+"]");
     }
     else{
         Terceto t = getTercetoIncompleto();
         cout<<t.getOp()<<endl;
-        completar_operando3(t,"["+to_string(getNumber()-1)+"]");
+        completar_operando3(t,"["+to_string(number-1)+"]");
     }
     flagPre = false;
     flagPost = false;
     apilar();
-    insertar_terceto("BF","["+to_string(getNumber()-1)+"]","");
+    insertar_terceto("BF","["+to_string(number-1)+"]","");
 }
 
 
