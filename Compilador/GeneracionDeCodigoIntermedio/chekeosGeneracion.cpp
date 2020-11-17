@@ -196,9 +196,8 @@ int chekeosGeneracion::desapilar() {
 
 
 void chekeosGeneracion::imprimirTercetos(){
-    for (map<int,Terceto>::iterator it=list_tercetos.begin(); it!=list_tercetos.end(); ++it)
-    {//nico
-        cout << to_string(it->first)<<".  " << "(" << it->second.getOp() << " , " << it->second.getOp1() << "," << it->second.getOp2() <<" ) "<<'\n';
+    for (map<int,Terceto>::iterator it=list_tercetos.begin(); it!=list_tercetos.end(); ++it){
+        cout << to_string(it->first)<<".  " << "(" << it->second.getOp() << " , " << it->second.getOp1() << " , " << it->second.getOp2() <<" ) "<<'\n';
     }
 }
 
@@ -375,10 +374,187 @@ Terceto chekeosGeneracion::getTercetoIncompleto(){
     }
 }
 
-
-
-
 int chekeosGeneracion::convertToI(char * str){
     int i=stoi(convertToString(str));
     return i;
 }
+
+
+
+
+/*-----------------------------------   Codigo que estaba en la gramatica   -------------------------------------------*/
+void chekeosGeneracion::generarAsignacionTercetos(char* pesos1){
+    if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
+        //modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)
+        //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"=");
+        Terceto t = getTercetoIncompleto();
+        chekeosGeneracion::setFlagPost(false);
+        t.setOp("=");
+        t.setOp2(t.getOp1());
+        t.setOp1(pesos1);
+        insertar_terceto(t);
+    }
+    else if (!getFlagPre() && !getFlagPost()){
+        //crear el terceto incompleto con el number de la expresion
+        //chekeosGeneracion::insertar_terceto("=","["+to_string(chekeosGeneracion::getNumber())+"]","");
+        Terceto t("=",pesos1,"["+to_string(getNumber()-1)+"]");
+        insertar_terceto(t);
+    }
+    setFlagPre(false);
+    setFlagPost(false);
+}
+
+
+
+void chekeosGeneracion::expresionMenosTermino(char * op,char * pesos3)
+{
+
+    if (!getFlagPre() && getFlagPost()){
+        //completar tercerto de la pila
+        Terceto t = getTercetoIncompleto();
+        t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        setFlagPost(false);
+        insertar_terceto(t);
+        //chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
+    }
+    else if (getFlagPre() && !getFlagPost()) {
+        //completar tercerto de la pila
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        setFlagPre(false);
+        insertar_terceto(t);
+        //chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
+    }
+    else if (getFlagPre() && getFlagPost()) {
+        //completar tercerto de la pila
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        setFlagPost(false);
+        insertar_terceto(t);
+        //chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
+    }
+    else if (!getFlagPre() && !getFlagPost()){
+        //insertar el terceto con el number del anterior
+        insertar_terceto(op,"["+to_string(getNumber()-1)+"]",pesos3);}
+}
+
+
+
+
+void chekeosGeneracion::terminoFactor(char * pesos1) {
+
+    if(!getFlagPre() && !getFlagPost()){
+        setFlagPre(true);
+        Terceto t("-",pesos1,"-"); //insertar tercerto incompleto (-,factor,-)
+        insertarTercetoIncompleto(t);
+    }else if(!getFlagPre() && getFlagPost()){
+        Terceto t("-",pesos1,"-");
+        insertarTercetoIncompleto(t);
+    }
+    else if(getFlagPre() && getFlagPost()){
+        Terceto t("-",pesos1,"-");
+        setFlagPre(false);
+        insertarTercetoIncompleto(t);
+    }
+}
+
+void chekeosGeneracion::terminoDivididoFactor(char * op ,char * pesos3){
+
+    if (!getFlagPre() && getFlagPost()){
+    //completar tercerto de la pila
+    Terceto t = getTercetoIncompleto();
+    t.setOp(op);
+    t.setOp2(pesos3);
+    setFlagPost(false);
+    insertar_terceto(t);
+    }
+    else if (getFlagPre() && !getFlagPost()) {
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        setFlagPre(false);
+        insertar_terceto(t);
+    }
+    else if (getFlagPre() && getFlagPost()) {
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        setFlagPost(false);
+        insertar_terceto(t);
+    }
+    else if (!getFlagPre() && !getFlagPost()){
+        //insertar el terceto con el number del anterior
+        insertar_terceto(op,"["+to_string(getNumber()-1)+"]",pesos3);}
+
+}
+
+
+
+
+void chekeosGeneracion::generar_comparador(string op){
+    if (getFlagPre() && !getFlagPost()){
+        //modificar terceto incompleto ("==",factor,-) //agrego == al (-,factor,-)
+        Terceto t = getTercetoIncompleto();
+        setFlagPost(true);
+        t.setOp(op);
+        insertarTercetoIncompleto(t);
+    }
+    else if (!getFlagPre() && !getFlagPost()){
+        //crear el terceto incompleto con el number de la expresion
+        Terceto t(op,"["+to_string(getNumber()-1)+"]","-");
+        setFlagPost(true);
+        insertarTercetoIncompleto(t);
+    }
+}
+
+// CREAR TERCETO INCOMPLETO PARA LA BF
+// APILAR EL NUMERO DEL TERCETO INCOMPLETO
+//AGREGAR CONSULTAR EL FLAG ACTUAL (POST COMPARADOR), si está en true completar el terceto incompleto.
+void chekeosGeneracion::expresionComparadorExpresion(char * pesos3){
+    Logger::write("Condicion igual");
+
+        if (!getFlagPre() && getFlagPost()){
+            Terceto t = getTercetoIncompleto(); //descarto
+            t = getTercetoIncompleto();
+            cout<<t.getOp()<<endl;
+            completar_operando3(t,pesos3);
+        }
+        else if (getFlagPre() && getFlagPost()){
+            //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
+            Terceto t = getTercetoIncompleto();
+            t = getTercetoIncompleto();
+            cout<<t.getOp()<<endl;
+            completar_operando3(t,pesos3);
+        }else if (getFlagPre() && !getFlagPost()){
+            //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
+            Terceto t = getTercetoIncompleto(); //descarto
+            t = getTercetoIncompleto();
+            cout<<t.getOp()<<endl;
+            completar_operando3(t,"["+to_string(getNumber()-1)+"]");
+        }
+        else{
+            Terceto t = getTercetoIncompleto();
+            cout<<t.getOp()<<endl;
+            completar_operando3(t,"["+to_string(getNumber()-1)+"]");
+        }
+        setFlagPre(false);
+        setFlagPost(false);
+        apilar();
+        insertar_terceto("BF","["+to_string(getNumber()-1)+"]","");
+}
+
+
+
+void chekeosGeneracion::check_NA(char * pesos7){
+
+    if(chekeosGeneracion::cantProc > chekeosGeneracion::convertToI(pesos7)){
+        cout<< "cantPorc: " + cantProc<< endl;
+        cout<< "$7cadena: " + convertToString(pesos7)<< endl;
+        Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
+    };
+    chekeosGeneracion::cantProc++;
+};
