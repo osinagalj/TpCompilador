@@ -36,6 +36,14 @@ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoInte
 iostream
 -
 
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.cpp
+iostream
+-
+Lexical_analyzer.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
+../Sintactic_analyzer/y.tab.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
+
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
 Lexical_analyzer_header.h
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer_header.h
@@ -56,6 +64,14 @@ string
 ../SymbolTable/Symbol_table.h
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.cpp
+Semantic_actions.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
+../Output/Logger.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
+../Sintactic_analyzer/y.tab.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
+
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Semantic_actions.h
 iostream
 -
@@ -72,9 +88,47 @@ iostream
 ../Lexical_analyzer/Lexical_analyzer.h
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Lexical_analyzer/Lexical_analyzer.h
 
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
+map
+-
+iostream
+-
+../SymbolTable/Symbol_table.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
+
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.cpp
+
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
+
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.cpp
+Symbol_table.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
+../Sintactic_analyzer/y.tab.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.h
+list
+-
+
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 iostream
 -
 map
+-
+
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/main.cpp
+Sintactic_analyzer/Sintactic_actions.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/Sintactic_actions.h
+Output/Logger.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
+fstream
+-
+GeneracionDeCodigoIntermedio/Intermediate_code.h
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.h
+string.h
+-
+Sintactic_analyzer/y.tab.cpp
+C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Sintactic_analyzer/y.tab.cpp
+stdio.h
+-
+string.h
 -
 

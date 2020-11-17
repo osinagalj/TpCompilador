@@ -36,7 +36,7 @@ class Symbol_table {
             void addType2(string type,string key,string ambit); //Modifique esto para los ambitos
             /* */
 
-            void setUse(char * key,char * use);
+            void setUse(string key,string use);
             void addAmbit(string key,string ambit);
             Registry getRegistry(string key);
             void addType(string type,string key,string ambit); //Modifique esto para los ambitos

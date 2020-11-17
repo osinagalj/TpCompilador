@@ -41,10 +41,12 @@ declarativa:
 lista_de_variables:
 		     ID ',' lista_de_variables{
 		     	Intermediate_code::addVariable($1.cadena);
-                        Intermediate_code::setUse(Lexical_analyzer::symbolTable,$1.cadena,"variable");}
+		     	string s = "variable";
+                        Intermediate_code::setUse(Lexical_analyzer::symbolTable,$1.cadena,&s[0]);}
 		   | ID ';' {
 		   	Intermediate_code::addVariable($1.cadena);
-                        Intermediate_code::setUse(Lexical_analyzer::symbolTable,$1.cadena,"variable");}
+		   	string s = "variable";
+                        Intermediate_code::setUse(Lexical_analyzer::symbolTable,$1.cadena,&s[0]);}
 ;
 
 ejecutable:
@@ -60,12 +62,12 @@ ejecutable:
 ;
 
 invocacion_proc:
-	 ID '(' parametros ')' ';' {Intermediate_code::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);}
+	 ID '(' parametros ')' ';' {Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);}
 ;
 
 parametros:
-	 parametros ',' ID {Intermediate_code::estaAlAlcance(Lexical_analyzer::symbolTable,$3.cadena);}
-	|ID {Intermediate_code::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);}
+	 parametros ',' ID {Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$3.cadena);}
+	|ID {Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);}
 ;
 
 procedimiento:
@@ -98,9 +100,10 @@ procedimiento:
 
 
 nombre_proc: PROC ID {	$$.cadena=$2.cadena;
-			Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,"nombre_proc");
+			string s = "nombre_proc";
+			Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
 			Intermediate_code::concatenarAmbito($2.cadena);
-			Intermediate_code::asignarAmbito(Lexical_analyzer::symbolTable,$2.cadena);
+			Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
 
 			}
 ;
@@ -114,6 +117,7 @@ lista_de_parametros:
 	 	      lista_de_parametros ',' tipo ID {
 	 	      	   Logger::write("lista_de_variables");
 	 	     	   Sintactic_actions::number_of_parameters++;
+
 	 	 	   Intermediate_code::setUse(Lexical_analyzer::symbolTable,$4.cadena,"parametro");
 			   Lexical_analyzer::symbolTable->addType2($3.cadena,$4.cadena,Intermediate_code::ambito_actual);
 		      }
@@ -233,25 +237,25 @@ termino:
 factor:
 	 ID {
 	     $$.cadena= $1.cadena;
-	     Intermediate_code::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
+	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);
 	 }
 
 	|FLOAT {
 	     $$.cadena= $1.cadena;
-	     Intermediate_code::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
+	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);
 	}
 
 	|'-' FLOAT {
-	     Intermediate_code::estaAlAlcance(Lexical_analyzer::symbolTable,$2.cadena);
+	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$2.cadena);
 	     $$.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);
 	}
 
 	|LONGINT {
-		Intermediate_code::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
+		Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);
 		Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);
 		$$.cadena= $1.cadena;
 	}
-        |'-' LONGINT { Intermediate_code::estaAlAlcance(Lexical_analyzer::symbolTable,$2.cadena);
+        |'-' LONGINT { Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$2.cadena);
         	$$.cadena=Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 ;
 
