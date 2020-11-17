@@ -25,18 +25,6 @@ void Symbol_table::printTable()
         cout << "Clave: " + it->first <<  " |Token_id: " << it->second.id << " |Tipo: " << it->second.Tipo << " |Token_uso: " << it->second.uso<<'\n';
     }
 }
-char * Symbol_table::getPointer(string pointer)
-{
-    char * aux  ;
-    aux = &pointer[0];
-    return aux;
-}
-char * Symbol_table::getPointer2(string pointer)
-{
-    char * aux  ;
-    aux = &pointer[0];
-    return aux;
-}
 
 Symbol_table::Registry Symbol_table::removeSymbol(string key)
 {
