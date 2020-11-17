@@ -31,8 +31,6 @@ class Symbol_table {
             /*lauta*/
             bool existVariable(string key);
             void clearTable();
-            bool estaAlAlcance(string key);
-
             void addType2(string type,string key,string ambit); //Modifique esto para los ambitos
             /* */
 
@@ -42,10 +40,9 @@ class Symbol_table {
             void addType(string type,string key,string ambit); //Modifique esto para los ambitos
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);
-            void addSymbol2(string key, Registry registry);
+
             void printTable();
-            char * getPointer(string puntero);
-            char * getPointer2(string puntero);
+
     private:
             map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key
 };
