@@ -171,7 +171,7 @@ void Intermediate_code::check_shadowing(Symbol_table * tablita, string key){
             aux3 = recortarAmbito(aux3);
             if(aux3!= "error"){
                 if(tablita->existVariable(aux3)){
-                    cout<<"ERROR: SE REDEFINE UNA VARIABLE CON EL SHADOWIN EN TRUE"<<endl;
+                    Logger::write("Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE");
                     serompio = true;
                 }
             }else{
@@ -304,7 +304,6 @@ int Intermediate_code::desapilar() {
 
 void Intermediate_code::expresionMenosTermino(string op, char * pesos3)
 {
-
     if (!flagPre && flagPost){
         //completar tercerto de la pila
         Terceto t = getTercetoIncompleto();

@@ -1,0 +1,27 @@
+                                            /% Group 2 %/
+
+                           /% ------------- Program with errors.  ------------------- %/
+
+    LONGINT a , b , c , d ;
+    FLOAT   x,y,z,w;
+    LONGINT longint_negative;
+    FLOAT   float_negative;
+
+    PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
+    {
+        LONGINT b;                                          /% Error por el shadowing %/
+        IF (a != p1){
+            OUT ("cadena de caracteres 1");
+        }
+        END_IF;
+
+        PROC bb (FLOAT p3) NA = 2_l , SHADOWING = FALSE
+        {
+            FLOAT x;                                        /% Lo tiene permitido %/
+            PROC cc (FLOAT p4) NA = 1_l , SHADOWING = TRUE
+            {
+                LONGINT b;                                   /% Error por el shadowing %/
+            };
+        };
+    };
+$

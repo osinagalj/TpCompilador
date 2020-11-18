@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.cpp
-Intermediate_code.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.h
-../SymbolTable/Symbol_table.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
-string.h
--
-../Output/Logger.h
-C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/Output/Logger.h
-stdio.h
--
-string.h
--
-
 C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.h
 map
 -

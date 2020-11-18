@@ -1,0 +1,42 @@
+                                            /% Group 2 %/
+
+                           /% ------------- Program with errors.  ------------------- %/
+
+    LONGINT a , b ;
+    FLOAT   x,y,z;
+    LONGINT longint_negative;
+    FLOAT   float_negative;
+
+
+
+    PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+    {
+        LONGINT d;
+        FLOAT w;
+        a = 1_l;
+        IF (a != p1){
+            OUT ("cadena de caracteres 1");
+            LONGINT c;
+        }
+        END_IF;
+
+        b = c;                                        /% ------------- No esta al alcance la c  ------------------- %/
+
+    };
+
+    PROC bb (FLOAT p3) NA = 2_l , SHADOWING = FALSE
+    {
+        x = w;                                        /% Lo tiene permitido %/
+    };
+
+    procedure_1(x);                                              /% El procedimiento cc no esta al alcance %/
+
+
+
+
+    PROC aa (FLOAT p5) NA = 3_l , SHADOWING = FALSE             /% Redeclaracion de procedimiento  %/
+    {
+       OUT ("cadena de caracteres 1");
+    };
+
+$
