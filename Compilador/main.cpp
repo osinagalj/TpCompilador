@@ -18,7 +18,8 @@ string path = "Compilador\\Testing\\bug_shadowing";
 //string path = "Compilador\\Testing\\bug_scope";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
-string pathOutErrores = "Compilador\\Output\\out_errores";
+string pathOutErrores = "Compilador\\Output\\out_bugs.txt";
+string pathOutAssembler = "Compilador\\GeneracionDeCodigoAssebler\\out_assembler.txt";
 Lexical_analyzer lexical_analyzer;
 int Sintactic_actions::number_of_parameters = 0; //contador para las listas de variables
 int Intermediate_code::number = 1;
@@ -76,6 +77,12 @@ int main(int argc,char** argv)
     Intermediate_code::imprimirListaProc();
     createIndexFile();
     createOutError();
+
+
+    //--------------------Assembler--------------//
+    Assembler::open(pathOutAssembler);
+    Assembler::write("Mensaje de prueba");
+    Assembler::close();
     return 0;
 }
 

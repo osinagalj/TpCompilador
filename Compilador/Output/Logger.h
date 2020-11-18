@@ -6,15 +6,17 @@ using namespace std;
 
 class Logger{
 
-public:
-    static void open( const string & logFile);
-    static void close();
-    static void write( const string & message);
-    static Lexical_analyzer * lexico;
-    Logger();
-private:
+    public:
 
-    ofstream fileStream;
-    //Logger instance (singleton)
-    static Logger instance;
+        Logger();
+        static void open( const string & logFile);
+        static void close();
+        static void write( const string & message);
+        static Lexical_analyzer * lexico;
+
+    private:
+
+        ofstream fileStream;
+        //Logger instance (singleton)
+        static Logger instance;
 };

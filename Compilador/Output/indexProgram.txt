@@ -4,24 +4,22 @@
 4:      
 5:          LONGINT a , b , c , d ;
 6:          FLOAT   x,y,z,w;
-7:          LONGINT longint_negativsasassfffgae;
-8:          FLOAT   float_negative;
-9:      
-10:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
-11:          {
-12:              LONGINT b;                                          /% Error por el shadowing %/
-13:              IF (a != p1){
-14:                  OUT ("cadena de caracteres 1");
-15:              }
-16:              END_IF;
-17:      
-18:              PROC bb (FLOAT p3) NA = 2_l , SHADOWING = FALSE
-19:              {
-20:                  FLOAT x;                                        /% Lo tiene permitido %/
-21:                  PROC cc (FLOAT p4) NA = 1_l , SHADOWING = TRUE
-22:                  {
-23:                      LONGINT b;                                   /% Error por el shadowing %/
-24:                  };
-25:              };
-26:          };
-27:      $
+7:      
+8:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
+9:          {
+10:              LONGINT b;                                          /% Error por el shadowing %/
+11:              IF (a != p1){
+12:                  OUT ("cadena de caracteres 1");
+13:              }
+14:              END_IF;
+15:      
+16:              PROC bb (FLOAT p3) NA = 2_l , SHADOWING = FALSE
+17:              {
+18:                  FLOAT x;                                        /% Lo tiene permitido %/
+19:                  PROC cc (FLOAT p4) NA = 1_l , SHADOWING = TRUE
+20:                  {
+21:                      LONGINT b;                                   /% Error por el shadowing %/
+22:                  };
+23:              };
+24:          };
+25:      $

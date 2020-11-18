@@ -1,0 +1,2 @@
+linea:10  Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE
+linea:21  Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE
