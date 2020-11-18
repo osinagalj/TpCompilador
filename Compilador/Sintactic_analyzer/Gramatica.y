@@ -281,7 +281,9 @@ tipo:
 
 imprimir:
 	  OUT '(' STRING ')' ';' {Logger::write("Detecto sentencia OUT");
-	  			Intermediate_code::insertar_terceto("OUT",$3.cadena,"");	}
+	  			Intermediate_code::insertar_terceto("OUT",$3.cadena,"");
+
+	  				}
 	 |'(' STRING ')' ';' {Logger::write("Error: SE ESPERABA OUT PREVIAMENTE PARA IMPRIMIR");}
 	 |OUT '(' ')' ';' {Logger::write("Error: SE ESPERABA CADENA EN LA SENTENCIA OUT");}
 ;

@@ -805,17 +805,19 @@ break;
 case 65:
 #line 283 "gramatica.y"
 {Logger::write("Detecto sentencia OUT");
-	  			Intermediate_code::insertar_terceto("OUT",yyvsp[-2].cadena,"");	}
+	  			Intermediate_code::insertar_terceto("OUT",yyvsp[-2].cadena,"");
+	  				Assembler::imprimir();
+	  				}
 break;
 case 66:
-#line 285 "gramatica.y"
+#line 287 "gramatica.y"
 {Logger::write("Error: SE ESPERABA OUT PREVIAMENTE PARA IMPRIMIR");}
 break;
 case 67:
-#line 286 "gramatica.y"
+#line 288 "gramatica.y"
 {Logger::write("Error: SE ESPERABA CADENA EN LA SENTENCIA OUT");}
 break;
-#line 819 "y.tab.c"
+#line 821 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;

@@ -1,0 +1,3 @@
+linea:7  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
+linea:12  Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE
+linea:23  Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE

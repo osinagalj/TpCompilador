@@ -1,21 +1,24 @@
 #include "Sintactic_analyzer/Sintactic_actions.h"
 #include "Output/Logger.h"
 #include <fstream>
-#include "GeneracionDeCodigoIntermedio/Intermediate_code.h" //cambiar
+#include "GeneracionDeCodigoIntermedio/Intermediate_code.h"
 #include <string.h>
+#include "GeneracionDeCodigoAssebler/Assembler.h"
 using namespace std;
 int yylex();
 void yyerror(const char *);
 #include "Sintactic_analyzer/y.tab.cpp"
 void createIndexFile();
+void createOutError();
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------          Global variables          ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
-string path = "Compilador\\Testing\\program.txt";
-//string path = "Compilador\\Testing\\bug_shadowing";
+//string path = "Compilador\\Testing\\program.txt";
+string path = "Compilador\\Testing\\bug_shadowing";
 //string path = "Compilador\\Testing\\bug_scope";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
+string pathOutErrores = "Compilador\\Output\\out_errores";
 Lexical_analyzer lexical_analyzer;
 int Sintactic_actions::number_of_parameters = 0; //contador para las listas de variables
 int Intermediate_code::number = 1;
@@ -72,7 +75,7 @@ int main(int argc,char** argv)
     Intermediate_code::imprimirTercetos();
     Intermediate_code::imprimirListaProc();
     createIndexFile();
-
+    createOutError();
     return 0;
 }
 
@@ -126,27 +129,28 @@ void createIndexFile()
     }
 }
 
+void createOutError()
+{
 
+    ofstream indexFile;
+    ifstream Entrada;
+    Entrada.open(pathOut,ifstream::in);
+    indexFile.open(pathOutErrores,ofstream::out);
+    if(!indexFile.is_open()) {
+        cout << "Error al abrir el archivo out" << endl;
+        exit(1);
+    }else{
+        string line = "";
+        int i = 1;
+        while(!Entrada.eof()){
+            getline(Entrada,line);
 
-/* Name Mangling
- *  //Ambito A
- *  int x;
- *  void fun(){
- *      //Ambito B
- *      if(){
- *          //Ambito D
- *          int z;
- *          x:= 25 + z;
- *      }
- *  }
- *
-    Buscar x:A:B:D
-        No está  Buscar x:A:B
-                No está  Buscar x:A 
+            if ((line.find("Warning:") != std::string::npos) || (line.find("Error:") != std::string::npos)) {
+                indexFile << line + "\n";
+            }
+            i++;
+        }
 
-    Buscar z:A:B:D
- *
- * --Tenemos que tener una variable ambito, y concatenarla cada vez que se entre en un nuevo ambito.
- * -- metodo de concatenar el ambito
- * -- metodo de eliminar el ultimo ambito, para cuando se sale del ambito
- */
+    }
+}
+
