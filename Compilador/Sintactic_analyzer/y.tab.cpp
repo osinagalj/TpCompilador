@@ -806,7 +806,7 @@ case 65:
 #line 283 "gramatica.y"
 {Logger::write("Detecto sentencia OUT");
 	  			Intermediate_code::insertar_terceto("OUT",yyvsp[-2].cadena,"");
-	  				Assembler::imprimir();
+
 	  				}
 break;
 case 66:

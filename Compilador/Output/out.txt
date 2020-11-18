@@ -1,17 +1,14 @@
 linea:6  Declaracion de variables
-linea:7  Declaracion de variables
-linea:7  Warning: SE TRUNCO EL IDENTIFICADOR DEBIDO A QUE SUPERA LOS 20 CARACTERES
 linea:8  Declaracion de variables
 linea:10  Declaracion de variables
-linea:12  Declaracion de variables
-linea:12  Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE
-linea:13  Condicion igual
-linea:15  Detecto sentencia OUT
-linea:16  Sentencia IF
-linea:18  sentencia if
-linea:20  Declaracion de variables
-linea:23  Declaracion de variables
-linea:23  Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE
+linea:10  Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE
+linea:11  Condicion igual
+linea:13  Detecto sentencia OUT
+linea:14  Sentencia IF
+linea:16  sentencia if
+linea:18  Declaracion de variables
+linea:21  Declaracion de variables
+linea:21  Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE
+linea:23  Declaracion de procedimiento
+linea:24  Declaracion de procedimiento
 linea:25  Declaracion de procedimiento
-linea:26  Declaracion de procedimiento
-linea:27  Declaracion de procedimiento

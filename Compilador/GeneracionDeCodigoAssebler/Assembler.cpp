@@ -1,8 +1,19 @@
-//
-// Created by Lautaro on 18/11/2020.
-//
-
 #include "Assembler.h"
-void Assembler::imprimir(){
-    cout<<"HOLAAAAAAAAA"<<endl;
+
+Assembler Assembler::instance;
+
+Assembler::Assembler(){}
+
+void Assembler::open( const string& logFile){
+    instance.fileStream.open(logFile.c_str());
+    if(!instance.fileStream.is_open()){
+        exit(3);
+    }
+}
+void Assembler::close(){
+    instance.fileStream.close();
+}
+void Assembler::write(const string& message){
+    ostream& stream =  instance.fileStream ;
+    stream << "KAKA" <<message<< endl;
 }

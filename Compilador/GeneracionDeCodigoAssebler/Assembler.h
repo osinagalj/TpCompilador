@@ -8,15 +8,24 @@
 #include "../SymbolTable/Symbol_table.h"
 
 #include <list>
+#include <fstream>
 
 using namespace std;
 
 class Assembler {
     public:
-        static void imprimir();
+        Assembler();
 
-    private:
+        static void open( const string & logFile);
+        static void close();
+        static void write( const string & message);
 
+
+
+private:
+    ofstream fileStream;
+    //Logger instance (singleton)
+    static Assembler instance;
 };
 
 
