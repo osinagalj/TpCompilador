@@ -62,6 +62,15 @@ class Intermediate_code {
         static void expresionComparadorExpresion(char * pesos3);
         static void terminoDivididoFactor(string op ,char *);
 
+        //Metodos para la lista de procedimientos
+        static string getTopeProc();
+        static void insertarProc();
+        static void insertar_terceto_a_proc(Terceto t);
+        static bool esVacioPilaProc();
+        //static void vaciarProcActual();
+        static void apilarProc(char* c);
+        static void desapilarProc();
+
         /*charly*/
         static void check_NA(char * na);
         static int convertToI(char * str);
@@ -69,6 +78,8 @@ class Intermediate_code {
         /*Imprimir*/
         static void imprimirTercetos();
         static void imprimirLista();
+        static void imprimirListaProc();
+        static void imprimirTercetosLista(list<Terceto> lista);
 
         /*Borrar*/
         static bool listaVacia();
@@ -79,7 +90,9 @@ class Intermediate_code {
 
 
 private:
-
+        static list<string> pila_procedimientos;
+        //static list<Terceto> proc_actual;
+        static map<string,list<Terceto>> procedimientos;
         static bool flagPre;
         static bool flagPost;
         static int number;

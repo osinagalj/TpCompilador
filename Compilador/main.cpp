@@ -35,6 +35,11 @@ bool Intermediate_code::flagPre=false;
 bool Intermediate_code::flagPost=false;
 list<Terceto> Intermediate_code::list_tercetos_sin_completar;
 
+list<string> Intermediate_code::pila_procedimientos;
+//list<Terceto> Intermediate_code::proc_actual;
+map<string,list<Terceto>> Intermediate_code::procedimientos;
+
+
 
 /*charly*/
 int Intermediate_code::cantProc = 0;
@@ -63,7 +68,7 @@ int main(int argc,char** argv)
     tabla.clearTable();
     tabla.printTable();
     Intermediate_code::imprimirTercetos();
-
+    Intermediate_code::imprimirListaProc();
     createIndexFile();
 
     return 0;

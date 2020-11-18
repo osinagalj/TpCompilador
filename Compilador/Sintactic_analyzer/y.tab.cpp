@@ -511,26 +511,27 @@ case 16:
 break;
 case 17:
 #line 65 "gramatica.y"
-{Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[-4].cadena);}
+{Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[-4].cadena);
+	 			    Intermediate_code::insertar_terceto("Call",yyvsp[-4].cadena,"");}
 break;
 case 18:
-#line 69 "gramatica.y"
-{Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
-break;
-case 19:
 #line 70 "gramatica.y"
 {Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
+case 19:
+#line 71 "gramatica.y"
+{Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
+break;
 case 20:
-#line 74 "gramatica.y"
+#line 75 "gramatica.y"
 {
 	    	Intermediate_code::eliminarUltimoAmbito();
-		Intermediate_code::insertar_terceto("Call",yyvsp[-10].cadena,"");
 		Intermediate_code::check_NA(yyvsp[-7].cadena);
+		Intermediate_code::desapilarProc();
 	 }
 break;
 case 21:
-#line 79 "gramatica.y"
+#line 80 "gramatica.y"
 {
 		Logger::write("Error: FALTA ID");
 		Intermediate_code::eliminarUltimoAmbito();
@@ -538,14 +539,14 @@ case 21:
 	}
 break;
 case 22:
-#line 84 "gramatica.y"
+#line 85 "gramatica.y"
 {
 		Logger::write("Error: FALTA ESPECIFICAR VALOR NA");
 		Intermediate_code::eliminarUltimoAmbito();
 	}
 break;
 case 23:
-#line 88 "gramatica.y"
+#line 89 "gramatica.y"
 {
 		Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");
 		Intermediate_code::eliminarUltimoAmbito();
@@ -553,15 +554,17 @@ case 23:
 	}
 break;
 case 24:
-#line 93 "gramatica.y"
+#line 94 "gramatica.y"
 {
 		Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");
 		Intermediate_code::eliminarUltimoAmbito();
 	}
 break;
 case 25:
-#line 101 "gramatica.y"
+#line 102 "gramatica.y"
 {
+			Intermediate_code::apilarProc(yyvsp[-3].cadena);
+			Intermediate_code::insertarProc();
 			Sintactic_actions::check_list_parametros();
 			yyval.cadena=yyvsp[-3].cadena;
 			string s = "nombre_proc";
@@ -571,8 +574,10 @@ case 25:
 			}
 break;
 case 26:
-#line 109 "gramatica.y"
+#line 112 "gramatica.y"
 {
+	    	Intermediate_code::apilarProc(yyvsp[-2].cadena);
+	    	Intermediate_code::insertarProc();
 		yyval.cadena=yyvsp[-2].cadena;
 		string s = "nombre_proc";
 		Intermediate_code::setUse(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,&s[0]);
@@ -582,15 +587,15 @@ case 26:
 	    }
 break;
 case 27:
-#line 120 "gramatica.y"
+#line 125 "gramatica.y"
 { Intermediate_code::shadowing = true;}
 break;
 case 28:
-#line 121 "gramatica.y"
+#line 126 "gramatica.y"
 { Intermediate_code::shadowing = false;}
 break;
 case 29:
-#line 125 "gramatica.y"
+#line 130 "gramatica.y"
 {
 	 	      	   Logger::write("lista_de_variables");
 	 	     	   Sintactic_actions::number_of_parameters++;
@@ -600,7 +605,7 @@ case 29:
 		      }
 break;
 case 30:
-#line 132 "gramatica.y"
+#line 137 "gramatica.y"
 {
 		    	   Sintactic_actions::number_of_parameters++;
 			   Intermediate_code::setUse(Lexical_analyzer::symbolTable,yyvsp[0].cadena,"parametro");
@@ -608,37 +613,37 @@ case 30:
 		      }
 break;
 case 31:
-#line 140 "gramatica.y"
+#line 145 "gramatica.y"
 {Logger::write("Sentencia IF");}
 break;
 case 32:
-#line 141 "gramatica.y"
+#line 146 "gramatica.y"
 {Logger::write("Error: FALTA EL IF");}
 break;
 case 33:
-#line 145 "gramatica.y"
+#line 150 "gramatica.y"
 {Intermediate_code::concatenarAmbitoAnonimo("IF");}
 break;
 case 34:
-#line 148 "gramatica.y"
+#line 153 "gramatica.y"
 {/*Desapilar*/
 					    /*Completar terceto incompleto con el destino de la BI*/
 					    Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),0);
 					    }
 break;
 case 35:
-#line 152 "gramatica.y"
+#line 157 "gramatica.y"
 {/*Desapilar*/
 			    /*Completar terceto incompleto con el destino de la BI*/
 			    /*Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),1);*/
 			    }
 break;
 case 36:
-#line 156 "gramatica.y"
+#line 161 "gramatica.y"
 {Logger::write("Error: FALTA EL END_IF");}
 break;
 case 37:
-#line 159 "gramatica.y"
+#line 164 "gramatica.y"
 {/*desapilar*/
 			/*completar terceto incompleto con el destino de la bf*/
 			Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),1);
@@ -649,7 +654,7 @@ case 37:
 			}
 break;
 case 39:
-#line 175 "gramatica.y"
+#line 180 "gramatica.y"
 {Logger::write("Sentencia WHILE");
          								/*(1)desapilar,*/
          								/*(2)completar terceto incompleto.*/
@@ -659,15 +664,15 @@ case 39:
          								}
 break;
 case 40:
-#line 182 "gramatica.y"
+#line 187 "gramatica.y"
 {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
 break;
 case 41:
-#line 183 "gramatica.y"
+#line 188 "gramatica.y"
 {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
 break;
 case 42:
-#line 187 "gramatica.y"
+#line 192 "gramatica.y"
 {
         		Intermediate_code::concatenarAmbitoAnonimo("WHILE");
         		/*apilar terceto de inicio para saber la BI*/
@@ -675,67 +680,67 @@ case 42:
         	}
 break;
 case 43:
-#line 196 "gramatica.y"
+#line 201 "gramatica.y"
 {
 	           yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
 		   Intermediate_code::expresionComparadorExpresion(yyvsp[0].cadena);
 	   }
 break;
 case 44:
-#line 200 "gramatica.y"
+#line 205 "gramatica.y"
 {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 break;
 case 45:
-#line 203 "gramatica.y"
+#line 208 "gramatica.y"
 {Intermediate_code::generar_comparador("==");}
 break;
 case 46:
-#line 204 "gramatica.y"
+#line 209 "gramatica.y"
 {Intermediate_code::generar_comparador("!=");}
 break;
 case 47:
-#line 205 "gramatica.y"
+#line 210 "gramatica.y"
 { Intermediate_code::generar_comparador("<=");}
 break;
 case 48:
-#line 206 "gramatica.y"
+#line 211 "gramatica.y"
 {Intermediate_code::generar_comparador(">=");}
 break;
 case 49:
-#line 207 "gramatica.y"
+#line 212 "gramatica.y"
 {Intermediate_code::generar_comparador(">");}
 break;
 case 50:
-#line 208 "gramatica.y"
+#line 213 "gramatica.y"
 {Intermediate_code::generar_comparador("<");}
 break;
 case 51:
-#line 213 "gramatica.y"
+#line 218 "gramatica.y"
 {
 	    	yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
 		Intermediate_code::expresionMenosTermino("+",yyvsp[0].cadena);
 	   }
 break;
 case 52:
-#line 218 "gramatica.y"
+#line 223 "gramatica.y"
 {
 		yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
 		Intermediate_code::expresionMenosTermino("-",yyvsp[0].cadena);
 	   }
 break;
 case 53:
-#line 223 "gramatica.y"
+#line 228 "gramatica.y"
 {yyval.cadena = yyvsp[0].cadena;}
 break;
 case 54:
-#line 228 "gramatica.y"
+#line 233 "gramatica.y"
 {
 	 	yyval.cadena= yyvsp[0].cadena;
 		Intermediate_code::terminoFactor(yyvsp[0].cadena);
 	 }
 break;
 case 55:
-#line 233 "gramatica.y"
+#line 238 "gramatica.y"
 {
 			      Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
        			      yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
@@ -743,7 +748,7 @@ case 55:
 	 }
 break;
 case 56:
-#line 239 "gramatica.y"
+#line 244 "gramatica.y"
 {
 	    			Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
            			 yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
@@ -751,28 +756,28 @@ case 56:
 	}
 break;
 case 57:
-#line 246 "gramatica.y"
+#line 251 "gramatica.y"
 {
 	     yyval.cadena= yyvsp[0].cadena;
 	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 	 }
 break;
 case 58:
-#line 251 "gramatica.y"
+#line 256 "gramatica.y"
 {
 	     yyval.cadena= yyvsp[0].cadena;
 	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 	}
 break;
 case 59:
-#line 256 "gramatica.y"
+#line 261 "gramatica.y"
 {
 	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 	     yyval.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 	}
 break;
 case 60:
-#line 261 "gramatica.y"
+#line 266 "gramatica.y"
 {
 		Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 		Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
@@ -780,36 +785,36 @@ case 60:
 	}
 break;
 case 61:
-#line 266 "gramatica.y"
+#line 271 "gramatica.y"
 { Intermediate_code::check_scope(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
         	yyval.cadena=Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,yyvsp[0].cadena);}
 break;
 case 62:
-#line 271 "gramatica.y"
+#line 276 "gramatica.y"
 { string s = "Int"; yyval.cadena = &s[0];}
 break;
 case 63:
-#line 272 "gramatica.y"
+#line 277 "gramatica.y"
 { string s = "Longint"; yyval.cadena = &s[0];}
 break;
 case 64:
-#line 273 "gramatica.y"
+#line 278 "gramatica.y"
 { string s = "Float"; yyval.cadena = &s[0];}
 break;
 case 65:
-#line 277 "gramatica.y"
+#line 282 "gramatica.y"
 {Logger::write("Detecto sentencia OUT");
 	  			Intermediate_code::insertar_terceto("OUT",yyvsp[-2].cadena,"");	}
 break;
 case 66:
-#line 279 "gramatica.y"
+#line 284 "gramatica.y"
 {Logger::write("Error: SE ESPERABA OUT PREVIAMENTE PARA IMPRIMIR");}
 break;
 case 67:
-#line 280 "gramatica.y"
+#line 285 "gramatica.y"
 {Logger::write("Error: SE ESPERABA CADENA EN LA SENTENCIA OUT");}
 break;
-#line 813 "y.tab.c"
+#line 818 "y.tab.c"
     }
     yyssp -= yym;
     yystate = *yyssp;
