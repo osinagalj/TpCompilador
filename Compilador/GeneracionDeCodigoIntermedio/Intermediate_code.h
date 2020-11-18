@@ -52,7 +52,6 @@ class Intermediate_code {
 
         static void apilar();
         static int desapilar();
-        static int getNumber();
 
         //Metodos acciones para generar los tercetos desde la gramatica
         //Se pueden optimizar estos seguramente un poco
