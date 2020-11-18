@@ -3,6 +3,8 @@
 
 CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj: ../GeneracionDeCodigoAssebler/Assembler.cpp
 CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj: ../GeneracionDeCodigoAssebler/Assembler.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj: ../GeneracionDeCodigoIntermedio/Intermediate_code.h
+CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj: ../GeneracionDeCodigoIntermedio/Terceto.h
 CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj: ../SymbolTable/Symbol_table.h
 
 CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj: ../GeneracionDeCodigoIntermedio/Intermediate_code.cpp

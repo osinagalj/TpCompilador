@@ -9,23 +9,38 @@
 
 #include <list>
 #include <fstream>
-
+#include <string>
+#include <unordered_map>
+#include "../GeneracionDeCodigoIntermedio/Intermediate_code.h"
+#include <vector>
 using namespace std;
 
 class Assembler {
     public:
         Assembler();
+        Assembler(string path);
+        void declareLongint(const string & varName);
+        void declareFloat(const string & varName);
+        void declareString(const string & varName);
 
-        static void open( const string & logFile);
-        static void close();
-        static void write( const string & message);
+        void declareSTVariables(Symbol_table * symbolTable);
+
+        void open( const string & logFile);
+        void close();
+        void write( const string & message);
 
 
 
-private:
-    ofstream fileStream;
-    //Logger instance (singleton)
-    static Assembler instance;
+    private:
+        ofstream  fileStream;
+
+        vector<string> vars;
+        vector<string> program;
+        vector<string> data;
+        vector<string> code;
+
+        unordered_map<string, short int> bits;
+
 };
 
 
