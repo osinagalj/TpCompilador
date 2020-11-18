@@ -39,6 +39,8 @@ list<string> Intermediate_code::pila_procedimientos;
 //list<Terceto> Intermediate_code::proc_actual;
 map<string,list<Terceto>> Intermediate_code::procedimientos;
 
+list<int> Intermediate_code::listProcedimientosAnidados;
+
 
 
 /*charly*/

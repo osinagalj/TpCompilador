@@ -108,6 +108,7 @@ nombre_proc: PROC ID '(' lista_de_parametros ')' {
 			Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
 			Intermediate_code::concatenarAmbito($2.cadena);
 			Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
+			Intermediate_code::agregarAnidado();
 			}
 	    |PROC ID '(' ')' {
 	    	Intermediate_code::apilarProc($2.cadena);
@@ -117,7 +118,7 @@ nombre_proc: PROC ID '(' lista_de_parametros ')' {
 		Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
 		Intermediate_code::concatenarAmbito($2.cadena);
 		Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
-
+		Intermediate_code::agregarAnidado();
 	    }
 ;
 

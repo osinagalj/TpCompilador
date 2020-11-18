@@ -74,6 +74,9 @@ class Intermediate_code {
         /*charly*/
         static void check_NA(char * na);
         static int convertToI(char * str);
+        //lista de procedimientos anidados para NA
+        static void agregarAnidado();
+        static void quitarAnidado();
 
         /*Imprimir*/
         static void imprimirTercetos();
@@ -90,6 +93,8 @@ class Intermediate_code {
 
 
 private:
+        //list procedimientos anidados para NA
+        static list<int> listProcedimientosAnidados;
         static list<string> pila_procedimientos;
         //static list<Terceto> proc_actual;
         static map<string,list<Terceto>> procedimientos;

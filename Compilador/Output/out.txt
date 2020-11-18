@@ -34,6 +34,5 @@ linea:50  Sentencia IF
 linea:51  sentencia if
 linea:51  Sentencia WHILE
 linea:52  sentencia while
-linea:52  Error: Tenes mas procedimientos de los que permite el NA
 linea:54  Declaracion de procedimiento
 linea:56  invocacion procedimiento

@@ -216,15 +216,27 @@ void Intermediate_code::check_scope(Symbol_table * symbolTable, char * key){
     return ;
 }
 
-void Intermediate_code::check_NA(char * pesos7){
+void Intermediate_code::check_NA(char * valorNa){
 
-    if(Intermediate_code::cantProc > stoi(convertToString(pesos7))){
+    if(Intermediate_code::cantProc > stoi(convertToString(valorNa))){
         cout<< "cantPorc: " + cantProc<< endl;
-        cout<< "$7cadena: " + convertToString(pesos7)<< endl;
+        cout<< "$7cadena: " + convertToString(valorNa)<< endl;
         Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
     };
-    Intermediate_code::cantProc++;
+
+    if(listProcedimientosAnidados.size()-1 == 0){
+        cout<< "entre a reiniciar" << endl;
+        cantProc=0;
+    }else {
+        listProcedimientosAnidados.pop_front();
+        Intermediate_code::cantProc++;
+    }
 };
+
+//lista de procedimientos anidados para NA
+void Intermediate_code::agregarAnidado() {
+    listProcedimientosAnidados.push_front(1);
+}
 
 
 
@@ -603,7 +615,7 @@ void Intermediate_code::imprimirTercetosLista(list<Terceto> lista){
 }
 
 void Intermediate_code::imprimirListaProc() {
-    cout<< "---------------------- LISTA DE PROCEDIMIENTOS-------------------------"<<endl;
+    //cout<< "---------------------- LISTA DE PROCEDIMIENTOS-------------------------"<<endl;
     for (map<string,list<Terceto>>::iterator it=procedimientos.begin(); it!=procedimientos.end(); ++it){
         cout <<"Nombre del proc: "+ it->first <<endl;
         imprimirTercetosLista(it->second);
@@ -614,7 +626,7 @@ void Intermediate_code::imprimirListaProc() {
 //**Lista de procedimientos con sus tercetos**//
 
 void Intermediate_code::apilarProc(char* c){
-    cout<<"-----------------------------------------APILAR PROC"<<endl;
+    //cout<<"-----------------------------------------APILAR PROC"<<endl;
     string s = c;
     pila_procedimientos.push_back(s);
 }
@@ -625,7 +637,7 @@ void Intermediate_code::desapilarProc(){
 
 string Intermediate_code::getTopeProc(){
 
-    cout<<"-----------------------------------------GET TOPE"<<endl;
+    //cout<<"-----------------------------------------GET TOPE"<<endl;
 
     list<string>::iterator pos = pila_procedimientos.begin();
     string s;
@@ -638,20 +650,19 @@ string Intermediate_code::getTopeProc(){
 
 void Intermediate_code::insertarProc(){
 
-    cout<<"-----------------------------------------INSERTAR EN MAPA DE PROC"<<endl;
+    //cout<<"-----------------------------------------INSERTAR EN MAPA DE PROC"<<endl;
     list<Terceto> t;
     procedimientos.insert({getTopeProc(), t});
 }
 
 void Intermediate_code::insertar_terceto_a_proc(Terceto t){
 
-    cout<<"-----------------------------------------INSERTAR TERCETO EN PROC_ACTUAL"<<endl;
+    //cout<<"-----------------------------------------INSERTAR TERCETO EN PROC_ACTUAL"<<endl;
     procedimientos.find(getTopeProc())->second.push_back(t);
 }
 
 bool Intermediate_code::esVacioPilaProc(){
-
-    cout<<"-----------------------------------------ES VACIO"<<endl;
+    //cout<<"-----------------------------------------ES VACIO"<<endl;
     if (pila_procedimientos.size() > 0){
         return false;
     }
