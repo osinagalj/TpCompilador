@@ -7,8 +7,6 @@
     LONGINT longint_negative;
     FLOAT   float_negative;
 
-
-
     PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
     {
         LONGINT d;
@@ -30,8 +28,6 @@
     };
 
     procedure_1(x);                                              /% El procedimiento cc no esta al alcance %/
-
-
 
 
     PROC aa (FLOAT p5) NA = 3_l , SHADOWING = FALSE             /% Redeclaracion de procedimiento  %/

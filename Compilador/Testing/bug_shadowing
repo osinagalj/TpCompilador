@@ -4,8 +4,6 @@
 
     LONGINT a , b , c , d ;
     FLOAT   x,y,z,w;
-    LONGINT longint_negative;
-    FLOAT   float_negative;
 
     PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
     {
