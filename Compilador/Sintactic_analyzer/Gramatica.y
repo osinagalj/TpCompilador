@@ -71,11 +71,10 @@ parametros:
 ;
 
 procedimiento:
-	 nombre_proc  '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
-	 	Sintactic_actions::check_list_parametros();
+	 nombre_proc NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
 	    	Intermediate_code::eliminarUltimoAmbito();
 		Intermediate_code::insertar_terceto("Call",$1.cadena,"");
-		Intermediate_code::check_NA($7.cadena);
+		Intermediate_code::check_NA($4.cadena);
 	 }
 	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
 		Logger::write("Error: FALTA ID");
@@ -99,13 +98,22 @@ procedimiento:
 
 
 
-nombre_proc: PROC ID {	$$.cadena=$2.cadena;
+nombre_proc: PROC ID '(' lista_de_parametros ')' {
+			Sintactic_actions::check_list_parametros();
+			$$.cadena=$2.cadena;
 			string s = "nombre_proc";
 			Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
 			Intermediate_code::concatenarAmbito($2.cadena);
 			Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
-
 			}
+	    |PROC ID '(' ')' {
+		$$.cadena=$2.cadena;
+		string s = "nombre_proc";
+		Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
+		Intermediate_code::concatenarAmbito($2.cadena);
+		Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
+
+	    }
 ;
 
 true_false:
