@@ -1,1 +1,23 @@
-KAKAMensaje de prueba
+.386
+.model flat, stdcall
+include \masm32\include\masm32rt.inc
+include \masm32\include\windows.inc
+include \masm32\include\kernel32.inc
+include \masm32\include\user32.inc
+includelib \masm32\lib\kernel32.lib
+includelib \masm32\lib\user32.lib
+.data
+    a:main DD ? 
+    b:main DD ? 
+    c:main DD ? 
+    d:main DD ? 
+    e:main:aa DD ? 
+    e:main:dd DD ? 
+    float_negative:main DD ? 
+    float_negative:main:aa:bb DD ? 
+    longint_negative:main DD ? 
+    variable_kaka:main:dd:WHILE_1:IF_2 DD ? 
+    w:main DD ? 
+    x:main DD ? 
+    y:main DD ? 
+    z:main DD ? 

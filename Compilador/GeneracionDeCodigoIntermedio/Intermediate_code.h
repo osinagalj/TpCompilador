@@ -23,6 +23,7 @@ class Intermediate_code {
         static string ambito_actual;
         static list<string> list_variables;
         static list<int> pila;
+        static map<int,Terceto> list_tercetos;
 
         //Tipos
         static void addVariable(char * variable);
@@ -102,7 +103,7 @@ private:
         static bool flagPost;
         static int number;
         static list<Terceto> list_tercetos_sin_completar;
-        static map<int,Terceto> list_tercetos;
+
 
         //Metodos auxiliares
         static string convertToString(char * tipo);

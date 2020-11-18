@@ -43,8 +43,10 @@ class Symbol_table {
 
             void printTable();
 
-    private:
-            map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key
+        map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key
+
+private:
+
 };
 
 #endif //COMPILADOR_SYMBOL_TABLE_H

@@ -4,6 +4,8 @@
 CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoAssebler/Assembler.cpp
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoAssebler/Assembler.h
+ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.h
+ C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Terceto.h
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/SymbolTable/Symbol_table.h
 CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj
  C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.cpp

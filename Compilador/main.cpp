@@ -13,8 +13,8 @@ void createOutError();
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------          Global variables          ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
-//string path = "Compilador\\Testing\\program.txt";
-string path = "Compilador\\Testing\\bug_shadowing";
+string path = "Compilador\\Testing\\program.txt";
+//string path = "Compilador\\Testing\\bug_shadowing";
 //string path = "Compilador\\Testing\\bug_scope";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
@@ -80,9 +80,9 @@ int main(int argc,char** argv)
 
 
     //--------------------Assembler--------------//
-    Assembler::open(pathOutAssembler);
-    Assembler::write("Mensaje de prueba");
-    Assembler::close();
+    Assembler ass(pathOutAssembler);
+    ass.declareSTVariables(&tabla);
+    ass.close();
     return 0;
 }
 
@@ -95,8 +95,7 @@ void yyerror(const char * text)
 {
     cout << text << endl;
 }
-#include <stdio.h>
-#include <string.h>
+
 
 int yylex()
 {

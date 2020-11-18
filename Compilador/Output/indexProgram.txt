@@ -1,25 +1,62 @@
 1:                                                  /% Group 2 %/
 2:      
-3:                                 /% ------------- Program with errors.  ------------------- %/
+3:                                 /% ------------- Program without errors.  ------------------- %/
 4:      
 5:          LONGINT a , b , c , d ;
 6:          FLOAT   x,y,z,w;
-7:      
-8:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
-9:          {
-10:              LONGINT b;                                          /% Error por el shadowing %/
-11:              IF (a != p1){
-12:                  OUT ("cadena de caracteres 1");
-13:              }
-14:              END_IF;
-15:      
-16:              PROC bb (FLOAT p3) NA = 2_l , SHADOWING = FALSE
-17:              {
-18:                  FLOAT x;                                        /% Lo tiene permitido %/
-19:                  PROC cc (FLOAT p4) NA = 1_l , SHADOWING = TRUE
-20:                  {
-21:                      LONGINT b;                                   /% Error por el shadowing %/
-22:                  };
-23:              };
-24:          };
-25:      $
+7:          LONGINT longint_negative;
+8:          FLOAT   float_negative;
+9:      
+10:          a = 3_l;
+11:          x = 5.0f+3;
+12:          w =  3.3 +  5.0f+3;
+13:          a = 2_l * 3_l;
+14:          c = 5_l;
+15:          b = 2_l - a / c;
+16:          w = 4.5 + 3.3 + 4.2;
+17:          float_negative = -7.3;
+18:          longint_negative = -715_l;
+19:          d = 2_l - -3_l;
+20:      
+21:      
+22:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
+23:          {
+24:              FLOAT e;
+25:              IF (e != p1){
+26:                  OUT ("cadena de caracteres 1");
+27:              }ELSE{
+28:                  float_negative = float_negative - 1.;
+29:              }
+30:              END_IF;
+31:      
+32:              PROC bb (FLOAT p2) NA = 1_l , SHADOWING = FALSE
+33:              {
+34:                  FLOAT float_negative;
+35:              };
+36:          };
+37:      
+38:          PROC dd (FLOAT p4, FLOAT p5) NA = 1_l , SHADOWING = TRUE
+39:          {
+40:              FLOAT e;
+41:              e = 2.;
+42:              WHILE (p4 <= 12.) LOOP
+43:              {
+44:                  e = e + 1.;
+45:                  IF (e != p4){
+46:                      LONGINT variable_kaka;
+47:                     OUT ("cadena de caracteres 2");
+48:                  }ELSE{
+49:                      float_negative = float_negative - 1.;
+50:                  }END_IF;
+51:              };
+52:          };
+53:      
+54:          dd(x,y);
+55:      
+56:      $
+57:      
+58:      
+59:      
+60:      
+61:      
+62:      
