@@ -142,6 +142,33 @@ Compilador/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/build
 .PHONY : Compilador/fast
 
+GeneracionDeCodigoIntermedio/Intermediate_code.obj: GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj
+
+.PHONY : GeneracionDeCodigoIntermedio/Intermediate_code.obj
+
+# target to build an object file
+GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj
+.PHONY : GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj
+
+GeneracionDeCodigoIntermedio/Intermediate_code.i: GeneracionDeCodigoIntermedio/Intermediate_code.cpp.i
+
+.PHONY : GeneracionDeCodigoIntermedio/Intermediate_code.i
+
+# target to preprocess a source file
+GeneracionDeCodigoIntermedio/Intermediate_code.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.i
+.PHONY : GeneracionDeCodigoIntermedio/Intermediate_code.cpp.i
+
+GeneracionDeCodigoIntermedio/Intermediate_code.s: GeneracionDeCodigoIntermedio/Intermediate_code.cpp.s
+
+.PHONY : GeneracionDeCodigoIntermedio/Intermediate_code.s
+
+# target to generate assembly for a file
+GeneracionDeCodigoIntermedio/Intermediate_code.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.s
+.PHONY : GeneracionDeCodigoIntermedio/Intermediate_code.cpp.s
+
 GeneracionDeCodigoIntermedio/Terceto.obj: GeneracionDeCodigoIntermedio/Terceto.cpp.obj
 
 .PHONY : GeneracionDeCodigoIntermedio/Terceto.obj
@@ -168,33 +195,6 @@ GeneracionDeCodigoIntermedio/Terceto.s: GeneracionDeCodigoIntermedio/Terceto.cpp
 GeneracionDeCodigoIntermedio/Terceto.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.s
 .PHONY : GeneracionDeCodigoIntermedio/Terceto.cpp.s
-
-GeneracionDeCodigoIntermedio/chekeosGeneracion.obj: GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj
-
-.PHONY : GeneracionDeCodigoIntermedio/chekeosGeneracion.obj
-
-# target to build an object file
-GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj
-.PHONY : GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.obj
-
-GeneracionDeCodigoIntermedio/chekeosGeneracion.i: GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.i
-
-.PHONY : GeneracionDeCodigoIntermedio/chekeosGeneracion.i
-
-# target to preprocess a source file
-GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.i
-.PHONY : GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.i
-
-GeneracionDeCodigoIntermedio/chekeosGeneracion.s: GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.s
-
-.PHONY : GeneracionDeCodigoIntermedio/chekeosGeneracion.s
-
-# target to generate assembly for a file
-GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.s
-.PHONY : GeneracionDeCodigoIntermedio/chekeosGeneracion.cpp.s
 
 Lexical_analyzer/Lexical_analyzer.obj: Lexical_analyzer/Lexical_analyzer.cpp.obj
 
@@ -367,12 +367,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Compilador
+	@echo ... GeneracionDeCodigoIntermedio/Intermediate_code.obj
+	@echo ... GeneracionDeCodigoIntermedio/Intermediate_code.i
+	@echo ... GeneracionDeCodigoIntermedio/Intermediate_code.s
 	@echo ... GeneracionDeCodigoIntermedio/Terceto.obj
 	@echo ... GeneracionDeCodigoIntermedio/Terceto.i
 	@echo ... GeneracionDeCodigoIntermedio/Terceto.s
-	@echo ... GeneracionDeCodigoIntermedio/chekeosGeneracion.obj
-	@echo ... GeneracionDeCodigoIntermedio/chekeosGeneracion.i
-	@echo ... GeneracionDeCodigoIntermedio/chekeosGeneracion.s
 	@echo ... Lexical_analyzer/Lexical_analyzer.obj
 	@echo ... Lexical_analyzer/Lexical_analyzer.i
 	@echo ... Lexical_analyzer/Lexical_analyzer.s

@@ -29,9 +29,9 @@ sentencia:
 
 declarativa:
 	      tipo lista_de_variables {Logger::write("Declaracion de variables");
-						chekeosGeneracion::declare_variable_list(Lexical_analyzer::symbolTable,$1.cadena);
+						Intermediate_code::declare_variable_list(Lexical_analyzer::symbolTable,$1.cadena);
 	      		      		}
-	    | procedimiento ';'{Logger::write("Declaracion de procedimiento"); chekeosGeneracion::shadowing = false;}
+	    | procedimiento ';'{Logger::write("Declaracion de procedimiento"); Intermediate_code::shadowing = false;}
 	    | lista_de_variables {Logger::write("Error: Falta el tipo en la lista de variables");}
 	    // | tipo lista_de_variables asignacion   vemos si se puede mejorar, preguntar al profe si tenemos que permitir esto
 
@@ -40,147 +40,121 @@ declarativa:
 
 lista_de_variables:
 		     ID ',' lista_de_variables{
-		     				chekeosGeneracion::addVariable($1.cadena);
-
-                                                 chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$1.cadena,"variable");}
-		   | ID ';' {	chekeosGeneracion::addVariable($1.cadena);
-                             	chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$1.cadena,"variable");}
+		     	Intermediate_code::addVariable($1.cadena);
+		     	string s = "variable";
+                        Intermediate_code::setUse(Lexical_analyzer::symbolTable,$1.cadena,&s[0]);}
+		   | ID ';' {
+		   	Intermediate_code::addVariable($1.cadena);
+		   	string s = "variable";
+                        Intermediate_code::setUse(Lexical_analyzer::symbolTable,$1.cadena,&s[0]);}
 ;
 
 ejecutable:
-	     ID '=' expresion ';'{Logger::write("Asignacion");
-
-				  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-	     			  if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-				   //modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)
-				   //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"=");
-				   Terceto t = chekeosGeneracion::getTercetoIncompleto();
-				   chekeosGeneracion::setFlagPost(false);
-				   t.setOp("=");
-				   t.setOp2(t.getOp1());
-				   t.setOp1($1.cadena);
-				   chekeosGeneracion::insertar_terceto(t);
-				   }
-			       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-				   //crear el terceto incompleto con el number de la expresion
-				   //chekeosGeneracion::insertar_terceto("=","["+to_string(chekeosGeneracion::getNumber())+"]","");
-				   Terceto t("=",$1.cadena,"["+to_string(chekeosGeneracion::getNumber()-1)+"]");
-				   chekeosGeneracion::insertar_terceto(t);
-				   }
-				   chekeosGeneracion::setFlagPre(false);
-				   chekeosGeneracion::setFlagPost(false);
-	      			  }
+	     ID '=' expresion ';'{
+	    	Logger::write("Asignacion");
+	    	$$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+		Intermediate_code::generarAsignacionTercetos($1.cadena);
+		}
 	   | ID '='  ';'{Logger::write("Error: Asignacion vacia");}
 	   | invocacion_proc {Logger::write("invocacion procedimiento");}
-	   | sentencia_while ';'{Logger::write("sentencia while"); chekeosGeneracion::desconcatenarAmbitoAnonimo();}
-	   | sentencia_if ';'{Logger::write("sentencia if");chekeosGeneracion::desconcatenarAmbitoAnonimo();}
+	   | sentencia_while ';'{Logger::write("sentencia while"); Intermediate_code::desconcatenarAmbitoAnonimo();}
+	   | sentencia_if ';'{Logger::write("sentencia if");Intermediate_code::desconcatenarAmbitoAnonimo();}
 ;
 
 invocacion_proc:
-	 ID '(' parametros ')' ';' {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);}
+	 ID '(' parametros ')' ';' {Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);}
 ;
 
 parametros:
-	 parametros ',' ID {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$3.cadena);}
-	|ID {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);}
+	 parametros ',' ID {Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$3.cadena);}
+	|ID {Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);}
 ;
 
-
 procedimiento:
-	 nombre_proc  '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Sintactic_actions::check_list_parametros();
-	    											chekeosGeneracion::eliminarUltimoAmbito();
-												chekeosGeneracion::insertar_terceto("Call",$1.cadena,"");
-												if(chekeosGeneracion::cantProc > chekeosGeneracion::convertToI($7.cadena)){
-													cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
-													cout<< "$7cadena: " + chekeosGeneracion::convertToString($7.cadena)<< endl;
-													Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
-												};
-												chekeosGeneracion::cantProc++;
-	    											}
-	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ID");chekeosGeneracion::eliminarUltimoAmbito();
-
-														cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
-														cout<< "$7cadena: " + chekeosGeneracion::convertToString($7.cadena)<< endl;
-
-														if(chekeosGeneracion::cantProc > chekeosGeneracion::convertToI($7.cadena)){
-															Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
-															cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
-															cout<< "$5cadena: " + chekeosGeneracion::convertToString($7.cadena)<< endl;
-														};
-														chekeosGeneracion::cantProc++;
-														}
-	|nombre_proc '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {Logger::write("Error: FALTA ESPECIFICAR VALOR NA");chekeosGeneracion::eliminarUltimoAmbito();}
-	|nombre_proc'(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();
-
-											cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
-											cout<< "$7cadena: " + chekeosGeneracion::convertToString($7.cadena)<< endl;
-											if(chekeosGeneracion::cantProc > chekeosGeneracion::convertToI($7.cadena)){
-												Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
-												cout<< "cantPorc: " + chekeosGeneracion::cantProc<< endl;
-												cout<< "$7cadena: " + chekeosGeneracion::convertToString($7.cadena)<< endl;
-											};
-											chekeosGeneracion::cantProc++;
-											}
-	|nombre_proc '(' lista_de_parametros ')' '{' bloque_sentencia '}'  {Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");chekeosGeneracion::eliminarUltimoAmbito();
-
-										}
+	 nombre_proc  '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
+	 	Sintactic_actions::check_list_parametros();
+	    	Intermediate_code::eliminarUltimoAmbito();
+		Intermediate_code::insertar_terceto("Call",$1.cadena,"");
+		Intermediate_code::check_NA($7.cadena);
+	 }
+	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
+		Logger::write("Error: FALTA ID");
+		Intermediate_code::eliminarUltimoAmbito();
+		Intermediate_code::check_NA($7.cadena);
+	}
+	|nombre_proc '(' lista_de_parametros ')' SHADOWING '=' true_false'{' bloque_sentencia '}' {
+		Logger::write("Error: FALTA ESPECIFICAR VALOR NA");
+		Intermediate_code::eliminarUltimoAmbito();
+	}
+	|nombre_proc'(' lista_de_parametros ')' NA '=' LONGINT '{' bloque_sentencia '}'  {
+		Logger::write("Error: FALTA ESPECIFICAR VALOR SHADOWING");
+		Intermediate_code::eliminarUltimoAmbito();
+		Intermediate_code::check_NA($7.cadena);
+	}
+	|nombre_proc '(' lista_de_parametros ')' '{' bloque_sentencia '}'  {
+		Logger::write("Error: FALTA ESPECIFICAR LOS VALORES DE NA Y SHADOWING");
+		Intermediate_code::eliminarUltimoAmbito();
+	}
 
 
 
 
 nombre_proc: PROC ID {	$$.cadena=$2.cadena;
-			chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$2.cadena,"nombre_proc");
-			chekeosGeneracion::concatenarAmbito($2.cadena);
-			chekeosGeneracion::asignarAmbito(Lexical_analyzer::symbolTable,$2.cadena);
+			string s = "nombre_proc";
+			Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
+			Intermediate_code::concatenarAmbito($2.cadena);
+			Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
 
 			}
 ;
 
 true_false:
-	     TRUE { chekeosGeneracion::shadowing = true;}
-	   | FALSE { chekeosGeneracion::shadowing = false;}
+	     TRUE { Intermediate_code::shadowing = true;}
+	   | FALSE { Intermediate_code::shadowing = false;}
 ;
 
 lista_de_parametros:
-	 	      lista_de_parametros ',' tipo ID {Logger::write("lista_de_variables");
-	 	       				       Sintactic_actions::number_of_parameters++;
-	 	       				       chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$4.cadena,"parametro");
-						Lexical_analyzer::symbolTable->addType2($3.cadena,$4.cadena,chekeosGeneracion::ambito_actual);}
-		    | tipo ID {Sintactic_actions::number_of_parameters++;
-				chekeosGeneracion::setUse(Lexical_analyzer::symbolTable,$2.cadena,"parametro");
-				Lexical_analyzer::symbolTable->addType2($1.cadena,$2.cadena,chekeosGeneracion::ambito_actual);  }
+	 	      lista_de_parametros ',' tipo ID {
+	 	      	   Logger::write("lista_de_variables");
+	 	     	   Sintactic_actions::number_of_parameters++;
 
+	 	 	   Intermediate_code::setUse(Lexical_analyzer::symbolTable,$4.cadena,"parametro");
+			   Lexical_analyzer::symbolTable->addType2($3.cadena,$4.cadena,Intermediate_code::ambito_actual);
+		      }
+		    | tipo ID {
+		    	   Sintactic_actions::number_of_parameters++;
+			   Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,"parametro");
+			   Lexical_analyzer::symbolTable->addType2($1.cadena,$2.cadena,Intermediate_code::ambito_actual);
+		      }
 ;
-
-
 
 sentencia_if:
-	       encabezado_if cuerpo {Logger::write("Sentencia IF");
-	       				    }
-	     | '(' condicion ')' cuerpo {Logger::write("Error: FALTA EL IF");}
-	     //averiguar el tema del error, por ejemplo si falta la condicion
+	       encabezado_if cuerpo {Logger::write("Sentencia IF");}
+	     | '(' condicion ')' cuerpo {Logger::write("Error: FALTA EL IF");} //averiguar el tema del error, por ejemplo si falta la condicion
+
 ;
-encabezado_if: IF '(' condicion ')' {chekeosGeneracion::concatenarAmbitoAnonimo("IF");}
+
+encabezado_if: IF '(' condicion ')' {Intermediate_code::concatenarAmbitoAnonimo("IF");}
 ;
 
 cuerpo :  cuerpo_if  ELSE  cuerpo_else  END_IF {//Desapilar
 					    //Completar terceto incompleto con el destino de la BI
-					    chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),0);
+					    Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),0);
 					    }
 	     |cuerpo_if END_IF{//Desapilar
 			    //Completar terceto incompleto con el destino de la BI
-			    //chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),1);
+			    //Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),1);
 			    }
 	     |cuerpo_if ELSE cuerpo_else {Logger::write("Error: FALTA EL END_IF");}
 ;
 
 cuerpo_if: '{' bloque_sentencia '}' {//desapilar
 			//completar terceto incompleto con el destino de la bf
-			chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),1);
+			Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),1);
 			//apilar el numero del terceto incompleto (apilo antes porque sino me paso de rango y no lo encuentra)
-			chekeosGeneracion::apilar();
+			Intermediate_code::apilar();
 			// crear terceto incompleto para la BI
-			chekeosGeneracion::insertar_terceto("BI","","");
+			Intermediate_code::insertar_terceto("BI","","");
 			}
 ;
 
@@ -193,345 +167,95 @@ sentencia_while:
          inicio_while '(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Sentencia WHILE");
          								//(1)desapilar,
          								//(2)completar terceto incompleto.
-         								chekeosGeneracion::modificar_terceto(chekeosGeneracion::desapilar(),1);
+         								Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),1);
          								//(3)Desapilo direccion de inicio y creo el terceto BI al inicio
-         								chekeosGeneracion::insertar_terceto("BI",to_string(chekeosGeneracion::desapilar()),"");
+         								Intermediate_code::insertar_terceto("BI",to_string(Intermediate_code::desapilar()),"");
          								}
          |'(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
          | inicio_while '(' condicion ')' '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
 ;
 
 inicio_while:
-        WHILE {chekeosGeneracion::concatenarAmbitoAnonimo("WHILE");
-        	//apilar terceto de inicio para saber la BI
-        	chekeosGeneracion::apilar();
-        }
+        	WHILE {
+        		Intermediate_code::concatenarAmbitoAnonimo("WHILE");
+        		//apilar terceto de inicio para saber la BI
+        		Intermediate_code::apilar();
+        	}
 ;
 
 condicion:
-		// CREAR TERCETO INCOMPLETO PARA LA BF
-		// APILAR EL NUMERO DEL TERCETO INCOMPLETO
-		///AGREGAR CONSULTAR EL FLAG ACTUAL (POST COMPARADOR), si está en true completar el terceto incompleto.
-	   expresion comparador expresion {Logger::write("Condicion igual");
-	   			     $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-	   			     if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
-	   			     	Terceto t = chekeosGeneracion::getTercetoIncompleto(); //descarto
-	   			     	t = chekeosGeneracion::getTercetoIncompleto();
-	   			     	cout<<t.getOp()<<endl;
-	   			     	chekeosGeneracion::completar_operando3(t,$3.cadena);
-	   			     }
-	   			     else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
-	   			        //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
-	   			     	Terceto t = chekeosGeneracion::getTercetoIncompleto();
-	   			     	t = chekeosGeneracion::getTercetoIncompleto();
-					cout<<t.getOp()<<endl;
-					chekeosGeneracion::completar_operando3(t,$3.cadena);
-	   			     }else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-					//hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
-					Terceto t = chekeosGeneracion::getTercetoIncompleto(); //descarto
-					t = chekeosGeneracion::getTercetoIncompleto();
-					cout<<t.getOp()<<endl;
-					chekeosGeneracion::completar_operando3(t,"["+to_string(chekeosGeneracion::getNumber()-1)+"]");
-				     }
-	   			     else{
-	   			     	Terceto t = chekeosGeneracion::getTercetoIncompleto();
-	   			     	cout<<t.getOp()<<endl;
-					chekeosGeneracion::completar_operando3(t,"["+to_string(chekeosGeneracion::getNumber()-1)+"]");
-	   			     }
-	   			     chekeosGeneracion::setFlagPre(false);
-	   			     chekeosGeneracion::setFlagPost(false);
-	   			     chekeosGeneracion::apilar();
-	   			     chekeosGeneracion::insertar_terceto("BF","["+to_string(chekeosGeneracion::getNumber()-1)+"]","");}
+
+	   expresion comparador expresion {
+	           $$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+		   Intermediate_code::expresionComparadorExpresion($3.cadena);
+	   }
 	  | expresion comparador  {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 ;
 comparador:
-	EQUAL {if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-		   //modificar terceto incompleto ("==",factor,-) //agrego == al (-,factor,-)
-		   //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"==");
-		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
-		   chekeosGeneracion::setFlagPost(true);
-                   t.setOp("==");
-		   chekeosGeneracion::insertarTercetoIncompleto(t);
-		   }
-	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-		   //crear el terceto incompleto con el number de la expresion
-		   //chekeosGeneracion::insertar_terceto("==","["+to_string(chekeosGeneracion::getNumber())+"]","");
-		   Terceto t("==","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
-		   chekeosGeneracion::setFlagPost(true);
-		   chekeosGeneracion::insertarTercetoIncompleto(t);
-		   }
-		}
-	|DIFFERENT{if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-                  		   //modificar terceto incompleto ("!=",factor,-) //agrego != al (-,factor,-)
-                  		   //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"!=");
-                  		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
-                  		   chekeosGeneracion::setFlagPost(true);
-                                     t.setOp("!=");
-                  		   chekeosGeneracion::insertarTercetoIncompleto(t);
-                  		   }
-                  	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-                  		   //crear el terceto incompleto con el number de la expresion
-                  		   //chekeosGeneracion::insertar_terceto("!=","["+to_string(chekeosGeneracion::getNumber())+"]","");
-                  		   Terceto t("!=","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
-                  		   chekeosGeneracion::setFlagPost(true);
-                  		   chekeosGeneracion::insertarTercetoIncompleto(t);
-                  		   }
-                  		}
-	|LESS_OR_EQUAL {if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-                       		   //modificar terceto incompleto ("<=",factor,-) //agrego <= al (-,factor,-)
-                       		   //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"<=");
-                       		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
-                       		   chekeosGeneracion::setFlagPost(true);
-                                          t.setOp("<=");
-                       		   chekeosGeneracion::insertarTercetoIncompleto(t);
-                       		   }
-                       	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-                       		   //crear el terceto incompleto con el number de la expresion
-                       		   //chekeosGeneracion::insertar_terceto("<=","["+to_string(chekeosGeneracion::getNumber())+"]","");
-                       		   Terceto t("<=","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
-                       		   chekeosGeneracion::setFlagPost(true);
-                       		   chekeosGeneracion::insertarTercetoIncompleto(t);
-                       		   }
-                       		}
-	|GREATER_OR_EQUAL {if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-                          		   //modificar terceto incompleto (">=",factor,-) //agrego >= al (-,factor,-)
-                          		   //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,">=");
-                          		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
-                          		   chekeosGeneracion::setFlagPost(true);
-                                             t.setOp(">=");
-                          		   chekeosGeneracion::insertarTercetoIncompleto(t);
-                          		   }
-                          	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-                          		   //crear el terceto incompleto con el number de la expresion
-                          		   //chekeosGeneracion::insertar_terceto(">=","["+to_string(chekeosGeneracion::getNumber())+"]","");
-                          		   Terceto t(">=","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
-                          		   chekeosGeneracion::setFlagPost(true);
-                          		   chekeosGeneracion::insertarTercetoIncompleto(t);
-                          		   }
-                          		}
-	|'>' {if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-             		   //modificar terceto incompleto (">",factor,-) //agrego > al (-,factor,-)
-             		   //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,">");
-             		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
-             		   chekeosGeneracion::setFlagPost(true);
-                                t.setOp(">");
-             		   chekeosGeneracion::insertarTercetoIncompleto(t);
-             		   }
-             	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-             		   //crear el terceto incompleto con el number de la expresion
-             		   //chekeosGeneracion::insertar_terceto(">","["+to_string(chekeosGeneracion::getNumber())+"]","");
-             		   Terceto t(">","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
-             		   chekeosGeneracion::setFlagPost(true);
-             		   chekeosGeneracion::insertarTercetoIncompleto(t);
-             		   }
-             		}
-	|'<' {if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-             		   //modificar terceto incompleto ("<",factor,-) //agrego < al (-,factor,-)
-             		   //chekeosGeneracion::completar_operando1(chekeosGeneracion::getNumber()-1,"<");
-             		   Terceto t = chekeosGeneracion::getTercetoIncompleto();
-             		   chekeosGeneracion::setFlagPost(true);
-                                t.setOp("<");
-             		   chekeosGeneracion::insertarTercetoIncompleto(t);
-             		   }
-             	       else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-             		   //crear el terceto incompleto con el number de la expresion
-             		   //chekeosGeneracion::insertar_terceto("<","["+to_string(chekeosGeneracion::getNumber())+"]","");
-             		   Terceto t("<","["+to_string(chekeosGeneracion::getNumber()-1)+"]","-");
-             		   chekeosGeneracion::setFlagPost(true);
-             		   chekeosGeneracion::insertarTercetoIncompleto(t);
-             		   }
-             		}
+	EQUAL {Intermediate_code::generar_comparador("==");}
+	|DIFFERENT{Intermediate_code::generar_comparador("!=");}
+	|LESS_OR_EQUAL { Intermediate_code::generar_comparador("<=");}
+	|GREATER_OR_EQUAL {Intermediate_code::generar_comparador(">=");}
+	|'>' {Intermediate_code::generar_comparador(">");}
+	|'<' {Intermediate_code::generar_comparador("<");}
 ;
 
 
-
 expresion:
-	   expresion '+' termino {Logger::write("suma");
-				  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+	   expresion '+' termino {
+	    	$$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+		Intermediate_code::expresionMenosTermino("+",$3.cadena);
+	   }
 
-                                  if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
-                                  					//completar tercerto de la pila
-                                  					Terceto t = chekeosGeneracion::getTercetoIncompleto();
-                                  					t = chekeosGeneracion::getTercetoIncompleto();
-                                  					t.setOp("+");
-                                  					t.setOp2($3.cadena);
-                                  					chekeosGeneracion::setFlagPost(false);
-                                  					chekeosGeneracion::insertar_terceto(t);
-                                  					//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"+",$3.cadena);
-                                  					}
-                                  			  	else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-                                  					//completar tercerto de la pila
-                                  					Terceto t = chekeosGeneracion::getTercetoIncompleto();
-                                  					t.setOp("+");
-                                  					t.setOp2($3.cadena);
-                                  					chekeosGeneracion::setFlagPre(false);
-                                  					chekeosGeneracion::insertar_terceto(t);
-                                  					//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"+",$3.cadena);
-                                  					}
-                                  				      else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()) {
-                                  						//completar tercerto de la pila
-                                  						Terceto t = chekeosGeneracion::getTercetoIncompleto();
-                                  						t.setOp("+");
-                                  						t.setOp2($3.cadena);
-                                  						chekeosGeneracion::setFlagPost(false);
-                                  						chekeosGeneracion::insertar_terceto(t);
-                                  						//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"+",$3.cadena);
-                                  						}
-                                  						 else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-                                  							//insertar el terceto con el number del anterior
-                                  							chekeosGeneracion::insertar_terceto("+","["+to_string(chekeosGeneracion::getNumber()-1)+"]",$3.cadena);}
+	  |expresion '-' termino {
+		$$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+		Intermediate_code::expresionMenosTermino("-",$3.cadena);
+	   }
 
-
-	   			}
-	|expresion '-' termino {Logger::write("resta");
-	  		 	  $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-			          if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
-				  	//completar tercerto de la pila
-				  	Terceto t = chekeosGeneracion::getTercetoIncompleto();
-				  	t = chekeosGeneracion::getTercetoIncompleto();
-					t.setOp("-");
-					t.setOp2($3.cadena);
-					chekeosGeneracion::setFlagPost(false);
-					chekeosGeneracion::insertar_terceto(t);
-					//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
-					}
-			      	  else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()) {
-			      	  		//completar tercerto de la pila
-						Terceto t = chekeosGeneracion::getTercetoIncompleto();
-						t.setOp("-");
-						t.setOp2($3.cadena);
-						chekeosGeneracion::setFlagPre(false);
-						chekeosGeneracion::insertar_terceto(t);
-						//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
-					}
-					else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()) {
-						//completar tercerto de la pila
-						Terceto t = chekeosGeneracion::getTercetoIncompleto();
-						t.setOp("-");
-						t.setOp2($3.cadena);
-						chekeosGeneracion::setFlagPost(false);
-						chekeosGeneracion::insertar_terceto(t);
-						//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"-",$3.cadena);
-						}
-						 else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-							//insertar el terceto con el number del anterior
-							chekeosGeneracion::insertar_terceto("-","["+to_string(chekeosGeneracion::getNumber()-1)+"]",$3.cadena);}
-				}
 	  |termino {$$.cadena = $1.cadena;}
 
 ;
 
 termino:
-	 factor{ $$.cadena= $1.cadena;
-	         if(!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-			 //SETEAR VARIABLE PRECOMPARADOR
-			 chekeosGeneracion::setFlagPre(true);
-			 //insertar tercerto incompleto (-,factor,-)
-			 Terceto t("-",$1.cadena,"-");
-			 chekeosGeneracion::insertarTercetoIncompleto(t);
-			 //chekeosGeneracion::insertar_terceto("",$1.cadena,"");
-		 }else if(!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
-			//SETEAR VARIABLE PRECOMPARADOR
-			 //insertar tercerto incompleto (-,factor,-)
-			 Terceto t("-",$1.cadena,"-");
-			 chekeosGeneracion::insertarTercetoIncompleto(t);
-			 //chekeosGeneracion::insertar_terceto("",$1.cadena,"");
-			}
-			else if(chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
-                        			//SETEAR VARIABLE PRECOMPARADOR
-                        			 //insertar tercerto incompleto (-,factor,-)
-                        			 Terceto t("-",$1.cadena,"-");
-						chekeosGeneracion::setFlagPre(false);
-                        			 chekeosGeneracion::insertarTercetoIncompleto(t);
-                        			 //chekeosGeneracion::insertar_terceto("",$1.cadena,"");
-                        			}
+	 factor{
+	 	$$.cadena= $1.cadena;
+		Intermediate_code::terminoFactor($1.cadena);
 	 }
-	|termino '/' factor { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
-			      $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-			  if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
-				//completar tercerto de la pila
-				Terceto t = chekeosGeneracion::getTercetoIncompleto();
-				t.setOp("/");
-				t.setOp2($3.cadena);
-				chekeosGeneracion::setFlagPost(false);
-				chekeosGeneracion::insertar_terceto(t);
-				//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"/",$3.cadena);
-				}
-			  else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()) {
-					//completar tercerto de la pila
-					Terceto t = chekeosGeneracion::getTercetoIncompleto();
-					t.setOp("/");
-					t.setOp2($3.cadena);
-					chekeosGeneracion::setFlagPre(false);
-					chekeosGeneracion::insertar_terceto(t);
-					//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"/",$3.cadena);
-				}
-				else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()) {
-					//completar tercerto de la pila
-					Terceto t = chekeosGeneracion::getTercetoIncompleto();
-					t.setOp("/");
-					t.setOp2($3.cadena);
-					chekeosGeneracion::setFlagPost(false);
-					chekeosGeneracion::insertar_terceto(t);
-					//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"/",$3.cadena);
-					}
-					 else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-						//insertar el terceto con el number del anterior
-						chekeosGeneracion::insertar_terceto("/","["+to_string(chekeosGeneracion::getNumber()-1)+"]",$3.cadena);}
-			      }
 
-	|termino '*' factor { Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
-			      $$.cadena = chekeosGeneracion::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-			      if (!chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()){
-				//completar tercerto de la pila
-				Terceto t = chekeosGeneracion::getTercetoIncompleto();
-				t.setOp("*");
-				t.setOp2($3.cadena);
-				chekeosGeneracion::setFlagPost(false);
-				chekeosGeneracion::insertar_terceto(t);
-				//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"*",$3.cadena);
-				}
-			  else if (chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()) {
-					//completar tercerto de la pila
-					Terceto t = chekeosGeneracion::getTercetoIncompleto();
-					t.setOp("*");
-					t.setOp2($3.cadena);
-					chekeosGeneracion::setFlagPre(false);
-					chekeosGeneracion::insertar_terceto(t);
-					//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"*",$3.cadena);
-				}
-				else if (chekeosGeneracion::getFlagPre() && chekeosGeneracion::getFlagPost()) {
-					//completar tercerto de la pila
-					Terceto t = chekeosGeneracion::getTercetoIncompleto();
-					t.setOp("*");
-					t.setOp2($3.cadena);
-					chekeosGeneracion::setFlagPost(false);
-					chekeosGeneracion::insertar_terceto(t);
-					//chekeosGeneracion::completar_terceto(chekeosGeneracion::getNumber()-1,"*",$3.cadena);
-					}
-					 else if (!chekeosGeneracion::getFlagPre() && !chekeosGeneracion::getFlagPost()){
-						//insertar el terceto con el number del anterior
-						chekeosGeneracion::insertar_terceto("*","["+to_string(chekeosGeneracion::getNumber()-1)+"]",$3.cadena);}
-			      }
+	|termino '/' factor {
+			      Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
+       			      $$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+			      Intermediate_code::terminoDivididoFactor("/",$3.cadena);
+	 }
+
+	|termino '*' factor {
+	    			Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
+           			 $$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
+				Intermediate_code::terminoDivididoFactor("*",$3.cadena);
+	}
 ;
-
 factor:
-	 ID	{
-	 	  $$.cadena= $1.cadena;
-	 	  chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
+	 ID {
+	     $$.cadena= $1.cadena;
+	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);
+	 }
 
-	 	  }
-	|FLOAT {$$.cadena= $1.cadena;
-		chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
-		}
-	|'-' FLOAT {chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$2.cadena);
-	$$.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);
+	|FLOAT {
+	     $$.cadena= $1.cadena;
+	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);
+	}
 
-		}
-	|LONGINT { chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$1.cadena);
-	Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);
-		   $$.cadena= $1.cadena;}
-        |'-' LONGINT { chekeosGeneracion::estaAlAlcance(Lexical_analyzer::symbolTable,$2.cadena);
+	|'-' FLOAT {
+	     Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$2.cadena);
+	     $$.cadena= Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);
+	}
+
+	|LONGINT {
+		Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);
+		Sintactic_actions::check_limit(Lexical_analyzer::symbolTable,$1.cadena);
+		$$.cadena= $1.cadena;
+	}
+        |'-' LONGINT { Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$2.cadena);
         	$$.cadena=Sintactic_actions::negativizarVar(Lexical_analyzer::symbolTable,$2.cadena);}
 ;
 
@@ -543,7 +267,7 @@ tipo:
 
 imprimir:
 	  OUT '(' STRING ')' ';' {Logger::write("Detecto sentencia OUT");
-	  			chekeosGeneracion::insertar_terceto("OUT",$3.cadena,"");	}
+	  			Intermediate_code::insertar_terceto("OUT",$3.cadena,"");	}
 	 |'(' STRING ')' ';' {Logger::write("Error: SE ESPERABA OUT PREVIAMENTE PARA IMPRIMIR");}
 	 |OUT '(' ')' ';' {Logger::write("Error: SE ESPERABA CADENA EN LA SENTENCIA OUT");}
 ;

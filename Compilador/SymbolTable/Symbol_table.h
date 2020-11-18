@@ -31,21 +31,18 @@ class Symbol_table {
             /*lauta*/
             bool existVariable(string key);
             void clearTable();
-            bool estaAlAlcance(string key);
-
             void addType2(string type,string key,string ambit); //Modifique esto para los ambitos
             /* */
 
-            void setUse(char * key,char * use);
+            void setUse(string key,string use);
             void addAmbit(string key,string ambit);
             Registry getRegistry(string key);
             void addType(string type,string key,string ambit); //Modifique esto para los ambitos
             Registry removeSymbol(string key);
             void addSymbol(string key, Registry registry);
-            void addSymbol2(string key, Registry registry);
+
             void printTable();
-            char * getPointer(string puntero);
-            char * getPointer2(string puntero);
+
     private:
             map<string,Registry> symbol_table ; // String is the key, for ID "hola", "hola" is the key
 };

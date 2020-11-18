@@ -5,7 +5,6 @@
 #ifndef COMPILADOR_TERCETO_H
 #define COMPILADOR_TERCETO_H
 
-#include "TercetoAbs.h"
 #include <iostream>
 using namespace std;
 
