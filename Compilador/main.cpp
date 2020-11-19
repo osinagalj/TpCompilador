@@ -46,6 +46,7 @@ map<string,list<Terceto>> Intermediate_code::procedimientos;
 list<int> Intermediate_code::listProcedimientosAnidados;
 
 
+bool compilation_failure = false;
 
 /*charly*/
 int Intermediate_code::cantProc = 0;
@@ -73,17 +74,24 @@ int main(int argc,char** argv)
     Logger::close();
     tabla.clearTable();
     tabla.printTable();
+    cout<<"\n -------------------------Tercetos ----------------------\n";
     Intermediate_code::imprimirTercetos();
     Intermediate_code::imprimirListaProc();
     createIndexFile();
+    ofstream errorFile;
     createOutError();
 
 
-    //--------------------Assembler--------------//
-    
-    Assembler ass(pathOutAssembler);
-    ass.declareSTVariables(&tabla);
-    ass.close();
+    //---------------------------Assembler---------------------------------//
+    if(compilation_failure){
+        cout<<"Tiene errores, no se generara el codigo eassebler"<<endl;
+    }else{
+        cout<<"------------------Se generara el codigo assembler--------------------"<<endl;
+        Assembler ass(pathOutAssembler);
+        ass.declareSTVariables(&tabla);
+        ass.close();
+    }
+
     return 0;
 }
 
@@ -138,8 +146,7 @@ void createIndexFile()
 
 void createOutError()
 {
-
-    ofstream indexFile;
+    ofstream  indexFile;
     ifstream Entrada;
     Entrada.open(pathOut,ifstream::in);
     indexFile.open(pathOutErrores,ofstream::out);
@@ -154,6 +161,7 @@ void createOutError()
 
             if ((line.find("Warning:") != std::string::npos) || (line.find("Error:") != std::string::npos)) {
                 indexFile << line + "\n";
+                compilation_failure = true;
             }
             i++;
         }

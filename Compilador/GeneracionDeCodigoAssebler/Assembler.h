@@ -21,7 +21,7 @@ class Assembler {
         Assembler(string path);
         void declareLongint(const string & varName);
         void declareFloat(const string & varName);
-        void declareString(const string & varName);
+        void declareString(const string & varName,const string & value);
 
         void declareSTVariables(Symbol_table * symbolTable);
 
