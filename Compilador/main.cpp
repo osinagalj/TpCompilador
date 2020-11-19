@@ -80,6 +80,7 @@ int main(int argc,char** argv)
 
 
     //--------------------Assembler--------------//
+    
     Assembler ass(pathOutAssembler);
     ass.declareSTVariables(&tabla);
     ass.close();
