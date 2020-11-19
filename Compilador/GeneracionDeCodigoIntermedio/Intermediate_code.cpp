@@ -65,6 +65,7 @@ void Intermediate_code::declare_variable_list(Symbol_table * tablita, char * typ
             tablita->addType(type,key,ambito_actual);
         }else{
             Logger::write("Error: Redeclaracion de variable");
+            falloEnCompilacion = true;
         }
         pos++;
     }
