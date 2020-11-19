@@ -99,27 +99,25 @@ procedimiento:
 
 
 
-nombre_proc: PROC ID '(' lista_de_parametros ')' {
-			Intermediate_code::apilarProc($2.cadena);
-			Intermediate_code::insertarProc();
+nombre_proc: encabezado '(' lista_de_parametros ')' {
 			Sintactic_actions::check_list_parametros();
-			$$.cadena=$2.cadena;
-			string s = "nombre_proc";
-			Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
-			Intermediate_code::concatenarAmbito($2.cadena);
-			Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
-			Intermediate_code::agregarAnidado();
+			$$.cadena=$1.cadena;
 			}
-	    |PROC ID '(' ')' {
-	    	Intermediate_code::apilarProc($2.cadena);
-	    	Intermediate_code::insertarProc();
+	    |encabezado '(' ')' {
+		$$.cadena=$1.cadena;
+	    }
+;
+encabezado:
+	PROC ID{
+		Intermediate_code::apilarProc($2.cadena);
+        	Intermediate_code::insertarProc();
 		$$.cadena=$2.cadena;
 		string s = "nombre_proc";
 		Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
 		Intermediate_code::concatenarAmbito($2.cadena);
 		Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
 		Intermediate_code::agregarAnidado();
-	    }
+	}
 ;
 
 true_false:

@@ -51,24 +51,27 @@ void Assembler::declareFloat(const string &varName){
     vars.push_back(varName);
     fileStream <<"    "+varName + " DD ? "<<endl;
 }
-void Assembler::declareString(const string & varName){
-    data.push_back(varName + " DB 0 ");// faltaria poner el contenido del string tmb
+void Assembler::declareString(const string & varName, const string & value){
+    data.push_back(varName + " DB " + value + "0 ");// faltaria poner el contenido del string tmb
     vars.push_back(varName);
+    fileStream <<"    "+varName + " DB " + value + "0 "<<endl;
 }
 
 void Assembler::declareSTVariables(Symbol_table * st){
     fileStream <<".data"<<endl;
-    // ADD all vars to code
     for(auto it = st->symbol_table.begin(); it!= st->symbol_table.end(); it++){
-        if(it->second.uso == "variable"){
-
-            //size_t i = it->first.find(":");
-            //string name = it->first.substr(0,i);
+        cout<<"variable = " << it->first <<endl;
+        if(it->second.uso == "variable" || it->second.uso == "parametro"){
             string name = it->first;
             if(it->second.Tipo == "Float"){
                 declareFloat(name);
             }else{
                 declareLongint(name);
+            }
+        }else if(it->second.uso == "constante"){ //Preguntar si tenemos que definir los strings
+            if(it->second.Tipo == "String") {
+                cout<<"Inserto por aka"<<endl;
+                declareString(it->first,it->first);
             }
         }
     }

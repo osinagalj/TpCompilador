@@ -67,6 +67,7 @@ void Lexical_analyzer::save_in_ST(int id,string tipo)
     registry.id = id;
     registry.Tipo = tipo;
     registry.tipoToken = "constante";
+    registry.uso = "constante";
     symbolTable->addSymbol(t.pointerST,registry);
 }
 
