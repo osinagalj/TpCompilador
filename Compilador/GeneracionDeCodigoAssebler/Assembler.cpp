@@ -240,9 +240,6 @@ void Assembler::subInt(Terceto &t) {
     }
 }
 
-
-
-
 /*
 void Assembler::addFloat(string op2,string op3) {
     if (getCase(op2, op3) == 1) {
@@ -362,11 +359,28 @@ void Assembler::generarAssembler(){
     for (map<int,Terceto>::iterator it=Intermediate_code::list_tercetos.begin(); it!=Intermediate_code::list_tercetos.end(); ++it){
         if(it->second.getOp() == "+")
             addInt(it->second);
-        else if(it->second.getOp() == "-")
-                subInt(it->second);
-             else
-                 if(it->second.getOp() == "="){
-                     asignacion(it->second);
-                 }
+
+        if(it->second.getOp() == "-")
+            subInt(it->second);
+
+        if(it->second.getOp() == "=")
+            asignacion(it->second);
+
+        if(it->second.getOp() == "OUT")
+            addInt(it->second);
+
+        if(it->second.getOp() == "BF")
+            subInt(it->second);
+
+        if(it->second.getOp() == "BI")
+            asignacion(it->second);
+
+        if(it->second.getOp() == "Call")
+            asignacion(it->second);
+
+
+
+
+
     }
 }

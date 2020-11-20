@@ -152,6 +152,7 @@ encabezado_if: IF '(' condicion ')' {Intermediate_code::concatenarAmbitoAnonimo(
 cuerpo :  cuerpo_if  ELSE  cuerpo_else  END_IF {//Desapilar
 					    //Completar terceto incompleto con el destino de la BI
 					    Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),0);
+					    Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber())+":","IF","");
 					    }
 	     |cuerpo_if END_IF{//Desapilar
 			    //Completar terceto incompleto con el destino de la BI
@@ -167,6 +168,7 @@ cuerpo_if: '{' bloque_sentencia '}' {//desapilar
 			Intermediate_code::apilar();
 			// crear terceto incompleto para la BI
 			Intermediate_code::insertar_terceto("BI","","");
+			Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber())+":","IF","");
 			}
 ;
 
@@ -182,6 +184,8 @@ sentencia_while:
          								Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),1);
          								//(3)Desapilo direccion de inicio y creo el terceto BI al inicio
          								Intermediate_code::insertar_terceto("BI",to_string(Intermediate_code::desapilar()),"");
+									Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber())+":","WHILE","");
+
          								}
          |'(' condicion ')' LOOP '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'WHILE' EN LA SENTENCIA");}
          | inicio_while '(' condicion ')' '{' bloque_sentencia '}' {Logger::write("Error: FALTA 'LOOP' EN SENTENCIA WHILE");}
@@ -192,6 +196,7 @@ inicio_while:
         		Intermediate_code::concatenarAmbitoAnonimo("WHILE");
         		//apilar terceto de inicio para saber la BI
         		Intermediate_code::apilar();
+        		Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber())+":","WHILE","");
         	}
 ;
 

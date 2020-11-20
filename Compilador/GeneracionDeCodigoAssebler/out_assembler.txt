@@ -7,6 +7,9 @@ include \masm32\include\user32.inc
 includelib \masm32\lib\kernel32.lib
 includelib \masm32\lib\user32.lib
 .data
+    a:main DD ? 
+    b:main DD ? 
+    c:main DD ? 
     w:main DD ? 
     x:main DD ? 
 .code
@@ -16,3 +19,12 @@ MOV _w,EBX
 MOV EBX,5
 SUB EBX,6
 MOV _x,EBX
+MOV EBX,b
+ADD EBX,2
+MOV _a,EBX
+MOV EBX,b
+SUB EBX,2
+MOV _a,EBX
+MOV EBX,b
+SUB EBX,2
+MOV _a,EBX

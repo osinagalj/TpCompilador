@@ -84,6 +84,7 @@ class Intermediate_code {
         static void imprimirLista();
         static void imprimirListaProc();
         static void imprimirTercetosLista(list<Terceto> lista);
+        static int getNumber();
 
         /*Borrar*/
         static bool listaVacia();

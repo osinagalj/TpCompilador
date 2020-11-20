@@ -1,3 +1,12 @@
 linea:6  Declaracion de variables
 linea:7  Asignacion
 linea:9  Asignacion
+linea:9  Condicion igual
+linea:11  Asignacion
+linea:13  Asignacion
+linea:14  Sentencia IF
+linea:16  sentencia if
+linea:16  Condicion igual
+linea:18  Asignacion
+linea:18  Sentencia WHILE
+linea:22  sentencia while
