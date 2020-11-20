@@ -93,6 +93,10 @@ class Intermediate_code {
         static Terceto removeTercetoResta(int pos);
 
 
+
+        /*Buscar*/
+        static Terceto searchTerceto(int num);
+
 private:
         //list procedimientos anidados para NA
         static list<int> listProcedimientosAnidados;

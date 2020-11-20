@@ -2,56 +2,9 @@
 
                            /% ------------- Program without errors.  ------------------- %/
 
-    LONGINT a , b , c , d ;
-    FLOAT   x,y,z,w;
-    LONGINT longint_negative;
-    FLOAT   float_negative;
-
-    a = 3_l;
-    x = 5.0f+3;
-    w =  3.3 +  5.0f+3;
-    a = 2_l * 3_l;
-    c = 5_l;
-    b = 2_l - a / c;
-    w = 4.5 + 3.3 + 4.2;
-    float_negative = -7.3;
-    longint_negative = -715_l;
-    d = 2_l - -3_l;
-
-
-    PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
-    {
-        FLOAT e;
-        IF (e != p1){
-            OUT ("cadena de caracteres 1");
-        }ELSE{
-            float_negative = float_negative - 1.;
-        }
-        END_IF;
-
-        PROC bb (FLOAT p2) NA = 1_l , SHADOWING = FALSE
-        {
-            FLOAT float_negative;
-        };
-    };
-
-    PROC dd (FLOAT p4, FLOAT p5) NA = 1_l , SHADOWING = TRUE
-    {
-        FLOAT e;
-        e = 2.;
-        WHILE (p4 <= 12.) LOOP
-        {
-            e = e + 1.;
-            IF (e != p4){
-                LONGINT variable_kaka;
-               OUT ("cadena de caracteres 2");
-            }ELSE{
-                float_negative = float_negative - 1.;
-            }END_IF;
-        };
-    };
-
-    dd(x,y);
+    LONGINT w , x;
+    w = 4_l + 3_l;
+    x= 5_l - 6_l;
 
 $
 
