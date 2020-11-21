@@ -7,24 +7,50 @@ include \masm32\include\user32.inc
 includelib \masm32\lib\kernel32.lib
 includelib \masm32\lib\user32.lib
 .data
-    a:main DD ? 
-    b:main DD ? 
-    c:main DD ? 
-    w:main DD ? 
-    x:main DD ? 
+    str1 DB "Cadena de c 1" , 0 
+    str2 DB "Cadena kaka" , 0 
+    _a:main DD ? 
+    _b:main DD ? 
+    _c:main DD ? 
+    _w:main DD ? 
+    _x:main DD ? 
 .code
 MOV EBX,4
 ADD EBX,3
-MOV _w,EBX
-MOV EBX,5
-SUB EBX,6
-MOV _x,EBX
-MOV EBX,b
-ADD EBX,2
-MOV _a,EBX
-MOV EBX,b
-SUB EBX,2
-MOV _a,EBX
-MOV EBX,b
-SUB EBX,2
-MOV _a,EBX
+MOV _w,
+MOV ECX,5
+SUB ECX,6
+MOV _x,
+MOV EAX,10
+COMP EAX,1
+JLE Label10
+MOV EDX,b
+ADD EDX,2
+MOV _a,
+JMP Label13
+Label10:
+MOV EDX,b
+SUB EDX,2
+MOV _a,
+Label13:
+MOV EDX,10
+COMP EDX,1
+JGE Label19
+MOV EDX,b
+ADD EDX,2
+MOV _a,
+JMP Label22
+Label19:
+MOV EDX,b
+SUB EDX,2
+MOV _a,
+Label22:
+invoke MessageBox, NULL, addr str1, addr str1 , MB_OK
+Label24:
+JL Label31
+MOV EDX,b
+SUB EDX,2
+MOV _a,
+invoke MessageBox, NULL, addr str1, addr str1 , MB_OK
+JMP Label24
+Label31:
