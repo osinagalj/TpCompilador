@@ -96,7 +96,7 @@ class Intermediate_code {
         static Terceto removeTercetoResta(int pos);
 
 
-
+        static map<string,list<Terceto>> procedimientos;
         /*Buscar*/
         //static Terceto searchTerceto(int num);
         static void copiarLista(map<int,Terceto> &lista_tercetos);
@@ -105,7 +105,7 @@ private:
         static list<int> listProcedimientosAnidados;
         static list<string> pila_procedimientos;
         //static list<Terceto> proc_actual;
-        static map<string,list<Terceto>> procedimientos;
+
         static bool flagPre;
         static bool flagPost;
         static int number;

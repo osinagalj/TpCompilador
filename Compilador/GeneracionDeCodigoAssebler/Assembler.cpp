@@ -94,7 +94,7 @@ void Assembler::close(){
     fileStream.close();
 }
 void Assembler::write(string message){
-    fileStream <<message<< endl;
+    fileStream <<space + message<< endl;
 }
 
 
@@ -555,55 +555,72 @@ void Assembler::imprimirLista(){
 }
 
 
+void Assembler::generarCodigoAssembler(Terceto & t){
+    string str = t.getOp();
+    char * op = new char[str.length() + 1];
+    strcpy(op, str.c_str());
+
+    if(str.find("Label") != -1){
+        write(t.getOp() + ":");
+    }
+    switch (str2int(op))
+    {
+
+        case str2int("="):
+            cout<<"ASIGNACION_"<<endl;
+            asignacion(t);
+            break;
+        case str2int("OUT"):
+            cout<<"OUT_"<<endl;
+            invoke_out(t);
+            break;
+        case str2int("BF"):
+            cout<<"BF_"<<endl;
+            BF_int(t);
+            break;
+
+        case str2int("BI"):
+            cout<<"BI_"<<endl;
+            write("JMP Label" + t.getOp1());
+
+            break;
+        case str2int("Call"):
+            cout<<"CALL_"<<endl;
+            break;
+
+        default:
+            if( 5 > 4){ //Depende el tipo xd
+                seguimiento_registros(t);
+
+            }
+            else{
+                variables_auxiliares(t);
+            }
+
+    }
+}
 
 void Assembler::generarAssembler(){
     Intermediate_code::copiarLista(lista_tercetos);
     cout<<"------------------ASSEMBLER--------------"<<endl;
     write(".code");
-    write("START:");
-    for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
 
-        string str = it->second.getOp();
-        char * op = new char[str.length() + 1];
-        strcpy(op, str.c_str());
 
-        if(str.find("Label") != -1){
-            write(it->second.getOp() + ":");
+    for (map<string,list<Terceto>>::iterator it=Intermediate_code::procedimientos.begin(); it!=Intermediate_code::procedimientos.end(); ++it){
+        space = space + "    ";
+        write(it->first+":");
+        space = space + "    ";
+        for(Terceto t : it->second){
+            generarCodigoAssembler(t);
         }
-        switch (str2int(op))
-        {
-
-            case str2int("="):
-                cout<<"ASIGNACION_"<<endl;
-                asignacion(it->second);
-                break;
-            case str2int("OUT"):
-                cout<<"OUT_"<<endl;
-                invoke_out(it->second);
-                break;
-            case str2int("BF"):
-                cout<<"BF_"<<endl;
-                BF_int(it->second);
-                break;
-
-            case str2int("BI"):
-                cout<<"BI_"<<endl;
-                write("JMP Label" + it->second.getOp1());
-                break;
-            case str2int("Call"):
-                cout<<"CALL_"<<endl;
-                break;
-
-            default:
-                if( 5 > 4){ //Depende el tipo xd
-                    seguimiento_registros(it->second);
-
-                }
-                else{
-                    variables_auxiliares(it->second);
-                }
-
-        }
+        space = "";
     }
+    space ="";
+    write("START:");
+    space = space + "    ";
+    for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
+        generarCodigoAssembler(it->second);
+    }
+    space ="";
     write("END START");
 }
