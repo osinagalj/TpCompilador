@@ -1,16 +1,16 @@
-linea:9  Declaracion de variables
+linea:8  Declaracion de variables
 linea:10  Asignacion
+linea:11  Declaracion de variables
 linea:12  Asignacion
-linea:15  Asignacion
-linea:17  Asignacion
-linea:18  Sentencia IF
-linea:20  sentencia if
-linea:22  Asignacion
-linea:24  Asignacion
-linea:25  Sentencia IF
-linea:27  sentencia if
+linea:14  Asignacion
+linea:15  Sentencia IF
+linea:17  sentencia if
+linea:19  Asignacion
+linea:21  Asignacion
+linea:22  Sentencia IF
+linea:24  sentencia if
+linea:26  Detecto sentencia OUT
+linea:28  Asignacion
 linea:29  Detecto sentencia OUT
-linea:31  Asignacion
-linea:32  Detecto sentencia OUT
-linea:32  Sentencia WHILE
-linea:36  sentencia while
+linea:29  Sentencia WHILE
+linea:33  sentencia while

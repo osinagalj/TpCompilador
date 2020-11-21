@@ -158,11 +158,14 @@ int Assembler::getCase(string op1, string op2){
 }
 
 int Assembler::quitarCorchetes(string op){
+    cout<<"OP del stoi = " << op <<endl;
     return stoi(op.substr(1,op.size()-1));
 }
 
 void Assembler::asignacion(Terceto &t){
-    if (isVariable(t.getOp2())){
+
+
+    if (isVariable(t.getOp2()) || isConstant(t.getOp2())){
         write("MOV " + t.getOp1() + "," + t.getOp2());
     }else{
         Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp2()));
@@ -202,7 +205,7 @@ void Assembler::addInt(Terceto &t) {
                 cout<<"------------------CASE 4--------------"<<endl;
                 //search & get Terceto in list_tercetos
                 Terceto t1 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
-                Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp2()));
                 write("ADD " + t1.getOp3() + "," + t2.getOp3());
                 //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
                 liberarRegistro(t2);
@@ -389,6 +392,8 @@ void Assembler::BF_int(Terceto  t){
     //BF es JLE en assembler
     cout<<"------------------CASE 2--------------"<<endl;
     //search & get reg Terceto in list_tercetos
+    cout<<endl;
+    cout<<"CONTENIDO DE BF " << t.getOp1() <<endl;
     Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
     if(t2.getOp() == ">"){
         write("JLE Label" + t.getOp2());
@@ -403,6 +408,7 @@ void Assembler::BF_int(Terceto  t){
         write("JG Label" + t.getOp2());
     }
 
+    cout<<"Termino BF"<<endl;
     //
 }
 
@@ -492,16 +498,17 @@ void Assembler::variables_auxiliares(Terceto t){
     switch (str2int(op))
     {
         case str2int("+"):
-            addInt(t); //CAMBIAR
+
             break;
         case str2int("-"):
-            subInt(t); //HACER
+
             break;
         case str2int("<"):
-            comp_int(t); //HACER
+
             break;
         case str2int(">"):
-            comp_int(t);
+
+            break;
         //MUL Y DIV FALTAN
     }
 }
@@ -522,6 +529,7 @@ void Assembler::generarAssembler(){
         {
 
             case str2int("="):
+                cout<<"ASIGNACION_"<<endl;
                 asignacion(t);
                 break;
             case str2int("OUT"):
@@ -534,6 +542,7 @@ void Assembler::generarAssembler(){
                 break;
 
             case str2int("BI"):
+                cout<<"BI_"<<endl;
                 write("JMP Label" + t.getOp1() );
                 break;
             case str2int("Call"):

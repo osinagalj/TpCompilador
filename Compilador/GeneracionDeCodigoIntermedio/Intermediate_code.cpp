@@ -218,13 +218,14 @@ void Intermediate_code::check_scope(Symbol_table * symbolTable, char * key){
 }
 
 
-bool Intermediate_code::check_scope2(Symbol_table * symbolTable, char * key){
+bool Intermediate_code::check_scope2(Symbol_table * symbolTable, string & key){
     symbolTable->clearTable();
 
     string clave = key ; // para que busque si o si las que tienen ambito
     clave = clave + ":";
     string kaka = clave + ambito_actual;
     if(symbolTable->existVariable(kaka)){
+        key = kaka;
         return true;
     }
     string aux = "";
@@ -235,11 +236,13 @@ bool Intermediate_code::check_scope2(Symbol_table * symbolTable, char * key){
             aux = kaka.substr (0,pos);
             if(aux.find(':') == -1){
                 if(symbolTable->existVariable(aux)){
+                    key = aux;
                     return true;
                 }
             }else{
                 string aux2 =  aux;
                 if(symbolTable->existVariable(aux2)){
+                    key = aux2;
                     return true;
                 }
             }
@@ -357,17 +360,12 @@ int Intermediate_code::desapilar() {
     return numerito;
 }
 
-void Intermediate_code::expresionMenosTermino(Symbol_table * tablita,string op, char * pesos2)
+void Intermediate_code::expresionMenosTermino(Symbol_table * tablita,string op, char * pesos3_)
 {
-    string pesos3 = pesos2;
-    /*
-    tablita->clearTable();
-
-    if(check_scope2(tablita,pesos2)) {
-        pesos3 = pesos3+":"+ambito_actual;
+    string pesos3 = pesos3_;
+    if(!check_scope2(tablita,pesos3)) {
+        cout<<"No existe la variable"<<endl;
     }
-
-*/
     if(esVacioPilaProc()) {
         if (!flagPre && flagPost) {
             //completar tercerto de la pila
@@ -434,11 +432,9 @@ void Intermediate_code::expresionMenosTermino(Symbol_table * tablita,string op, 
 void Intermediate_code::terminoFactor(Symbol_table * tablita,char * pesos1_) {
     string pesos1 = pesos1_;
 
-   /* tablita->clearTable();
-    if(!check_scope2(tablita,pesos1_)) {
-        pesos1 = pesos1+":"+ambito_actual;
+    if(!check_scope2(tablita,pesos1)) {
+        cout<<"No existe la variable"<<endl;
     }
-*/
 
 
     if (!flagPre && !flagPost) {
@@ -457,13 +453,12 @@ void Intermediate_code::terminoFactor(Symbol_table * tablita,char * pesos1_) {
 
 void Intermediate_code::terminoDivididoFactor(Symbol_table * tablita,string op , char * pesos3_){
     string pesos3 = pesos3_;
-    /*
 
     tablita->clearTable();
-    if(!check_scope2(tablita,pesos3_)) {
-        pesos3 = pesos3+":"+ambito_actual;
+    if(!check_scope2(tablita,pesos3)) {
+       cout<<"No existe la variable"<<endl;
     }
-*/
+
     if(esVacioPilaProc()) {
         if (!flagPre && flagPost) {
             //completar tercerto de la pila
@@ -518,12 +513,10 @@ void Intermediate_code::terminoDivididoFactor(Symbol_table * tablita,string op ,
 void Intermediate_code::generarAsignacionTercetos(Symbol_table * tablita,char* pesos1_){
 
     string pesos1 = pesos1_;
-/*
-    tablita->clearTable();
-    if(!check_scope2(tablita,pesos1_)) {
-        pesos1 = pesos1+":"+ambito_actual;
+
+    if(!check_scope2(tablita,pesos1)) {
+        cout<<"No existe la variable"<<endl;
     }
-*/
     if(esVacioPilaProc()) {
         if (Intermediate_code::flagPre && !Intermediate_code::flagPost) {
             //modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)
@@ -583,11 +576,10 @@ void Intermediate_code::generar_comparador(string op){
 //AGREGAR CONSULTAR EL FLAG ACTUAL (POST COMPARADOR), si está en true completar el terceto incompleto.
 void Intermediate_code::expresionComparadorExpresion(Symbol_table * tablita,char * pesos3_){
     string pesos3 = pesos3_;
-    /*tablita->clearTable();
-    if(!check_scope2(tablita,pesos3_)) {
-        pesos3 = pesos3 + ":" + ambito_actual;
+
+    if(!check_scope2(tablita,pesos3)) {
+        cout<<"No existe la variable"<<endl;
     }
-*/
     if (esVacioPilaProc()) {
         if (!flagPre && flagPost) {
             Terceto t = getTercetoIncompleto(); //descarto
