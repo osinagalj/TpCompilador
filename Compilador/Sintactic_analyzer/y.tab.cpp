@@ -618,7 +618,7 @@ case 35:
 {/*Desapilar*/
 					    /*Completar terceto incompleto con el destino de la BI*/
 					    Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),0);
-					    Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber())+":","IF","");
+					    Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber()),"IF","");
 					    }
 break;
 case 36:
@@ -641,7 +641,7 @@ case 38:
 			Intermediate_code::apilar();
 			/* crear terceto incompleto para la BI*/
 			Intermediate_code::insertar_terceto("BI","","");
-			Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber())+":","IF","");
+			Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber()),"IF","");
 			}
 break;
 case 40:
@@ -652,7 +652,7 @@ case 40:
          								Intermediate_code::modificar_terceto(Intermediate_code::desapilar(),1);
          								/*(3)Desapilo direccion de inicio y creo el terceto BI al inicio*/
          								Intermediate_code::insertar_terceto("BI",to_string(Intermediate_code::desapilar()),"");
-									Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber())+":","WHILE","");
+									Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber()),"WHILE","");
 
          								}
 break;
@@ -670,7 +670,7 @@ case 43:
         		Intermediate_code::concatenarAmbitoAnonimo("WHILE");
         		/*apilar terceto de inicio para saber la BI*/
         		Intermediate_code::apilar();
-        		Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber())+":","WHILE","");
+        		Intermediate_code::insertar_terceto("Label"+to_string(Intermediate_code::getNumber()),"WHILE","");
         	}
 break;
 case 44:

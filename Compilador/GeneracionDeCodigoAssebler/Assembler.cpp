@@ -41,7 +41,7 @@ void Assembler::declareLongint(const string & varName){
     data.push_back(varName + " DD ?");
     bits[varName] = 32;
     vars.push_back(varName);
-    fileStream <<"    "+varName + " DD ? " <<endl;
+    fileStream <<"    _"+varName + " DD ? " <<endl;
 }
 
 void Assembler::declareFloat(const string &varName){
@@ -49,12 +49,13 @@ void Assembler::declareFloat(const string &varName){
     data.push_back(varName + " DD ? ");
     bits[varName] = 16;
     vars.push_back(varName);
-    fileStream <<"    "+varName + " DD ? "<<endl;
+    fileStream <<"    _"+varName + " DD ? "<<endl;
 }
 void Assembler::declareString(const string & varName, const string & value){
-    data.push_back(varName + " DB " + value + "0 ");// faltaria poner el contenido del string tmb
+    data.push_back("str"+to_string(current_string)+" DB " + value + " , 0 ");// faltaria poner el contenido del string tmb
     vars.push_back(varName);
-    fileStream <<"    "+varName + " DB " + value + "0 "<<endl;
+    fileStream <<"    str"+to_string(current_string)+" DB " + value + " , 0 "<<endl;
+    current_string++;
 }
 
 void Assembler::declareSTVariables(Symbol_table * st){
@@ -98,7 +99,16 @@ void Assembler::write(string message){
 //----------------------------------------------------------------------------------------//
 
 bool Assembler::isConstant(string op){
-    return (!isRegister(op) && !isVariable(op));
+   if (!isRegister(op) && !isVariable(op)){
+       return true;
+   }
+   if(isRegister(op)){
+       cout<<"Es un registro"<<endl;
+   }
+    if(isVariable(op)){
+        cout<<"Es un variable"<<endl;
+    }
+   return false;
 }
 
 bool Assembler::isVariable(string op){
@@ -338,6 +348,26 @@ void Assembler::asignarRegistro(Terceto &t, string s){
             }
         }
     }
+    if(s=="COMP"){
+        if(registros[1] == false) {
+            registros[1] = true;
+            t.setOp3("EBX");
+        }else{
+            if (registros[2] == false) {
+                registros[2] = true;
+                t.setOp3("ECX");
+            }else {
+                if (registros[0] == false) {
+                    registros[0] = true;
+                    t.setOp3("EAX");
+                }else{
+                    registros[3] = true;
+                    t.setOp3("EDX");
+                }
+            }
+        }
+
+    }
 }
 
 void Assembler::liberarRegistro(Terceto &t){
@@ -353,45 +383,173 @@ void Assembler::liberarRegistro(Terceto &t){
                 registros[3]=0;
 }
 
+
+void Assembler::BF_int(Terceto  t){
+    //COMP
+    //BF es JLE en assembler
+    cout<<"------------------CASE 2--------------"<<endl;
+    //search & get reg Terceto in list_tercetos
+    Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+    if(t2.getOp() == ">"){
+        write("JLE Label" + t.getOp2());
+    }
+    if(t2.getOp() == "<"){
+        write("JGE Label" + t.getOp2());
+    }
+    if(t2.getOp() == ">="){
+        write("JL Label" + t.getOp2());
+    }
+    if(t2.getOp() == "<="){
+        write("JG Label" + t.getOp2());
+    }
+
+    //
+}
+
+void Assembler::comp_int(Terceto  t){
+
+        cout<<"------------------COMP INT--------------"<<endl;
+        if (getCase(t.getOp1(), t.getOp2()) == 1) {
+            cout<<"------------------CASE 1--------------"<<endl;
+            //set free reg in the Terceto
+            asignarRegistro(t,"COMP");
+            write("MOV " + t.getOp3() + "," + t.getOp1());
+            write("COMP " + t.getOp3() + "," + t.getOp2());
+        } else {
+            if (getCase(t.getOp1(), t.getOp2()) == 2){
+                cout<<"------------------CASE 2--------------"<<endl;
+                //search & get reg Terceto in list_tercetos
+                Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                write("COMP " + t2.getOp3() + "," + t.getOp2());
+            } else {
+                if (getCase(t.getOp1(), t.getOp2()) == 3) {
+                    cout<<"------------------CASE 3--------------"<<endl;
+                    //search & get reg Terceto in list_tercetos
+                    Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                    //get reg in the Terceto
+                    asignarRegistro(t,"ADD");
+                    write("MOV " + t.getOp3() + "," + t.getOp1());
+                    //get reg in the Terceto
+                    write("COMP " + t.getOp3() + "," + t2.getOp3());
+                    //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
+                    liberarRegistro(t2);
+                } else {
+                    cout<<"------------------CASE 4--------------"<<endl;
+                    //search & get Terceto in list_tercetos
+                    Terceto t1 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                    Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                    write("COMP " + t1.getOp3() + "," + t2.getOp3());
+                    //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
+                    liberarRegistro(t2);
+                }
+            }
+
+    }
+}
+void Assembler::invoke_out(Terceto t){
+    write(t.getOp() + ":");
+}
+void Assembler::BI_int(Terceto t){
+
+}
+
 constexpr unsigned int str2int(const char* str, int h = 0)
 {
     return !str[h] ? 5381 : (str2int(str, h+1) * 33) ^ str[h];
+}
+
+
+void Assembler::seguimiento_registros(Terceto t){
+
+    string str = t.getOp();
+    char * op = new char[str.length() + 1];
+    strcpy(op, str.c_str());
+
+    switch (str2int(op))
+    {
+        case str2int("+"):
+            addInt(t);
+            break;
+        case str2int("-"):
+            subInt(t);
+            break;
+        case str2int("<"):
+            comp_int(t);
+            break;
+        case str2int(">"):
+            comp_int(t);
+            break;
+        //MUL Y DIV FALTAN
+    }
+}
+
+void Assembler::variables_auxiliares(Terceto t){
+
+    string str = t.getOp();
+    char * op = new char[str.length() + 1];
+    strcpy(op, str.c_str());
+
+    switch (str2int(op))
+    {
+        case str2int("+"):
+            addInt(t); //CAMBIAR
+            break;
+        case str2int("-"):
+            subInt(t); //HACER
+            break;
+
+        case str2int("<"):
+            comp_int(t); //HACER
+            break;
+        case str2int(">"):
+            comp_int(t);
+        //MUL Y DIV FALTAN
+    }
 }
 
 void Assembler::generarAssembler(){
     cout<<"------------------ASSEMBLER--------------"<<endl;
     write(".code");
     for (map<int,Terceto>::iterator it=Intermediate_code::list_tercetos.begin(); it!=Intermediate_code::list_tercetos.end(); ++it){
-
-        string str = it->second.getOp();
+        Terceto t = it->second;
+        string str = t.getOp();
         char * op = new char[str.length() + 1];
         strcpy(op, str.c_str());
 
-
+        if(str.find("Label") != -1){
+            write(t.getOp() + ":");
+        }
         switch (str2int(op))
         {
-            case str2int("+"):
-                addInt(it->second);
-                break;
-            case str2int("-"):
-                subInt(it->second);
-                break;
+
             case str2int("="):
-                asignacion(it->second);
+                asignacion(t);
                 break;
             case str2int("OUT"):
                 cout<<"OUT_"<<endl;
+                write("invoke MessageBox, NULL, addr str1, addr str1 , MB_OK");
                 break;
             case str2int("BF"):
                 cout<<"BF_"<<endl;
+                BF_int(t);
                 break;
+
             case str2int("BI"):
-                cout<<"BI_"<<endl;
+                write("JMP Label" + t.getOp1() );
                 break;
             case str2int("Call"):
                 cout<<"CALL_"<<endl;
                 break;
-        }
 
+            default:
+                if( 5 > 4){ //Depende el tipo xd
+                    seguimiento_registros(t);
+
+                }
+                else{
+                    variables_auxiliares(t);
+                }
+
+        }
     }
 }

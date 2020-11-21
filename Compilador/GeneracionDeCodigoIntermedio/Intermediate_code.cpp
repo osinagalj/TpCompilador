@@ -264,8 +264,14 @@ void Intermediate_code::modificar_terceto(int numeroTerceto, int numeroCompletar
     Terceto t=removeTerceto(numeroTerceto);
     int num = number + numeroCompletar;
     string s= to_string(num);
-    t.setOp2(s);
+    if(t.getOp()=="BI"){
+        t.setOp1(s);
+    }else {
+        t.setOp2(s);
+    }
     list_tercetos.insert({numeroTerceto, t});
+
+
 }
 
 void Intermediate_code::completar_operando3(Terceto t, string operando3){

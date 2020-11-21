@@ -3,6 +3,9 @@
                            /% ------------- Program without errors.  ------------------- %/
 
     LONGINT w , x, a, b, c;
+
+
+
     w = 4_l + 3_l;
     x= 5_l - 6_l;
 
@@ -13,8 +16,18 @@
     }
     END_IF;
 
-    WHILE(10_l > 1_l) LOOP {
+    IF( 10_l < 1_l ){
+          a = b + 2_l;
+        }ELSE{
+          a = b - 2_l;
+        }
+        END_IF;
+
+    OUT("Cadena de c 1");
+
+    WHILE(10_l >= 1_l) LOOP {
         a = b - 2_l;
+        OUT("Cadena kaka");
     };
 
 
