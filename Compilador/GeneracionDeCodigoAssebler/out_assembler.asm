@@ -10,43 +10,45 @@ includelib \masm32\lib\user32.lib
 .data
     str1 DB "Cadena de c 1" , 0 
     str2 DB "Cadena kaka" , 0 
-    _a_padre DD ? 
-    _b_padre DD ? 
-    _c_padre DD ? 
-    _w_padre DD ? 
-    _w_padre_IF_1 DD ? 
-    _x_padre DD ? 
+    a@main DD ? 
+    b@main DD ? 
+    c@main DD ? 
+    w@main DD ? 
+    w@main@IF_1 DD ? 
+    x@main DD ? 
 .code
 START:
 MOV EBX,10
 CMP EBX,1
 JLE Label6
-MOV _a_padre,3
-MOV _b_padre,3
+MOV ECX,a@main
+MOV ECX,b@main
+MOV EAX,b@main
+MOV EAX,3
 JMP Label9
 Label6:
-MOV ECX,_b_padre
-SUB ECX,2
-MOV _a_padre,ECX
+MOV EDX,b@main
+SUB EDX,2
+MOV a@main,EDX
 Label9:
-MOV ECX,10
-CMP ECX,1
+MOV EDX,10
+CMP EDX,1
 JGE Label15
-MOV EAX,_b_padre
-ADD EAX,2
-MOV _a_padre,EAX
+MOV EDX,b@main
+ADD EDX,2
+MOV a@main,EDX
 JMP Label18
 Label15:
-MOV EAX,_b_padre
-SUB EAX,2
-MOV _a_padre,EAX
+MOV EDX,b@main
+SUB EDX,2
+MOV a@main,EDX
 Label18:
 invoke MessageBox, NULL, addr str1, addr str1, MB_OK
 Label20:
 JL Label27
-MOV EAX,_b_padre
-SUB EAX,2
-MOV _a_padre,EAX
+MOV EDX,b@main
+SUB EDX,2
+MOV a@main,EDX
 invoke MessageBox, NULL, addr str2, addr str2, MB_OK
 JMP Label20
 Label27:

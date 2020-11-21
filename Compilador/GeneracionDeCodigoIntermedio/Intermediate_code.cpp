@@ -24,10 +24,10 @@ bool Intermediate_code::check_type(Symbol_table * tablita, char * key, char * ke
     string a = key;
     string b = key2;
     if(!(tablita->getRegistry(a).tipoToken == "constante")){
-        a = a + ":" + ambito_actual;
+        a = a + scope + ambito_actual;
     }
     if(!(tablita->getRegistry(b).tipoToken == "constante")){
-        b = b + ":" + ambito_actual;
+        b = b + scope + ambito_actual;
     }
     string aux = b;
     while(a != "error"){
@@ -54,7 +54,7 @@ void Intermediate_code::declare_variable_list(Symbol_table * tablita, char * typ
     tablita->clearTable();
     list<string>::iterator pos = list_variables.begin();
     while (pos != list_variables.end()){
-        string key = *pos + ":" + ambito_actual;
+        string key = *pos + scope + ambito_actual;
 
         char *cstr = new char[key.length() + 1];
         strcpy(cstr, key.c_str());
@@ -99,7 +99,7 @@ char* Intermediate_code::asignarTipo(Symbol_table * symbolTable, char* op, char*
 void Intermediate_code::set_ambit(Symbol_table * symbolTable, char * key){
 
     string a = key;
-    string aux = a + ":" + ambito_actual;
+    string aux = a + scope + ambito_actual;
     if(!symbolTable->existVariable(aux)){
         symbolTable->addAmbit(key,ambito_actual);
     }else{
@@ -109,7 +109,7 @@ void Intermediate_code::set_ambit(Symbol_table * symbolTable, char * key){
 
 void Intermediate_code::setUse(Symbol_table * tablita, char * key, string use){
     string aux = key;
-    aux = aux + ":" + ambito_actual;
+    aux = aux + scope + ambito_actual;
     tablita->setUse(aux,use);
 }
 
@@ -117,7 +117,7 @@ string Intermediate_code::recortarAmbito(string s){
     unsigned pos = s.size();
     bool find = false;
     while(pos != 0 && !find) {
-        if (s[pos] == ':') {
+        if (s[pos] == scope[0]) {
             find = true;
         } else {
             pos--;
@@ -134,7 +134,7 @@ void Intermediate_code::eliminarUltimoAmbito()
     unsigned pos = ambito_actual.size();
     bool find = false;
     while(pos != 0 && !find){
-        if(ambito_actual[pos] == ':'){
+        if(ambito_actual[pos] == scope[0]){
             find = true;
         }else{
             pos--;
@@ -145,11 +145,11 @@ void Intermediate_code::eliminarUltimoAmbito()
 
 void Intermediate_code::concatenarAmbito(char * ambito)
 {
-    ambito_actual = ambito_actual + ":" + convertToString(ambito);
+    ambito_actual = ambito_actual + scope + convertToString(ambito);
 }
 
 void Intermediate_code::concatenarAmbitoAnonimo(string ambit) {
-    ambito_actual = ambito_actual + ":" + ambit + "_" + to_string(ambitoAnonimo);
+    ambito_actual = ambito_actual + scope + ambit + "_" + to_string(ambitoAnonimo);
     ambitoAnonimo++;
 }
 void Intermediate_code::desconcatenarAmbitoAnonimo() {
@@ -188,7 +188,7 @@ void Intermediate_code::check_scope(Symbol_table * symbolTable, char * key){
     symbolTable->clearTable();
 
     string clave = key ; // para que busque si o si las que tienen ambito
-    clave = clave + ":";
+    clave = clave + scope;
     string kaka = clave + ambito_actual;
     if(symbolTable->existVariable(kaka)){
         return ;
@@ -197,9 +197,9 @@ void Intermediate_code::check_scope(Symbol_table * symbolTable, char * key){
     unsigned pos = kaka.size();
 
     while(pos != 0){
-        if(kaka[pos] == ':'){
+        if(kaka[pos] == scope[0]){
             aux = kaka.substr (0,pos);
-            if(aux.find(':') == -1){
+            if(aux.find(scope[0]) == -1){
                 if(symbolTable->existVariable(aux)){
                     return ;
                 }
@@ -222,7 +222,7 @@ bool Intermediate_code::check_scope2(Symbol_table * symbolTable, string & key){
     symbolTable->clearTable();
 
     string clave = key ; // para que busque si o si las que tienen ambito
-    clave = clave + ":";
+    clave = clave + scope;
     string kaka = clave + ambito_actual;
     if(symbolTable->existVariable(kaka)){
         key = kaka;
@@ -232,9 +232,9 @@ bool Intermediate_code::check_scope2(Symbol_table * symbolTable, string & key){
     unsigned pos = kaka.size();
 
     while(pos != 0){
-        if(kaka[pos] == ':'){
+        if(kaka[pos] == scope[0]){
             aux = kaka.substr (0,pos);
-            if(aux.find(':') == -1){
+            if(aux.find(scope[0]) == -1){
                 if(symbolTable->existVariable(aux)){
                     key = aux;
                     return true;
@@ -257,13 +257,10 @@ bool Intermediate_code::check_scope2(Symbol_table * symbolTable, string & key){
 void Intermediate_code::check_NA(char * valorNa){
 
     if(Intermediate_code::cantProc > stoi(convertToString(valorNa))){
-        cout<< "cantPorc: " + cantProc<< endl;
-        cout<< "$7cadena: " + convertToString(valorNa)<< endl;
         Logger::write("Error: Tenes mas procedimientos de los que permite el NA");
     };
 
     if(listProcedimientosAnidados.size()-1 == 0){
-        cout<< "entre a reiniciar" << endl;
         cantProc=0;
     }else {
         listProcedimientosAnidados.pop_front();
