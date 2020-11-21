@@ -17,40 +17,40 @@ includelib \masm32\lib\user32.lib
 .code
 MOV EBX,4
 ADD EBX,3
-MOV _w,
+MOV _w:main,
 MOV ECX,5
 SUB ECX,6
-MOV _x,
+MOV _x:main,
 MOV EAX,10
 COMP EAX,1
 JLE Label10
-MOV EDX,b
+MOV EDX,b:main:IF_1
 ADD EDX,2
-MOV _a,
+MOV _a:main:IF_1,
 JMP Label13
 Label10:
-MOV EDX,b
+MOV EDX,b:main:IF_1
 SUB EDX,2
-MOV _a,
+MOV _a:main:IF_1,
 Label13:
 MOV EDX,10
 COMP EDX,1
 JGE Label19
-MOV EDX,b
+MOV EDX,b:main:IF_1
 ADD EDX,2
-MOV _a,
+MOV _a:main:IF_1,
 JMP Label22
 Label19:
-MOV EDX,b
+MOV EDX,b:main:IF_1
 SUB EDX,2
-MOV _a,
+MOV _a:main:IF_1,
 Label22:
 invoke MessageBox, NULL, addr str1, addr str1 , MB_OK
 Label24:
 JL Label31
-MOV EDX,b
+MOV EDX,b:main:WHILE_1
 SUB EDX,2
-MOV _a,
+MOV _a:main:WHILE_1,
 invoke MessageBox, NULL, addr str1, addr str1 , MB_OK
 JMP Label24
 Label31:

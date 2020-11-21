@@ -479,7 +479,7 @@ case 12:
 {
 	    	Logger::write("Asignacion");
 	    	yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-3].cadena,yyvsp[-1].cadena);
-		Intermediate_code::generarAsignacionTercetos(yyvsp[-3].cadena);
+		Intermediate_code::generarAsignacionTercetos(Lexical_analyzer::symbolTable,yyvsp[-3].cadena);
 		}
 break;
 case 13:
@@ -677,7 +677,7 @@ case 44:
 #line 205 "gramatica.y"
 {
 	           yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-		   Intermediate_code::expresionComparadorExpresion(yyvsp[0].cadena);
+		   Intermediate_code::expresionComparadorExpresion(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 	   }
 break;
 case 45:
@@ -712,14 +712,14 @@ case 52:
 #line 222 "gramatica.y"
 {
 	    	yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-		Intermediate_code::expresionMenosTermino("+",yyvsp[0].cadena);
+		Intermediate_code::expresionMenosTermino(Lexical_analyzer::symbolTable,"+",yyvsp[0].cadena);
 	   }
 break;
 case 53:
 #line 227 "gramatica.y"
 {
 		yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-		Intermediate_code::expresionMenosTermino("-",yyvsp[0].cadena);
+		Intermediate_code::expresionMenosTermino(Lexical_analyzer::symbolTable,"-",yyvsp[0].cadena);
 	   }
 break;
 case 54:
@@ -730,7 +730,7 @@ case 55:
 #line 237 "gramatica.y"
 {
 	 	yyval.cadena= yyvsp[0].cadena;
-		Intermediate_code::terminoFactor(yyvsp[0].cadena);
+		Intermediate_code::terminoFactor(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
 	 }
 break;
 case 56:
@@ -738,7 +738,7 @@ case 56:
 {
 			      Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
        			      yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-			      Intermediate_code::terminoDivididoFactor("/",yyvsp[0].cadena);
+			      Intermediate_code::terminoDivididoFactor(Lexical_analyzer::symbolTable,"/",yyvsp[0].cadena);
 	 }
 break;
 case 57:
@@ -746,7 +746,7 @@ case 57:
 {
 	    			Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
            			 yyval.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,yyvsp[-2].cadena,yyvsp[0].cadena);
-				Intermediate_code::terminoDivididoFactor("*",yyvsp[0].cadena);
+				Intermediate_code::terminoDivididoFactor(Lexical_analyzer::symbolTable,"*",yyvsp[0].cadena);
 	}
 break;
 case 58:

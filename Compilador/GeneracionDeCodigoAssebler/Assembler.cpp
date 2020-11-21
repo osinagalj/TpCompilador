@@ -497,7 +497,6 @@ void Assembler::variables_auxiliares(Terceto t){
         case str2int("-"):
             subInt(t); //HACER
             break;
-
         case str2int("<"):
             comp_int(t); //HACER
             break;

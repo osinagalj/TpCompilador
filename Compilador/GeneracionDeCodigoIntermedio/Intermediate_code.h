@@ -56,12 +56,12 @@ class Intermediate_code {
 
         //Metodos acciones para generar los tercetos desde la gramatica
         //Se pueden optimizar estos seguramente un poco
-        static void generarAsignacionTercetos(char* pesos1);
-        static void expresionMenosTermino(string op,char * pesos3);
-        static void terminoFactor(char * pesos3);
+        static void generarAsignacionTercetos(Symbol_table * tablita,char* pesos1);
+        static void expresionMenosTermino(Symbol_table * tablita,string op,char * pesos3);
+        static void terminoFactor(Symbol_table * tablita,char * pesos3);
         static void generar_comparador(string op);
-        static void expresionComparadorExpresion(char * pesos3);
-        static void terminoDivididoFactor(string op ,char *);
+        static void expresionComparadorExpresion(Symbol_table * tablita,char * pesos3);
+        static void terminoDivididoFactor(Symbol_table * tablita,string op ,char *);
 
         //Metodos para la lista de procedimientos
         static string getTopeProc();
