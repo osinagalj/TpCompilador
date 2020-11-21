@@ -13,44 +13,38 @@ includelib \masm32\lib\user32.lib
     _b:main DD ? 
     _c:main DD ? 
     _w:main DD ? 
+    _w:main:IF_1 DD ? 
     _x:main DD ? 
 .code
-MOV EBX,4
-ADD EBX,3
-MOV _w,
-MOV ECX,5
-SUB ECX,6
-MOV _x,
-MOV EAX,10
-COMP EAX,1
-JLE Label10
-MOV EDX,b
-ADD EDX,2
-MOV _a,
-JMP Label13
-Label10:
-MOV EDX,b
+MOV EBX,10
+COMP EBX,1
+JLE Label6
+MOV a:main,b:main
+MOV b:main,3
+JMP Label9
+Label6:
+    MOV ECX,b:main
+    SUB ECX,2
+    MOV _a:main,
+Label9:
+    MOV EAX,10
+    COMP EAX,1
+    JGE Label15
+    MOV EDX,b:main
+    ADD EDX,2
+MOV _a:main,
+    JMP Label18
+    Label15:
+    MOV EDX,b:main
+    SUB EDX,2
+MOV _a:main,
+Label18:
+    invoke MessageBox, NULL, addr str1, addr str1 , MB_OK
+Label20:
+JL Label27
+MOV EDX,b:main
 SUB EDX,2
-MOV _a,
-Label13:
-MOV EDX,10
-COMP EDX,1
-JGE Label19
-MOV EDX,b
-ADD EDX,2
-MOV _a,
-JMP Label22
-Label19:
-MOV EDX,b
-SUB EDX,2
-MOV _a,
-Label22:
+MOV _a:main,
 invoke MessageBox, NULL, addr str1, addr str1 , MB_OK
-Label24:
-JL Label31
-MOV EDX,b
-SUB EDX,2
-MOV _a,
-invoke MessageBox, NULL, addr str1, addr str1 , MB_OK
-JMP Label24
-Label31:
+JMP Label20
+Label27:

@@ -40,7 +40,7 @@ class Intermediate_code {
         static void setUse(Symbol_table * tablita,char * key,string use);
 
         static void check_scope(Symbol_table * symbolTable,char * key);
-        static bool check_scope2(Symbol_table * symbolTable,char * key);
+        static bool check_scope2(Symbol_table * symbolTable,string & key);
         static void check_shadowing(Symbol_table * tablita,string key); //private
 
         //Tercetos
