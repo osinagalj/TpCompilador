@@ -24,6 +24,7 @@ class Symbol_table {
                 //otros:
 
             };
+            string scope = "@";
 
             /*lauta*/
             bool existVariable(string key);

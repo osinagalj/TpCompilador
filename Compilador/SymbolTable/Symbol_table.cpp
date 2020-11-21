@@ -50,15 +50,9 @@ void Symbol_table::addType(string type, string key,string ambit){
 
 }
 void Symbol_table::addType2(string type, string key,string ambit){
-    cout<<"ADDTYPE2"<<endl;
-    cout<<"type"<<type<<endl;
-    cout<<key<<endl;
-    cout<<ambit<<endl;
-    cout<<"AAntes"<<endl;
-   // printTable();
-    key = key + ":" + ambit;
+
+    key = key + scope + ambit;
     Symbol_table::Registry  r = removeSymbol(key);
-    //r.ambito = ambit;
 
     r.Tipo = type;
     symbol_table.insert({key, r});
@@ -70,7 +64,7 @@ void Symbol_table::addType2(string type, string key,string ambit){
 void Symbol_table::addAmbit(string key,string ambit){
     Symbol_table::Registry  r = removeSymbol(key);
     //r.ambito = ambit;
-    key = key + ":" + ambit;
+    key = key + scope + ambit;
     symbol_table.insert({key, r});
 }
 

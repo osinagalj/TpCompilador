@@ -19,6 +19,7 @@ Assembler::Assembler(string path )
 
         write(".386");
         write(".model flat, stdcall");
+        write("option casemap :none");
         write("include \\masm32\\include\\masm32rt.inc");
         write("include \\masm32\\include\\windows.inc");
         write("include \\masm32\\include\\kernel32.inc");
@@ -41,7 +42,7 @@ void Assembler::declareLongint(const string & varName){
     data.push_back(varName + " DD ?");
     bits[varName] = 32;
     vars.push_back(varName);
-    fileStream <<"    _"+varName + " DD ? " <<endl;
+    fileStream <<"    "+varName + " DD ? " <<endl;
 }
 
 void Assembler::declareString(const string & varName, const string & value){
@@ -58,7 +59,7 @@ void Assembler::declareFloat(const string &varName){
     data.push_back(varName + " DD ? ");
     bits[varName] = 16;
     vars.push_back(varName);
-    fileStream <<"    _"+varName + " DD ? "<<endl;
+    fileStream <<"    "+varName + " DD ? "<<endl;
 }
 
 void Assembler::declareSTVariables(Symbol_table * st){
@@ -176,14 +177,18 @@ void Assembler::asignacion(Terceto &t){
 
 
     if (isVariable(t.getOp2()) || isConstant(t.getOp2())){
-        write("MOV " + t.getOp1() + "," + t.getOp2());
+        asignarRegistro(t,"ADD");
+        write("MOV " + t.getOp3() + "," + t.getOp1());
+        write("MOV " + t.getOp3() + "," + t.getOp2());
     }else{
         cout<<"fue a buscar el terceto: " + t.getOp2()<<endl;
         Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
         cout<<"se trajo el terceto: " + t2.getOp() + t2.getOp1() + t2.getOp2() + t2.getOp3()<<endl;
-        write("MOV _" + t.getOp1() + "," + t2.getOp3());
+        write("MOV " + t.getOp1() + "," + t2.getOp3());
         liberarRegistro(t2);
     }
+
+
 }
 
 
@@ -364,7 +369,7 @@ void Assembler::asignarRegistro(Terceto &t, string s){
             }
         }
     }
-    if(s=="COMP"){
+    if(s=="CMP"){
         if(registros[1] == false) {
             registros[1] = true;
             t.setOp3("EBX");
@@ -448,15 +453,15 @@ void Assembler::comp_int(Terceto  &t){
         if (getCase(t.getOp1(), t.getOp2()) == 1) {
             cout<<"------------------CASE 1--------------"<<endl;
             //set free reg in the Terceto
-            asignarRegistro(t,"COMP");
+            asignarRegistro(t,"CMP");
             write("MOV " + t.getOp3() + "," + t.getOp1());
-            write("COMP " + t.getOp3() + "," + t.getOp2());
+            write("CMP " + t.getOp3() + "," + t.getOp2());
         } else {
             if (getCase(t.getOp1(), t.getOp2()) == 2){
                 cout<<"------------------CASE 2--------------"<<endl;
                 //search & get reg Terceto in list_tercetos
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
-                write("COMP " + t2.getOp3() + "," + t.getOp2());
+                write("CMP " + t2.getOp3() + "," + t.getOp2());
             } else {
                 if (getCase(t.getOp1(), t.getOp2()) == 3) {
                     cout<<"------------------CASE 3--------------"<<endl;
@@ -466,7 +471,7 @@ void Assembler::comp_int(Terceto  &t){
                     asignarRegistro(t,"ADD");
                     write("MOV " + t.getOp3() + "," + t.getOp1());
                     //get reg in the Terceto
-                    write("COMP " + t.getOp3() + "," + t2.getOp3());
+                    write("CMP " + t.getOp3() + "," + t2.getOp3());
                     //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
                     liberarRegistro(t2);
                 } else {
@@ -474,7 +479,7 @@ void Assembler::comp_int(Terceto  &t){
                     //search & get Terceto in list_tercetos
                     Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                     Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
-                    write("COMP " + t1.getOp3() + "," + t2.getOp3());
+                    write("CMP " + t1.getOp3() + "," + t2.getOp3());
                     //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
                     liberarRegistro(t2);
                 }

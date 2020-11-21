@@ -13,6 +13,8 @@ void createOutError();
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------          Global variables          ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
+string Intermediate_code::scope= "@";
+
 string path = "Compilador\\Testing\\program.txt";
 //string path = "Compilador\\Testing\\bug_shadowing";
 //string path = "Compilador\\Testing\\bug_scope";

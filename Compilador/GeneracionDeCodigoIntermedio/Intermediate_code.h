@@ -15,6 +15,7 @@ using namespace std;
 class Intermediate_code {
 
     public:
+        static string scope ;
 
         static bool falloEnCompilacion; // setear en los chekeos
         static int cantProc;
