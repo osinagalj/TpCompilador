@@ -7,23 +7,24 @@ include \masm32\include\user32.inc
 includelib \masm32\lib\kernel32.lib
 includelib \masm32\lib\user32.lib
 .data
-    "cadena de caracteres 1" DB "cadena de caracteres 1"0 
-    "cadena de caracteres 2" DB "cadena de caracteres 2"0 
     a:main DD ? 
     b:main DD ? 
     c:main DD ? 
-    d:main DD ? 
-    e:main:aa DD ? 
-    e:main:dd DD ? 
-    float_negative:main DD ? 
-    float_negative:main:aa:bb DD ? 
-    longint_negative:main DD ? 
-    p1:main:aa DD ? 
-    p2:main:aa:bb DD ? 
-    p4:main:dd DD ? 
-    p5:main:dd DD ? 
-    variable_kaka:main:dd:WHILE_1:IF_2 DD ? 
     w:main DD ? 
     x:main DD ? 
-    y:main DD ? 
-    z:main DD ? 
+.code
+MOV EBX,4
+ADD EBX,3
+MOV _w,EBX
+MOV EBX,5
+SUB EBX,6
+MOV _x,EBX
+MOV EBX,b
+ADD EBX,2
+MOV _a,EBX
+MOV EBX,b
+SUB EBX,2
+MOV _a,EBX
+MOV EBX,b
+SUB EBX,2
+MOV _a,EBX

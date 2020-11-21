@@ -84,6 +84,7 @@ class Intermediate_code {
         static void imprimirLista();
         static void imprimirListaProc();
         static void imprimirTercetosLista(list<Terceto> lista);
+        static int getNumber();
 
         /*Borrar*/
         static bool listaVacia();
@@ -92,6 +93,10 @@ class Intermediate_code {
         static void completar_operando3(int numeroTerceto,string operando3);
         static Terceto removeTercetoResta(int pos);
 
+
+
+        /*Buscar*/
+        static Terceto searchTerceto(int num);
 
 private:
         //list procedimientos anidados para NA

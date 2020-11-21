@@ -45,6 +45,7 @@ map<string,list<Terceto>> Intermediate_code::procedimientos;
 
 list<int> Intermediate_code::listProcedimientosAnidados;
 
+int Assembler::cont_var_aux=1;
 
 bool compilation_failure = false;
 
@@ -89,6 +90,7 @@ int main(int argc,char** argv)
         cout<<"------------------Se generara el codigo assembler--------------------"<<endl;
         Assembler ass(pathOutAssembler);
         ass.declareSTVariables(&tabla);
+        ass.generarAssembler();
         ass.close();
     }
 

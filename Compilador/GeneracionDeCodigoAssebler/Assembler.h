@@ -27,9 +27,26 @@ class Assembler {
 
         void open( const string & logFile);
         void close();
-        void write( const string & message);
+        void write(string message);
 
+        //**NICO**//
+        int getCase(string op, string op2);
+        bool isVariable(string op);
+        bool isConstant(string op);
+        bool isRegister(string op);
+        void addFloat(string op2, string op3);
+        string getRegFree();
+        void addInt(Terceto &t);
+        void subInt(Terceto &t);
+        void asignacion(Terceto &t);
+        static int cont_var_aux;
+        int quitarCorchetes(string op);
+        void generarAssembler();
 
+        //**CHARLY**//
+        void asignarRegistro(Terceto &t,string s);
+        void liberarRegistro(Terceto &t);
+        bool registros[4]={0,0,0,0};
 
     private:
         ofstream  fileStream;

@@ -18,13 +18,10 @@ class Symbol_table {
             Symbol_table();
             struct Registry{
                 int id;
-                //En un futuro agregar el tipo
                 string Tipo = "no-type";
-                string ambito = "no-defined";
                 string uso = "no-defined";
                 string tipoToken = "no-defined";
                 //otros:
-                //Pasaje forma_de_pasaje; // no va
 
             };
 

@@ -17,11 +17,12 @@ class Terceto {
         string getOp() ;
         string getOp1() ;
         string getOp2();
+        string getOp3();
 
         void setOp(string op);
         void setOp1(string op1);
         void setOp2(string op2);
-
+        void setOp3(string op3);
         static void completarTerceto(int numeroTerceto);
 
     private:
@@ -29,7 +30,7 @@ class Terceto {
         string   op;
         string   op1;       //otro tecerto [1], un string, un numero
         string   op2;      // otro tecerto, un string, un numero
-
+        string   op3;      // lugar del registro / variable auxiliar
 
 };
 

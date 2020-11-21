@@ -88,6 +88,299 @@ void Assembler::open( const string& path){
 void Assembler::close(){
     fileStream.close();
 }
-void Assembler::write(const string& message){
+void Assembler::write(string message){
     fileStream <<message<< endl;
+}
+
+
+//----------------------------------------------------------------------------------------//
+//---------------------------------- Aritmethic Operations -------------------------------//
+//----------------------------------------------------------------------------------------//
+
+bool Assembler::isConstant(string op){
+    return (!isRegister(op) && !isVariable(op));
+}
+
+bool Assembler::isVariable(string op){
+    for(string s : vars){
+        if(op == s){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Assembler::isRegister(string op){
+    if(op.substr(0,1) == "["){
+        string result;
+        for(char s: op){
+            if(s!=']'){
+                result=result+s;
+            }
+        }
+        //search result in TS
+        //get reg in the Terceto
+        return true;
+    }
+    return false;
+}
+
+int Assembler::getCase(string op1, string op2){
+    // CASE 1
+    if((isConstant(op1) && isVariable(op2)) ||
+       (isConstant(op2) && isVariable(op1)) ||
+       (isVariable(op1) && isVariable(op2)) ||
+       (isConstant(op1) && isConstant(op2))){
+        return 1;
+    }
+    if( (isRegister(op1) && isVariable(op2)) ||
+        (isRegister(op1) && isConstant(op2))){
+        return 2;
+    }
+    if((isVariable(op1) && isRegister(op2)) ||
+       (isConstant(op1) && isRegister(op2))){
+        return 3;
+    }
+    if(isRegister(op1) && isRegister(op2)){
+        return 4;
+    }
+    return 0;
+}
+
+int Assembler::quitarCorchetes(string op){
+    return stoi(op.substr(1,op.size()-1));
+}
+
+void Assembler::asignacion(Terceto &t){
+    if (isVariable(t.getOp2())){
+        write("MOV " + t.getOp1() + "," + t.getOp2());
+    }else{
+        Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp2()));
+        write("MOV _" + t.getOp1() + "," + t2.getOp3());
+        liberarRegistro(t2);
+    }
+}
+
+
+void Assembler::addInt(Terceto &t) {
+    cout<<"------------------ADD INT--------------"<<endl;
+    if (getCase(t.getOp1(), t.getOp2()) == 1) {
+        cout<<"------------------CASE 1--------------"<<endl;
+        //set free reg in the Terceto
+        asignarRegistro(t,"ADD");
+        write("MOV " + t.getOp3() + "," + t.getOp1());
+        write("ADD " + t.getOp3() + "," + t.getOp2());
+    } else {
+        if (getCase(t.getOp1(), t.getOp2()) == 2){
+            cout<<"------------------CASE 2--------------"<<endl;
+            //search & get reg Terceto in list_tercetos
+            Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+            write("ADD " + t2.getOp3() + "," + t.getOp2());
+        } else {
+            if (getCase(t.getOp1(), t.getOp2()) == 3) {
+                cout<<"------------------CASE 3--------------"<<endl;
+                //search & get reg Terceto in list_tercetos
+                Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                //get reg in the Terceto
+                asignarRegistro(t,"ADD");
+                write("MOV " + t.getOp3() + "," + t.getOp1());
+                //get reg in the Terceto
+                write("ADD " + t.getOp3() + "," + t2.getOp3());
+                //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
+                liberarRegistro(t2);
+            } else {
+                cout<<"------------------CASE 4--------------"<<endl;
+                //search & get Terceto in list_tercetos
+                Terceto t1 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                write("ADD " + t1.getOp3() + "," + t2.getOp3());
+                //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
+                liberarRegistro(t2);
+            }
+        }
+    }
+}
+
+void Assembler::subInt(Terceto &t) {
+    cout<<"------------------SUB INT--------------"<<endl;
+    if (getCase(t.getOp1(), t.getOp2()) == 1) {
+        cout<<"------------------CASE 1--------------"<<endl;
+        //set free reg in the Terceto
+        asignarRegistro(t,"SUB");
+        write("MOV " + t.getOp3() + "," + t.getOp1());
+        write("SUB " + t.getOp3() + "," + t.getOp2());
+    } else {
+        if (getCase(t.getOp1(), t.getOp2()) == 2){
+            cout<<"------------------CASE 2--------------"<<endl;
+            //search & get reg Terceto in list_tercetos
+            Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+            write("SUB " + t2.getOp3() + "," + t.getOp2());
+        } else {
+            if (getCase(t.getOp1(), t.getOp2()) == 3) {
+                cout<<"------------------CASE 3--------------"<<endl;
+                //search & get reg Terceto in list_tercetos
+                Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                //get reg in the Terceto
+                asignarRegistro(t,"SUB");
+                write("MOV " + t.getOp3() + "," + t.getOp1());
+                //get reg in the Terceto
+                write("SUB " + t.getOp3() + "," + t2.getOp3());
+                //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
+                liberarRegistro(t2);
+            } else {
+                cout<<"------------------CASE 4--------------"<<endl;
+                //search & get Terceto in list_tercetos
+                Terceto t1 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                Terceto t2 = Intermediate_code::searchTerceto(quitarCorchetes(t.getOp1()));
+                write("SUB " + t1.getOp3() + "," + t2.getOp3());
+                //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
+                liberarRegistro(t2);
+            }
+        }
+    }
+}
+
+/*
+void Assembler::addFloat(string op2,string op3) {
+    if (getCase(op2, op3) == 1) {
+        //string regF = getRegFree();
+        write("MOV " + regF + "," + op2);
+        write("ADD " + regF + "," + op3);
+        write("MOV @aux"+to_string(cont_var_aux)+","+regF ); //i es el contador de variables auxiliares
+        cont_var_aux++;
+        //add var to Terceto
+    } else {
+        if (getCase(op2, op3) == 2) {
+            //search result in TS
+            //get reg in the Terceto
+            write("ADD reg , " + op3);
+            write("MOV @aux"+to_string(cont_var_aux)+","+"reg"); //i es el contador de variables auxiliares
+            cont_var_aux++;
+        } else {
+            if (getCase(op2, op3) == 3) {
+                string regF = getRegFree();
+                write("MOV " + regF + "," + op2);
+                //search result in TS
+                //get reg in the Terceto
+                write("ADD " + regF + "," + "reg");
+                write("MOV @aux"+to_string(cont_var_aux)+","+regF); //i es el contador de variables auxiliares
+                cont_var_aux++;
+                //free reg
+
+            } else {
+                //search result in TS
+                //get reg in the Terceto
+                //search result2 in TS
+                //get reg2 in the Terceto
+                write("ADD reg , reg2");
+                write("MOV @aux"+to_string(cont_var_aux)+","+"reg"); //i es el contador de variables auxiliares
+                cont_var_aux++;
+                //free reg2
+            }
+        }
+    }
+}
+*/
+//**CHARLY**//
+void Assembler::asignarRegistro(Terceto &t, string s){
+    cout<<"------------------asignar Registro--------------"<<endl;
+    /*
+    registros[0] (EAX)
+    registros[1] (EBX)
+    registros[2] (ECX)
+    registros[3] (EDX)
+    */
+    if(s=="MUL" && registros[0]==false && registros[3]==false){
+        //todavia no sabemos si ocupa los dos o no
+    }
+    if(s=="DIV" && registros[0] == false && registros[3] == false){
+        //si estan libres asigno al EDX el resto y al EAX el dividendo
+        //MOV EAX OP2 (dividendo)
+        write("MOV EDX 0");
+        write("MOV EAX , " + t.getOp1());
+        write("MOV EDX , " + t.getOp2());
+    }
+    if(s=="ADD"){
+        if(registros[1] == false) {
+            registros[1] = true;
+            t.setOp3("EBX");
+        }else {
+            if (registros[2] == false) {
+                registros[2] = true;
+                t.setOp3("ECX");
+            }else {
+                if (registros[0] == false) {
+                    registros[0] = true;
+                    t.setOp3("EAX");
+                }else{
+                    registros[3] = true;
+                    t.setOp3("EDX");
+                }
+            }
+        }
+    }
+    if(s=="SUB"){
+        if(registros[1] == false) {
+            registros[1] = true;
+            t.setOp3("EBX");
+        }else{
+            if (registros[2] == false) {
+                registros[2] = true;
+                t.setOp3("ECX");
+            }else {
+                if (registros[0] == false) {
+                    registros[0] = true;
+                    t.setOp3("EAX");
+                }else{
+                    registros[3] = true;
+                    t.setOp3("EDX");
+                }
+            }
+        }
+    }
+}
+
+void Assembler::liberarRegistro(Terceto &t){
+    if(t.getOp3() == "EAX")
+        registros[0]=0;
+    else
+        if(t.getOp3() == "EBX")
+            registros[1]=0;
+        else
+            if(t.getOp3() == "ECX")
+                registros[2]=0;
+            else
+                registros[3]=0;
+}
+
+void Assembler::generarAssembler(){
+    cout<<"------------------ASSEMBLER--------------"<<endl;
+    write(".code");
+    for (map<int,Terceto>::iterator it=Intermediate_code::list_tercetos.begin(); it!=Intermediate_code::list_tercetos.end(); ++it){
+        if(it->second.getOp() == "+")
+            addInt(it->second);
+
+        if(it->second.getOp() == "-")
+            subInt(it->second);
+
+        if(it->second.getOp() == "=")
+            asignacion(it->second);
+
+        if(it->second.getOp() == "OUT")
+            addInt(it->second);
+
+        if(it->second.getOp() == "BF")
+            subInt(it->second);
+
+        if(it->second.getOp() == "BI")
+            asignacion(it->second);
+
+        if(it->second.getOp() == "Call")
+            asignacion(it->second);
+
+
+
+
+
+    }
 }

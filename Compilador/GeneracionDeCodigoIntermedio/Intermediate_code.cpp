@@ -265,7 +265,7 @@ void Intermediate_code::modificar_terceto(int numeroTerceto, int numeroCompletar
     int num = number + numeroCompletar;
     string s= to_string(num);
     t.setOp2(s);
-    list_tercetos.insert({numeroTerceto, t});;
+    list_tercetos.insert({numeroTerceto, t});
 }
 
 void Intermediate_code::completar_operando3(Terceto t, string operando3){
@@ -297,7 +297,9 @@ Terceto Intermediate_code::removeTerceto(int pos){
     return t;
 }
 
-
+int Intermediate_code::getNumber() {
+    return number;
+}
 
 
 //------------------------------------------------------------------------------------//
@@ -679,6 +681,13 @@ int Intermediate_code::convertToI(char * str){ //Creo que se puede eliminar
  */
 
 
+Terceto Intermediate_code::searchTerceto(int num) {
+    map<int,Terceto>::iterator it=list_tercetos.begin();
+    for (int i=1; i<num;i++){
+        it++;
+        }
+    return it->second;
+}
 
 
 
