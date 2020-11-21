@@ -48,26 +48,29 @@ class Assembler {
         void liberarRegistro(Terceto &t);
         bool registros[4]={0,0,0,0};
 
-        void BF_int(Terceto  t);
-        void comp_int(Terceto  t);
-        void invoke_out(Terceto  t);
+        void BF_int(Terceto  &t);
+        void comp_int(Terceto  &t);
+
 
         void BI_int(Terceto  t);
 
-        void seguimiento_registros(Terceto t);
-        void variables_auxiliares(Terceto t);
-
+        int getNameString(const string & value);
+        void invoke_out(Terceto t);
+        void seguimiento_registros(Terceto &t);
+        void variables_auxiliares(Terceto &t);
+        void imprimirLista();
+        Terceto searchTerceto(int num);
     private:
         ofstream  fileStream;
 
+        map<int,Terceto> lista_tercetos;
         int current_string = 1;
         vector<string> vars;
         vector<string> program;
         vector<string> data;
         vector<string> code;
-
         unordered_map<string, short int> bits;
-
+        list<string> var_strings;
 };
 
 

@@ -97,8 +97,8 @@ class Intermediate_code {
 
 
         /*Buscar*/
-        static Terceto searchTerceto(int num);
-
+        //static Terceto searchTerceto(int num);
+        static void copiarLista(map<int,Terceto> &lista_tercetos);
 private:
         //list procedimientos anidados para NA
         static list<int> listProcedimientosAnidados;

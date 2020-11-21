@@ -94,6 +94,7 @@ int main(int argc,char** argv)
         ass.declareSTVariables(&tabla);
         ass.generarAssembler();
         ass.close();
+
     }
 
     return 0;

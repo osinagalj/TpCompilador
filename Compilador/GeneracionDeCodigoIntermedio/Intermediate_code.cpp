@@ -753,15 +753,9 @@ int Intermediate_code::convertToI(char * str){ //Creo que se puede eliminar
 }
  */
 
-
-Terceto Intermediate_code::searchTerceto(int num) {
-    map<int,Terceto>::iterator it=list_tercetos.begin();
-    for (int i=1; i<num;i++){
-        it++;
-        }
-    return it->second;
+void Intermediate_code::copiarLista(map<int,Terceto> &lista_tercetos){
+    lista_tercetos= list_tercetos;
 }
-
 
 
 
