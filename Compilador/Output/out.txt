@@ -1,18 +1,15 @@
-linea:8  Declaracion de variables
+linea:9  Declaracion de variables
 linea:10  Asignacion
 linea:12  Asignacion
-linea:12  Condicion igual
 linea:14  Asignacion
 linea:16  Asignacion
 linea:17  Sentencia IF
 linea:19  sentencia if
-linea:19  Condicion igual
 linea:21  Asignacion
 linea:23  Asignacion
 linea:24  Sentencia IF
 linea:26  sentencia if
 linea:28  Detecto sentencia OUT
-linea:28  Condicion igual
 linea:30  Asignacion
 linea:31  Detecto sentencia OUT
 linea:31  Sentencia WHILE

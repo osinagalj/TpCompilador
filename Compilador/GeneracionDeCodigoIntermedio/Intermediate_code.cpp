@@ -323,8 +323,16 @@ int Intermediate_code::desapilar() {
     return numerito;
 }
 
-void Intermediate_code::expresionMenosTermino(string op, char * pesos3)
-{   if(esVacioPilaProc()) {
+void Intermediate_code::expresionMenosTermino(Symbol_table * tablita,string op, char * pesos2)
+{
+    tablita->clearTable();
+    string pesos3 = pesos2;
+    if(!tablita->existVariable(pesos2)) {
+        pesos3 = pesos3+":"+ambito_actual;
+    }
+
+
+    if(esVacioPilaProc()) {
         if (!flagPre && flagPost) {
             //completar tercerto de la pila
             Terceto t = getTercetoIncompleto();
@@ -387,7 +395,15 @@ void Intermediate_code::expresionMenosTermino(string op, char * pesos3)
     }
 }
 
-void Intermediate_code::terminoFactor(char * pesos1) {
+void Intermediate_code::terminoFactor(Symbol_table * tablita,char * pesos1_) {
+    string pesos1 = pesos1_;
+    tablita->clearTable();
+    if(!tablita->existVariable(pesos1_)) {
+        pesos1 = pesos1+":"+ambito_actual;
+    }
+
+
+
     if (!flagPre && !flagPost) {
         flagPre = true;
         Terceto t("-", pesos1, "-"); //insertar tercerto incompleto (-,factor,-)
@@ -402,7 +418,13 @@ void Intermediate_code::terminoFactor(char * pesos1) {
     }
 }
 
-void Intermediate_code::terminoDivididoFactor(string op , char * pesos3){
+void Intermediate_code::terminoDivididoFactor(Symbol_table * tablita,string op , char * pesos3_){
+    string pesos3 = pesos3_;
+    tablita->clearTable();
+    if(!tablita->existVariable(pesos3_)) {
+        pesos3 = pesos3+":"+ambito_actual;
+    }
+
     if(esVacioPilaProc()) {
         if (!flagPre && flagPost) {
             //completar tercerto de la pila
@@ -454,7 +476,15 @@ void Intermediate_code::terminoDivididoFactor(string op , char * pesos3){
     }
 }
 
-void Intermediate_code::generarAsignacionTercetos(char* pesos1){
+void Intermediate_code::generarAsignacionTercetos(Symbol_table * tablita,char* pesos1_){
+
+    string pesos1 = pesos1_;
+
+    tablita->clearTable();
+    if(!tablita->existVariable(pesos1_)) {
+        pesos1 = pesos1+":"+ambito_actual;
+    }
+
     if(esVacioPilaProc()) {
         if (Intermediate_code::flagPre && !Intermediate_code::flagPost) {
             //modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)
@@ -493,6 +523,7 @@ void Intermediate_code::generarAsignacionTercetos(char* pesos1){
 }
 
 void Intermediate_code::generar_comparador(string op){
+
     if (flagPre && !flagPost){
         //modificar terceto incompleto ("==",factor,-) //agrego == al (-,factor,-)
         Terceto t = getTercetoIncompleto();
@@ -511,8 +542,13 @@ void Intermediate_code::generar_comparador(string op){
 // CREAR TERCETO INCOMPLETO PARA LA BF
 // APILAR EL NUMERO DEL TERCETO INCOMPLETO
 //AGREGAR CONSULTAR EL FLAG ACTUAL (POST COMPARADOR), si está en true completar el terceto incompleto.
-void Intermediate_code::expresionComparadorExpresion(char * pesos3){
-    Logger::write("Condicion igual");
+void Intermediate_code::expresionComparadorExpresion(Symbol_table * tablita,char * pesos3_){
+    string pesos3 = pesos3_;
+    tablita->clearTable();
+    if(!tablita->existVariable(pesos3)) {
+        pesos3 = pesos3 + ":" + ambito_actual;
+    }
+
     if (esVacioPilaProc()) {
         if (!flagPre && flagPost) {
             Terceto t = getTercetoIncompleto(); //descarto

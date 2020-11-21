@@ -53,7 +53,7 @@ ejecutable:
 	     ID '=' expresion ';'{
 	    	Logger::write("Asignacion");
 	    	$$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-		Intermediate_code::generarAsignacionTercetos($1.cadena);
+		Intermediate_code::generarAsignacionTercetos(Lexical_analyzer::symbolTable,$1.cadena);
 		}
 	   | ID '='  ';'{Logger::write("Error: Asignacion vacia");}
 	   | invocacion_proc {Logger::write("invocacion procedimiento");}
@@ -204,7 +204,7 @@ condicion:
 
 	   expresion comparador expresion {
 	           $$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-		   Intermediate_code::expresionComparadorExpresion($3.cadena);
+		   Intermediate_code::expresionComparadorExpresion(Lexical_analyzer::symbolTable,$3.cadena);
 	   }
 	  | expresion comparador  {Logger::write("Error: SE ESPERABA EXPRESION DE LADO DERECHO DE COMPARACIÓN");}
 ;
@@ -221,12 +221,12 @@ comparador:
 expresion:
 	   expresion '+' termino {
 	    	$$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-		Intermediate_code::expresionMenosTermino("+",$3.cadena);
+		Intermediate_code::expresionMenosTermino(Lexical_analyzer::symbolTable,"+",$3.cadena);
 	   }
 
 	  |expresion '-' termino {
 		$$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-		Intermediate_code::expresionMenosTermino("-",$3.cadena);
+		Intermediate_code::expresionMenosTermino(Lexical_analyzer::symbolTable,"-",$3.cadena);
 	   }
 
 	  |termino {$$.cadena = $1.cadena;}
@@ -236,19 +236,19 @@ expresion:
 termino:
 	 factor{
 	 	$$.cadena= $1.cadena;
-		Intermediate_code::terminoFactor($1.cadena);
+		Intermediate_code::terminoFactor(Lexical_analyzer::symbolTable,$1.cadena);
 	 }
 
 	|termino '/' factor {
 			      Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
        			      $$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-			      Intermediate_code::terminoDivididoFactor("/",$3.cadena);
+			      Intermediate_code::terminoDivididoFactor(Lexical_analyzer::symbolTable,"/",$3.cadena);
 	 }
 
 	|termino '*' factor {
 	    			Sintactic_actions::check_division_zero(Lexical_analyzer::symbolTable,$3.cadena);
            			 $$.cadena = Intermediate_code::asignarTipo(Lexical_analyzer::symbolTable,$1.cadena,$3.cadena);
-				Intermediate_code::terminoDivididoFactor("*",$3.cadena);
+				Intermediate_code::terminoDivididoFactor(Lexical_analyzer::symbolTable,"*",$3.cadena);
 	}
 ;
 factor:
