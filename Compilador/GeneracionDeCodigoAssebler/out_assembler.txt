@@ -8,48 +8,73 @@ include \masm32\include\user32.inc
 includelib \masm32\lib\kernel32.lib
 includelib \masm32\lib\user32.lib
 .data
-    str1 DB "Cadena de c 1" , 0 
-    str2 DB "Cadena kaka" , 0 
+    str1 DB "cadena de caracteres 2" , 0 
     a@main DD ? 
     b@main DD ? 
     c@main DD ? 
+    d@main DD ? 
+    e@main@aa DD ? 
+    e@main@dd DD ? 
+    float_negative@main DD ? 
+    float_negative@main@aa@bb DD ? 
+    longint_negative@main DD ? 
+    p1@main@aa DD ? 
+    p2@main@aa@bb DD ? 
+    p4@main@dd DD ? 
+    p5@main@dd DD ? 
+    variable_kaka@main@dd@WHILE_1@IF_2 DD ? 
     w@main DD ? 
-    w@main@IF_1 DD ? 
     x@main DD ? 
+    y@main DD ? 
+    z@main DD ? 
 .code
+    aa:
+        MOV EBX,float_negative@main
+        SUB EBX,1.000000
+        MOV float_negative@main,
+    dd:
+        MOV ECX,e@main@dd
+        MOV ECX,2.000000
+        MOV EAX,e@main@dd
+        ADD EAX,1.000000
+        MOV e@main@dd,
+        MOV EDX,float_negative@main
+        SUB EDX,1.000000
+        MOV float_negative@main,
 START:
-MOV EBX,10
-CMP EBX,1
-JLE Label6
-MOV ECX,a@main
-MOV ECX,b@main
-MOV EAX,b@main
-MOV EAX,3
-JMP Label9
-Label6:
-MOV EDX,b@main
-SUB EDX,2
-MOV a@main,EDX
-Label9:
-MOV EDX,10
-CMP EDX,1
-JGE Label15
-MOV EDX,b@main
-ADD EDX,2
-MOV a@main,EDX
-JMP Label18
-Label15:
-MOV EDX,b@main
-SUB EDX,2
-MOV a@main,EDX
-Label18:
-invoke MessageBox, NULL, addr str1, addr str1, MB_OK
-Label20:
-JL Label27
-MOV EDX,b@main
-SUB EDX,2
-MOV a@main,EDX
-invoke MessageBox, NULL, addr str2, addr str2, MB_OK
-JMP Label20
-Label27:
+    MOV EDX,a@main
+    MOV EDX,3
+    MOV EDX,x@main
+    MOV EDX,5000.000000
+    MOV EDX,3.300000
+    ADD EDX,5000.000000
+    MOV w@main,EDX
+    MOV a@main,
+    MOV EDX,c@main
+    MOV EDX,5
+    SUB ,a@main
+    MOV b@main,
+    MOV EDX,4.500000
+    ADD EDX,3.300000
+    MOV EDX,4.200000
+    ADD EDX,4.200000
+    MOV w@main,EDX
+    MOV EDX,float_negative@main
+    MOV EDX,-7.300000
+    MOV EDX,longint_negative@main
+    MOV EDX,-715
+    MOV EDX,2
+    SUB EDX,-3
+    MOV d@main,EDX
+    invoke MessageBox, NULL, addr str1, addr str1, MB_OK
+    JMP Label21
+    Label20:
+    Label21:
+    Label22:
+    invoke MessageBox, NULL, addr str1, addr str1, MB_OK
+    JMP Label26
+    Label25:
+    Label26:
+    JMP Label22
+    Label28:
 END START

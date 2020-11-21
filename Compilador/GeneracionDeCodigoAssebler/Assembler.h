@@ -60,6 +60,9 @@ class Assembler {
         void variables_auxiliares(Terceto &t);
         void imprimirLista();
         Terceto searchTerceto(int num);
+
+        void generarCodigoAssembler(Terceto & t);
+
     private:
         ofstream  fileStream;
 
@@ -71,6 +74,8 @@ class Assembler {
         vector<string> code;
         unordered_map<string, short int> bits;
         list<string> var_strings;
+
+        string space = "";
 };
 
 
