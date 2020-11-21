@@ -48,6 +48,7 @@ class Assembler {
         void liberarRegistro(Terceto &t);
         bool registros[4]={0,0,0,0};
 
+
     private:
         ofstream  fileStream;
 

@@ -1,5 +1,5 @@
 #include "Assembler.h"
-
+#include <string.h>
 
 Assembler::Assembler(){}
 
@@ -353,34 +353,45 @@ void Assembler::liberarRegistro(Terceto &t){
                 registros[3]=0;
 }
 
+constexpr unsigned int str2int(const char* str, int h = 0)
+{
+    return !str[h] ? 5381 : (str2int(str, h+1) * 33) ^ str[h];
+}
+
 void Assembler::generarAssembler(){
     cout<<"------------------ASSEMBLER--------------"<<endl;
     write(".code");
     for (map<int,Terceto>::iterator it=Intermediate_code::list_tercetos.begin(); it!=Intermediate_code::list_tercetos.end(); ++it){
-        if(it->second.getOp() == "+")
-            addInt(it->second);
 
-        if(it->second.getOp() == "-")
-            subInt(it->second);
-
-        if(it->second.getOp() == "=")
-            asignacion(it->second);
-
-        if(it->second.getOp() == "OUT")
-            addInt(it->second);
-
-        if(it->second.getOp() == "BF")
-            subInt(it->second);
-
-        if(it->second.getOp() == "BI")
-            asignacion(it->second);
-
-        if(it->second.getOp() == "Call")
-            asignacion(it->second);
+        string str = it->second.getOp();
+        char * op = new char[str.length() + 1];
+        strcpy(op, str.c_str());
 
 
-
-
+        switch (str2int(op))
+        {
+            case str2int("+"):
+                addInt(it->second);
+                break;
+            case str2int("-"):
+                subInt(it->second);
+                break;
+            case str2int("="):
+                asignacion(it->second);
+                break;
+            case str2int("OUT"):
+                cout<<"OUT_"<<endl;
+                break;
+            case str2int("BF"):
+                cout<<"BF_"<<endl;
+                break;
+            case str2int("BI"):
+                cout<<"BI_"<<endl;
+                break;
+            case str2int("Call"):
+                cout<<"CALL_"<<endl;
+                break;
+        }
 
     }
 }

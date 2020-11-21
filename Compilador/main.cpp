@@ -54,8 +54,11 @@ int Intermediate_code::cantProc = 0;
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
+
+
 int main(int argc,char** argv)
 {
+
     if (argc > 1){
         path = argv[1];
     }else{
@@ -79,7 +82,7 @@ int main(int argc,char** argv)
     Intermediate_code::imprimirTercetos();
     Intermediate_code::imprimirListaProc();
     createIndexFile();
-    ofstream errorFile;
+
     createOutError();
 
 
