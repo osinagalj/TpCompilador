@@ -1,13 +1,17 @@
+linea:7  Declaracion de variables
 linea:8  Declaracion de variables
+linea:9  Asignacion
+linea:10  Asignacion
 linea:11  Asignacion
-linea:14  Asignacion
-linea:16  Asignacion
-linea:18  Detecto sentencia OUT
-linea:20  Detecto sentencia OUT
-linea:21  Sentencia IF
-linea:23  sentencia if
-linea:26  Detecto sentencia OUT
-linea:27  Declaracion de procedimiento
-linea:30  Declaracion de procedimiento
-linea:33  Detecto sentencia OUT
-linea:35  Declaracion de procedimiento
+linea:12  Asignacion
+linea:15  Asignacion
+linea:17  Asignacion
+linea:19  Detecto sentencia OUT
+linea:21  Detecto sentencia OUT
+linea:22  Sentencia IF
+linea:24  sentencia if
+linea:27  Detecto sentencia OUT
+linea:28  Declaracion de procedimiento
+linea:31  Declaracion de procedimiento
+linea:34  Detecto sentencia OUT
+linea:36  Declaracion de procedimiento

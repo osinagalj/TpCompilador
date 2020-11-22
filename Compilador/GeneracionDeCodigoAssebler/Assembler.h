@@ -41,7 +41,7 @@ class Assembler {
         void divInt(Terceto &t);
 
         void addFloat(Terceto &t);
-
+        void subFloat(Terceto &t);
         void asignacion(Terceto &t);
         static int cont_var_aux;
         int quitarCorchetes(string op);
