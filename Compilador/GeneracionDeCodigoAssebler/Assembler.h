@@ -66,16 +66,17 @@ class Assembler {
         Terceto searchTerceto(int num);
         void generarCodigoAssembler(Symbol_table *tablita,Terceto & t);
         bool tercetoDeProc(int i,list<int> listita);
+        void  writeAssembler();
     private:
         ofstream  fileStream;
-
+        bool in_procedure = false;
         map<int,Terceto> lista_tercetos;
         int current_string = 1;
         vector<string> vars;
         vector<string> program;
         vector<string> data;
         vector<string> code;
-        unordered_map<string, short int> bits;
+
         list<string> var_strings;
 
         string space = "";

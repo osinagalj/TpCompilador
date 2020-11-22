@@ -3,30 +3,8 @@
 
 Assembler::Assembler(){}
 
-Assembler::Assembler(string path )
-{
+Assembler::Assembler(string path ){
         open(path);
-        // 32 bit reg
-        bits["EAX"] = 32; //En una instrucción, se pueden usar 32, 16 u 8 bits.
-        bits["EBX"] = 32;
-        bits["ECX"] = 32;
-        bits["EDX"] = 32;
-        // 16 bit reg
-        bits["AX"] = 16; //16 bits menos significativos de EAX
-        bits["BX"] = 16; //16 bits menos significativos de EBX
-        bits["CX"] = 16; //16 bits menos significativos de ECX
-        bits["DX"] = 16; //16 bits menos significativos de EDX
-
-        write(".386");
-        write(".model flat, stdcall");
-        write("option casemap :none");
-        write("include \\masm32\\include\\masm32rt.inc");
-        write("include \\masm32\\include\\windows.inc");
-        write("include \\masm32\\include\\kernel32.inc");
-        write("include \\masm32\\include\\user32.inc");
-        write("includelib \\masm32\\lib\\kernel32.lib");
-        write("includelib \\masm32\\lib\\user32.lib");
-
 }
 
 
@@ -34,36 +12,54 @@ Assembler::Assembler(string path )
 //-------------------------------------- DATA   ----------------------------------------//
 //--------------------------------------------------------------------------------------//
 
+void Assembler::writeAssembler(){
 
+    fileStream << ".386" << endl;
+    fileStream << ".model flat, stdcall" << endl;
+    fileStream << "option casemap :none" << endl;
+    fileStream << "include \\masm32\\include\\masm32rt.inc" << endl;
+    fileStream << "include \\masm32\\include\\windows.inc" << endl;
+    fileStream << "include \\masm32\\include\\kernel32.inc" << endl;
+    fileStream << "include \\masm32\\include\\user32.inc" << endl;
+    fileStream << "includelib \\masm32\\lib\\kernel32.lib" << endl;
+    fileStream << "includelib \\masm32\\lib\\user32.lib" << endl << endl;
+
+    fileStream <<".DATA"<<endl;
+    for(string s: data){
+        fileStream<<s<<endl;
+    }
+    fileStream <<".CODE"<<endl;
+    for(string s: code){
+        fileStream<<s<<endl;
+    }
+    fileStream <<"START:"<<endl;
+    for(string s: program){
+        fileStream<<s<<endl;
+    }
+    fileStream <<"END START"<<endl;
+}
 
 void Assembler::declareLongint(const string & varName){
-
-    // initializes it with no initial value
-    data.push_back(varName + " DD ?");
-    bits[varName] = 32;
     vars.push_back(varName);
-    fileStream <<"    "+varName + " DD ? " <<endl;
+    data.push_back("    "+varName + " DD ?");
+}
+
+void Assembler::declareFloat(const string &varName){
+    vars.push_back(varName);
+    data.push_back("    " + varName + " DD ? ");
 }
 
 void Assembler::declareString(const string & varName, const string & value){
-    data.push_back("str"+to_string(current_string)+" DB " + value + " , 0 ");// faltaria poner el contenido del string tmb
     vars.push_back(varName);
-    fileStream <<"    str"+to_string(current_string)+" DB " + value + " , 0 "<<endl;
-
+    data.push_back("    str"+to_string(current_string)+" DB " + value + " , 0 ");// faltaria poner el contenido del string tmb
     var_strings.push_back(value);
     current_string++;
 }
 
-void Assembler::declareFloat(const string &varName){
-    // initializes it with no initial value
-    data.push_back(varName + " DD ? ");
-    bits[varName] = 16;
-    vars.push_back(varName);
-    fileStream <<"    "+varName + " DD ? "<<endl;
-}
+
 
 void Assembler::declareSTVariables(Symbol_table * st){
-    fileStream <<".DATA"<<endl;
+
     for(auto it = st->symbol_table.begin(); it!= st->symbol_table.end(); it++){
         cout<<"variable = " << it->first <<endl;
         if(it->second.uso == "variable" || it->second.uso == "parametro"){
@@ -75,7 +71,6 @@ void Assembler::declareSTVariables(Symbol_table * st){
             }
         }else if(it->second.uso == "constante"){ //Preguntar si tenemos que definir los strings
             if(it->second.Tipo == "String") {
-                cout<<"Inserto por aka"<<endl;
                 declareString(it->first,it->first);
             }
         }
@@ -94,7 +89,11 @@ void Assembler::close(){
     fileStream.close();
 }
 void Assembler::write(string message){
-    fileStream <<space + message<< endl;
+    if(in_procedure){
+        code.push_back(space + message);
+    }else{
+        program.push_back(space + message);
+    }
 }
 
 
@@ -864,22 +863,24 @@ bool Assembler::tercetoDeProc(int i,list<int> listita){
 void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
     Intermediate_code::copiarLista(lista_tercetos);
     cout<<"------------------ASSEMBLER--------------"<<endl;
-    write(".CODE");
+    //write(".CODE");
     cout<<"TAMAÑO DE IGNORE "<<to_string(listita.size())<<endl;
     space = "    ";
+    in_procedure = true;
     for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
         space = "        ";
         if(tercetoDeProc(it->first,listita)){
 
             if(it->second.getOp()=="inicio_PROC"){
                 space = "    ";
-                write(it->second.getOp1()+ ":");
+                code.push_back(space + it->second.getOp1()+ ":");
             }
             generarCodigoAssembler(tablita,it->second);
         }
     }
+    in_procedure = false;
     space ="";
-    write("START:");
+    //write("START:");
     space = space + "    ";
     for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
         if(!tercetoDeProc(it->first,listita)){
@@ -887,5 +888,5 @@ void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
         }
     }
     space ="";
-    write("END START");
+    //write("END START");
 }
