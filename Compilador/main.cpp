@@ -100,7 +100,9 @@ int main(int argc,char** argv)
         Assembler ass(pathOutAssembler);
         ass.declareSTVariables(&tabla);
         ass.generarAssembler(&tabla,listita);
+        ass.writeAssembler();
         ass.close();
+
 
     }
 
