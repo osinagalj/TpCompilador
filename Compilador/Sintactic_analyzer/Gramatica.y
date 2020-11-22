@@ -73,7 +73,10 @@ parametros:
 
 procedimiento:
 	 nombre_proc NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
-	 	Intermediate_code::insertar_terceto("fin_PROC",$1.cadena,"");
+	 		string proc = $1.cadena;
+         		proc = proc + "@"+Intermediate_code::ambito_actual;
+	 	Intermediate_code::insertar_terceto("fin_PROC",proc,"");
+
 	    	Intermediate_code::eliminarUltimoAmbito();
 		Intermediate_code::check_NA($4.cadena);
 		//Intermediate_code::desapilarProc();
@@ -110,7 +113,9 @@ nombre_proc: encabezado '(' lista_de_parametros ')' {
 ;
 encabezado:
 	PROC ID{
-		Intermediate_code::insertar_terceto("inicio_PROC",$2.cadena,"");
+		string proc = $2.cadena;
+		proc = proc + "@"+Intermediate_code::ambito_actual;
+		Intermediate_code::insertar_terceto("inicio_PROC",proc,"");
 		//Intermediate_code::apilarProc($2.cadena);
         	//Intermediate_code::insertarProc();
 		$$.cadena=$2.cadena;

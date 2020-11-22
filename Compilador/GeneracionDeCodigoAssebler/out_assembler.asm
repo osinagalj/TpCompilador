@@ -1,10 +1,7 @@
 .386
-.model flat, stdcall
+.MODEL flat, stdcall
 option casemap :none
 include \masm32\include\masm32rt.inc
-include \masm32\include\windows.inc
-include \masm32\include\kernel32.inc
-include \masm32\include\user32.inc
 includelib \masm32\lib\kernel32.lib
 includelib \masm32\lib\user32.lib
 
@@ -24,9 +21,10 @@ includelib \masm32\lib\user32.lib
     x@main DD ? 
     y@main DD ? 
     z@main DD ? 
-    @aux1 DD ? 
-    @aux2 DD ? 
-    @aux3 DD 5.0
+    @aux1 DD 5.000000
+    @aux2 DD 6.000000
+    @aux3 DD 3.000000
+    @aux4 DD ? 
 .CODE
     aa:
         MOV EBX,6
@@ -37,29 +35,23 @@ includelib \masm32\lib\user32.lib
         MOV d@main,EBX
         MOV EBX,a@main
         CMP EBX,14
-        JLE Label15
+        JLE Label13
         invoke MessageBox, NULL, addr str1, addr str1, MB_OK
-        JMP Label17
-        Label15:
+        JMP Label15
+        Label13:
         invoke MessageBox, NULL, addr str4, addr str4, MB_OK
-        Label17:
+        Label15:
     bb:
         invoke MessageBox, NULL, addr str2, addr str2, MB_OK
     cc:
         invoke MessageBox, NULL, addr str3, addr str3, MB_OK
 START:
-    FLD @aux3
-        FSTP z@main
-    FLD z@main
-    FLD 3.000000
-    FADD 
-    FSTP @aux1
     FLD @aux1
-    FSTP x@main
-    FLD x@main
-    FLD z@main
-    FSUB 
-    FSTP @aux2
+    FSTP z@main
     FLD @aux2
-    FSTP y@main
+    FLD @aux3
+    FADD 
+    FSTP @aux4
+    FLD @aux4
+    FSTP x@main
 END START

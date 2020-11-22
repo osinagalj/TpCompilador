@@ -6,8 +6,8 @@
 6:          LONGINT w , a, b, c, d;
 7:          FLOAT z , x , y;
 8:      
-9:          z = 5. ;
-10:          x = 6. + 3.;
+9:              z = 5. ;
+10:              x = 6. + 3.;
 11:      
 12:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
 13:          {
@@ -24,17 +24,21 @@
 24:              PROC bb (FLOAT p1) NA = 3_l , SHADOWING = FALSE
 25:                  {
 26:                      OUT("MULTIPLICA BIEN PERRITO SUCIO2");
-27:              };
-28:          };
-29:      
-30:      
-31:          PROC cc (FLOAT p1) NA = 3_l , SHADOWING = FALSE
-32:          {
-33:              OUT("MULTIPLICA BIEN PERRITO SUCIO3");
-34:          };
-35:      
-36:      $
-37:      
-38:      
+27:                      PROC bb (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+28:                       {
+29:                                      OUT("MULTIPLICA BIEN PERRITO SUCIO2");
+30:                              };
+31:              };
+32:          };
+33:      
+34:      
+35:          PROC cc (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+36:          {
+37:              OUT("MULTIPLICA BIEN PERRITO SUCIO3");
+38:          };
 39:      
-40:      
+40:      $
+41:      
+42:      
+43:      
+44:      

@@ -19,6 +19,7 @@ includelib \masm32\lib\user32.lib
     d@main DD ?
     p1@main@aa DD ? 
     p1@main@aa@bb DD ? 
+    p1@main@aa@bb@bb DD ? 
     p1@main@cc DD ? 
     w@main DD ?
     x@main DD ? 
@@ -29,7 +30,7 @@ includelib \masm32\lib\user32.lib
     @aux3 DD 3.000000
     @aux4 DD ? 
 .CODE
-    aa:
+    aa@main:
         MOV EBX,6
         ADD EBX,3
         MOV c@main,EBX
@@ -44,10 +45,16 @@ includelib \masm32\lib\user32.lib
         Label13:
         invoke MessageBox, NULL, addr str4, addr str4, MB_OK
         Label15:
-    bb:
+        ret
+    bb@main@aa:
         invoke MessageBox, NULL, addr str2, addr str2, MB_OK
-    cc:
+        ret
+    bb@main@aa@bb:
+        invoke MessageBox, NULL, addr str2, addr str2, MB_OK
+        ret
+    cc@main:
         invoke MessageBox, NULL, addr str3, addr str3, MB_OK
+        ret
 START:
     FLD @aux1
     FSTP z@main
@@ -58,11 +65,3 @@ START:
     FLD @aux4
     FSTP x@main
 END START
-
-    z = 5. ;
-    x = 6. + 3.;
-
-    @aux1 DD 5.000000
-    @aux2 DD 6.000000
-    @aux3 DD 3.000000
-    @aux4 DD ?
