@@ -194,36 +194,30 @@ void Assembler::asignacion(Terceto &t){
 
 void Assembler::addInt(Terceto &t) {
     cout<<"------------------ADD INT--------------"<<endl;
-    if (getCase(t.getOp1(), t.getOp2()) == 1) {
+    if (getCase(t.getOp1(), t.getOp2()) == 1) { //const y variable
         cout<<"------------------CASE 1--------------"<<endl;
         //set free reg in the Terceto
         asignarRegistro(t,"ADD");
         write("MOV " + t.getOp3() + "," + t.getOp1());
         write("ADD " + t.getOp3() + "," + t.getOp2());
     } else {
-        if (getCase(t.getOp1(), t.getOp2()) == 2){
+        if (getCase(t.getOp1(), t.getOp2()) == 2){ //registro y variable
             cout<<"------------------CASE 2--------------"<<endl;
             //search & get reg Terceto in list_tercetos
             Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
             write("ADD " + t2.getOp3() + "," + t.getOp2());
         } else {
-            if (getCase(t.getOp1(), t.getOp2()) == 3) {
+            if (getCase(t.getOp1(), t.getOp2()) == 3) { //variable y registro
                 cout<<"------------------CASE 3--------------"<<endl;
                 //search & get reg Terceto in list_tercetos
-                Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
-                //get reg in the Terceto
-                asignarRegistro(t,"ADD");
-                write("MOV " + t.getOp3() + "," + t.getOp1());
-                //get reg in the Terceto
-                write("ADD " + t.getOp3() + "," + t2.getOp3());
-                //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
-                liberarRegistro(t2);
-            } else {
+                t.setOp3(t.getOp2());
+                write("ADD " + t.getOp3() + "," + t.getOp1());
+            } else { //registro y registro
                 cout<<"------------------CASE 4--------------"<<endl;
                 //search & get Terceto in list_tercetos
-                Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
-                write("ADD " + t1.getOp3() + "," + t2.getOp3());
+                t.setOp3(t.getOp1());
+                write("ADD " + t.getOp3() + "," + t.getOp2());
                 //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
                 liberarRegistro(t2);
             }
