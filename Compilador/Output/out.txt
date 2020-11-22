@@ -9,7 +9,9 @@ linea:21  Detecto sentencia OUT
 linea:22  Sentencia IF
 linea:24  sentencia if
 linea:27  Detecto sentencia OUT
-linea:28  Declaracion de procedimiento
+linea:30  Detecto sentencia OUT
 linea:31  Declaracion de procedimiento
-linea:34  Detecto sentencia OUT
-linea:36  Declaracion de procedimiento
+linea:32  Declaracion de procedimiento
+linea:35  Declaracion de procedimiento
+linea:38  Detecto sentencia OUT
+linea:40  Declaracion de procedimiento

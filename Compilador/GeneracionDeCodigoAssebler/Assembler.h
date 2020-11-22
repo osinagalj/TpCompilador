@@ -69,6 +69,7 @@ class Assembler {
         void  writeAssembler();
         void declareAux(const string & varName);
         void declareAux(const string & varName,const string & f);
+        void insertar_ret();
     private:
         ofstream  fileStream;
         bool in_procedure = false;

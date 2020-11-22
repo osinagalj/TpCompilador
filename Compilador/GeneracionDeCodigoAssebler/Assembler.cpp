@@ -29,15 +29,19 @@ void Assembler::writeAssembler(){
         fileStream<<s<<endl;
     }
     fileStream <<".CODE"<<endl;
+    insertar_ret();
     for(string s: code){
         fileStream<<s<<endl;
     }
+    if(!code.empty())
+        fileStream <<"        ret"<<endl;
     fileStream <<"START:"<<endl;
     for(string s: program){
         fileStream<<s<<endl;
     }
     fileStream <<"END START"<<endl;
 }
+
 
 void Assembler::declareLongint(const string & varName){
     vars.push_back(varName);
@@ -685,7 +689,40 @@ void Assembler::asignarRegistro(Terceto &t, string s){
     }
 }
 
+void Assembler::insertar_ret(){
+    list<int> posiciones_ret;
+    int i = 0;
+    for(string s: code){
+        i++;
+        if(s.find('@') != -1){
+            if(s.find(':') != -1){
+                cout<<"WP: ENCONTRE UN NOMBRE DE PROC"<<endl;
+                posiciones_ret.push_back(i);
+            }
+        }
+    }
+    cout<<"posicionesRet"<<endl;
+    int rets = 0;
+    posiciones_ret.pop_front();
+    for(int i : posiciones_ret){
+        cout<<"posicion del ret = "<< to_string(i) <<endl;
+    }
 
+    for(int i : posiciones_ret){
+        int x = 0;
+        cout<<"i= "<<to_string(i)<<endl;
+        for(vector<string>::iterator it = code.begin() ;it != code.end();it++){
+            x ++;
+            cout<<"x= " <<to_string(x)<<endl;
+            if(x == i+rets){
+                cout<<"entro perro"<<endl;
+                code.insert(it,"        ret");
+                rets++;
+                break;
+            }
+        }
+    }
+}
 
 void Assembler::invoke_out(Terceto t){
     write("invoke MessageBox, NULL, addr str"+ to_string(getNameString(t.getOp1())) + ", addr str"+ to_string(getNameString(t.getOp1())) + ", MB_OK");
@@ -923,14 +960,17 @@ void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
     cout<<"TAMAÑO DE IGNORE "<<to_string(listita.size())<<endl;
     space = "    ";
     in_procedure = true;
+    bool fin_proc = false;
     for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
         space = "        ";
         if(tercetoDeProc(it->first,listita)){
 
             if(it->second.getOp()=="inicio_PROC"){
+                fin_proc = false;
                 space = "    ";
                 code.push_back(space + it->second.getOp1()+ ":");
             }
+
             generarCodigoAssembler(tablita,it->second);
         }
     }
