@@ -63,7 +63,7 @@ void Assembler::declareFloat(const string &varName){
 }
 
 void Assembler::declareSTVariables(Symbol_table * st){
-    fileStream <<".data"<<endl;
+    fileStream <<".DATA"<<endl;
     for(auto it = st->symbol_table.begin(); it!= st->symbol_table.end(); it++){
         cout<<"variable = " << it->first <<endl;
         if(it->second.uso == "variable" || it->second.uso == "parametro"){
@@ -676,11 +676,17 @@ bool Assembler::tercetoDeProc(int i,list<int> listita){
 void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
     Intermediate_code::copiarLista(lista_tercetos);
     cout<<"------------------ASSEMBLER--------------"<<endl;
-    write(".code");
+    write(".CODE");
     cout<<"TAMAÑO DE IGNORE "<<to_string(listita.size())<<endl;
-
+    space = "    ";
     for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
+        space = "        ";
         if(tercetoDeProc(it->first,listita)){
+
+            if(it->second.getOp()=="inicio_PROC"){
+                space = "    ";
+                write(it->second.getOp1()+ ":");
+            }
             generarCodigoAssembler(tablita,it->second);
         }
     }
