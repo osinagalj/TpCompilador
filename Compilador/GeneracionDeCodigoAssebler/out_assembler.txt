@@ -33,10 +33,10 @@ includelib \masm32\lib\user32.lib
         Label10:
         MOV ECX,6
         ADD ECX,3
-        MOV c@main,     --------------------
+
         MOV EAX,6
         ADD EAX,3
-        MOV d@main,     -----------
+
     bb:
         invoke MessageBox, NULL, addr str2, addr str2, MB_OK
     cc:

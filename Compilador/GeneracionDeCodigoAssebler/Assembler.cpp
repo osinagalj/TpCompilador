@@ -686,11 +686,8 @@ void Assembler::generarAssembler(list<int> listita){
         write(it->first+":");
         space = space + "    ";
         for(Terceto t : it->second){
-
             generarCodigoAssembler(t);
             i++;
-
-
         }
         space = "";
     }
