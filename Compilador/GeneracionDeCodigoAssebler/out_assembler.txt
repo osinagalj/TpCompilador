@@ -13,17 +13,19 @@ includelib \masm32\lib\user32.lib
     str2 DB "MULTIPLICA BIEN PERRITO SUCIO2" , 0 
     str3 DB "MULTIPLICA BIEN PERRITO SUCIO3" , 0 
     str4 DB "NO MULTIPLICA BIEN PERRITO SUCIO" , 0 
-    a@main DD           ?
-    b@main DD           ?
-    c@main DD           ?
-    d@main DD           ?
-    p1@main@aa DD       ?
-    p1@main@aa@bb DD        ?
+    a@main DD ?
+    b@main DD ?
+    c@main DD ?
+    d@main DD ?
+    p1@main@aa DD ? 
+    p1@main@aa@bb DD ? 
     p1@main@cc DD ? 
-    w@main DD           ?
-    x@main DD       ?
+    w@main DD ?
+    x@main DD ? 
     y@main DD ? 
     z@main DD ? 
+    @aux1 DD ? 
+    @aux2 DD ? 
 .CODE
     aa:
         MOV EBX,6

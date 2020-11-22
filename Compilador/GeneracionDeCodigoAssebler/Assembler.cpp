@@ -55,6 +55,10 @@ void Assembler::declareString(const string & varName, const string & value){
     var_strings.push_back(value);
     current_string++;
 }
+void Assembler::declareAux(const string &varName){
+    vars.push_back(varName);
+    data.push_back("    " + varName + " DD ? ");
+}
 
 
 
@@ -399,6 +403,7 @@ void Assembler::addFloat(Terceto &t) {
     if (getCase(t.getOp1(), t.getOp2()) == 1) {
         cout<<"------------------CASE 1--------------"<<endl;
         string new_aux="@aux"+to_string(cont_var_aux);
+        declareAux(new_aux);
         //asignarRegistro(t,"ADD");
         //write("MOV " + t.getOp3() + "," + t.getOp1());
         write("FLD " + t.getOp1());
@@ -413,6 +418,7 @@ void Assembler::addFloat(Terceto &t) {
         if (getCase(t.getOp1(), t.getOp2()) == 2) {
             cout<<"------------------CASE 2--------------"<<endl;
             string new_aux="@aux"+to_string(cont_var_aux);
+            declareAux(new_aux);
             //search result in TS
             Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
             //write("ADD" +t2.getOp3()+", " + t.getOp2());
@@ -428,6 +434,7 @@ void Assembler::addFloat(Terceto &t) {
             if (getCase(t.getOp1(), t.getOp2()) == 3) {
                 cout<<"------------------CASE 3--------------"<<endl;
                 string new_aux="@aux"+to_string(cont_var_aux);
+                declareAux(new_aux);
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 //write("ADD " + t2.getOp3() + "," + t.getOp1());
                 //write("MOV "+ new_aux +","+t2.getOp3()); //i es el contador de variables auxiliares
@@ -442,6 +449,7 @@ void Assembler::addFloat(Terceto &t) {
             } else {
                 cout<<"------------------CASE 4--------------"<<endl;
                 string new_aux="@aux"+to_string(cont_var_aux);
+                declareAux(new_aux);
                 cont_var_aux++;
                 //search result in TS
                  Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
@@ -466,6 +474,7 @@ void Assembler::subFloat(Terceto &t) {
     if (getCase(t.getOp1(), t.getOp2()) == 1) {
         cout<<"------------------CASE 1--------------"<<endl;
         string new_aux="@aux"+to_string(cont_var_aux);
+        declareAux(new_aux);
         //asignarRegistro(t,"ADD");
         //write("MOV " + t.getOp3() + "," + t.getOp1());
         write("FLD " + t.getOp1());
@@ -480,6 +489,7 @@ void Assembler::subFloat(Terceto &t) {
         if (getCase(t.getOp1(), t.getOp2()) == 2) {
             cout<<"------------------CASE 2--------------"<<endl;
             string new_aux="@aux"+to_string(cont_var_aux);
+            declareAux(new_aux);
             //search result in TS
             Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
             //write("ADD" +t2.getOp3()+", " + t.getOp2());
@@ -495,6 +505,7 @@ void Assembler::subFloat(Terceto &t) {
             if (getCase(t.getOp1(), t.getOp2()) == 3) {
                 cout<<"------------------CASE 3--------------"<<endl;
                 string new_aux="@aux"+to_string(cont_var_aux);
+                declareAux(new_aux);
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 //write("ADD " + t2.getOp3() + "," + t.getOp1());
                 //write("MOV "+ new_aux +","+t2.getOp3()); //i es el contador de variables auxiliares
@@ -509,6 +520,7 @@ void Assembler::subFloat(Terceto &t) {
             } else {
                 cout<<"------------------CASE 4--------------"<<endl;
                 string new_aux="@aux"+to_string(cont_var_aux);
+                declareAux(new_aux);
                 cont_var_aux++;
                 //search result in TS
                 Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));

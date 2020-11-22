@@ -67,6 +67,7 @@ class Assembler {
         void generarCodigoAssembler(Symbol_table *tablita,Terceto & t);
         bool tercetoDeProc(int i,list<int> listita);
         void  writeAssembler();
+        void declareAux(const string & varName);
     private:
         ofstream  fileStream;
         bool in_procedure = false;

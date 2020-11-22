@@ -7,52 +7,58 @@ include \masm32\include\kernel32.inc
 include \masm32\include\user32.inc
 includelib \masm32\lib\kernel32.lib
 includelib \masm32\lib\user32.lib
-.data
+
+.DATA
     str1 DB "MULTIPLICA BIEN PERRITO SUCIO" , 0 
     str2 DB "MULTIPLICA BIEN PERRITO SUCIO2" , 0 
     str3 DB "MULTIPLICA BIEN PERRITO SUCIO3" , 0 
     str4 DB "NO MULTIPLICA BIEN PERRITO SUCIO" , 0 
-    a@main DD ? 
-    b@main DD ? 
-    c@main DD ? 
-    d@main DD ? 
+    a@main DD ?
+    b@main DD ?
+    c@main DD ?
+    d@main DD ?
     p1@main@aa DD ? 
     p1@main@aa@bb DD ? 
     p1@main@cc DD ? 
-    w@main DD ? 
+    w@main DD ?
     x@main DD ? 
-.code
+    y@main DD ? 
+    z@main DD ? 
+    @aux1 DD ? 
+    @aux2 DD ? 
+.CODE
     aa:
+        MOV EBX,6
+        ADD EBX,3
+        MOV c@main,EBX
+        MOV EBX,6
+        ADD EBX,3
+        MOV d@main,EBX
         MOV EBX,a@main
         CMP EBX,14
-        JLE Label8
+        JLE Label15
         invoke MessageBox, NULL, addr str1, addr str1, MB_OK
-        JMP Label10
-        Label8:
+        JMP Label17
+        Label15:
         invoke MessageBox, NULL, addr str4, addr str4, MB_OK
-        Label10:
-        MOV ECX,6
-        ADD ECX,3
-       
-        MOV EAX,6
-        ADD EAX,3
-      
+        Label17:
     bb:
         invoke MessageBox, NULL, addr str2, addr str2, MB_OK
     cc:
         invoke MessageBox, NULL, addr str3, addr str3, MB_OK
 START:
-    invoke MessageBox, NULL, addr str1, addr str1, MB_OK
-    JMP Label10
-    MOV EDX,6
-    ADD EDX,3
-    MOV c@main,EDX
-    MOV EDX,6
-    ADD EDX,3
-    MOV d@main,EDX
-    invoke MessageBox, NULL, addr str2, addr str2, MB_OK
-    MOV EDX,2
-    ADD EDX,3
-    MOV b@main,EDX
-    invoke MessageBox, NULL, addr str3, addr str3, MB_OK
+    MOV ECX,5.000000
+    MOV z@main,ECX
+    FLD z@main
+    FLD 3.000000
+    FADD 
+    FSTP @aux1
+    MOV ECX,@aux1
+    MOV x@main,ECX
+    FLD x@main
+    FLD z@main
+    FSUB 
+    FSTP @aux2
+    MOV ECX,@aux2
+    MOV y@main,ECX
 END START
