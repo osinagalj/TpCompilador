@@ -61,7 +61,7 @@ class Assembler {
         void variables_auxiliares(Terceto &t);
         void imprimirLista();
         Terceto searchTerceto(int num);
-
+        void addFloat(Terceto &t);
         void generarCodigoAssembler(Symbol_table *tablita,Terceto & t);
         bool tercetoDeProc(int i,list<int> listita);
     private:

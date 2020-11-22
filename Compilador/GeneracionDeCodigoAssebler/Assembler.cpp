@@ -321,41 +321,59 @@ void Assembler:: mulInt(Terceto &t){
         }
     }
 }
-/*
-void Assembler::addFloat(string op2,string op3) {
-    if (getCase(op2, op3) == 1) {
+
+void Assembler::addFloat(Terceto &t) {
+    cout<<"------------------ADD FLOAT--------------"<<endl;
+    if (getCase(t.getOp1(), t.getOp2()) == 1) {
+        cout<<"------------------CASE 1--------------"<<endl;
+        string new_aux="@aux"+to_string(cont_var_aux);
         asignarRegistro(t,"ADD");
-        write("MOV " + t.getOp3() + "," + op2);
-        write("ADD " + t.getOp3() + "," + op3);
-        write("MOV @aux"+to_string(cont_var_aux)+","+t.getOp3() ); //i es el contador de variables auxiliares
+        write("MOV " + t.getOp3() + "," + t.getOp1());
+        write("ADD " + t.getOp3() + "," + t.getOp2());
+        write("MOV "+ new_aux +","+t.getOp3() ); //i es el contador de variables auxiliares
         cont_var_aux++;
+        liberarRegistro(t);
+        t.setOp3(new_aux);
     } else {
-        if (getCase(op2, op3) == 2) {
+        if (getCase(t.getOp1(), t.getOp2()) == 2) {
+            cout<<"------------------CASE 2--------------"<<endl;
+            string new_aux="@aux"+to_string(cont_var_aux);
             //search result in TS
             Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
             write("ADD t2.getOp3() , " + t.getOp2());
-            write("MOV @aux"+to_string(cont_var_aux)+","+t2.getOp3()); //i es el contador de variables auxiliares
+            write("MOV "+ new_aux +","+t2.getOp3()); //i es el contador de variables auxiliares
             cont_var_aux++;
+            liberarRegistro(t);
+            t.setOp3(new_aux);
         } else {
-            if (getCase(op2, op3) == 3) {
+            if (getCase(t.getOp1(), t.getOp2()) == 3) {
+                cout<<"------------------CASE 3--------------"<<endl;
+                string new_aux="@aux"+to_string(cont_var_aux);
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 write("ADD " + t2.getOp3() + "," + t.getOp1());
-                write("MOV @aux"+to_string(cont_var_aux)+","+t.getOp3()); //i es el contador de variables auxiliares
+                write("MOV "+ new_aux +","+t2.getOp3()); //i es el contador de variables auxiliares
                 cont_var_aux++;
+                liberarRegistro(t2);
+                t2.setOp3(new_aux);
 
             } else {
+                cout<<"------------------CASE 4--------------"<<endl;
+                string new_aux="@aux"+to_string(cont_var_aux);
+                cont_var_aux++;
                 //search result in TS
                  Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                 //search result2 in TS
                  Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 write("ADD t1.getOp3(), t2.getOp3()");
-                write("MOV @aux"+to_string(cont_var_aux)+","+t1.getOp3()); //i es el contador de variables auxiliares
-                cont_var_aux++;
+                write("MOV "+ new_aux +","+t1.getOp3()); //i es el contador de variables auxiliares
+                liberarRegistro(t1);
+                liberarRegistro(t2);
+                t1.setOp3(new_aux);
             }
         }
     }
 }
-*/
+
 //CHARLY//
 void Assembler::asignarRegistro(Terceto &t, string s){
     cout<<"------------------asignar Registro--------------"<<endl;
