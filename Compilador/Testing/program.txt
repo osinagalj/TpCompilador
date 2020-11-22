@@ -4,9 +4,10 @@
                            /% ------------- Program without errors.  ------------------- %/
 
     LONGINT w , x, a, b, c, d;
-    FLOAT z;
-    a = 5_l * 3_l;
-    z = 5. + 3.;
+
+    a = 6_l / 3_l;
+
+
     PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
     {
         c = 6_l + 3_l;
@@ -24,8 +25,6 @@
                 OUT("MULTIPLICA BIEN PERRITO SUCIO2");
         };
     };
-
-    b = 2_l + 3_l;
 
 
     PROC cc (FLOAT p1) NA = 3_l , SHADOWING = FALSE

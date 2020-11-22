@@ -38,6 +38,7 @@ class Assembler {
         void addInt(Terceto &t);
         void subInt(Terceto &t);
         void mulInt(Terceto &t);
+        void divInt(Terceto &t);
 
         void addFloat(Terceto &t);
 

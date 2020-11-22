@@ -21,7 +21,6 @@ includelib \masm32\lib\user32.lib
     p1@main@cc DD ? 
     w@main DD ? 
     x@main DD ? 
-    z@main DD ? 
 .CODE
     aa:
         MOV EBX,6
@@ -32,31 +31,20 @@ includelib \masm32\lib\user32.lib
         MOV d@main,EBX
         MOV EBX,a@main
         CMP EBX,14
-        JLE Label14
+        JLE Label12
         invoke MessageBox, NULL, addr str1, addr str1, MB_OK
-        JMP Label16
-        Label14:
+        JMP Label14
+        Label12:
         invoke MessageBox, NULL, addr str4, addr str4, MB_OK
-        Label16:
+        Label14:
     bb:
         invoke MessageBox, NULL, addr str2, addr str2, MB_OK
     cc:
         invoke MessageBox, NULL, addr str3, addr str3, MB_OK
 START:
-    MOV EAX , 5
+    MOV EDX ,0
+    MOV EAX , 6
     MOV ECX,3
-    MUL ECX
-    MOV ECX,EAX
+    DIV ECX
     MOV a@main,ECX
-
-    MOV ECX,5.000000
-    ADD ECX,3.000000
-    MOV @aux1,ECX
-
-    MOV ECX,@aux1
-    MOV z@main,ECX
-
-    MOV ECX,2
-    ADD ECX,3
-    MOV b@main,ECX
 END START

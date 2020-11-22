@@ -339,6 +339,62 @@ void Assembler:: mulInt(Terceto &t){
     }
 }
 
+void Assembler::divInt(Terceto &t) {
+    cout<<"------------------DIV INT--------------"<<endl;
+    if (getCase(t.getOp1(), t.getOp2()) == 1) {//const y variable
+        cout<<"------------------CASE 1--------------"<<endl;
+        //set free reg in the Terceto
+        asignarRegistro(t,"DIV");
+        write("MOV " + t.getOp3() + "," + t.getOp2());
+        //controlar si el t.getOp3 es distinto de 0
+        write("DIV " + t.getOp3());
+
+    } else {//registro y variable
+        if (getCase(t.getOp1(), t.getOp2()) == 2){
+            cout<<"------------------CASE 2--------------"<<endl;
+            //search & get reg Terceto in list_tercetos
+            Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
+
+            if(registros[0] == false && registros[3] == false){
+                t.setOp3(t2.getOp3());
+                write("MOV EDX ,0");
+                write("MOV EAX , " + t2.getOp3());
+                //controlar que t.getop2() no sea 0
+                write("MOV " + t.getOp3() +  " , " + t.getOp2());
+                write("DIV " + t.getOp3());
+            }
+
+        } else { //variable y registro
+            if (getCase(t.getOp1(), t.getOp2()) == 3) {
+                cout<<"------------------CASE 3--------------"<<endl;
+                //search & get reg Terceto in list_tercetos
+                Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
+                //get reg in the Terceto
+                if(registros[0] == false && registros[3] == false){
+                    write("MOV EDX ,0");
+                    write("MOV EAX , " + t.getOp1());
+                    t.setOp3(t2.getOp3());
+                    //controlar que t.getOp3 no de 0
+                    write("DIV " + t.getOp3());
+                }
+            } else {  //registro y registro
+                cout<<"------------------CASE 4--------------"<<endl;
+                //search & get Terceto in list_tercetos
+                Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
+                Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
+                if(registros[0] == false && registros[3] == false){
+                    t.setOp3(t2.getOp3());
+                    write("MOV EDX ,0");
+                    write("MOV EAX , " + t1.getOp3());
+                    liberarRegistro(t1);
+                    //controlar que t.getop3() no sea 0
+                    write("DIV " + t.getOp3());
+                }
+            }
+        }
+    }
+}
+
 void Assembler::addFloat(Terceto &t) {
     cout<<"------------------ADD FLOAT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) {
@@ -418,12 +474,21 @@ void Assembler::asignarRegistro(Terceto &t, string s){
             }
         }
     }
-    if(s=="DIV" && registros[0] == false && registros[3] == false){
+    if(s=="DIV" && registros[0] == false && registros[3] == false) {
         //si estan libres asigno al EDX el resto y al EAX el dividendo
         //MOV EAX OP2 (dividendo)
-        write("MOV EDX 0");
+        write("MOV EDX ,0");
         write("MOV EAX , " + t.getOp1());
-        write("MOV EDX , " + t.getOp2());
+        if (registros[1] == false) {
+            registros[1] = true;
+            t.setOp3("EBX");
+
+        } else {
+            if (registros[2] == false) {
+                registros[2] = true;
+                t.setOp3("ECX");
+            }
+        }
     }
     if(s=="ADD"){
         if(registros[1] == false) {
@@ -607,6 +672,9 @@ void Assembler::seguimiento_registros(Terceto &t){
             break;
         case str2int("*"):
             mulInt(t);
+            break;
+        case str2int("/"):
+            divInt(t);
             break;
         case str2int("<"):
             comp_int(t);
