@@ -34,11 +34,13 @@ class Assembler {
         bool isVariable(string op);
         bool isConstant(string op);
         bool isRegister(string op);
-        void addFloat(string op2, string op3);
         string getRegFree();
         void addInt(Terceto &t);
         void subInt(Terceto &t);
         void mulInt(Terceto &t);
+
+        void addFloat(Terceto &t);
+
         void asignacion(Terceto &t);
         static int cont_var_aux;
         int quitarCorchetes(string op);
@@ -52,7 +54,7 @@ class Assembler {
         void BF_int(Terceto  &t);
         void comp_int(Terceto  &t);
 
-
+        void asignacionFloat(Terceto &t);
         void BI_int(Terceto  t);
 
         int getNameString(const string & value);
@@ -61,7 +63,6 @@ class Assembler {
         void variables_auxiliares(Terceto &t);
         void imprimirLista();
         Terceto searchTerceto(int num);
-        void addFloat(Terceto &t);
         void generarCodigoAssembler(Symbol_table *tablita,Terceto & t);
         bool tercetoDeProc(int i,list<int> listita);
     private:

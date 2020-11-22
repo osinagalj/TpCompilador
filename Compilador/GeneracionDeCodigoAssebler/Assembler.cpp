@@ -189,7 +189,24 @@ void Assembler::asignacion(Terceto &t){
         liberarRegistro(t2);
     }
 
+}
 
+void Assembler::asignacionFloat(Terceto &t){
+
+    if (isVariable(t.getOp2()) || isConstant(t.getOp2())){
+        asignarRegistro(t,"ADD");
+        write("MOV " + t.getOp3() + "," + t.getOp2());
+        write("MOV " + t.getOp1() + "," + t.getOp3());
+        liberarRegistro(t);
+    }else{
+        cout<<"fue a buscar el terceto: " + t.getOp2()<<endl;
+        Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
+        cout<<"se trajo el terceto: " + t2.getOp() + t2.getOp1() + t2.getOp2() + t2.getOp3()<<endl;
+        asignarRegistro(t,"ADD");
+        write("MOV " + t.getOp3() + "," + t2.getOp3());
+        write("MOV " + t.getOp1() + "," + t.getOp3());
+        liberarRegistro(t);
+    }
 }
 
 
@@ -331,9 +348,10 @@ void Assembler::addFloat(Terceto &t) {
         write("MOV " + t.getOp3() + "," + t.getOp1());
         write("ADD " + t.getOp3() + "," + t.getOp2());
         write("MOV "+ new_aux +","+t.getOp3() ); //i es el contador de variables auxiliares
-        cont_var_aux++;
         liberarRegistro(t);
         t.setOp3(new_aux);
+        cont_var_aux++;
+
     } else {
         if (getCase(t.getOp1(), t.getOp2()) == 2) {
             cout<<"------------------CASE 2--------------"<<endl;
@@ -596,7 +614,10 @@ void Assembler::seguimiento_registros(Terceto &t){
         case str2int(">"):
             comp_int(t);
             break;
-
+        case str2int("="):
+            cout<<"ASIGNACION_"<<endl;
+            asignacion(t);
+            break;
         //MUL Y DIV FALTAN
     }
 }
@@ -610,7 +631,7 @@ void Assembler::variables_auxiliares(Terceto &t){
     switch (str2int(op))
     {
         case str2int("+"):
-
+            addFloat(t);
             break;
         case str2int("-"):
 
@@ -620,6 +641,9 @@ void Assembler::variables_auxiliares(Terceto &t){
             break;
         case str2int(">"):
 
+            break;
+        case str2int("="):
+            asignacionFloat(t);
             break;
         //MUL Y DIV FALTAN
     }
@@ -645,10 +669,6 @@ void Assembler::generarCodigoAssembler(Symbol_table *tablita, Terceto & t){
     switch (str2int(op))
     {
 
-        case str2int("="):
-            cout<<"ASIGNACION_"<<endl;
-            asignacion(t);
-            break;
         case str2int("OUT"):
             cout<<"OUT_"<<endl;
             invoke_out(t);
@@ -672,9 +692,10 @@ void Assembler::generarCodigoAssembler(Symbol_table *tablita, Terceto & t){
             if( tipo == "Longint"){ //Depende el tipo xd
                 seguimiento_registros(t);
             }
-            else{
-                //variables_auxiliares(t);
-                cout<<"FLOAT"<<endl;
+            else if( tipo == "Float"){
+                variables_auxiliares(t);
+            }else{
+                cout<<"los casos que faltan agregar"<<endl;
             }
 
     }
