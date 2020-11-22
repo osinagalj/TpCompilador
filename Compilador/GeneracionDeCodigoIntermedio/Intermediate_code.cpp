@@ -349,10 +349,10 @@ void Intermediate_code::apilar() {
     cout<<number<<endl;
     pila.push_front(number);
 }
-int Intermediate_code::desapilar() {
+int Intermediate_code::desapilar(){
     list<int>::iterator pos = pila.begin();
     int numerito= *pos;
-    cout<<numerito<<endl;
+    cout<<"numerito :" + to_string(numerito)<<endl;
     pila.pop_front();
     return numerito;
 }
@@ -363,66 +363,35 @@ void Intermediate_code::expresionMenosTermino(Symbol_table * tablita,string op, 
     if(!check_scope2(tablita,pesos3)) {
         cout<<"No existe la variable"<<endl;
     }
-    if(esVacioPilaProc()) {
-        if (!flagPre && flagPost) {
-            //completar tercerto de la pila
-            Terceto t = getTercetoIncompleto();
-            t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPost = false;
-            insertar_terceto(t);
-            //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
-        } else if (flagPre && !flagPost) {
-            //completar tercerto de la pila
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPre = false;
-            insertar_terceto(t);
-            //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
-        } else if (flagPre && flagPost) {
-            //completar tercerto de la pila
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPost = false;
-            insertar_terceto(t);
-            //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
-        } else if (!flagPre && !flagPost) {
-            //insertar el terceto con el number del anterior
-            insertar_terceto(op, "[" + to_string(number - 1) + "]", pesos3);
-        }
-    }else {
-        if (!flagPre && flagPost) {
-            //completar tercerto de la pila
-            Terceto t = getTercetoIncompleto();
-            t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPost = false;
-            insertar_terceto_a_proc(t);
-            //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
-        } else if (flagPre && !flagPost) {
-            //completar tercerto de la pila
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPre = false;
-            insertar_terceto_a_proc(t);
-            //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
-        } else if (flagPre && flagPost) {
-            //completar tercerto de la pila
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPost = false;
-            insertar_terceto_a_proc(t);
-            //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
-        } else if (!flagPre && !flagPost) {
-            //insertar el terceto con el number del anterior
-            insertar_terceto(op, "[" + to_string(number - 1) + "]", pesos3);
-        }
+
+    if (!flagPre && flagPost) {
+        //completar tercerto de la pila
+        Terceto t = getTercetoIncompleto();
+        t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        flagPost = false;
+        insertar_terceto(t);
+        //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
+    } else if (flagPre && !flagPost) {
+        //completar tercerto de la pila
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        flagPre = false;
+        insertar_terceto(t);
+        //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
+    } else if (flagPre && flagPost) {
+        //completar tercerto de la pila
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        flagPost = false;
+        insertar_terceto(t);
+        //Intermediate_code::completar_terceto(Intermediate_code::getNumber()-1,"-",$3.cadena);
+    } else if (!flagPre && !flagPost) {
+        //insertar el terceto con el number del anterior
+        insertar_terceto(op, "[" + to_string(number - 1) + "]", pesos3);
     }
 }
 
@@ -432,7 +401,6 @@ void Intermediate_code::terminoFactor(Symbol_table * tablita,char * pesos1_) {
     if(!check_scope2(tablita,pesos1)) {
         cout<<"No existe la variable"<<endl;
     }
-
 
     if (!flagPre && !flagPost) {
         flagPre = true;
@@ -455,55 +423,28 @@ void Intermediate_code::terminoDivididoFactor(Symbol_table * tablita,string op ,
     if(!check_scope2(tablita,pesos3)) {
        cout<<"No existe la variable"<<endl;
     }
-
-    if(esVacioPilaProc()) {
-        if (!flagPre && flagPost) {
-            //completar tercerto de la pila
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPost = false;
-            insertar_terceto(t);
-        } else if (flagPre && !flagPost) {
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPre = false;
-            insertar_terceto(t);
-        } else if (flagPre && flagPost) {
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPost = false;
-            insertar_terceto(t);
-        } else if (!flagPre && !flagPost) {
-            //insertar el terceto con el number del anterior
-            insertar_terceto(op, "[" + to_string(number - 1) + "]", pesos3);
-        }
-    }else {
-        if (!flagPre && flagPost) {
-            //completar tercerto de la pila
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPost = false;
-            insertar_terceto_a_proc(t);
-        } else if (flagPre && !flagPost) {
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPre = false;
-            insertar_terceto_a_proc(t);
-        } else if (flagPre && flagPost) {
-            Terceto t = getTercetoIncompleto();
-            t.setOp(op);
-            t.setOp2(pesos3);
-            flagPost = false;
-            insertar_terceto_a_proc(t);
-        } else if (!flagPre && !flagPost) {
-            //insertar el terceto con el number del anterior
-            insertar_terceto(op, "[" + to_string(number - 1) + "]", pesos3);
-        }
+    if (!flagPre && flagPost) {
+        //completar tercerto de la pila
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        flagPost = false;
+        insertar_terceto(t);
+    } else if (flagPre && !flagPost) {
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        flagPre = false;
+        insertar_terceto(t);
+    } else if (flagPre && flagPost) {
+        Terceto t = getTercetoIncompleto();
+        t.setOp(op);
+        t.setOp2(pesos3);
+        flagPost = false;
+        insertar_terceto(t);
+    } else if (!flagPre && !flagPost) {
+        //insertar el terceto con el number del anterior
+        insertar_terceto(op, "[" + to_string(number - 1) + "]", pesos3);
     }
 }
 
@@ -514,39 +455,23 @@ void Intermediate_code::generarAsignacionTercetos(Symbol_table * tablita,char* p
     if(!check_scope2(tablita,pesos1)) {
         cout<<"No existe la variable"<<endl;
     }
-    if(esVacioPilaProc()) {
-        if (Intermediate_code::flagPre && !Intermediate_code::flagPost) {
-            //modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)
-            //Intermediate_code::completar_operando1(Intermediate_code::getNumber()-1,"=");
-            Terceto t = getTercetoIncompleto();
-            flagPost = false;
-            t.setOp("=");
-            t.setOp2(t.getOp1());
-            t.setOp1(pesos1);
-            insertar_terceto(t);
-        } else if (!flagPre && !flagPost) {
-            //crear el terceto incompleto con el number de la expresion
-            //Intermediate_code::insertar_terceto("=","["+to_string(Intermediate_code::getNumber())+"]","");
-            Terceto t("=", pesos1, "[" + to_string(number - 1) + "]");
-            insertar_terceto(t);
-        }
-    }else{
-        if (Intermediate_code::flagPre && !Intermediate_code::flagPost) {
-            //modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)
-            //Intermediate_code::completar_operando1(Intermediate_code::getNumber()-1,"=");
-            Terceto t = getTercetoIncompleto();
-            flagPost = false;
-            t.setOp("=");
-            t.setOp2(t.getOp1());
-            t.setOp1(pesos1);
-            insertar_terceto_a_proc(t);
-        } else if (!flagPre && !flagPost) {
-            //crear el terceto incompleto con el number de la expresion
-            //Intermediate_code::insertar_terceto("=","["+to_string(Intermediate_code::getNumber())+"]","");
-            Terceto t("=", pesos1, "[" + to_string(number - 1) + "]");
-            insertar_terceto_a_proc(t);
-        }
+
+    if (Intermediate_code::flagPre && !Intermediate_code::flagPost) {
+        //modificar terceto incompleto ("=",factor,-) //agrego = al (-,factor,-)
+        //Intermediate_code::completar_operando1(Intermediate_code::getNumber()-1,"=");
+        Terceto t = getTercetoIncompleto();
+        flagPost = false;
+        t.setOp("=");
+        t.setOp2(t.getOp1());
+        t.setOp1(pesos1);
+        insertar_terceto(t);
+    } else if (!flagPre && !flagPost) {
+        //crear el terceto incompleto con el number de la expresion
+        //Intermediate_code::insertar_terceto("=","["+to_string(Intermediate_code::getNumber())+"]","");
+        Terceto t("=", pesos1, "[" + to_string(number - 1) + "]");
+        insertar_terceto(t);
     }
+
     flagPre=false;
     flagPost = false;
 }
@@ -577,71 +502,63 @@ void Intermediate_code::expresionComparadorExpresion(Symbol_table * tablita,char
     if(!check_scope2(tablita,pesos3)) {
         cout<<"No existe la variable"<<endl;
     }
-    if (esVacioPilaProc()) {
-        if (!flagPre && flagPost) {
-            Terceto t = getTercetoIncompleto(); //descarto
-            t = getTercetoIncompleto();
-            cout << t.getOp() << endl;
-            completar_operando3(t, pesos3);
-        } else if (flagPre && flagPost) {
-            //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
-            Terceto t = getTercetoIncompleto();
-            t = getTercetoIncompleto();
-            cout << t.getOp() << endl;
-            completar_operando3(t, pesos3);
-        } else if (flagPre && !flagPost) {
-            //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
-            Terceto t = getTercetoIncompleto(); //descarto
-            t = getTercetoIncompleto();
-            cout << t.getOp() << endl;
-            completar_operando3(t, "[" + to_string(number - 1) + "]");
-        } else {
-            Terceto t = getTercetoIncompleto();
-            cout << t.getOp() << endl;
-            completar_operando3(t, "[" + to_string(number - 1) + "]");
-        }
-        flagPre = false;
-        flagPost = false;
-        apilar();
-        insertar_terceto("BF","["+to_string(number-1)+"]","");
-    }else{
-        if (!flagPre && flagPost) {
-            Terceto t = getTercetoIncompleto(); //descarto
-            t = getTercetoIncompleto();
-            cout << t.getOp() << endl;
-            t.setOp2(pesos3);
-            insertar_terceto_a_proc(t);
-        } else if (flagPre && flagPost) {
-            //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
-            Terceto t = getTercetoIncompleto();
-            t = getTercetoIncompleto();
-            cout << t.getOp() << endl;
-            t.setOp2(pesos3);
-            insertar_terceto_a_proc(t);
-        } else if (flagPre && !flagPost) {
-            //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
-            Terceto t = getTercetoIncompleto(); //descarto
-            t = getTercetoIncompleto();
-            cout << t.getOp() << endl;
-            t.setOp2("[" + to_string(number - 1) + "]");
-            insertar_terceto_a_proc(t);
-        } else {
-            Terceto t = getTercetoIncompleto();
-            cout << t.getOp() << endl;
-            t.setOp2("[" + to_string(number - 1) + "]");
-            insertar_terceto_a_proc(t);
-        }
-        flagPre = false;
-        flagPost = false;
-        apilar();
-        Terceto t("BF","["+to_string(number-1)+"]","");
-        insertar_terceto_a_proc(t);
+    if (!flagPre && flagPost) {
+        Terceto t = getTercetoIncompleto(); //descarto
+        t = getTercetoIncompleto();
+        cout << t.getOp() << endl;
+        completar_operando3(t, pesos3);
+    } else if (flagPre && flagPost) {
+        //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
+        Terceto t = getTercetoIncompleto();
+        t = getTercetoIncompleto();
+        cout << t.getOp() << endl;
+        completar_operando3(t, pesos3);
+    } else if (flagPre && !flagPost) {
+        //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
+        Terceto t = getTercetoIncompleto(); //descarto
+        t = getTercetoIncompleto();
+        cout << t.getOp() << endl;
+        completar_operando3(t, "[" + to_string(number - 1) + "]");
+    } else {
+        Terceto t = getTercetoIncompleto();
+        cout << t.getOp() << endl;
+        completar_operando3(t, "[" + to_string(number - 1) + "]");
     }
+    flagPre = false;
+    flagPost = false;
+    apilar();
+    insertar_terceto("BF","["+to_string(number-1)+"]","");
 
 }
 
 
-
+void Intermediate_code::separarTercetos(){
+    map<int,Terceto>::iterator it=list_tercetos.begin();
+    while(it!=list_tercetos.end()){
+        if(it->second.getOp()=="inicio_PROC") {
+            //eliminar de la lista de tercetos
+            apilarProc(it->second.getOp1());
+            insertarProc();
+        }
+        else
+            if(!esVacioPilaProc()){
+                //cout<<"entro al if"<<endl;
+                while (it!=list_tercetos.end() && it->second.getOp() != "inicio_PROC" && it->second.getOp() != "fin_PROC") {
+                    insertar_terceto_a_proc(it->second);
+                    //imprimirListaProc();
+                    it++;
+                }
+                if (it->second.getOp() == "inicio_PROC") {
+                    //eliminar de la lista de tercetos
+                    apilarProc(it->second.getOp1());
+                    insertarProc();
+                }else{
+                    desapilarProc();
+                }
+            }
+        it++;
+    }
+}
 
 
 
@@ -695,13 +612,12 @@ void Intermediate_code::imprimirListaProc() {
     }
 }
 
-
 //**Lista de procedimientos con sus tercetos**//
 
-void Intermediate_code::apilarProc(char* c){
+void Intermediate_code::apilarProc(string c){
     //cout<<"-----------------------------------------APILAR PROC"<<endl;
     string s = c;
-    pila_procedimientos.push_back(s);
+    pila_procedimientos.push_front(s);
 }
 
 void Intermediate_code::desapilarProc(){
@@ -716,6 +632,7 @@ string Intermediate_code::getTopeProc(){
     string s;
     if(pos != pila_procedimientos.end()) {
         s = *pos;
+        //cout<<"GET TOPE " + s<<endl;
         return s;
     }
     return s;

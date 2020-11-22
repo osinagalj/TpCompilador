@@ -38,6 +38,7 @@ class Assembler {
         string getRegFree();
         void addInt(Terceto &t);
         void subInt(Terceto &t);
+        void mulInt(Terceto &t);
         void asignacion(Terceto &t);
         static int cont_var_aux;
         int quitarCorchetes(string op);

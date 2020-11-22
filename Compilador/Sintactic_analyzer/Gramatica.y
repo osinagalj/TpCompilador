@@ -73,9 +73,10 @@ parametros:
 
 procedimiento:
 	 nombre_proc NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
+	 	Intermediate_code::insertar_terceto("fin_PROC",$1.cadena,"");
 	    	Intermediate_code::eliminarUltimoAmbito();
 		Intermediate_code::check_NA($4.cadena);
-		Intermediate_code::desapilarProc();
+		//Intermediate_code::desapilarProc();
 	 }
 	|PROC '(' lista_de_parametros ')' NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
 		Logger::write("Error: FALTA ID");
@@ -109,8 +110,9 @@ nombre_proc: encabezado '(' lista_de_parametros ')' {
 ;
 encabezado:
 	PROC ID{
-		Intermediate_code::apilarProc($2.cadena);
-        	Intermediate_code::insertarProc();
+		Intermediate_code::insertar_terceto("inicio_PROC",$2.cadena,"");
+		//Intermediate_code::apilarProc($2.cadena);
+        	//Intermediate_code::insertarProc();
 		$$.cadena=$2.cadena;
 		string s = "nombre_proc";
 		Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);

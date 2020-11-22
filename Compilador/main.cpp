@@ -81,6 +81,8 @@ int main(int argc,char** argv)
     tabla.printTable();
     cout<<"\n -------------------------Tercetos ----------------------\n";
     Intermediate_code::imprimirTercetos();
+    Intermediate_code::separarTercetos();
+    cout<<"\n -------------------------Lista Proc ----------------------\n";
     Intermediate_code::imprimirListaProc();
     createIndexFile();
 
