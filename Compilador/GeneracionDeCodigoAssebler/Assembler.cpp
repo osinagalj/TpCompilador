@@ -616,7 +616,7 @@ void Assembler::imprimirLista(){
 }
 
 
-void Assembler::generarCodigoAssembler(Terceto & t){
+void Assembler::generarCodigoAssembler(Symbol_table *tablita, Terceto & t){
     string str = t.getOp();
     char * op = new char[str.length() + 1];
     strcpy(op, str.c_str());
@@ -650,12 +650,13 @@ void Assembler::generarCodigoAssembler(Terceto & t){
             break;
 
         default:
-            if( 5 > 4){ //Depende el tipo xd
+            string tipo = tablita->getRegistry(t.getOp1()).Tipo;
+            if( tipo == "Longint"){ //Depende el tipo xd
                 seguimiento_registros(t);
-
             }
             else{
-                variables_auxiliares(t);
+                //variables_auxiliares(t);
+                cout<<"FLOAT"<<endl;
             }
 
     }
@@ -672,7 +673,7 @@ bool Assembler::tercetoDeProc(int i,list<int> listita){
     return false;
 }
 
-void Assembler::generarAssembler(list<int> listita){
+void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
     Intermediate_code::copiarLista(lista_tercetos);
     cout<<"------------------ASSEMBLER--------------"<<endl;
     write(".code");
@@ -680,7 +681,7 @@ void Assembler::generarAssembler(list<int> listita){
 
     for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
         if(tercetoDeProc(it->first,listita)){
-            generarCodigoAssembler(it->second);
+            generarCodigoAssembler(tablita,it->second);
         }
     }
     space ="";
@@ -688,7 +689,7 @@ void Assembler::generarAssembler(list<int> listita){
     space = space + "    ";
     for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
         if(!tercetoDeProc(it->first,listita)){
-            generarCodigoAssembler(it->second);
+            generarCodigoAssembler(tablita,it->second);
         }
     }
     space ="";

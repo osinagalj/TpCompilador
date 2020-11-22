@@ -42,7 +42,7 @@ class Assembler {
         void asignacion(Terceto &t);
         static int cont_var_aux;
         int quitarCorchetes(string op);
-        void generarAssembler(list<int> listita);
+        void generarAssembler(Symbol_table *tablita,list<int> listita);
 
         //**CHARLY**//
         void asignarRegistro(Terceto &t,string s);
@@ -62,7 +62,7 @@ class Assembler {
         void imprimirLista();
         Terceto searchTerceto(int num);
 
-        void generarCodigoAssembler(Terceto & t);
+        void generarCodigoAssembler(Symbol_table *tablita,Terceto & t);
         bool tercetoDeProc(int i,list<int> listita);
     private:
         ofstream  fileStream;

@@ -99,7 +99,7 @@ int main(int argc,char** argv)
         cout<<"------------------Se generara el codigo assembler--------------------"<<endl;
         Assembler ass(pathOutAssembler);
         ass.declareSTVariables(&tabla);
-        ass.generarAssembler(listita);
+        ass.generarAssembler(&tabla,listita);
         ass.close();
 
     }
