@@ -33,42 +33,29 @@ includelib \masm32\lib\user32.lib
         MOV d@main,EBX
         MOV EBX,a@main
         CMP EBX,14
-        JLE Label17
+        JLE Label15
         invoke MessageBox, NULL, addr str1, addr str1, MB_OK
-        JMP Label19
-        Label17:
+        JMP Label17
+        Label15:
         invoke MessageBox, NULL, addr str4, addr str4, MB_OK
-        Label19:
+        Label17:
     bb:
         invoke MessageBox, NULL, addr str2, addr str2, MB_OK
     cc:
         invoke MessageBox, NULL, addr str3, addr str3, MB_OK
 START:
-
-
-    MOV EDX ,0
-    MOV EAX , 6
-    MOV ECX,3
-    DIV ECX
-    MOV a@main,ECX
-
-
     MOV ECX,5.000000
     MOV z@main,ECX
-
-    MOV ECX,z@main
-    ADD ECX,3.000000
-    MOV @aux1,ECX
-
+    FLD z@main
+    FLD 3.000000
+    FADD 
+    FSTP @aux1
     MOV ECX,@aux1
     MOV x@main,ECX
-
-    MOV ECX,x@main
-    SUB ECX,z@main
-    MOV @aux2,ECX
-
-    MOV ECX,@aux
+    FLD x@main
+    FLD z@main
+    FSUB 
+    FSTP @aux2
+    MOV ECX,@aux2
     MOV y@main,ECX
-
-
 END START

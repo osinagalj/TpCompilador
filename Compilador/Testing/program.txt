@@ -5,7 +5,7 @@
 
     LONGINT w , a, b, c, d;
     FLOAT z , x , y;
-    a = 6_l / 3_l;
+
     z = 5.;
     x = z + 3.;
     y = x - z;
