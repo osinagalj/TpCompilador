@@ -6,9 +6,9 @@
 6:          LONGINT w , a, b, c, d;
 7:          FLOAT z , x , y;
 8:      
-9:          z = 5.;
-10:          x = z + 3.;
-11:          y = x - z;
+9:          z = 5. ;
+10:          x = 6. + 3.;
+11:      
 12:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
 13:          {
 14:              c = 6_l + 3_l;

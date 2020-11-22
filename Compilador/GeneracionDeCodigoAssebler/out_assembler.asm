@@ -26,6 +26,7 @@ includelib \masm32\lib\user32.lib
     z@main DD ? 
     @aux1 DD ? 
     @aux2 DD ? 
+    @aux3 DD 5.0
 .CODE
     aa:
         MOV EBX,6
@@ -47,18 +48,18 @@ includelib \masm32\lib\user32.lib
     cc:
         invoke MessageBox, NULL, addr str3, addr str3, MB_OK
 START:
-    MOV ECX,5.000000
-    MOV z@main,ECX
+    FLD @aux3
+        FSTP z@main
     FLD z@main
     FLD 3.000000
     FADD 
     FSTP @aux1
-    MOV ECX,@aux1
-    MOV x@main,ECX
+    FLD @aux1
+    FSTP x@main
     FLD x@main
     FLD z@main
     FSUB 
     FSTP @aux2
-    MOV ECX,@aux2
-    MOV y@main,ECX
+    FLD @aux2
+    FSTP y@main
 END START
