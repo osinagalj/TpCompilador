@@ -47,6 +47,7 @@ map<string,list<Terceto>> Intermediate_code::procedimientos;
 
 list<int> Intermediate_code::listProcedimientosAnidados;
 
+
 int Assembler::cont_var_aux=1;
 
 bool compilation_failure = false;
@@ -79,11 +80,13 @@ int main(int argc,char** argv)
     Logger::close();
     tabla.clearTable();
     tabla.printTable();
-    cout<<"\n -------------------------Tercetos ----------------------\n";
-    Intermediate_code::imprimirTercetos();
-    Intermediate_code::separarTercetos();
+
+    list<int> listita = Intermediate_code::separarTercetos();
     cout<<"\n -------------------------Lista Proc ----------------------\n";
     Intermediate_code::imprimirListaProc();
+    cout<<"\n -------------------------Tercetos MAIN ----------------------\n";
+    Intermediate_code::imprimirTercetos();
+
     createIndexFile();
 
     createOutError();
@@ -96,7 +99,7 @@ int main(int argc,char** argv)
         cout<<"------------------Se generara el codigo assembler--------------------"<<endl;
         Assembler ass(pathOutAssembler);
         ass.declareSTVariables(&tabla);
-        ass.generarAssembler();
+        ass.generarAssembler(listita);
         ass.close();
 
     }

@@ -532,11 +532,16 @@ void Intermediate_code::expresionComparadorExpresion(Symbol_table * tablita,char
 }
 
 
-void Intermediate_code::separarTercetos(){
+list<int> Intermediate_code::separarTercetos(){
     map<int,Terceto>::iterator it=list_tercetos.begin();
+    list<int> list_tercetos_ignore;
+    cout<<"Imrpimo los T"<<endl;
+    imprimirTercetos();
+    int i = 1;
     while(it!=list_tercetos.end()){
         if(it->second.getOp()=="inicio_PROC") {
             //eliminar de la lista de tercetos
+            list_tercetos_ignore.push_back(i);
             apilarProc(it->second.getOp1());
             insertarProc();
         }
@@ -546,18 +551,39 @@ void Intermediate_code::separarTercetos(){
                 while (it!=list_tercetos.end() && it->second.getOp() != "inicio_PROC" && it->second.getOp() != "fin_PROC") {
                     insertar_terceto_a_proc(it->second);
                     //imprimirListaProc();
+                    list_tercetos_ignore.push_back(i);
+                    i++;
+
                     it++;
                 }
                 if (it->second.getOp() == "inicio_PROC") {
+                    list_tercetos_ignore.push_back(i);
+
+
                     //eliminar de la lista de tercetos
                     apilarProc(it->second.getOp1());
                     insertarProc();
                 }else{
                     desapilarProc();
+                    list_tercetos_ignore.push_back(i);
                 }
             }
+            i++;
+
         it++;
     }
+
+    cout<<"TERCETOS A ELIMINAR"<<endl;
+    for(int i : list_tercetos_ignore){
+        cout<<"i= "<<to_string(i)<<endl;
+/*
+        map<int,Terceto>::iterator it=list_tercetos.begin();
+        while(it!=list_tercetos.end()){
+            if(it->)
+        }
+        */
+    }
+    return list_tercetos_ignore;
 }
 
 
