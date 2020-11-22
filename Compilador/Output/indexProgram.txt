@@ -5,7 +5,7 @@
 5:      
 6:          LONGINT w , x, a, b, c, d;
 7:      
-8:           a = 5_l * 3_l;
+8:          a = 5_l * 3_l;
 9:      
 10:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
 11:          {
@@ -28,10 +28,10 @@
 28:          b = 2_l + 3_l;
 29:      
 30:      
-31:                  PROC cc (FLOAT p1) NA = 3_l , SHADOWING = FALSE
-32:                      {
-33:                          OUT("MULTIPLICA BIEN PERRITO SUCIO3");
-34:                  };
+31:          PROC cc (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+32:          {
+33:              OUT("MULTIPLICA BIEN PERRITO SUCIO3");
+34:          };
 35:      
 36:      $
 37:      
