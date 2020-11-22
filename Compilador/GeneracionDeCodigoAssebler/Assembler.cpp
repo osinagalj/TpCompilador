@@ -59,7 +59,10 @@ void Assembler::declareAux(const string &varName){
     vars.push_back(varName);
     data.push_back("    " + varName + " DD ? ");
 }
-
+void Assembler::declareAux(const string &varName,const string & f){
+    vars.push_back(varName);
+    data.push_back("    " + varName + " DD " +f);
+}
 
 
 void Assembler::declareSTVariables(Symbol_table * st){
@@ -197,18 +200,30 @@ void Assembler::asignacion(Terceto &t){
 void Assembler::asignacionFloat(Terceto &t){
 
     if (isVariable(t.getOp2()) || isConstant(t.getOp2())){
-        asignarRegistro(t,"ADD");
-        write("MOV " + t.getOp3() + "," + t.getOp2());
-        write("MOV " + t.getOp1() + "," + t.getOp3());
-        liberarRegistro(t);
+        if(isConstant(t.getOp2())){
+            string new_aux="@aux"+to_string(cont_var_aux);
+            cont_var_aux++;
+            declareAux(new_aux,t.getOp2());
+            write("FLD " + new_aux);
+        }else{
+            write("FLD " + t.getOp2());
+        }
+        //asignarRegistro(t,"ADD");
+        //write("MOV " + t.getOp3() + "," + t.getOp2());
+        //write("MOV " + t.getOp1() + "," + t.getOp3());
+
+        write("FSTP " + t.getOp1());
+        //liberarRegistro(t);
     }else{
         cout<<"fue a buscar el terceto: " + t.getOp2()<<endl;
         Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
         cout<<"se trajo el terceto: " + t2.getOp() + t2.getOp1() + t2.getOp2() + t2.getOp3()<<endl;
-        asignarRegistro(t,"ADD");
-        write("MOV " + t.getOp3() + "," + t2.getOp3());
-        write("MOV " + t.getOp1() + "," + t.getOp3());
-        liberarRegistro(t);
+        //asignarRegistro(t,"ADD");
+        //write("MOV " + t.getOp3() + "," + t2.getOp3());
+        //write("MOV " + t.getOp1() + "," + t.getOp3());
+        //liberarRegistro(t);
+        write("FLD " + t2.getOp3());
+        write("FSTP " + t.getOp1());
     }
 }
 
@@ -403,15 +418,44 @@ void Assembler::addFloat(Terceto &t) {
     if (getCase(t.getOp1(), t.getOp2()) == 1) {
         cout<<"------------------CASE 1--------------"<<endl;
         string new_aux="@aux"+to_string(cont_var_aux);
-        declareAux(new_aux);
+
+        if(isConstant(t.getOp1()) && isVariable(t.getOp2())){
+            declareAux(new_aux,t.getOp1());
+            write("FLD " + new_aux);
+            write("FLD " + t.getOp2());
+            cont_var_aux++;
+        }
+        if(isConstant(t.getOp2()) && isVariable(t.getOp1()) ){
+                declareAux(new_aux,t.getOp2());
+                write("FLD " + new_aux);
+                write("FLD " + t.getOp1());
+            cont_var_aux++;
+        }
+        if((isConstant(t.getOp2()) && isConstant(t.getOp1()))){
+
+                declareAux(new_aux,t.getOp1());
+            cont_var_aux++;
+            string new_aux2="@aux"+to_string(cont_var_aux);
+            cont_var_aux++;
+                declareAux(new_aux2,t.getOp2());
+                write("FLD " + new_aux);
+                write("FLD " + new_aux2);
+        }
+        if((isVariable(t.getOp2()) && isVariable(t.getOp1()))){
+            write("FLD " + t.getOp1());
+            write("FLD " + t.getOp2());
+        }
+
+
         //asignarRegistro(t,"ADD");
         //write("MOV " + t.getOp3() + "," + t.getOp1());
-        write("FLD " + t.getOp1());
-        write("FLD " + t.getOp2());
+
+        string new_aux3="@aux"+to_string(cont_var_aux);
+        declareAux(new_aux3);
         write("FADD ");
-        write("FSTP "+ new_aux); //i es el contador de variables auxiliares
+        write("FSTP "+ new_aux3); //i es el contador de variables auxiliares
         //liberarRegistro(t);
-        t.setOp3(new_aux);
+        t.setOp3(new_aux3);
         cont_var_aux++;
 
     } else {
