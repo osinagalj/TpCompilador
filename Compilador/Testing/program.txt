@@ -3,12 +3,13 @@
 
                            /% ------------- Program without errors.  ------------------- %/
 
-    LONGINT w , x, a, b, c;
+    LONGINT w , x, a, b, c, d;
 
+     a = 5_l * 3_l;
 
     PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
     {
-        a = 5_l * 3_l;
+
 
         IF(a > 14_l){
             OUT("MULTIPLICA BIEN PERRITO SUCIO");
@@ -16,8 +17,21 @@
          OUT("NO MULTIPLICA BIEN PERRITO SUCIO");
         }
         END_IF;
+        c = 6_l + 3_l;
+        d = 6_l + 3_l;
+        PROC bb (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+            {
+                OUT("MULTIPLICA BIEN PERRITO SUCIO2");
+        };
     };
 
+    b = 2_l + 3_l;
+
+
+            PROC cc (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+                {
+                    OUT("MULTIPLICA BIEN PERRITO SUCIO3");
+            };
 
 $
 

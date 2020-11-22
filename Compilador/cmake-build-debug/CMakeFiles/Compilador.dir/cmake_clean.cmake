@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compiler_G-2.exe"
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compiler_G-2.exe.manifest"
-  "C:/Users/nicol/Documents/GitHub/TpCompilador/Compiler_G-2.pdb"
+  "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe"
+  "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.exe.manifest"
+  "C:/Users/Lautaro/Documents/GitHub/TpCompilador/Compiler_G-2.pdb"
   "CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj"
   "CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj"
   "CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Terceto.cpp.obj"

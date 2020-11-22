@@ -95,11 +95,13 @@ class Intermediate_code {
         static void completar_operando3(int numeroTerceto,string operando3);
         static Terceto removeTercetoResta(int pos);
 
-        static void separarTercetos();
+        static list<int> separarTercetos();
         static map<string,list<Terceto>> procedimientos;
         /*Buscar*/
         //static Terceto searchTerceto(int num);
         static void copiarLista(map<int,Terceto> &lista_tercetos);
+
+        list<int> list_tercetos_ignore;
 private:
         //list procedimientos anidados para NA
         static list<int> listProcedimientosAnidados;
