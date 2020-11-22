@@ -664,7 +664,7 @@ void Assembler::generarCodigoAssembler(Terceto & t){
 bool Assembler::tercetoDeProc(int i,list<int> listita){
    // cout<<"TERCETOPRO= "<< endl;
     for(list<int>::iterator it = listita.begin(); it != listita.end(); it++){
-        //cout<<"*it= "<<*it<< "  i="<<i<< endl;
+        cout<<"*it= "<<*it<< "  i="<<i<< endl;
         if(*it == i){
             return true;
         }
@@ -679,7 +679,7 @@ void Assembler::generarAssembler(list<int> listita){
     cout<<"TAMAÑO DE IGNORE "<<to_string(listita.size())<<endl;
 
     cout<<"sacatukaka"<<endl;
-    int i = 1;
+
     for (map<string,list<Terceto>>::iterator it=Intermediate_code::procedimientos.begin(); it!=Intermediate_code::procedimientos.end(); ++it){
 
         space = space + "    ";
@@ -687,7 +687,6 @@ void Assembler::generarAssembler(list<int> listita){
         space = space + "    ";
         for(Terceto t : it->second){
             generarCodigoAssembler(t);
-            i++;
         }
         space = "";
     }
@@ -695,10 +694,11 @@ void Assembler::generarAssembler(list<int> listita){
     write("START:");
     space = space + "    ";
     for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
-        if(!tercetoDeProc(i,listita)){
+        if(!tercetoDeProc(it->first,listita)){
             generarCodigoAssembler(it->second);
         }
-        i++;
+
+
 
     }
     space ="";
