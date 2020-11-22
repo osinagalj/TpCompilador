@@ -9,16 +9,16 @@
 9:      
 10:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
 11:          {
-12:      
-13:      
-14:              IF(a > 14_l){
-15:                  OUT("MULTIPLICA BIEN PERRITO SUCIO");
-16:              }ELSE{
-17:               OUT("NO MULTIPLICA BIEN PERRITO SUCIO");
-18:              }
-19:              END_IF;
-20:              c = 6_l + 3_l;
-21:              d = 6_l + 3_l;
+12:              c = 6_l + 3_l;
+13:              d = 6_l + 3_l;
+14:      
+15:              IF(a > 14_l){
+16:                  OUT("MULTIPLICA BIEN PERRITO SUCIO");
+17:              }ELSE{
+18:               OUT("NO MULTIPLICA BIEN PERRITO SUCIO");
+19:              }
+20:              END_IF;
+21:      
 22:              PROC bb (FLOAT p1) NA = 3_l , SHADOWING = FALSE
 23:                  {
 24:                      OUT("MULTIPLICA BIEN PERRITO SUCIO2");

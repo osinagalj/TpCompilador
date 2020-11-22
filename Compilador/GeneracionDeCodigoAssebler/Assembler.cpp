@@ -180,6 +180,7 @@ void Assembler::asignacion(Terceto &t){
         asignarRegistro(t,"ADD");
         write("MOV " + t.getOp3() + "," + t.getOp1());
         write("MOV " + t.getOp3() + "," + t.getOp2());
+        liberarRegistro(t);
     }else{
         cout<<"fue a buscar el terceto: " + t.getOp2()<<endl;
         Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
@@ -194,30 +195,36 @@ void Assembler::asignacion(Terceto &t){
 
 void Assembler::addInt(Terceto &t) {
     cout<<"------------------ADD INT--------------"<<endl;
-    if (getCase(t.getOp1(), t.getOp2()) == 1) { //const y variable
+    if (getCase(t.getOp1(), t.getOp2()) == 1) {
         cout<<"------------------CASE 1--------------"<<endl;
         //set free reg in the Terceto
         asignarRegistro(t,"ADD");
         write("MOV " + t.getOp3() + "," + t.getOp1());
         write("ADD " + t.getOp3() + "," + t.getOp2());
     } else {
-        if (getCase(t.getOp1(), t.getOp2()) == 2){ //registro y variable
+        if (getCase(t.getOp1(), t.getOp2()) == 2){
             cout<<"------------------CASE 2--------------"<<endl;
             //search & get reg Terceto in list_tercetos
             Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
             write("ADD " + t2.getOp3() + "," + t.getOp2());
         } else {
-            if (getCase(t.getOp1(), t.getOp2()) == 3) { //variable y registro
+            if (getCase(t.getOp1(), t.getOp2()) == 3) {
                 cout<<"------------------CASE 3--------------"<<endl;
                 //search & get reg Terceto in list_tercetos
-                t.setOp3(t.getOp2());
-                write("ADD " + t.getOp3() + "," + t.getOp1());
-            } else { //registro y registro
+                Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
+                //get reg in the Terceto
+                asignarRegistro(t,"ADD");
+                write("MOV " + t.getOp3() + "," + t.getOp1());
+                //get reg in the Terceto
+                write("ADD " + t.getOp3() + "," + t2.getOp3());
+                //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
+                liberarRegistro(t2);
+            } else {
                 cout<<"------------------CASE 4--------------"<<endl;
                 //search & get Terceto in list_tercetos
+                Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
-                t.setOp3(t.getOp1());
-                write("ADD " + t.getOp3() + "," + t.getOp2());
+                write("ADD " + t1.getOp3() + "," + t2.getOp3());
                 //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
                 liberarRegistro(t2);
             }
@@ -264,6 +271,7 @@ void Assembler::subInt(Terceto &t) {
         }
     }
 }
+
 void Assembler:: mulInt(Terceto &t){
     cout<<"------------------MUL INT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) { //const y variable
@@ -277,8 +285,10 @@ void Assembler:: mulInt(Terceto &t){
     } else {
         if (getCase(t.getOp1(), t.getOp2()) == 2){ //registro y variable
             cout<<"------------------CASE 2--------------"<<endl;
+            Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
+
             if(registros[0]==false && registros[3]==false) {
-                t.setOp3(t.getOp1());
+                t.setOp3(t1.getOp3());
                 write("MOV EAX , " + t.getOp2());
                 write("MUL " + t.getOp3());
                 write("MOV " + t.getOp3() + "," + "EAX");
@@ -286,8 +296,9 @@ void Assembler:: mulInt(Terceto &t){
         } else {
             if (getCase(t.getOp1(), t.getOp2()) == 3) { //variable y registro
                 cout<<"------------------CASE 3--------------"<<endl;
+                Terceto t1 = searchTerceto(quitarCorchetes(t.getOp2()));
                 if(registros[0]==false && registros[3]==false) {
-                    t.setOp3(t.getOp2());
+                    t.setOp3(t1.getOp3());
                     write("MOV EAX , " + t.getOp1());
                     write("MUL " + t.getOp3());
                     write("MOV " + t.getOp3() + "," + "EAX");
@@ -296,13 +307,14 @@ void Assembler:: mulInt(Terceto &t){
                 cout<<"------------------CASE 4--------------"<<endl;
                 //search & get Terceto in list_tercetos
                 Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
+                Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
 
                 if(registros[0]==false && registros[3]==false) {
-                    write("MOV EAX , " + t.getOp1());
-                    liberarRegistro(t1);
-                    write("MUL " + t.getOp2());
-                    t.setOp3(t.getOp2());
-                    write("MOV " + t.getOp3() + "," + "EAX");
+                    write("MOV EAX , " + t2.getOp3());
+                    liberarRegistro(t2);
+                    write("MUL " + t1.getOp3());
+                    write("MOV " + t1.getOp3() + "," + "EAX");
+                    t.setOp3(t1.getOp3());
                 }
 
             }
@@ -312,39 +324,33 @@ void Assembler:: mulInt(Terceto &t){
 /*
 void Assembler::addFloat(string op2,string op3) {
     if (getCase(op2, op3) == 1) {
-        //string regF = getRegFree();
-        write("MOV " + regF + "," + op2);
-        write("ADD " + regF + "," + op3);
-        write("MOV @aux"+to_string(cont_var_aux)+","+regF ); //i es el contador de variables auxiliares
+        asignarRegistro(t,"ADD");
+        write("MOV " + t.getOp3() + "," + op2);
+        write("ADD " + t.getOp3() + "," + op3);
+        write("MOV @aux"+to_string(cont_var_aux)+","+t.getOp3() ); //i es el contador de variables auxiliares
         cont_var_aux++;
-        //add var to Terceto
     } else {
         if (getCase(op2, op3) == 2) {
             //search result in TS
-            //get reg in the Terceto
-            write("ADD reg , " + op3);
-            write("MOV @aux"+to_string(cont_var_aux)+","+"reg"); //i es el contador de variables auxiliares
+            Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
+            write("ADD t2.getOp3() , " + t.getOp2());
+            write("MOV @aux"+to_string(cont_var_aux)+","+t2.getOp3()); //i es el contador de variables auxiliares
             cont_var_aux++;
         } else {
             if (getCase(op2, op3) == 3) {
-                string regF = getRegFree();
-                write("MOV " + regF + "," + op2);
-                //search result in TS
-                //get reg in the Terceto
-                write("ADD " + regF + "," + "reg");
-                write("MOV @aux"+to_string(cont_var_aux)+","+regF); //i es el contador de variables auxiliares
+                Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
+                write("ADD " + t2.getOp3() + "," + t.getOp1());
+                write("MOV @aux"+to_string(cont_var_aux)+","+t.getOp3()); //i es el contador de variables auxiliares
                 cont_var_aux++;
-                //free reg
 
             } else {
                 //search result in TS
-                //get reg in the Terceto
+                 Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                 //search result2 in TS
-                //get reg2 in the Terceto
-                write("ADD reg , reg2");
-                write("MOV @aux"+to_string(cont_var_aux)+","+"reg"); //i es el contador de variables auxiliares
+                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
+                write("ADD t1.getOp3(), t2.getOp3()");
+                write("MOV @aux"+to_string(cont_var_aux)+","+t1.getOp3()); //i es el contador de variables auxiliares
                 cont_var_aux++;
-                //free reg2
             }
         }
     }
@@ -658,7 +664,7 @@ void Assembler::generarCodigoAssembler(Terceto & t){
 bool Assembler::tercetoDeProc(int i,list<int> listita){
    // cout<<"TERCETOPRO= "<< endl;
     for(list<int>::iterator it = listita.begin(); it != listita.end(); it++){
-        cout<<"*it= "<<*it<< "  i="<<i<< endl;
+        //cout<<"*it= "<<*it<< "  i="<<i<< endl;
         if(*it == i){
             return true;
         }
@@ -672,17 +678,10 @@ void Assembler::generarAssembler(list<int> listita){
     write(".code");
     cout<<"TAMAÑO DE IGNORE "<<to_string(listita.size())<<endl;
 
-    cout<<"sacatukaka"<<endl;
-
-    for (map<string,list<Terceto>>::iterator it=Intermediate_code::procedimientos.begin(); it!=Intermediate_code::procedimientos.end(); ++it){
-
-        space = space + "    ";
-        write(it->first+":");
-        space = space + "    ";
-        for(Terceto t : it->second){
-            generarCodigoAssembler(t);
+    for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
+        if(tercetoDeProc(it->first,listita)){
+            generarCodigoAssembler(it->second);
         }
-        space = "";
     }
     space ="";
     write("START:");
@@ -691,9 +690,6 @@ void Assembler::generarAssembler(list<int> listita){
         if(!tercetoDeProc(it->first,listita)){
             generarCodigoAssembler(it->second);
         }
-
-
-
     }
     space ="";
     write("END START");
