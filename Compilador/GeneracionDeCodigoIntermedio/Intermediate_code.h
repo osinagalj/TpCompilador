@@ -87,7 +87,7 @@ class Intermediate_code {
         static void imprimirListaProc();
         static void imprimirTercetosLista(list<Terceto> lista);
         static int getNumber();
-
+        static void cut_recursion(string & key);
         /*Borrar*/
         static bool listaVacia();
         static void completar_terceto(int numeroTerceto, string operando1,string operando3);

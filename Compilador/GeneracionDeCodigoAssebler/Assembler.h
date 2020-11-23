@@ -20,6 +20,7 @@ class Assembler {
         Assembler();
         Assembler(string path);
         void declareLongint(const string & varName);
+        void declareLongint(const string & varName,const string & value);
         void declareFloat(const string & varName);
         void declareString(const string & varName,const string & value);
 
@@ -73,6 +74,7 @@ class Assembler {
         void insertar_ENDP();
         string obtenerRegistro();
         bool existeDivision0 = false;
+        static bool existeRecursion;
         string nombreauxproc = "";
     private:
         ofstream  fileStream;

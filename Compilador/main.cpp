@@ -15,7 +15,7 @@ void createOutError();
 /*-----------------------------------------------------------------------------------------------*/
 string Intermediate_code::scope= "@";
 
-string path = "Compilador\\Testing\\program.txt";
+string path = "Compilador\\Testing\\bug_recursion";
 //string path = "Compilador\\Testing\\bug_shadowing";
 //string path = "Compilador\\Testing\\bug_scope";
 string pathOut = "Compilador\\Output\\out.txt";
@@ -36,6 +36,7 @@ string Intermediate_code::ambito_actual = "main";
 int Intermediate_code::ambitoAnonimo = 1;
 
 bool Intermediate_code::shadowing = false;
+bool Assembler::existeRecursion = false;
 
 bool Intermediate_code::flagPre=false;
 bool Intermediate_code::flagPost=false;

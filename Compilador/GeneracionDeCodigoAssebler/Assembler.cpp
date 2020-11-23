@@ -14,8 +14,7 @@ Assembler::Assembler(string path ){
 
 void Assembler::writeAssembler(){
 
-    string error="\"Error: Se realizo 2 una division por 0\"";
-    declareString(error,error);
+
 
     fileStream << ".386" << endl;
     fileStream << ".model flat, stdcall" << endl;
@@ -26,6 +25,19 @@ void Assembler::writeAssembler(){
     fileStream << "include \\masm32\\include\\user32.inc" << endl;
     fileStream << "includelib \\masm32\\lib\\kernel32.lib" << endl;
     fileStream << "includelib \\masm32\\lib\\user32.lib" << endl << endl;
+
+    cout<<"tamano del vars_strings = " <<to_string(var_strings.size())<<endl;
+    for(string s : var_strings){
+        cout<<s<<endl;
+    }
+    string error="\"Error: Se ha realizado una divison por 0\"";
+    string error2="\"Error: No esta permitida la recursion en un procedimiento\"";
+    if(existeDivision0){
+        declareString(error,error);
+    }
+    if(existeRecursion){
+        declareString(error2,error2);
+    }
 
     fileStream <<".DATA"<<endl;
     for(string s: data){
@@ -42,14 +54,19 @@ void Assembler::writeAssembler(){
         fileStream <<"    "+ nombreauxproc + "ENDP "<<endl;
     }
 
-
-
+    cout<<"tamano del vars_strings22222222222 = " <<to_string(var_strings.size())<<endl;
+    for(string s : var_strings){
+        cout<<s<<endl;
+    }
     if(existeDivision0){
         fileStream<<"      Error :"<<endl;
         fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error)) + ", addr str"+ to_string(getNameString(error)) + ", MB_OK" <<endl;
         fileStream<<"        invoke ExitProcess, 0 "<<endl;
-
-
+    }
+    if(existeRecursion){
+        fileStream<<"      Error :"<<endl;
+        fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error2)) + ", addr str"+ to_string(getNameString(error2)) + ", MB_OK" <<endl;
+        fileStream<<"        invoke ExitProcess, 0 "<<endl;
     }
 
 
@@ -64,6 +81,10 @@ void Assembler::writeAssembler(){
 void Assembler::declareLongint(const string & varName){
     vars.push_back(varName);
     data.push_back("    "+varName + " DD ?");
+}
+void Assembler::declareLongint(const string & varName,const string & value){
+    vars.push_back(varName);
+    data.push_back("    "+varName + " DD "+ value);
 }
 
 void Assembler::declareFloat(const string &varName){
@@ -1091,11 +1112,18 @@ void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
                 fin_proc = false;
                 space = "    ";
                 code.push_back(space + it->second.getOp1()+ " PROC");
+                declareLongint("_"+it->second.getOp1(), "0");
+                space = "        ";
+                write("CMP _" +it->second.getOp1()+", 1");
+
+                write("JE Error");
+                write("MOV _"+it->second.getOp1()+", 1");
             }
 
 
 
             generarCodigoAssembler(tablita,it->second);
+
         }
     }
     in_procedure = false;
