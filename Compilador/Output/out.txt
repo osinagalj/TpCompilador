@@ -13,7 +13,6 @@ linea:18  Asignacion
 linea:19  Asignacion
 linea:22  Asignacion
 linea:24  Detecto sentencia OUT
-linea:24  Error: Redeclaracion de procedimiento
 linea:27  Declaracion de variables
 linea:28  Asignacion
 linea:31  Detecto sentencia OUT
@@ -22,12 +21,10 @@ linea:34  Detecto sentencia OUT
 linea:35  Sentencia IF
 linea:36  sentencia if
 linea:37  Asignacion
-linea:37  Error: Redeclaracion de procedimiento
 linea:40  Declaracion de variables
 linea:41  Asignacion
 linea:42  Declaracion de procedimiento
 linea:44  Declaracion de procedimiento
-linea:44  Error: Redeclaracion de procedimiento
 linea:47  Declaracion de variables
 linea:49  Asignacion
 linea:52  Asignacion

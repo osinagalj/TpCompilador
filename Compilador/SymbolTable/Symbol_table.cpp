@@ -19,7 +19,7 @@ void Symbol_table::addSymbol(string key, Registry registro)
 void Symbol_table::printTable()
 {
     cout<<endl;
-    cout<<"--------------------------IMPRIMIENDO LA TABLA ----------------------------------"<<endl;
+    cout<<"--------------------------  TABLA DE SIMBOLOS ----------------------------------"<<endl;
     for (map<string,Registry>::iterator it=symbol_table.begin(); it!=symbol_table.end(); ++it)
     {
         cout << "Clave: " + it->first <<  " |Token_id: " << it->second.id << " |Tipo: " << it->second.Tipo << " |Token_uso: " << it->second.uso<<'\n';
