@@ -72,6 +72,7 @@ class Assembler {
         void insertar_ret();
 
         string obtenerRegistro();
+        bool existeDivision0 = false;
     private:
         ofstream  fileStream;
         bool in_procedure = false;

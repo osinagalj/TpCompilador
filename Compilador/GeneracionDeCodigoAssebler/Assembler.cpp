@@ -38,12 +38,12 @@ void Assembler::writeAssembler(){
     }
     if(!code.empty())
         fileStream <<"        ret"<<endl;
-
-    fileStream<<"      Error:"<<endl;
-    fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error)) + ", addr str"+ to_string(getNameString(error)) + ", MB_OK" <<endl;
-    fileStream<<"        invoke ExitProcess, 0 "<<endl;
-
-    fileStream<<"        ret"<<endl;
+    if(existeDivision0){
+        fileStream<<"      Error:"<<endl;
+        fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error)) + ", addr str"+ to_string(getNameString(error)) + ", MB_OK" <<endl;
+        fileStream<<"        invoke ExitProcess, 0 "<<endl;
+        fileStream<<"        ret"<<endl;
+    }
 
 
     fileStream <<"START:"<<endl;
@@ -374,6 +374,7 @@ void Assembler:: mulInt(Terceto &t){
 
 //CHARLY//
 void Assembler::divInt(Terceto &t) {
+    existeDivision0 = true;
     cout<<"------------------DIV INT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) {//const y variable
         cout<<"------------------CASE 1--------------"<<endl;
@@ -988,6 +989,8 @@ void Assembler::generarCodigoAssembler(Symbol_table *tablita, Terceto & t){
 
     }
 }
+
+
 
 bool Assembler::tercetoDeProc(int i,list<int> listita){
    // cout<<"TERCETOPRO= "<< endl;
