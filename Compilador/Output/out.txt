@@ -1,13 +1,46 @@
+linea:6  Declaracion de variables
 linea:7  Declaracion de variables
-linea:8  Asignacion
-linea:9  Detecto sentencia OUT
-linea:12  Detecto sentencia OUT
+linea:8  Declaracion de variables
+linea:10  Declaracion de variables
+linea:11  Detecto sentencia OUT
+linea:12  Asignacion
 linea:13  Asignacion
-linea:15  Detecto sentencia OUT
-linea:17  invocacion procedimiento
-linea:18  Sentencia IF
-linea:20  sentencia if
-linea:21  Declaracion de procedimiento
-linea:22  Detecto sentencia OUT
-linea:23  invocacion procedimiento
-linea:25  Detecto sentencia OUT
+linea:14  Asignacion
+linea:15  Asignacion
+linea:16  Asignacion
+linea:17  Asignacion
+linea:18  Asignacion
+linea:19  Asignacion
+linea:22  Asignacion
+linea:24  Detecto sentencia OUT
+linea:27  Declaracion de variables
+linea:28  Asignacion
+linea:31  Detecto sentencia OUT
+linea:33  Asignacion
+linea:34  Detecto sentencia OUT
+linea:35  Sentencia IF
+linea:36  sentencia if
+linea:37  Asignacion
+linea:40  Declaracion de variables
+linea:41  Asignacion
+linea:42  Declaracion de procedimiento
+linea:44  Declaracion de procedimiento
+linea:47  Declaracion de variables
+linea:49  Asignacion
+linea:52  Asignacion
+linea:54  Declaracion de variables
+linea:55  Asignacion
+linea:56  Detecto sentencia OUT
+linea:57  Asignacion
+linea:59  Asignacion
+linea:60  Detecto sentencia OUT
+linea:60  Sentencia IF
+linea:61  sentencia if
+linea:61  Sentencia WHILE
+linea:62  sentencia while
+linea:64  Declaracion de procedimiento
+linea:65  Detecto sentencia OUT
+linea:66  Declaracion de variables
+linea:67  invocacion procedimiento
+linea:69  Detecto sentencia OUT
+linea:71  Detecto sentencia OUT

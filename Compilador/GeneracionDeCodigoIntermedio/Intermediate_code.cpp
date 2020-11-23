@@ -11,11 +11,7 @@
 //------------------------------------------------------------------------------------//
 
 void Intermediate_code::addVariable(char * variable){
-
     list_variables.push_back(convertToString(variable));
-    cout<<"lista: ";
-    imprimirLista();
-    cout<<endl;
 
 }
 
@@ -172,7 +168,7 @@ void Intermediate_code::check_shadowing(Symbol_table * tablita, string key){
             aux3 = recortarAmbito(aux3);
             if(aux3!= "error"){
                 if(tablita->existVariable(aux3)){
-                    Logger::write("Error: Redeclaracion de una variable con no permitida por SHADOWING = TRUE");
+                    Logger::write("Error: Redeclaracion de una variable con SHADOWING = TRUE no esta permitido");
                     serompio = true;
                 }
             }else{
@@ -181,28 +177,17 @@ void Intermediate_code::check_shadowing(Symbol_table * tablita, string key){
         }
     }
 }
-#include "../GeneracionDeCodigoAssebler/Assembler.h"
+
 void Intermediate_code::cut_recursion(string & key){
     std::size_t pos = key.find('@');
     string aux = key.substr(0,pos);
     string aux2 = key.substr(pos,key.size());
-    cout<<"aux = " <<aux<<endl;
-    cout<<"aux2 = " <<aux2<<endl;
     if(aux2.find(aux) != -1){
-
         size_t pos2 = aux2.find(aux);
-        cout<<"pos = " << to_string(pos)<<endl;
-        cout<<"pos2 = " << to_string(pos2)<<endl;
         int x = pos + pos2;
-        cout<<"posicion a recortar = " << to_string(x)<<endl;
         key = key.substr(0,x-1);
-        cout<<"RECORTO EL AMBITO DE UN PROC RECURSIVO"<<endl;
-        Assembler::existeRecursion = true;
-    }else{
-        cout<<"RECORTO BIEN"<<endl;
+
     }
-
-
 }
 
 //Chekeo para ver si la variable es al alcance, es decir s iesta definida en el mismo ambito o en alguno ambito padre.
@@ -369,13 +354,11 @@ int Intermediate_code::getNumber() {
 //------------------------------ Tercetos Generation   -------------------------------//
 //------------------------------------------------------------------------------------//
 void Intermediate_code::apilar() {
-    cout<<number<<endl;
     pila.push_front(number);
 }
 int Intermediate_code::desapilar(){
     list<int>::iterator pos = pila.begin();
     int numerito= *pos;
-    cout<<"numerito :" + to_string(numerito)<<endl;
     pila.pop_front();
     return numerito;
 }
@@ -384,7 +367,6 @@ void Intermediate_code::expresionMenosTermino(Symbol_table * tablita,string op, 
 {
     string pesos3 = pesos3_;
     if(!check_scope2(tablita,pesos3)) {
-        cout<<"No existe la variable"<<endl;
     }
 
     if (!flagPre && flagPost) {
@@ -422,7 +404,7 @@ void Intermediate_code::terminoFactor(Symbol_table * tablita,char * pesos1_) {
     string pesos1 = pesos1_;
 
     if(!check_scope2(tablita,pesos1)) {
-        cout<<"No existe la variable"<<endl;
+
     }
 
     if (!flagPre && !flagPost) {
@@ -444,7 +426,7 @@ void Intermediate_code::terminoDivididoFactor(Symbol_table * tablita,string op ,
 
     tablita->clearTable();
     if(!check_scope2(tablita,pesos3)) {
-       cout<<"No existe la variable"<<endl;
+
     }
     if (!flagPre && flagPost) {
         //completar tercerto de la pila
@@ -476,7 +458,7 @@ void Intermediate_code::generarAsignacionTercetos(Symbol_table * tablita,char* p
     string pesos1 = pesos1_;
 
     if(!check_scope2(tablita,pesos1)) {
-        cout<<"No existe la variable"<<endl;
+
     }
 
     if (Intermediate_code::flagPre && !Intermediate_code::flagPost) {
@@ -523,28 +505,25 @@ void Intermediate_code::expresionComparadorExpresion(Symbol_table * tablita,char
     string pesos3 = pesos3_;
 
     if(!check_scope2(tablita,pesos3)) {
-        cout<<"No existe la variable"<<endl;
+
     }
     if (!flagPre && flagPost) {
         Terceto t = getTercetoIncompleto(); //descarto
         t = getTercetoIncompleto();
-        cout << t.getOp() << endl;
         completar_operando3(t, pesos3);
     } else if (flagPre && flagPost) {
         //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
         Terceto t = getTercetoIncompleto();
         t = getTercetoIncompleto();
-        cout << t.getOp() << endl;
         completar_operando3(t, pesos3);
     } else if (flagPre && !flagPost) {
         //hay terceto incompleto pre-comparador y la derecha es un factor, pero se creó un terceto, lo descarto
         Terceto t = getTercetoIncompleto(); //descarto
         t = getTercetoIncompleto();
-        cout << t.getOp() << endl;
+
         completar_operando3(t, "[" + to_string(number - 1) + "]");
     } else {
         Terceto t = getTercetoIncompleto();
-        cout << t.getOp() << endl;
         completar_operando3(t, "[" + to_string(number - 1) + "]");
     }
     flagPre = false;
@@ -558,8 +537,6 @@ void Intermediate_code::expresionComparadorExpresion(Symbol_table * tablita,char
 list<int> Intermediate_code::separarTercetos(){
     map<int,Terceto>::iterator it=list_tercetos.begin();
     list<int> list_tercetos_ignore;
-    cout<<"Imrpimo los T"<<endl;
-    imprimirTercetos();
     int i = 1;
     while(it!=list_tercetos.end()){
         if(it->second.getOp()=="inicio_PROC") {
@@ -570,7 +547,6 @@ list<int> Intermediate_code::separarTercetos(){
         }
         else
             if(!esVacioPilaProc()){
-                //cout<<"entro al if"<<endl;
                 while (it!=list_tercetos.end() && it->second.getOp() != "inicio_PROC" && it->second.getOp() != "fin_PROC") {
                     insertar_terceto_a_proc(it->second);
                     //imprimirListaProc();
@@ -596,16 +572,6 @@ list<int> Intermediate_code::separarTercetos(){
         it++;
     }
 
-    cout<<"TERCETOS A ELIMINAR"<<endl;
-    for(int i : list_tercetos_ignore){
-        cout<<"i= "<<to_string(i)<<endl;
-/*
-        map<int,Terceto>::iterator it=list_tercetos.begin();
-        while(it!=list_tercetos.end()){
-            if(it->)
-        }
-        */
-    }
     return list_tercetos_ignore;
 }
 
@@ -626,7 +592,6 @@ string Intermediate_code::convertToString(char * variable){
         string_key = string_key + * variable;
         variable++;			                /* go to next letter */
     }
-    cout<< "Char *  = " + string_key << endl;
     return string_key;
 }
 
@@ -661,10 +626,9 @@ void Intermediate_code::imprimirListaProc() {
     }
 }
 
-//**Lista de procedimientos con sus tercetos**//
+
 
 void Intermediate_code::apilarProc(string c){
-    //cout<<"-----------------------------------------APILAR PROC"<<endl;
     string s = c;
     pila_procedimientos.push_front(s);
 }
@@ -675,33 +639,26 @@ void Intermediate_code::desapilarProc(){
 
 string Intermediate_code::getTopeProc(){
 
-    //cout<<"-----------------------------------------GET TOPE"<<endl;
 
     list<string>::iterator pos = pila_procedimientos.begin();
     string s;
     if(pos != pila_procedimientos.end()) {
         s = *pos;
-        //cout<<"GET TOPE " + s<<endl;
         return s;
     }
     return s;
 }
 
 void Intermediate_code::insertarProc(){
-
-    //cout<<"-----------------------------------------INSERTAR EN MAPA DE PROC"<<endl;
     list<Terceto> t;
     procedimientos.insert({getTopeProc(), t});
 }
 
 void Intermediate_code::insertar_terceto_a_proc(Terceto t){
-
-    //cout<<"-----------------------------------------INSERTAR TERCETO EN PROC_ACTUAL"<<endl;
     procedimientos.find(getTopeProc())->second.push_back(t);
 }
 
 bool Intermediate_code::esVacioPilaProc(){
-    //cout<<"-----------------------------------------ES VACIO"<<endl;
     if (pila_procedimientos.size() > 0){
         return false;
     }
@@ -709,70 +666,9 @@ bool Intermediate_code::esVacioPilaProc(){
 }
 
 
-/*
-int Intermediate_code::convertToI(char * str){ //Creo que se puede eliminar
-    int i=stoi(convertToString(str));
-    return i;
-}
- */
 
 void Intermediate_code::copiarLista(map<int,Terceto> &lista_tercetos){
     lista_tercetos= list_tercetos;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-//-----------------------------------------------------------------------------------------------//
-/*-------------------------------------NO SE USAN -----------------------------------------------*/
-//------------------------------------------------------------------------------------------------//
-void Intermediate_code::completar_operando3(int numeroTerceto, string operando3){
-    list_tercetos.find(numeroTerceto)->second.setOp(operando3);
-}
-void Intermediate_code::completar_operando1(int numeroTerceto, string operando1) {
-    list_tercetos.find(numeroTerceto)->second.setOp(operando1);
-}
-void Intermediate_code::completar_terceto(int numeroTerceto, string operando1, string operando3) {
-    list_tercetos.find(numeroTerceto)->second.setOp(operando1);
-    list_tercetos.find(numeroTerceto)->second.setOp2(operando3);
-}
-
-/*
-Terceto Intermediate_code::getTerceto(int pos){
-    return list_tercetos.find(pos)->second;
-    //Terceto t("op","","");
-    //return t;
-}
- */
-
-bool Intermediate_code::listaVacia(){
-    if(list_tercetos_sin_completar.empty()){
-        return true;
-    }
-    else return false;
-}
-
-Terceto Intermediate_code::removeTercetoResta(int pos){
-    Terceto t;
-    t.setOp(list_tercetos.find(pos)->second.getOp());
-    t.setOp1(list_tercetos.find(pos)->second.getOp1());
-    t.setOp2(list_tercetos.find(pos)->second.getOp2());
-    list_tercetos.erase(pos); //elimino el viejo
-    number--;
-    return t;
-}
-
-/*
-void Intermediate_code::agregarVariable(string aux) {
-    list_variables.push_front(aux);
-}
- */

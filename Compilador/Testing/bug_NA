@@ -1,6 +1,6 @@
                                             /% Group 2 %/
 
-                           /% ------------- Prograwithm without errors.  ------------------- %/
+                           /% ------------- Prograwithm with errors.  ------------------- %/
 
     LONGINT a , b , c , d ;
     FLOAT   x,y,z,w;

@@ -15,9 +15,7 @@ void createOutError();
 /*-----------------------------------------------------------------------------------------------*/
 string Intermediate_code::scope= "@";
 
-string path = "Compilador\\Testing\\bug_recursion";
-//string path = "Compilador\\Testing\\bug_shadowing";
-//string path = "Compilador\\Testing\\bug_scope";
+string path = "Compilador\\Testing\\program.txt";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
 string pathOutErrores = "Compilador\\Output\\out_bugs.txt";
@@ -31,41 +29,30 @@ list<int> Intermediate_code::pila;
 map<int,Terceto> Intermediate_code::list_tercetos;
 Lexical_analyzer * Logger::lexico = nullptr;
 Symbol_table * Lexical_analyzer::symbolTable= nullptr;
-//lauta
 string Intermediate_code::ambito_actual = "main";
 int Intermediate_code::ambitoAnonimo = 1;
-
 bool Intermediate_code::shadowing = false;
-bool Assembler::existeRecursion = false;
-
 bool Intermediate_code::flagPre=false;
 bool Intermediate_code::flagPost=false;
 list<Terceto> Intermediate_code::list_tercetos_sin_completar;
-
 list<string> Intermediate_code::pila_procedimientos;
-//list<Terceto> Intermediate_code::proc_actual;
 map<string,list<Terceto>> Intermediate_code::procedimientos;
-
 list<int> Intermediate_code::listProcedimientosAnidados;
-
-
 int Assembler::cont_var_aux=1;
-
 bool compilation_failure = false;
-
-/*charly*/
 int Intermediate_code::cantProc = 0;
+
+
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------                Main                ------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
-
 
 int main(int argc,char** argv)
 {
     if (argc > 1){
         path = argv[1];
     }else{
-        cout << "No se ingreso ninguna direccion de archivo, se utilizara la direccion del archivo de texto por defecto en la ruta: " + path  << endl << endl;
+        cout << "No se ingreso ninguna direccion de archivo, se utilizara la direccion del archivo de texto por defecto en la ruta:\n" + path  << endl << endl;
     }
     Logger::open(pathOut);
     Logger log;
@@ -83,21 +70,17 @@ int main(int argc,char** argv)
     tabla.printTable();
 
     list<int> listita = Intermediate_code::separarTercetos();
-    cout<<"\n -------------------------Lista Proc ----------------------\n";
+    cout<<"\n -------------------------  Tercetos de Procedimientos ----------------------\n";
     Intermediate_code::imprimirListaProc();
-    cout<<"\n -------------------------Tercetos MAIN ----------------------\n";
-    Intermediate_code::imprimirTercetos();
+    cout<<"\n -------------------------        Tercetos MAIN  -----------------------------\n";
 
     createIndexFile();
-
     createOutError();
-
 
     //---------------------------Assembler---------------------------------//
     if(compilation_failure){
         cout<<"Tiene errores, no se generara el codigo eassebler"<<endl;
     }else{
-        cout<<"------------------Se generara el codigo assembler--------------------"<<endl;
         Assembler ass(pathOutAssembler);
         ass.declareSTVariables(&tabla);
         ass.generarAssembler(&tabla,listita);
@@ -120,20 +103,13 @@ void yyerror(const char * text)
     cout << text << endl;
 }
 
-
 int yylex()
 {
     Lexical_analyzer::Token current_token = lexical_analyzer.getToken(path);                //cout << "----------------Token encontrado: " + current_token.pointerST + "    ID: " + to_string(current_token.id) << endl;
     string str = current_token.pointerST;       //yylval.cadena= &current_token.pointerST[0];
-    cout<<"str = " + str<<endl;
     char *cstr = new char[str.length() + 1];
     strcpy(cstr, str.c_str());
     yylval.cadena = cstr;
-    //yylval.cadena= lexical_analyzer.symbolTable->getPointer(current_token.pointerST);
-    //    char * aux  ;
-    //    aux = &pointer[0];
-    //    return aux;
-
     return current_token.id;
 }
 

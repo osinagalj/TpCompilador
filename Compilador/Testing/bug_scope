@@ -24,7 +24,7 @@
 
     PROC bb (FLOAT p3) NA = 2_l , SHADOWING = FALSE
     {
-        x = w;                                        /% Lo tiene permitido %/
+        x = w;                                        /% w no esta al alcance %/
     };
 
     procedure_1(x);                                              /% El procedimiento cc no esta al alcance %/

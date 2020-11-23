@@ -56,7 +56,6 @@ void Symbol_table::addType2(string type, string key,string ambit){
 
     r.Tipo = type;
     symbol_table.insert({key, r});
-    cout<<"Desoures"<<endl;
     //printTable();
 
 }

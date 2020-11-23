@@ -1,6 +1,6 @@
                                                 /% Group 2 %/
 
-                          /% ------------- Program without errors.  ------------------- %/
+                          /% ------------- Program without execution errors.  ------------------- %/
 
 
  LONGINT x;
@@ -11,15 +11,16 @@
     OUT("ENTRO EN PROC");
     x = x + 1_l;
     IF(x > 11_l){
-        OUT("MULTIPLICA BIEN PERRITO SUCIO");
+        OUT("Entro en IF procedure_1");
     }ELSE{
         procedure_1(x);
     }
     END_IF;
 
  };
- OUT("INVOCO A PROC RECURSIVO");
- procedure_1(x);
- OUT("FIN DE PROGRAMA");
 
+ OUT("Invocacion a procedure_1");
+ procedure_1(x);
+
+ OUT("FIN DE PROGRAMA");
  $
