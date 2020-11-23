@@ -29,6 +29,7 @@ includelib \masm32\lib\user32.lib
     @aux2 DD 6.000000
     @aux3 DD 3.000000
     @aux4 DD ? 
+    str5 DB Error: Se realizo 2 una division por 0 , 0 
 .CODE
     aa@main:
         MOV EBX,6
@@ -39,12 +40,12 @@ includelib \masm32\lib\user32.lib
         MOV d@main,EBX
         MOV EBX,a@main
         CMP EBX,14
-        JLE Label13
+        JLE Label16
         invoke MessageBox, NULL, addr str1, addr str1, MB_OK
-        JMP Label15
-        Label13:
+        JMP Label18
+        Label16:
         invoke MessageBox, NULL, addr str4, addr str4, MB_OK
-        Label15:
+        Label18:
         ret
     bb@main@aa:
         invoke MessageBox, NULL, addr str2, addr str2, MB_OK
@@ -54,6 +55,9 @@ includelib \masm32\lib\user32.lib
         ret
     cc@main:
         invoke MessageBox, NULL, addr str3, addr str3, MB_OK
+noError:
+    invoke MessageBox, NULL, addr str5, addr str5, MB_OK
+        ret
         ret
 START:
     FLD @aux1
@@ -64,4 +68,13 @@ START:
     FSTP @aux4
     FLD @aux4
     FSTP x@main
+    MOV ECX,b@main
+    MOV ECX,0
+    MOV EDX ,0
+    MOV EAX , 8
+    MOV ECX,b@main
+    CMP b@main
+    JNZ noError
+    DIV ECX
+    MOV a@main,ECX
 END START

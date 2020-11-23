@@ -21,7 +21,7 @@ string path = "Compilador\\Testing\\program.txt";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
 string pathOutErrores = "Compilador\\Output\\out_bugs.txt";
-string pathOutAssembler = "Compilador\\GeneracionDeCodigoAssebler\\out_assembler.txt";
+string pathOutAssembler = "Compilador\\GeneracionDeCodigoAssebler\\out_assembler.asm";
 Lexical_analyzer lexical_analyzer;
 int Sintactic_actions::number_of_parameters = 0; //contador para las listas de variables
 int Intermediate_code::number = 1;
