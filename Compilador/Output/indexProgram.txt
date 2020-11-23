@@ -55,16 +55,18 @@
 55:                     OUT ("Entro en IF del while");
 56:                     e = 12_l;
 57:                  }ELSE{
-58:                      longint_negative = longint_negative - 1_l;
+58:                      float_negative = float_negative + 1.;
 59:                      OUT ("Entro en ELSE del while");
 60:                  }END_IF;
 61:              };
 62:          };
 63:      
 64:          OUT ("Invocacion de procedure_1");
-65:      
-66:          OUT ("Termino procedure_1");
-67:      
-68:          OUT ("Terminaron el programa");
-69:      $
+65:          LONGINT hola;
+66:          procedure_1(hola);
+67:          OUT ("Termino procedure_1");
+68:      
+69:          OUT ("Terminaron el programa");
 70:      
+71:      $
+72:      

@@ -39,6 +39,8 @@ linea:61  sentencia if
 linea:61  Sentencia WHILE
 linea:62  sentencia while
 linea:64  Declaracion de procedimiento
-linea:66  Detecto sentencia OUT
-linea:68  Detecto sentencia OUT
+linea:65  Detecto sentencia OUT
+linea:66  Declaracion de variables
+linea:67  invocacion procedimiento
 linea:69  Detecto sentencia OUT
+linea:71  Detecto sentencia OUT

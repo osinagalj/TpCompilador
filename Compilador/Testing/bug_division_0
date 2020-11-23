@@ -4,7 +4,7 @@
 
   LONGINT a, b , c, d;
 
-  OUT("Caso de prueba sin division por 0");
+  OUT("Caso de prueba SIN division por 0");
   c = 1_l;
   d = 8_l / c;
 
@@ -12,5 +12,6 @@
   b = 0_l;
   a = 8_l / b;
 
+  OUT("Termino el programa");
 
 $
