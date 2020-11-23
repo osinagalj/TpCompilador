@@ -14,6 +14,9 @@ Assembler::Assembler(string path ){
 
 void Assembler::writeAssembler(){
 
+    string error="\"Error: Se realizo 2 una division por 0\"";
+    declareString(error,error);
+
     fileStream << ".386" << endl;
     fileStream << ".model flat, stdcall" << endl;
     fileStream << "option casemap :none" << endl;
@@ -35,8 +38,11 @@ void Assembler::writeAssembler(){
     }
     if(!code.empty())
         fileStream <<"        ret"<<endl;
-    fileStream<<"    noError:"<<endl;
-    fileStream<<"        invoke MessageBox, NULL, addr str6, addr str6, MB_OK"<<endl;
+
+    fileStream<<"      Error:"<<endl;
+    fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error)) + ", addr str"+ to_string(getNameString(error)) + ", MB_OK" <<endl;
+    fileStream<<"        invoke ExitProcess, 0 "<<endl;
+
     fileStream<<"        ret"<<endl;
 
 
@@ -377,11 +383,8 @@ void Assembler::divInt(Terceto &t) {
         //cargo valor para comparar
         write("CMP " + t.getOp2() + ", 0");
         //salto si es cero el CMP
-        write("JE noError");
-        Terceto tError;
-        string error="\"Error: Se realizo 2 una division por 0\"";
-        declareString(error,error);
-        tError.setOp1(error);
+        write("JE Error");
+
 
         //falta cortar el programa
 
@@ -404,11 +407,8 @@ void Assembler::divInt(Terceto &t) {
                 //cargo valor para comparar
                 write("CMP " + t.getOp3()+ ", 0");
                 //salto si es cero el CMP
-                write("JE noError");
-                Terceto tError;
-                string error="Error: Se realizo 2una division por 0";
-                declareString(error,error);
-                tError.setOp1(error);
+                write("JE Error");
+
 
                 //cortar Programa
 
@@ -430,11 +430,7 @@ void Assembler::divInt(Terceto &t) {
                     //cargo valor para comparar
                     write("CMP " + t.getOp3()+ ", 0");
                     //salto si es cero el CMP
-                    write("JE noError");
-                    Terceto tError;
-                    string error="Error: Se realizo 2una division por 0";
-                    declareString(error,error);
-                    tError.setOp1(error);
+                    write("JE Error");
 
                     //cortar Programa
 
@@ -455,12 +451,7 @@ void Assembler::divInt(Terceto &t) {
                     //cargo valor para comparar
                     write("CMP " + t2.getOp3()+ ", 0");
                     //salto si es cero el CMP
-                    write("JE noError");
-                    Terceto tError;
-                    string error="Error: Se realizo 2una division por 0";
-                    declareString(error,error);
-                    tError.setOp1(error);
-
+                    write("JE Error");
                     //cortar Programa
 
 

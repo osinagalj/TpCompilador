@@ -1,0 +1,18 @@
+                                                /% Group 2 %/
+
+                          /% ------------- Program without errors.  ------------------- %/
+
+
+ LONGINT x;
+ x = 8_l;
+ PROC cc (FLOAT p4) NA = 1_l , SHADOWING = TRUE
+ {
+    x = x + 1;
+    IF(x > 11_l){
+        OUT("MULTIPLICA BIEN PERRITO SUCIO");
+    }ELSE{
+        cc(x);
+    }
+    END_IF;
+
+ };
