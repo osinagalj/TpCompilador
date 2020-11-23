@@ -181,6 +181,29 @@ void Intermediate_code::check_shadowing(Symbol_table * tablita, string key){
         }
     }
 }
+#include "../GeneracionDeCodigoAssebler/Assembler.h"
+void Intermediate_code::cut_recursion(string & key){
+    std::size_t pos = key.find('@');
+    string aux = key.substr(0,pos);
+    string aux2 = key.substr(pos,key.size());
+    cout<<"aux = " <<aux<<endl;
+    cout<<"aux2 = " <<aux2<<endl;
+    if(aux2.find(aux) != -1){
+
+        size_t pos2 = aux2.find(aux);
+        cout<<"pos = " << to_string(pos)<<endl;
+        cout<<"pos2 = " << to_string(pos2)<<endl;
+        int x = pos + pos2;
+        cout<<"posicion a recortar = " << to_string(x)<<endl;
+        key = key.substr(0,x-1);
+        cout<<"RECORTO EL AMBITO DE UN PROC RECURSIVO"<<endl;
+        Assembler::existeRecursion = true;
+    }else{
+        cout<<"RECORTO BIEN"<<endl;
+    }
+
+
+}
 
 //Chekeo para ver si la variable es al alcance, es decir s iesta definida en el mismo ambito o en alguno ambito padre.
 //Nota: si la variable esta en un ambito hermano o hijo tira error

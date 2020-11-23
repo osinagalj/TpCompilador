@@ -5,14 +5,21 @@
 
  LONGINT x;
  x = 8_l;
- PROC cc (FLOAT p4) NA = 1_l , SHADOWING = TRUE
+ OUT("INICIO");
+ PROC procedure_1 (LONGINT p4) NA = 1_l , SHADOWING = TRUE
  {
+    OUT("ENTRO EN PROC");
     x = x + 1_l;
     IF(x > 11_l){
         OUT("MULTIPLICA BIEN PERRITO SUCIO");
     }ELSE{
-        cc(x);
+        procedure_1(x);
     }
     END_IF;
 
  };
+ OUT("INVOCO A PROC RECURSIVO");
+ procedure_1(x);
+ OUT("FIN DE PROGRAMA");
+
+ $

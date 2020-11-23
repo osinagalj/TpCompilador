@@ -65,8 +65,11 @@ invocacion_proc:
 	 ID '(' parametros ')' ';' {
 	 			    string proc = $1.cadena;
                                     proc = proc + "@"+Intermediate_code::ambito_actual;
+				    Intermediate_code::cut_recursion(proc);
+	 			    Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);
 	 			    Intermediate_code::insertar_terceto("Call",proc,"");
-	 			    Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);}
+
+	 			    }
 
 ;
 
@@ -79,6 +82,7 @@ procedimiento:
 	 nombre_proc NA '=' LONGINT ',' SHADOWING '=' true_false'{' bloque_sentencia '}' {
 	 		string proc = $1.cadena;
          		proc = proc + "@"+Intermediate_code::ambito_actual;
+         		//Intermediate_code::cut_recursion(proc);
 	 	Intermediate_code::insertar_terceto("fin_PROC",proc,"");
 
 	    	Intermediate_code::eliminarUltimoAmbito();
