@@ -34,32 +34,7 @@
   <component name="ChangeListManager">
     <list default="true" id="934474d4-89c3-413a-9030-442176c7b2ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/Assembler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/Assembler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/Assembler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/Assembler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/m32v10r/install.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/out_assembler.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/out_assembler.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/out_assembler.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/out_assembler.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoAssebler/out_assembler.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/GeneracionDeCodigoIntermedio/Intermediate_code.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Lexical_analyzer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Lexical_analyzer/Lexical_analyzer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Output/indexProgram.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Output/indexProgram.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Output/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Output/out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/SymbolTable/Symbol_table.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/SymbolTable/Symbol_table.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Testing/bug_NA" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Testing/bug_NA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Testing/bug_division_0" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Testing/bug_division_0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Testing/bug_recursion" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Testing/bug_recursion" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Testing/bug_scope" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Testing/bug_scope" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/Testing/program.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Testing/program.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/cmake-build-debug/CMakeFiles/Compilador.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler_G-2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler_G-2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/Gramatica.y" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Sintactic_analyzer/Gramatica.y" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,31 +236,31 @@
     </state>
     <state x="526" y="193" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604163760531" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599781497567" />
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1606158264856">
+    <state width="1323" height="257" key="GridCell.Tab.0.bottom" timestamp="1606158479660">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606158264856" />
+    <state width="1323" height="257" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606158479660" />
     <state width="1557" height="221" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1602027446760" />
     <state width="1877" height="134" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606079581358" />
     <state width="1877" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605710253773" />
-    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1606158264856">
+    <state width="1323" height="257" key="GridCell.Tab.0.center" timestamp="1606158479659">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606158264856" />
+    <state width="1323" height="257" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606158479659" />
     <state width="1557" height="221" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1602027446759" />
     <state width="1877" height="134" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606079581357" />
     <state width="1877" height="367" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605710253773" />
-    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1606158264856">
+    <state width="1323" height="257" key="GridCell.Tab.0.left" timestamp="1606158479659">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606158264856" />
+    <state width="1323" height="257" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606158479659" />
     <state width="1557" height="221" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1602027446759" />
     <state width="1877" height="134" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606079581357" />
     <state width="1877" height="367" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605710253773" />
-    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1606158264856">
+    <state width="1323" height="257" key="GridCell.Tab.0.right" timestamp="1606158479660">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606158264856" />
+    <state width="1323" height="257" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606158479660" />
     <state width="1557" height="221" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1602027446760" />
     <state width="1877" height="134" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606079581358" />
     <state width="1877" height="367" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605710253773" />

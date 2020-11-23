@@ -584,8 +584,8 @@ case 27:
 		yyval.cadena=yyvsp[0].cadena;
 		string s = "nombre_proc";
 		Intermediate_code::setUse(Lexical_analyzer::symbolTable,yyvsp[0].cadena,&s[0]);
-		Intermediate_code::concatenarAmbito(yyvsp[0].cadena);
 		Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,yyvsp[0].cadena);
+		Intermediate_code::concatenarAmbito(yyvsp[0].cadena);
 		Intermediate_code::agregarAnidado();
 	}
 break;
