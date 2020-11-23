@@ -70,9 +70,10 @@ class Assembler {
         void declareAux(const string & varName);
         void declareAux(const string & varName,const string & f);
         void insertar_ret();
-
+        void insertar_ENDP();
         string obtenerRegistro();
         bool existeDivision0 = false;
+        string nombreauxproc = "";
     private:
         ofstream  fileStream;
         bool in_procedure = false;

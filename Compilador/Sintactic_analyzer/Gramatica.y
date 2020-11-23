@@ -62,8 +62,16 @@ ejecutable:
 ;
 
 invocacion_proc:
-	 ID '(' parametros ')' ';' {Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);
-	 			    Intermediate_code::insertar_terceto("Call",$1.cadena,"");}
+	 ID '(' parametros ')' ';' {
+	 			    string proc = $1.cadena;
+                                    proc = proc + "@"+Intermediate_code::ambito_actual;
+	 			    Intermediate_code::insertar_terceto("Call",proc,"");
+	 			    Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);}
+	 ID '(' ')' ';' {
+                                    string proc = $1.cadena;
+                                    proc = proc + "@"+Intermediate_code::ambito_actual;
+                                    Intermediate_code::insertar_terceto("Call",proc,"");
+                                    Intermediate_code::check_scope(Lexical_analyzer::symbolTable,$1.cadena);}
 ;
 
 parametros:

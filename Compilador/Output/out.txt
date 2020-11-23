@@ -11,35 +11,34 @@ linea:16  Asignacion
 linea:17  Asignacion
 linea:18  Asignacion
 linea:19  Asignacion
-linea:20  Asignacion
-linea:21  Asignacion
-linea:23  Asignacion
-linea:25  Detecto sentencia OUT
-linea:28  Declaracion de variables
-linea:29  Asignacion
+linea:22  Asignacion
+linea:24  Detecto sentencia OUT
+linea:27  Declaracion de variables
+linea:28  Asignacion
 linea:31  Detecto sentencia OUT
 linea:33  Asignacion
 linea:34  Detecto sentencia OUT
 linea:35  Sentencia IF
-linea:37  sentencia if
+linea:36  sentencia if
+linea:37  Asignacion
 linea:40  Declaracion de variables
 linea:41  Asignacion
 linea:42  Declaracion de procedimiento
 linea:44  Declaracion de procedimiento
-linea:44  lista_de_variables
 linea:47  Declaracion de variables
-linea:48  Asignacion
 linea:49  Asignacion
 linea:52  Asignacion
 linea:54  Declaracion de variables
 linea:55  Asignacion
 linea:56  Detecto sentencia OUT
-linea:58  Asignacion
-linea:59  Detecto sentencia OUT
-linea:59  Sentencia IF
-linea:60  sentencia if
-linea:60  Sentencia WHILE
-linea:61  sentencia while
-linea:63  Declaracion de procedimiento
-linea:65  invocacion procedimiento
+linea:57  Asignacion
+linea:59  Asignacion
+linea:60  Detecto sentencia OUT
+linea:60  Sentencia IF
+linea:61  sentencia if
+linea:61  Sentencia WHILE
+linea:62  sentencia while
+linea:64  Declaracion de procedimiento
 linea:66  Detecto sentencia OUT
+linea:68  Detecto sentencia OUT
+linea:69  Detecto sentencia OUT
