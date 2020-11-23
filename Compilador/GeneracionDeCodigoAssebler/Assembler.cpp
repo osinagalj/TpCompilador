@@ -33,11 +33,17 @@ void Assembler::writeAssembler(){
     }
     fileStream <<".CODE"<<endl;
     insertar_ret();
+    insertar_ENDP();
     for(string s: code){
         fileStream<<s<<endl;
     }
-    if(!code.empty())
+    if(!code.empty()){
         fileStream <<"        ret"<<endl;
+        fileStream <<"    "+ nombreauxproc + "ENDP "<<endl;
+    }
+
+
+
     if(existeDivision0){
         fileStream<<"      Error:"<<endl;
         fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error)) + ", addr str"+ to_string(getNameString(error)) + ", MB_OK" <<endl;
@@ -737,15 +743,75 @@ void Assembler::asignarRegistro(Terceto &t, string s){
     }
 }
 
-void Assembler::insertar_ret(){
+void Assembler::insertar_ENDP(){
     list<int> posiciones_ret;
+    list<string> nombres_proc;
     int i = 0;
     for(string s: code){
         i++;
         if(s.find('@') != -1){
-            if(s.find(':') != -1){
+            if(s.find("PROC") != -1){
+                cout<<"WP: ENCONTRE UN NOMBRE DE PROC"<<endl;
+                nombres_proc.push_back(s);
+
+            }
+        }
+    }
+    cout<<"code.size0 ="<<to_string(code.size())<<endl;
+    i = 0;
+    for(string s: code){
+        i++;
+        if(s.find("ret") != -1){
+                posiciones_ret.push_back(i);
+        }
+    }
+    cout<<"posiciones END PROC"<<endl;
+
+    int rets = 0;
+    for(int i : posiciones_ret){
+        cout<<"posicion del ret = "<< to_string(i) <<endl;
+    }
+    cout<<"PROCEDIMIENTOS DE END PROC"<<endl;
+    for(string i : nombres_proc){
+        cout<<"nombre del proc = "<< i <<endl;
+    }
+    string auxx = nombres_proc.back();
+    nombreauxproc = auxx.substr(0,auxx.size()-4);
+    cout<<"code.size"<<to_string(code.size())<<endl;
+    for(int i : posiciones_ret){
+        int x = 0;
+        //cout<<"i= "<<to_string(i)<<endl;
+        for(vector<string>::iterator it = code.begin() ;it != code.end();it++){
+            x ++;
+            cout<<"x= " <<to_string(x)<<endl;
+            if(x == i+rets){
+                cout<<"entro perro"<<endl;
+                string s = nombres_proc.front();
+                string aux_s = s.substr(0,s.size()-4);
+                nombres_proc.pop_front();
+                it++;
+                code.insert(it,"    "+aux_s +" ENDP");
+                //code.push_back("     END PROC");
+                rets++;
+                it--;
+                break;
+            }
+        }
+    }
+
+}
+void Assembler::insertar_ret(){
+    list<int> posiciones_ret;
+    list<string> nombres_proc;
+    int i = 0;
+    for(string s: code){
+        i++;
+        if(s.find('@') != -1){
+            if(s.find("PROC") != -1){
                 cout<<"WP: ENCONTRE UN NOMBRE DE PROC"<<endl;
                 posiciones_ret.push_back(i);
+                nombres_proc.push_back(s);
+
             }
         }
     }
@@ -756,6 +822,7 @@ void Assembler::insertar_ret(){
         cout<<"posicion del ret = "<< to_string(i) <<endl;
     }
 
+
     for(int i : posiciones_ret){
         int x = 0;
         cout<<"i= "<<to_string(i)<<endl;
@@ -765,6 +832,7 @@ void Assembler::insertar_ret(){
             if(x == i+rets){
                 cout<<"entro perro"<<endl;
                 code.insert(it,"        ret");
+                //code.push_back("     END PROC");
                 rets++;
                 break;
             }
@@ -973,6 +1041,7 @@ void Assembler::generarCodigoAssembler(Symbol_table *tablita, Terceto & t){
 
             break;
         case str2int("Call"):
+            write("CALL " + t.getOp1());
             cout<<"CALL_"<<endl;
             break;
 
@@ -1018,8 +1087,10 @@ void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
             if(it->second.getOp()=="inicio_PROC"){
                 fin_proc = false;
                 space = "    ";
-                code.push_back(space + it->second.getOp1()+ ":");
+                code.push_back(space + it->second.getOp1()+ " PROC");
             }
+
+
 
             generarCodigoAssembler(tablita,it->second);
         }

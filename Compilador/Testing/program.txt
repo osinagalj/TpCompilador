@@ -8,7 +8,7 @@
     FLOAT   float_negative;
 
     OUT ("Se realizaran operaciones aritmeticas");
-    a = a_l ;
+    a = 8_l ;
     x = 5.0f+3;
     w =  3.3 +  5.0f+3;
     a = 2_l * 3_l;
@@ -17,41 +17,43 @@
     w = 4.5 + 4.2;
     float_negative = -7.3;
     longint_negative = -715_l;
-    d = 2_l - -3_l;
+
 
     OUT ("Terminaron de declararse las variables");
 
-    PROC aa () NA = 3_l , SHADOWING = TRUE
+    PROC procedure_1 (LONGINT p1) NA = 3_l , SHADOWING = TRUE
     {
         LONGINT  e;
         e = 5_l + 7_l;
         IF (e < 5_l){
             OUT ("Entro en el primer IF");
+
         }ELSE{
             longint_negative = longint_negative - 1_l;
             OUT ("Entro en primer ELSE");
         }
         END_IF;
-
-        PROC bb (FLOAT p2) NA = 1_l , SHADOWING = FALSE
-        {
-            LONGINT aux;
-            aux = longint_negative;
-        };
+        d = 2_l - -3_l;
+            PROC procedure_3 (LONGINT p1) NA = 3_l , SHADOWING = FALSE
+            {
+                LONGINT  e;
+                e = 5_l + 7_l;
+            };
     };
 
-    PROC dd (FLOAT p4, FLOAT p5) NA = 1_l , SHADOWING = TRUE
+    PROC procedure_3 () NA = 1_l , SHADOWING = TRUE
     {
-        FLOAT e;
-        e = 2.;
-        p4 = 9.0;
-        WHILE (e <= 12.) LOOP
+        LONGINT e;
+        e = 2_l;
+
+        WHILE (e <= 12_l) LOOP
         {
-            e = e + 8.;
-            IF (e != p4){
+            e = e + 8_l;
+            IF (e != 5_l){
                LONGINT variable_aux;
                variable_aux = 200_l + 3_l;
                OUT ("Entro en IF del while");
+               e = 12_l;
             }ELSE{
                 longint_negative = longint_negative - 1_l;
                 OUT ("Entro en ELSE del while");
@@ -59,7 +61,9 @@
         };
     };
 
-    dd(x,y);
+    OUT ("Invocacion de procedure_1");
+
+    OUT ("Termino procedure_1");
 
     OUT ("Terminaron el programa");
 $
