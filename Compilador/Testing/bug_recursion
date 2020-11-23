@@ -7,7 +7,7 @@
  x = 8_l;
  PROC cc (FLOAT p4) NA = 1_l , SHADOWING = TRUE
  {
-    x = x + 1;
+    x = x + 1_l;
     IF(x > 11_l){
         OUT("MULTIPLICA BIEN PERRITO SUCIO");
     }ELSE{

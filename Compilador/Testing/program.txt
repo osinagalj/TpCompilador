@@ -1,4 +1,4 @@
-                                            /% Group 2 %/
+                                                /% Group 2 %/
 
                            /% ------------- Program without errors.  ------------------- %/
 
@@ -7,7 +7,8 @@
     LONGINT longint_negative;
     FLOAT   float_negative;
 
-    a = 3_l;
+    OUT ("Se realizaran operaciones aritmeticas");
+    a = a_l ;
     x = 5.0f+3;
     w =  3.3 +  5.0f+3;
     a = 2_l * 3_l;
@@ -18,20 +19,24 @@
     longint_negative = -715_l;
     d = 2_l - -3_l;
 
+    OUT ("Terminaron de declararse las variables");
 
-    PROC aa (FLOAT p1) NA = 3_l , SHADOWING = TRUE
+    PROC aa () NA = 3_l , SHADOWING = TRUE
     {
-        FLOAT e;
-        IF (e != p1){
-            OUT ("cadena de caracteres 1");
+        LONGINT  e;
+        e = 5_l + 7_l;
+        IF (e < 5_l){
+            OUT ("Entro en el primer IF");
         }ELSE{
-            float_negative = float_negative - 1.;
+            longint_negative = longint_negative - 1_l;
+            OUT ("Entro en primer ELSE");
         }
         END_IF;
 
         PROC bb (FLOAT p2) NA = 1_l , SHADOWING = FALSE
         {
-            FLOAT float_negative;
+            LONGINT aux;
+            aux = longint_negative;
         };
     };
 
@@ -39,17 +44,22 @@
     {
         FLOAT e;
         e = 2.;
-        WHILE (p4 <= 12.) LOOP
+        p4 = 9.0;
+        WHILE (e <= 12.) LOOP
         {
+            e = e + 8.;
             IF (e != p4){
-                LONGINT variable_kaka;
-               OUT ("cadena de caracteres 2");
+               LONGINT variable_aux;
+               variable_aux = 200_l + 3_l;
+               OUT ("Entro en IF del while");
             }ELSE{
-                float_negative = float_negative - 1.;
+                longint_negative = longint_negative - 1_l;
+                OUT ("Entro en ELSE del while");
             }END_IF;
         };
     };
 
     dd(x,y);
 
+    OUT ("Terminaron el programa");
 $
