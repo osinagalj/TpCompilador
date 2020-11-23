@@ -35,6 +35,11 @@ void Assembler::writeAssembler(){
     }
     if(!code.empty())
         fileStream <<"        ret"<<endl;
+    fileStream<<"    noError:"<<endl;
+    fileStream<<"        invoke MessageBox, NULL, addr str6, addr str6, MB_OK"<<endl;
+    fileStream<<"        ret"<<endl;
+
+
     fileStream <<"START:"<<endl;
     for(string s: program){
         fileStream<<s<<endl;
@@ -361,6 +366,7 @@ void Assembler:: mulInt(Terceto &t){
     }
 }
 
+//CHARLY//
 void Assembler::divInt(Terceto &t) {
     cout<<"------------------DIV INT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) {//const y variable
@@ -368,8 +374,19 @@ void Assembler::divInt(Terceto &t) {
         //set free reg in the Terceto
         asignarRegistro(t,"DIV");
         write("MOV " + t.getOp3() + "," + t.getOp2());
-        //controlar si el t.getOp3 es distinto de 0
+        //cargo valor para comparar
+        write("CMP " + t.getOp2() + ", 0");
+        //salto si es cero el CMP
+        write("JE noError");
+        Terceto tError;
+        string error="\"Error: Se realizo 2 una division por 0\"";
+        declareString(error,error);
+        tError.setOp1(error);
+
+        //falta cortar el programa
+
         write("DIV " + t.getOp3());
+
 
     } else {//registro y variable
         if (getCase(t.getOp1(), t.getOp2()) == 2){
@@ -379,10 +396,23 @@ void Assembler::divInt(Terceto &t) {
 
             if(registros[0] == false && registros[3] == false){
                 t.setOp3(t2.getOp3());
-                write("MOV EDX ,0");
+                write("MOV EDX 0");
                 write("MOV EAX , " + t2.getOp3());
                 //controlar que t.getop2() no sea 0
                 write("MOV " + t.getOp3() +  " , " + t.getOp2());
+
+                //cargo valor para comparar
+                write("CMP " + t.getOp3()+ ", 0");
+                //salto si es cero el CMP
+                write("JE noError");
+                Terceto tError;
+                string error="Error: Se realizo 2una division por 0";
+                declareString(error,error);
+                tError.setOp1(error);
+
+                //cortar Programa
+
+
                 write("DIV " + t.getOp3());
             }
 
@@ -393,10 +423,22 @@ void Assembler::divInt(Terceto &t) {
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 //get reg in the Terceto
                 if(registros[0] == false && registros[3] == false){
-                    write("MOV EDX ,0");
+                    write("MOV EDX 0");
                     write("MOV EAX , " + t.getOp1());
                     t.setOp3(t2.getOp3());
-                    //controlar que t.getOp3 no de 0
+
+                    //cargo valor para comparar
+                    write("CMP " + t.getOp3()+ ", 0");
+                    //salto si es cero el CMP
+                    write("JE noError");
+                    Terceto tError;
+                    string error="Error: Se realizo 2una division por 0";
+                    declareString(error,error);
+                    tError.setOp1(error);
+
+                    //cortar Programa
+
+
                     write("DIV " + t.getOp3());
                 }
             } else {  //registro y registro
@@ -406,15 +448,29 @@ void Assembler::divInt(Terceto &t) {
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 if(registros[0] == false && registros[3] == false){
                     t.setOp3(t2.getOp3());
-                    write("MOV EDX ,0");
+                    write("MOV EDX 0");
                     write("MOV EAX , " + t1.getOp3());
                     liberarRegistro(t1);
-                    //controlar que t.getop3() no sea 0
+
+                    //cargo valor para comparar
+                    write("CMP " + t2.getOp3()+ ", 0");
+                    //salto si es cero el CMP
+                    write("JE noError");
+                    Terceto tError;
+                    string error="Error: Se realizo 2una division por 0";
+                    declareString(error,error);
+                    tError.setOp1(error);
+
+                    //cortar Programa
+
+
                     write("DIV " + t.getOp3());
                 }
             }
         }
+
     }
+
 }
 
 void Assembler::addFloat(Terceto &t) {

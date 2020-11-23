@@ -5,10 +5,11 @@
 
     LONGINT w , a, b, c, d;
     FLOAT z , x , y;
-
+        OUT("CORRIENDO LA WEA2");
         z = 5. ;
         x = 6. + 3.;
-
+        b = 1_l;
+        a = 8_l / b;
     PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
     {
         c = 6_l + 3_l;

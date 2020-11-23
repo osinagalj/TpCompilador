@@ -5,40 +5,41 @@
 5:      
 6:          LONGINT w , a, b, c, d;
 7:          FLOAT z , x , y;
-8:      
+8:              OUT("CORRIENDO LA WEA2");
 9:              z = 5. ;
 10:              x = 6. + 3.;
-11:      
-12:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
-13:          {
-14:              c = 6_l + 3_l;
-15:              d = 6_l + 3_l;
-16:      
-17:              IF(a > 14_l){
-18:                  OUT("MULTIPLICA BIEN PERRITO SUCIO");
-19:              }ELSE{
-20:               OUT("NO MULTIPLICA BIEN PERRITO SUCIO");
-21:              }
-22:              END_IF;
-23:      
-24:              PROC bb (FLOAT p1) NA = 3_l , SHADOWING = FALSE
-25:                  {
-26:                      OUT("MULTIPLICA BIEN PERRITO SUCIO2");
-27:                      PROC bb (FLOAT p1) NA = 3_l , SHADOWING = FALSE
-28:                       {
-29:                                      OUT("MULTIPLICA BIEN PERRITO SUCIO2");
-30:                              };
-31:              };
-32:          };
-33:      
+11:              b = 1_l;
+12:              a = 8_l / b;
+13:          PROC aa (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+14:          {
+15:              c = 6_l + 3_l;
+16:              d = 6_l + 3_l;
+17:      
+18:              IF(a > 14_l){
+19:                  OUT("MULTIPLICA BIEN PERRITO SUCIO");
+20:              }ELSE{
+21:               OUT("NO MULTIPLICA BIEN PERRITO SUCIO");
+22:              }
+23:              END_IF;
+24:      
+25:              PROC bb (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+26:                  {
+27:                      OUT("MULTIPLICA BIEN PERRITO SUCIO2");
+28:                      PROC bb (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+29:                       {
+30:                                      OUT("MULTIPLICA BIEN PERRITO SUCIO2");
+31:                              };
+32:              };
+33:          };
 34:      
-35:          PROC cc (FLOAT p1) NA = 3_l , SHADOWING = FALSE
-36:          {
-37:              OUT("MULTIPLICA BIEN PERRITO SUCIO3");
-38:          };
-39:      
-40:      $
-41:      
+35:      
+36:          PROC cc (FLOAT p1) NA = 3_l , SHADOWING = FALSE
+37:          {
+38:              OUT("MULTIPLICA BIEN PERRITO SUCIO3");
+39:          };
+40:      
+41:      $
 42:      
 43:      
 44:      
+45:      
