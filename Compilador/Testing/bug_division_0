@@ -8,9 +8,9 @@
   c = 1_l;
   d = 8_l / c;
 
-    OUT("Caso de prueba division por 0");
-    b = 0_l;
-    a = 8_l / b;
+  OUT("Caso de prueba division por 0");
+  b = 0_l;
+  a = 8_l / b;
 
 
 $
