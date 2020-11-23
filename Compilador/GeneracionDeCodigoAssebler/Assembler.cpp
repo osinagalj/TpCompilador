@@ -45,10 +45,11 @@ void Assembler::writeAssembler(){
 
 
     if(existeDivision0){
-        fileStream<<"      Error:"<<endl;
+        fileStream<<"      Error :"<<endl;
         fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error)) + ", addr str"+ to_string(getNameString(error)) + ", MB_OK" <<endl;
         fileStream<<"        invoke ExitProcess, 0 "<<endl;
-        fileStream<<"        ret"<<endl;
+
+
     }
 
 
@@ -205,8 +206,8 @@ void Assembler::asignacion(Terceto &t){
 
     if (isVariable(t.getOp2()) || isConstant(t.getOp2())){
         asignarRegistro(t,"ADD");
-        write("MOV " + t.getOp3() + "," + t.getOp1());
-        write("MOV " + t.getOp3() + "," + t.getOp2());
+        write("MOV " + t.getOp3() + "," + t.getOp2()); //reg = op1
+        write("MOV " + t.getOp1() + "," + t.getOp3()); //reg = op2
         liberarRegistro(t);
     }else{
         cout<<"fue a buscar el terceto: " + t.getOp2()<<endl;
@@ -775,8 +776,10 @@ void Assembler::insertar_ENDP(){
     for(string i : nombres_proc){
         cout<<"nombre del proc = "<< i <<endl;
     }
-    string auxx = nombres_proc.back();
-    nombreauxproc = auxx.substr(0,auxx.size()-4);
+    if(nombres_proc.size()>0){
+        string auxx = nombres_proc.back();
+        nombreauxproc = auxx.substr(0,auxx.size()-4);
+    }
     cout<<"code.size"<<to_string(code.size())<<endl;
     for(int i : posiciones_ret){
         int x = 0;
