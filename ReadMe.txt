@@ -2,6 +2,8 @@ Al ejecutar el arhivo Compiler_G-2, se compila el programa por defecto que se en
 Adicionalmente, se genera un archivo indexado en la carpeta Compilador/Output/ , en el archivo llamado indexProgram. Este archivo esta hecho para facilitar la correccion de los errores. 
 Cabe destacar que el programa que se indexa es el ingresado como parametro, y en caso de no haber cargado ninguno se utiliza el program.txt. 
 
+En el archivo out_bugs se encuentran unicamente los errores detectados por el compilador, sin tener en cuenta las estructuras semanticas detectadas. Las estructuras detectadas son reconocidas en Logger, junto con los errores.
+Este archivo out_bugs es generado para facilitar la correccion de errores.
 
 Tabla de Simbolos:
 La tabla de simbolos muestra por consola al ejecutar el ejecutable Compiler_G-2.exe
@@ -29,6 +31,8 @@ Notese que es necesario utilizar el comando cd para dirigirse a la carpeta del p
 		- bug_test_1y2: contiene los errores lexicos y semanticos contemplados en las primeras 2 etapas del compilador.
 
 
+
 Generacion de Codigo Assembler
 La generacion del codigo de salida(Assembler) se generara en el archivo out_assembler.ams. Este archivo se encuentra dentro de Compilador/GeneracionDeCodigoAssember
 Para la compilacion del codigo de salida se debe instalar la herramienta masm32 brindada por la catedra de Diseño de Compiladores.
+
