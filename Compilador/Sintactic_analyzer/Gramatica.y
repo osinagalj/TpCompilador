@@ -129,8 +129,8 @@ encabezado:
 		$$.cadena=$2.cadena;
 		string s = "nombre_proc";
 		Intermediate_code::setUse(Lexical_analyzer::symbolTable,$2.cadena,&s[0]);
-		Intermediate_code::concatenarAmbito($2.cadena);
 		Intermediate_code::set_ambit(Lexical_analyzer::symbolTable,$2.cadena);
+		Intermediate_code::concatenarAmbito($2.cadena);
 		Intermediate_code::agregarAnidado();
 	}
 ;
