@@ -1,3 +1,0 @@
-linea:24  Error: Redeclaracion de procedimiento
-linea:37  Error: Redeclaracion de procedimiento
-linea:44  Error: Redeclaracion de procedimiento

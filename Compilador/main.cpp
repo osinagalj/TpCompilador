@@ -3,7 +3,7 @@
 #include <fstream>
 #include "GeneracionDeCodigoIntermedio/Intermediate_code.h"
 #include <string.h>
-#include "GeneracionDeCodigoAssebler/Assembler.h"
+#include "GeneracionDeCodigoAssembler/Assembler.h"
 using namespace std;
 int yylex();
 void yyerror(const char *);
@@ -19,7 +19,7 @@ string path = "Compilador\\Testing\\program.txt";
 string pathOut = "Compilador\\Output\\out.txt";
 string pathIndex = "Compilador\\Output\\indexProgram.txt";
 string pathOutErrores = "Compilador\\Output\\out_bugs.txt";
-string pathOutAssembler = "Compilador\\GeneracionDeCodigoAssebler\\out_assembler.asm";
+string pathOutAssembler = "Compilador\\GeneracionDeCodigoAssembler\\out_assembler.asm";
 Lexical_analyzer lexical_analyzer;
 int Sintactic_actions::number_of_parameters = 0; //contador para las listas de variables
 int Intermediate_code::number = 1;

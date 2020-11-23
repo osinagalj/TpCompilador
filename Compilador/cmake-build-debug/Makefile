@@ -142,32 +142,32 @@ Compilador/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/build
 .PHONY : Compilador/fast
 
-GeneracionDeCodigoAssebler/Assembler.obj: GeneracionDeCodigoAssebler/Assembler.cpp.obj
+GeneracionDeCodigoAssembler/Assembler.obj: GeneracionDeCodigoAssembler/Assembler.cpp.obj
 
-.PHONY : GeneracionDeCodigoAssebler/Assembler.obj
+.PHONY : GeneracionDeCodigoAssembler/Assembler.obj
 
 # target to build an object file
-GeneracionDeCodigoAssebler/Assembler.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.obj
-.PHONY : GeneracionDeCodigoAssebler/Assembler.cpp.obj
+GeneracionDeCodigoAssembler/Assembler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoAssembler/Assembler.cpp.obj
+.PHONY : GeneracionDeCodigoAssembler/Assembler.cpp.obj
 
-GeneracionDeCodigoAssebler/Assembler.i: GeneracionDeCodigoAssebler/Assembler.cpp.i
+GeneracionDeCodigoAssembler/Assembler.i: GeneracionDeCodigoAssembler/Assembler.cpp.i
 
-.PHONY : GeneracionDeCodigoAssebler/Assembler.i
+.PHONY : GeneracionDeCodigoAssembler/Assembler.i
 
 # target to preprocess a source file
-GeneracionDeCodigoAssebler/Assembler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.i
-.PHONY : GeneracionDeCodigoAssebler/Assembler.cpp.i
+GeneracionDeCodigoAssembler/Assembler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoAssembler/Assembler.cpp.i
+.PHONY : GeneracionDeCodigoAssembler/Assembler.cpp.i
 
-GeneracionDeCodigoAssebler/Assembler.s: GeneracionDeCodigoAssebler/Assembler.cpp.s
+GeneracionDeCodigoAssembler/Assembler.s: GeneracionDeCodigoAssembler/Assembler.cpp.s
 
-.PHONY : GeneracionDeCodigoAssebler/Assembler.s
+.PHONY : GeneracionDeCodigoAssembler/Assembler.s
 
 # target to generate assembly for a file
-GeneracionDeCodigoAssebler/Assembler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoAssebler/Assembler.cpp.s
-.PHONY : GeneracionDeCodigoAssebler/Assembler.cpp.s
+GeneracionDeCodigoAssembler/Assembler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Compilador.dir\build.make CMakeFiles/Compilador.dir/GeneracionDeCodigoAssembler/Assembler.cpp.s
+.PHONY : GeneracionDeCodigoAssembler/Assembler.cpp.s
 
 GeneracionDeCodigoIntermedio/Intermediate_code.obj: GeneracionDeCodigoIntermedio/Intermediate_code.cpp.obj
 
@@ -394,9 +394,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Compilador
-	@echo ... GeneracionDeCodigoAssebler/Assembler.obj
-	@echo ... GeneracionDeCodigoAssebler/Assembler.i
-	@echo ... GeneracionDeCodigoAssebler/Assembler.s
+	@echo ... GeneracionDeCodigoAssembler/Assembler.obj
+	@echo ... GeneracionDeCodigoAssembler/Assembler.i
+	@echo ... GeneracionDeCodigoAssembler/Assembler.s
 	@echo ... GeneracionDeCodigoIntermedio/Intermediate_code.obj
 	@echo ... GeneracionDeCodigoIntermedio/Intermediate_code.i
 	@echo ... GeneracionDeCodigoIntermedio/Intermediate_code.s
