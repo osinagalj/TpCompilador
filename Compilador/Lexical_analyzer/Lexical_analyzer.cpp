@@ -30,7 +30,6 @@ Lexical_analyzer::Token Lexical_analyzer::getToken(string path)
         while (!source_file.eof()) {
             getline(source_file,line);
             while(current_character < line.size() && !token_found && !end){
-                //cout<<"estado neuvo: " + to_string(new_state) +"  ";
                 char actual_c =line[current_character];                             //getting next character
                 new_state = identify_character(actual_c);                           //gettin column of character
                 int SA = (*matrix_SA[actual_state][new_state])(this, actual_c);
@@ -90,7 +89,6 @@ void Lexical_analyzer::loadFile(string path)
     if(current_line>1){
         int aux=0;
         while(aux < current_line-1){
-            //cout<<" entro kaka: " <<endl;
             aux ++;
             getline(source_file,line);
         }

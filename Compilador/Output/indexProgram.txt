@@ -1,25 +1,72 @@
 1:                                                      /% Group 2 %/
 2:      
-3:                                /% ------------- Program without errors.  ------------------- %/
+3:                                 /% ------------- Program without errors.  ------------------- %/
 4:      
-5:      
-6:       LONGINT x;
-7:       x = 8_l;
-8:       OUT("INICIO");
-9:       PROC procedure_1 (LONGINT p4) NA = 1_l , SHADOWING = TRUE
-10:       {
-11:          OUT("ENTRO EN PROC");
-12:          x = x + 1_l;
-13:          IF(x > 11_l){
-14:              OUT("MULTIPLICA BIEN PERRITO SUCIO");
-15:          }ELSE{
-16:              procedure_1(x);
-17:          }
-18:          END_IF;
-19:      
-20:       };
-21:       OUT("INVOCO A PROC RECURSIVO");
-22:       procedure_1(x);
-23:       OUT("FIN DE PROGRAMA");
-24:      
-25:       $
+5:          LONGINT a , b , c , d ;
+6:          FLOAT   x,y,z,w;
+7:          LONGINT longint_negative;
+8:          FLOAT   float_negative;
+9:      
+10:          OUT ("Se realizaran operaciones aritmeticas");
+11:          a = 8_l ;
+12:          x = 5.0f+3;
+13:          w =  3.3 +  5.0f+3;
+14:          a = 2_l * 3_l;
+15:          c = 5_l;
+16:          b = a - 2_l;
+17:          w = 4.5 + 4.2;
+18:          float_negative = -7.3;
+19:          longint_negative = -715_l;
+20:      
+21:      
+22:          OUT ("Terminaron de declararse las variables");
+23:      
+24:          PROC procedure_1 (LONGINT p1) NA = 3_l , SHADOWING = TRUE
+25:          {
+26:              LONGINT  e;
+27:              e = 5_l + 7_l;
+28:              IF (e < 5_l){
+29:                  OUT ("Entro en el primer IF");
+30:      
+31:              }ELSE{
+32:                  longint_negative = longint_negative - 1_l;
+33:                  OUT ("Entro en primer ELSE");
+34:              }
+35:              END_IF;
+36:              d = 2_l - -3_l;
+37:                  PROC procedure_2 (LONGINT p2) NA = 3_l , SHADOWING = FALSE
+38:                  {
+39:                      LONGINT  e;
+40:                      e = 5_l + 7_l;
+41:                  };
+42:          };
+43:      
+44:          PROC procedure_3 () NA = 1_l , SHADOWING = TRUE
+45:          {
+46:              LONGINT e;
+47:              e = 2_l;
+48:      
+49:              WHILE (e <= 12_l) LOOP
+50:              {
+51:                  e = e + 8_l;
+52:                  IF (e != 5_l){
+53:                     LONGINT variable_aux;
+54:                     variable_aux = 200_l + 3_l;
+55:                     OUT ("Entro en IF del while");
+56:                     e = 12_l;
+57:                  }ELSE{
+58:                      float_negative = float_negative + 1.;
+59:                      OUT ("Entro en ELSE del while");
+60:                  }END_IF;
+61:              };
+62:          };
+63:      
+64:          OUT ("Invocacion de procedure_1");
+65:          LONGINT hola;
+66:          procedure_1(hola);
+67:          OUT ("Termino procedure_1");
+68:      
+69:          OUT ("Termino el programa");
+70:      
+71:      $
+72:      

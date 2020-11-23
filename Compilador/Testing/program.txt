@@ -34,7 +34,7 @@
         }
         END_IF;
         d = 2_l - -3_l;
-            PROC procedure_3 (LONGINT p1) NA = 3_l , SHADOWING = FALSE
+            PROC procedure_2 (LONGINT p2) NA = 3_l , SHADOWING = FALSE
             {
                 LONGINT  e;
                 e = 5_l + 7_l;
@@ -66,6 +66,6 @@
     procedure_1(hola);
     OUT ("Termino procedure_1");
 
-    OUT ("Terminaron el programa");
+    OUT ("Termino el programa");
 
 $

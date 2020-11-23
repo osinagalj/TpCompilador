@@ -74,7 +74,7 @@ class Assembler {
         void insertar_ENDP();
         string obtenerRegistro();
         bool existeDivision0 = false;
-        static bool existeRecursion;
+
         string nombreauxproc = "";
     private:
         ofstream  fileStream;

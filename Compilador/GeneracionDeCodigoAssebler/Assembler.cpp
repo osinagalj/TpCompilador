@@ -26,18 +26,14 @@ void Assembler::writeAssembler(){
     fileStream << "includelib \\masm32\\lib\\kernel32.lib" << endl;
     fileStream << "includelib \\masm32\\lib\\user32.lib" << endl << endl;
 
-    cout<<"tamano del vars_strings = " <<to_string(var_strings.size())<<endl;
-    for(string s : var_strings){
-        cout<<s<<endl;
-    }
+
     string error="\"Error: Se ha realizado una divison por 0\"";
     string error2="\"Error: No esta permitida la recursion en un procedimiento\"";
     if(existeDivision0){
         declareString(error,error);
     }
-    if(existeRecursion){
-        declareString(error2,error2);
-    }
+    declareString(error2,error2);
+
 
     fileStream <<".DATA"<<endl;
     for(string s: data){
@@ -54,20 +50,16 @@ void Assembler::writeAssembler(){
         fileStream <<"    "+ nombreauxproc + "ENDP "<<endl;
     }
 
-    cout<<"tamano del vars_strings22222222222 = " <<to_string(var_strings.size())<<endl;
-    for(string s : var_strings){
-        cout<<s<<endl;
-    }
     if(existeDivision0){
         fileStream<<"      Error :"<<endl;
         fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error)) + ", addr str"+ to_string(getNameString(error)) + ", MB_OK" <<endl;
         fileStream<<"        invoke ExitProcess, 0 "<<endl;
     }
-    if(existeRecursion){
-        fileStream<<"      Error :"<<endl;
-        fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error2)) + ", addr str"+ to_string(getNameString(error2)) + ", MB_OK" <<endl;
-        fileStream<<"        invoke ExitProcess, 0 "<<endl;
-    }
+
+    fileStream<<"      Error_recursion :"<<endl;
+    fileStream<<"        invoke MessageBox, NULL, addr str"+ to_string(getNameString(error2)) + ", addr str"+ to_string(getNameString(error2)) + ", MB_OK" <<endl;
+    fileStream<<"        invoke ExitProcess, 0 "<<endl;
+
 
 
     fileStream <<"START:"<<endl;
@@ -111,7 +103,7 @@ void Assembler::declareAux(const string &varName,const string & f){
 void Assembler::declareSTVariables(Symbol_table * st){
 
     for(auto it = st->symbol_table.begin(); it!= st->symbol_table.end(); it++){
-        cout<<"variable = " << it->first <<endl;
+
         if(it->second.uso == "variable" || it->second.uso == "parametro"){
             string name = it->first;
             if(it->second.Tipo == "Float"){
@@ -155,12 +147,6 @@ bool Assembler::isConstant(string op){
    if (!isRegister(op) && !isVariable(op)){
        return true;
    }
-   if(isRegister(op)){
-       cout<<"Es un registro"<<endl;
-   }
-    if(isVariable(op)){
-        cout<<"Es un variable"<<endl;
-    }
    return false;
 }
 
@@ -218,7 +204,6 @@ Terceto Assembler::searchTerceto(int num) {
 }
 
 int Assembler::quitarCorchetes(string op){
-    cout<<"OP del stoi = " << op <<endl;
     return stoi(op.substr(1,op.size()-1));
 }
 
@@ -231,9 +216,7 @@ void Assembler::asignacion(Terceto &t){
         write("MOV " + t.getOp1() + "," + t.getOp3()); //reg = op2
         liberarRegistro(t);
     }else{
-        cout<<"fue a buscar el terceto: " + t.getOp2()<<endl;
         Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
-        cout<<"se trajo el terceto: " + t2.getOp() + t2.getOp1() + t2.getOp2() + t2.getOp3()<<endl;
         write("MOV " + t.getOp1() + "," + t2.getOp3());
         liberarRegistro(t2);
     }
@@ -258,9 +241,7 @@ void Assembler::asignacionFloat(Terceto &t){
         write("FSTP " + t.getOp1());
         //liberarRegistro(t);
     }else{
-        cout<<"fue a buscar el terceto: " + t.getOp2()<<endl;
         Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
-        cout<<"se trajo el terceto: " + t2.getOp() + t2.getOp1() + t2.getOp2() + t2.getOp3()<<endl;
         //asignarRegistro(t,"ADD");
         //write("MOV " + t.getOp3() + "," + t2.getOp3());
         //write("MOV " + t.getOp1() + "," + t.getOp3());
@@ -272,22 +253,18 @@ void Assembler::asignacionFloat(Terceto &t){
 
 
 void Assembler::addInt(Terceto &t) {
-    cout<<"------------------ADD INT--------------"<<endl;
+
     if (getCase(t.getOp1(), t.getOp2()) == 1) {
-        cout<<"------------------CASE 1--------------"<<endl;
-        //set free reg in the Terceto
         asignarRegistro(t,"ADD");
         write("MOV " + t.getOp3() + "," + t.getOp1());
         write("ADD " + t.getOp3() + "," + t.getOp2());
     } else {
         if (getCase(t.getOp1(), t.getOp2()) == 2){
-            cout<<"------------------CASE 2--------------"<<endl;
             //search & get reg Terceto in list_tercetos
             Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
             write("ADD " + t2.getOp3() + "," + t.getOp2());
         } else {
             if (getCase(t.getOp1(), t.getOp2()) == 3) {
-                cout<<"------------------CASE 3--------------"<<endl;
                 //search & get reg Terceto in list_tercetos
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 //get reg in the Terceto
@@ -298,7 +275,6 @@ void Assembler::addInt(Terceto &t) {
                 //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
                 liberarRegistro(t2);
             } else {
-                cout<<"------------------CASE 4--------------"<<endl;
                 //search & get Terceto in list_tercetos
                 Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
@@ -311,9 +287,7 @@ void Assembler::addInt(Terceto &t) {
 }
 
 void Assembler::subInt(Terceto &t) {
-    cout<<"------------------SUB INT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) {
-        cout<<"------------------CASE 1--------------"<<endl;
         //set free reg in the Terceto
         asignarRegistro(t,"SUB");
         write("MOV " + t.getOp3() + "," + t.getOp1());
@@ -321,13 +295,11 @@ void Assembler::subInt(Terceto &t) {
 
     } else {
         if (getCase(t.getOp1(), t.getOp2()) == 2){
-            cout<<"------------------CASE 2--------------"<<endl;
             //search & get reg Terceto in list_tercetos
             Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
             write("SUB " + t2.getOp3() + "," + t.getOp2());
         } else {
             if (getCase(t.getOp1(), t.getOp2()) == 3) {
-                cout<<"------------------CASE 3--------------"<<endl;
                 //search & get reg Terceto in list_tercetos
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 //get reg in the Terceto
@@ -338,7 +310,6 @@ void Assembler::subInt(Terceto &t) {
                 //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
                 liberarRegistro(t2);
             } else {
-                cout<<"------------------CASE 4--------------"<<endl;
                 //search & get Terceto in list_tercetos
                 Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
@@ -351,9 +322,7 @@ void Assembler::subInt(Terceto &t) {
 }
 
 void Assembler:: mulInt(Terceto &t){
-    cout<<"------------------MUL INT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) { //const y variable
-        cout<<"------------------CASE 1--------------"<<endl;
         //set free reg in the Terceto
         asignarRegistro(t,"MUL");
         write("MOV " + t.getOp3() + "," + t.getOp2());
@@ -362,9 +331,7 @@ void Assembler:: mulInt(Terceto &t){
 
     } else {
         if (getCase(t.getOp1(), t.getOp2()) == 2){ //registro y variable
-            cout<<"------------------CASE 2--------------"<<endl;
             Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
-
             if(registros[0]==false && registros[3]==false) {
                 t.setOp3(t1.getOp3());
                 write("MOV EAX , " + t.getOp2());
@@ -373,7 +340,6 @@ void Assembler:: mulInt(Terceto &t){
             }
         } else {
             if (getCase(t.getOp1(), t.getOp2()) == 3) { //variable y registro
-                cout<<"------------------CASE 3--------------"<<endl;
                 Terceto t1 = searchTerceto(quitarCorchetes(t.getOp2()));
                 if(registros[0]==false && registros[3]==false) {
                     t.setOp3(t1.getOp3());
@@ -382,8 +348,6 @@ void Assembler:: mulInt(Terceto &t){
                     write("MOV " + t.getOp3() + "," + "EAX");
                 }
             } else {  //registro y registro
-                cout<<"------------------CASE 4--------------"<<endl;
-                //search & get Terceto in list_tercetos
                 Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
 
@@ -403,9 +367,7 @@ void Assembler:: mulInt(Terceto &t){
 //CHARLY//
 void Assembler::divInt(Terceto &t) {
     existeDivision0 = true;
-    cout<<"------------------DIV INT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) {//const y variable
-        cout<<"------------------CASE 1--------------"<<endl;
         //set free reg in the Terceto
         asignarRegistro(t,"DIV");
         write("MOV " + t.getOp3() + "," + t.getOp2());
@@ -413,16 +375,12 @@ void Assembler::divInt(Terceto &t) {
         write("CMP " + t.getOp2() + ", 0");
         //salto si es cero el CMP
         write("JE Error");
-
-
         //falta cortar el programa
-
         write("DIV " + t.getOp3());
 
 
     } else {//registro y variable
         if (getCase(t.getOp1(), t.getOp2()) == 2){
-            cout<<"------------------CASE 2--------------"<<endl;
             //search & get reg Terceto in list_tercetos
             Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
 
@@ -447,7 +405,6 @@ void Assembler::divInt(Terceto &t) {
 
         } else { //variable y registro
             if (getCase(t.getOp1(), t.getOp2()) == 3) {
-                cout<<"------------------CASE 3--------------"<<endl;
                 //search & get reg Terceto in list_tercetos
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
                 //get reg in the Terceto
@@ -467,7 +424,6 @@ void Assembler::divInt(Terceto &t) {
                     write("DIV " + t.getOp3());
                 }
             } else {  //registro y registro
-                cout<<"------------------CASE 4--------------"<<endl;
                 //search & get Terceto in list_tercetos
                 Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
@@ -494,9 +450,7 @@ void Assembler::divInt(Terceto &t) {
 }
 
 void Assembler::addFloat(Terceto &t) {
-    cout<<"------------------ADD FLOAT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) {
-        cout<<"------------------CASE 1--------------"<<endl;
         string new_aux="@aux"+to_string(cont_var_aux);
 
         if(isConstant(t.getOp1()) && isVariable(t.getOp2())){
@@ -525,8 +479,6 @@ void Assembler::addFloat(Terceto &t) {
             write("FLD " + t.getOp1());
             write("FLD " + t.getOp2());
         }
-
-
         //asignarRegistro(t,"ADD");
         //write("MOV " + t.getOp3() + "," + t.getOp1());
 
@@ -540,7 +492,6 @@ void Assembler::addFloat(Terceto &t) {
 
     } else {
         if (getCase(t.getOp1(), t.getOp2()) == 2) {
-            cout<<"------------------CASE 2--------------"<<endl;
             string new_aux="@aux"+to_string(cont_var_aux);
             declareAux(new_aux);
             //search result in TS
@@ -556,7 +507,6 @@ void Assembler::addFloat(Terceto &t) {
             t.setOp3(new_aux);
         } else {
             if (getCase(t.getOp1(), t.getOp2()) == 3) {
-                cout<<"------------------CASE 3--------------"<<endl;
                 string new_aux="@aux"+to_string(cont_var_aux);
                 declareAux(new_aux);
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
@@ -571,7 +521,6 @@ void Assembler::addFloat(Terceto &t) {
                 t2.setOp3(new_aux);
 
             } else {
-                cout<<"------------------CASE 4--------------"<<endl;
                 string new_aux="@aux"+to_string(cont_var_aux);
                 declareAux(new_aux);
                 cont_var_aux++;
@@ -594,9 +543,7 @@ void Assembler::addFloat(Terceto &t) {
 }
 
 void Assembler::subFloat(Terceto &t) {
-    cout<<"------------------SUB FLOAT--------------"<<endl;
     if (getCase(t.getOp1(), t.getOp2()) == 1) {
-        cout<<"------------------CASE 1--------------"<<endl;
         string new_aux="@aux"+to_string(cont_var_aux);
         declareAux(new_aux);
         //asignarRegistro(t,"ADD");
@@ -611,7 +558,6 @@ void Assembler::subFloat(Terceto &t) {
 
     } else {
         if (getCase(t.getOp1(), t.getOp2()) == 2) {
-            cout<<"------------------CASE 2--------------"<<endl;
             string new_aux="@aux"+to_string(cont_var_aux);
             declareAux(new_aux);
             //search result in TS
@@ -627,7 +573,6 @@ void Assembler::subFloat(Terceto &t) {
             t.setOp3(new_aux);
         } else {
             if (getCase(t.getOp1(), t.getOp2()) == 3) {
-                cout<<"------------------CASE 3--------------"<<endl;
                 string new_aux="@aux"+to_string(cont_var_aux);
                 declareAux(new_aux);
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp2()));
@@ -642,7 +587,6 @@ void Assembler::subFloat(Terceto &t) {
                 t2.setOp3(new_aux);
 
             } else {
-                cout<<"------------------CASE 4--------------"<<endl;
                 string new_aux="@aux"+to_string(cont_var_aux);
                 declareAux(new_aux);
                 cont_var_aux++;
@@ -666,7 +610,6 @@ void Assembler::subFloat(Terceto &t) {
 
 //CHARLY//
 void Assembler::asignarRegistro(Terceto &t, string s){
-    cout<<"------------------asignar Registro--------------"<<endl;
     /*
     registros[0] (EAX)
     registros[1] (EBX)
@@ -773,13 +716,11 @@ void Assembler::insertar_ENDP(){
         i++;
         if(s.find('@') != -1){
             if(s.find("PROC") != -1){
-                cout<<"WP: ENCONTRE UN NOMBRE DE PROC"<<endl;
                 nombres_proc.push_back(s);
 
             }
         }
     }
-    cout<<"code.size0 ="<<to_string(code.size())<<endl;
     i = 0;
     for(string s: code){
         i++;
@@ -787,35 +728,24 @@ void Assembler::insertar_ENDP(){
                 posiciones_ret.push_back(i);
         }
     }
-    cout<<"posiciones END PROC"<<endl;
 
     int rets = 0;
-    for(int i : posiciones_ret){
-        cout<<"posicion del ret = "<< to_string(i) <<endl;
-    }
-    cout<<"PROCEDIMIENTOS DE END PROC"<<endl;
-    for(string i : nombres_proc){
-        cout<<"nombre del proc = "<< i <<endl;
-    }
+
     if(nombres_proc.size()>0){
         string auxx = nombres_proc.back();
         nombreauxproc = auxx.substr(0,auxx.size()-4);
     }
-    cout<<"code.size"<<to_string(code.size())<<endl;
+
     for(int i : posiciones_ret){
         int x = 0;
-        //cout<<"i= "<<to_string(i)<<endl;
         for(vector<string>::iterator it = code.begin() ;it != code.end();it++){
             x ++;
-            cout<<"x= " <<to_string(x)<<endl;
             if(x == i+rets){
-                cout<<"entro perro"<<endl;
                 string s = nombres_proc.front();
                 string aux_s = s.substr(0,s.size()-4);
                 nombres_proc.pop_front();
                 it++;
                 code.insert(it,"    "+aux_s +" ENDP");
-                //code.push_back("     END PROC");
                 rets++;
                 it--;
                 break;
@@ -832,29 +762,21 @@ void Assembler::insertar_ret(){
         i++;
         if(s.find('@') != -1){
             if(s.find("PROC") != -1){
-                cout<<"WP: ENCONTRE UN NOMBRE DE PROC"<<endl;
                 posiciones_ret.push_back(i);
                 nombres_proc.push_back(s);
 
             }
         }
     }
-    cout<<"posicionesRet"<<endl;
+
     int rets = 0;
     posiciones_ret.pop_front();
-    for(int i : posiciones_ret){
-        cout<<"posicion del ret = "<< to_string(i) <<endl;
-    }
-
 
     for(int i : posiciones_ret){
         int x = 0;
-        cout<<"i= "<<to_string(i)<<endl;
         for(vector<string>::iterator it = code.begin() ;it != code.end();it++){
             x ++;
-            cout<<"x= " <<to_string(x)<<endl;
             if(x == i+rets){
-                cout<<"entro perro"<<endl;
                 code.insert(it,"        ret");
                 //code.push_back("     END PROC");
                 rets++;
@@ -894,12 +816,6 @@ int Assembler::getNameString(const string & value){
 }
 
 void Assembler::BF_int(Terceto  &t){
-    //COMP
-    //BF es JLE en assembler
-    cout<<"------------------CASE 2--------------"<<endl;
-    //search & get reg Terceto in list_tercetos
-    cout<<endl;
-    cout<<"CONTENIDO DE BF " << t.getOp1() <<endl;
     Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
     if(t2.getOp() == ">"){
         write("JLE Label" + t.getOp2());
@@ -913,29 +829,22 @@ void Assembler::BF_int(Terceto  &t){
     if(t2.getOp() == "<="){
         write("JG Label" + t.getOp2());
     }
-
-    cout<<"Termino BF"<<endl;
-    //
 }
 
 void Assembler::comp_int(Terceto  &t){
 
-        cout<<"------------------COMP INT--------------"<<endl;
         if (getCase(t.getOp1(), t.getOp2()) == 1) {
-            cout<<"------------------CASE 1--------------"<<endl;
             //set free reg in the Terceto
             asignarRegistro(t,"CMP");
             write("MOV " + t.getOp3() + "," + t.getOp1());
             write("CMP " + t.getOp3() + "," + t.getOp2());
         } else {
             if (getCase(t.getOp1(), t.getOp2()) == 2){
-                cout<<"------------------CASE 2--------------"<<endl;
                 //search & get reg Terceto in list_tercetos
                 Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
                 write("CMP " + t2.getOp3() + "," + t.getOp2());
             } else {
                 if (getCase(t.getOp1(), t.getOp2()) == 3) {
-                    cout<<"------------------CASE 3--------------"<<endl;
                     //search & get reg Terceto in list_tercetos
                     Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
                     //get reg in the Terceto
@@ -946,7 +855,6 @@ void Assembler::comp_int(Terceto  &t){
                     //free reg2 ((LLAMAR AL PROC DE CHARLY)) ((SACAR EL REG DE T2))
                     liberarRegistro(t2);
                 } else {
-                    cout<<"------------------CASE 4--------------"<<endl;
                     //search & get Terceto in list_tercetos
                     Terceto t1 = searchTerceto(quitarCorchetes(t.getOp1()));
                     Terceto t2 = searchTerceto(quitarCorchetes(t.getOp1()));
@@ -996,7 +904,6 @@ void Assembler::seguimiento_registros(Terceto &t){
             comp_int(t);
             break;
         case str2int("="):
-            cout<<"ASIGNACION_"<<endl;
             asignacion(t);
             break;
         //MUL Y DIV FALTAN
@@ -1030,14 +937,6 @@ void Assembler::variables_auxiliares(Terceto &t){
     }
 }
 
-void Assembler::imprimirLista(){
-    //cout<< "---------------------- LISTA DE PROCEDIMIENTOS-------------------------"<<endl;
-    for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
-        cout <<"Nombre del proc: "+ to_string(it->first) <<endl;
-        cout<< it->second.getOp()+ " " + it->second.getOp1() + " " +it->second.getOp2() + " " +it->second.getOp3()<<endl;
-    }
-}
-
 
 void Assembler::generarCodigoAssembler(Symbol_table *tablita, Terceto & t){
     string str = t.getOp();
@@ -1051,22 +950,18 @@ void Assembler::generarCodigoAssembler(Symbol_table *tablita, Terceto & t){
     {
 
         case str2int("OUT"):
-            cout<<"OUT_"<<endl;
             invoke_out(t);
             break;
         case str2int("BF"):
-            cout<<"BF_"<<endl;
             BF_int(t);
             break;
 
         case str2int("BI"):
-            cout<<"BI_"<<endl;
             write("JMP Label" + t.getOp1());
 
             break;
         case str2int("Call"):
             write("CALL " + t.getOp1());
-            cout<<"CALL_"<<endl;
             break;
 
         default:
@@ -1076,19 +971,14 @@ void Assembler::generarCodigoAssembler(Symbol_table *tablita, Terceto & t){
             }
             else if( tipo == "Float"){
                 variables_auxiliares(t);
-            }else{
-                cout<<"los casos que faltan agregar"<<endl;
             }
-
     }
 }
 
 
 
 bool Assembler::tercetoDeProc(int i,list<int> listita){
-   // cout<<"TERCETOPRO= "<< endl;
     for(list<int>::iterator it = listita.begin(); it != listita.end(); it++){
-        //cout<<"*it= "<<*it<< "  i="<<i<< endl;
         if(*it == i){
             return true;
         }
@@ -1098,9 +988,6 @@ bool Assembler::tercetoDeProc(int i,list<int> listita){
 
 void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
     Intermediate_code::copiarLista(lista_tercetos);
-    cout<<"------------------ASSEMBLER--------------"<<endl;
-    //write(".CODE");
-    cout<<"TAMAÑO DE IGNORE "<<to_string(listita.size())<<endl;
     space = "    ";
     in_procedure = true;
     bool fin_proc = false;
@@ -1116,7 +1003,7 @@ void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
                 space = "        ";
                 write("CMP _" +it->second.getOp1()+", 1");
 
-                write("JE Error");
+                write("JE Error_recursion");
                 write("MOV _"+it->second.getOp1()+", 1");
             }
 
@@ -1130,11 +1017,14 @@ void Assembler::generarAssembler(Symbol_table *tablita,list<int> listita){
     space ="";
     //write("START:");
     space = space + "    ";
+    int i = 0;
     for (map<int,Terceto>::iterator it=lista_tercetos.begin(); it!=lista_tercetos.end(); ++it){
         if(!tercetoDeProc(it->first,listita)){
+            i++;
+            cout << to_string(i)<<".  " << "(" << it->second.getOp() << " , " << it->second.getOp1() << " , " << it->second.getOp2() <<" ) "<<'\n';
             generarCodigoAssembler(tablita,it->second);
         }
     }
     space ="";
-    //write("END START");
+    cout<<"\n--Se generara el codigo assembler en el archivo out_assembler.asm"<<endl;
 }
